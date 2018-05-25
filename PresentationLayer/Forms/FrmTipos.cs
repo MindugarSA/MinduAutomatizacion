@@ -75,7 +75,7 @@ namespace PresentationLayer
             List<TipoItem> Lista = (List<TipoItem>)dataGridView1.DataSource;
             Lista.Add(new TipoItem());
             dataGridView1.DataSource = Lista;
-            
+            ; ; ;
            
 
 
