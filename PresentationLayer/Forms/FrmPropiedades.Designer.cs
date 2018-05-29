@@ -34,17 +34,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dragControl1 = new PresentationLayer.DragControl();
             this.formHeader1 = new PresentationLayer.FormHeader();
-            this.dataItemsComp = new MetroFramework.Controls.MetroGrid();
             this.dragControl2 = new PresentationLayer.DragControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
-            this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnCerrar = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
-            this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnNuevo = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
-            this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,11 +51,12 @@
             this.txtDescrpcion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtCodigo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label3 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataItemsComp)).BeginInit();
+            this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dragControl1
@@ -76,58 +76,6 @@
             this.formHeader1.Size = new System.Drawing.Size(515, 41);
             this.formHeader1.TabIndex = 0;
             // 
-            // dataItemsComp
-            // 
-            this.dataItemsComp.AllowUserToAddRows = false;
-            this.dataItemsComp.AllowUserToDeleteRows = false;
-            this.dataItemsComp.AllowUserToOrderColumns = true;
-            this.dataItemsComp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dataItemsComp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataItemsComp.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.dataItemsComp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataItemsComp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataItemsComp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedVertical;
-            this.dataItemsComp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataItemsComp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataItemsComp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataItemsComp.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataItemsComp.EnableHeadersVisualStyles = false;
-            this.dataItemsComp.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dataItemsComp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dataItemsComp.Location = new System.Drawing.Point(21, 20);
-            this.dataItemsComp.MultiSelect = false;
-            this.dataItemsComp.Name = "dataItemsComp";
-            this.dataItemsComp.ReadOnly = true;
-            this.dataItemsComp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataItemsComp.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataItemsComp.RowHeadersVisible = false;
-            this.dataItemsComp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dataItemsComp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataItemsComp.Size = new System.Drawing.Size(427, 261);
-            this.dataItemsComp.TabIndex = 1;
-            // 
             // dragControl2
             // 
             this.dragControl2.SelectControl = this;
@@ -137,7 +85,7 @@
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
-            this.panel4.Controls.Add(this.materialFlatButton3);
+            this.panel4.Controls.Add(this.btnCerrar);
             this.panel4.Location = new System.Drawing.Point(382, 428);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
@@ -155,32 +103,32 @@
             this.labelNoMouse3.TabIndex = 1;
             this.labelNoMouse3.Text = "Cerrar";
             // 
-            // materialFlatButton3
+            // btnCerrar
             // 
-            this.materialFlatButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton3.BackColor = System.Drawing.Color.Transparent;
-            this.materialFlatButton3.Depth = 0;
-            this.materialFlatButton3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialFlatButton3.ForeColor = System.Drawing.Color.White;
-            this.materialFlatButton3.Icon = null;
-            this.materialFlatButton3.Location = new System.Drawing.Point(0, 0);
-            this.materialFlatButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton3.Name = "materialFlatButton3";
-            this.materialFlatButton3.Primary = false;
-            this.materialFlatButton3.Size = new System.Drawing.Size(111, 34);
-            this.materialFlatButton3.TabIndex = 0;
-            this.materialFlatButton3.UseCompatibleTextRendering = true;
-            this.materialFlatButton3.UseVisualStyleBackColor = false;
-            this.materialFlatButton3.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
-            this.materialFlatButton3.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            this.btnCerrar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.Depth = 0;
+            this.btnCerrar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnCerrar.ForeColor = System.Drawing.Color.White;
+            this.btnCerrar.Icon = null;
+            this.btnCerrar.Location = new System.Drawing.Point(0, 0);
+            this.btnCerrar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCerrar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Primary = false;
+            this.btnCerrar.Size = new System.Drawing.Size(111, 34);
+            this.btnCerrar.TabIndex = 0;
+            this.btnCerrar.UseCompatibleTextRendering = true;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnCerrar.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // panel3
             // 
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel3.Controls.Add(this.labelNoMouse2);
-            this.panel3.Controls.Add(this.materialFlatButton2);
+            this.panel3.Controls.Add(this.btnNuevo);
             this.panel3.Location = new System.Drawing.Point(140, 428);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
@@ -198,32 +146,32 @@
             this.labelNoMouse2.TabIndex = 1;
             this.labelNoMouse2.Text = "Nuevo";
             // 
-            // materialFlatButton2
+            // btnNuevo
             // 
-            this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton2.BackColor = System.Drawing.Color.Transparent;
-            this.materialFlatButton2.Depth = 0;
-            this.materialFlatButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialFlatButton2.ForeColor = System.Drawing.Color.White;
-            this.materialFlatButton2.Icon = null;
-            this.materialFlatButton2.Location = new System.Drawing.Point(0, 0);
-            this.materialFlatButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton2.Name = "materialFlatButton2";
-            this.materialFlatButton2.Primary = false;
-            this.materialFlatButton2.Size = new System.Drawing.Size(111, 34);
-            this.materialFlatButton2.TabIndex = 0;
-            this.materialFlatButton2.UseCompatibleTextRendering = true;
-            this.materialFlatButton2.UseVisualStyleBackColor = false;
-            this.materialFlatButton2.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
-            this.materialFlatButton2.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            this.btnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnNuevo.BackColor = System.Drawing.Color.Transparent;
+            this.btnNuevo.Depth = 0;
+            this.btnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnNuevo.ForeColor = System.Drawing.Color.White;
+            this.btnNuevo.Icon = null;
+            this.btnNuevo.Location = new System.Drawing.Point(0, 0);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnNuevo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Primary = false;
+            this.btnNuevo.Size = new System.Drawing.Size(111, 34);
+            this.btnNuevo.TabIndex = 0;
+            this.btnNuevo.UseCompatibleTextRendering = true;
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnNuevo.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // panel2
             // 
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.labelNoMouse1);
-            this.panel2.Controls.Add(this.materialFlatButton1);
+            this.panel2.Controls.Add(this.btnAgregar);
             this.panel2.Location = new System.Drawing.Point(19, 428);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
@@ -241,37 +189,37 @@
             this.labelNoMouse1.TabIndex = 1;
             this.labelNoMouse1.Text = "Actualizar";
             // 
-            // materialFlatButton1
+            // btnAgregar
             // 
-            this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton1.BackColor = System.Drawing.Color.Transparent;
-            this.materialFlatButton1.Depth = 0;
-            this.materialFlatButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialFlatButton1.ForeColor = System.Drawing.Color.White;
-            this.materialFlatButton1.Icon = null;
-            this.materialFlatButton1.Location = new System.Drawing.Point(0, 0);
-            this.materialFlatButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton1.Name = "materialFlatButton1";
-            this.materialFlatButton1.Primary = false;
-            this.materialFlatButton1.Size = new System.Drawing.Size(111, 34);
-            this.materialFlatButton1.TabIndex = 0;
-            this.materialFlatButton1.UseCompatibleTextRendering = true;
-            this.materialFlatButton1.UseVisualStyleBackColor = false;
-            this.materialFlatButton1.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
-            this.materialFlatButton1.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            this.btnAgregar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.Depth = 0;
+            this.btnAgregar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Icon = null;
+            this.btnAgregar.Location = new System.Drawing.Point(0, 0);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnAgregar.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Primary = false;
+            this.btnAgregar.Size = new System.Drawing.Size(111, 34);
+            this.btnAgregar.TabIndex = 0;
+            this.btnAgregar.UseCompatibleTextRendering = true;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.materialCheckBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtDescrpcion);
             this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dataItemsComp);
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(471, 373);
@@ -386,6 +334,59 @@
             this.label3.TabIndex = 43;
             this.label3.Text = "Activo";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridView1.EnableHeadersVisualStyles = false;
+            this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dataGridView1.Location = new System.Drawing.Point(19, 19);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(430, 263);
+            this.dataGridView1.TabIndex = 58;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
+            // 
             // FrmPropiedades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,7 +400,6 @@
             this.Controls.Add(this.formHeader1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmPropiedades";
-            ((System.ComponentModel.ISupportInitialize)(this.dataItemsComp)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -408,6 +408,7 @@
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -416,17 +417,16 @@
 
         private DragControl dragControl1;
         private FormHeader formHeader1;
-        private MetroFramework.Controls.MetroGrid dataItemsComp;
         private DragControl dragControl2;
         private System.Windows.Forms.Panel panel4;
         private Controls.LabelNoMouse labelNoMouse3;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton3;
+        private MaterialSkin.Controls.MaterialFlatButton btnCerrar;
         private System.Windows.Forms.Panel panel3;
         private Controls.LabelNoMouse labelNoMouse2;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton2;
+        private MaterialSkin.Controls.MaterialFlatButton btnNuevo;
         private System.Windows.Forms.Panel panel2;
         private Controls.LabelNoMouse labelNoMouse1;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton1;
+        private MaterialSkin.Controls.MaterialFlatButton btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialCheckBox materialCheckBox1;
         private System.Windows.Forms.Label label2;
@@ -434,5 +434,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDescrpcion;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCodigo;
         private System.Windows.Forms.Label label3;
+        private MetroFramework.Controls.MetroGrid dataGridView1;
     }
 }

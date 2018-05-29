@@ -40,7 +40,8 @@ namespace PresentationLayer
             dataGridView1.Columns[1].Visible = false;
             dataGridView1.Columns[2].Visible = false;
             dataGridView1.Columns[5].Visible = false;
-            dataGridView1.AjustColumnsWidthForGridWidth();
+            //dataGridView1.AjustColumnsWidthForGridWidth();
+            dataGridView1.Columns[3].Width = 120;
             dataGridView1.Columns[4].Width = 500;
 
             //txtDescrpcion.DataBindings.Add(new System.Windows.Forms.Binding("Text", dataGridView1.DataSource, "Descripcion", true));
@@ -73,6 +74,15 @@ namespace PresentationLayer
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
                         lFami.Add(Fami);
                         FamiliaBL.InsertFamilias(lFami);
+
+                        //this.MensajeOk("Se Insertó de forma correcta el registro");
+                        CargarGridFamilia(); 
+                        LimpiarCampos();
+                        dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
+                        dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[3];
+
+                        CargarCampos(dataGridView1.RowCount - 1);
                         break;
                     case "Actualizar":
                         Fami.id = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentRow.Index].Value);
@@ -81,6 +91,11 @@ namespace PresentationLayer
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
                         lFami.Add(Fami);
                         FamiliaBL.UpdateFamilias(lFami);
+
+                        int nRow = dataGridView1.CurrentRow.Index;
+                        CargarGridFamilia();
+                        dataGridView1.Rows[nRow].Selected = true;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[3]; 
                         break;
                 }
             }
@@ -109,7 +124,12 @@ namespace PresentationLayer
         {
             labelNoMouse1.Text = "Agregar";
             btnNuevo.Enabled = false;
+            LimpiarCampos();
+            dataGridView1.ClearSelection();
+            txtCodigo.Focus();
         }
+
+       
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
@@ -140,6 +160,13 @@ namespace PresentationLayer
             txtDescrpcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
             materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[5].Value.ToString() == "1" ? true : false;
             // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
+        }
+
+        private void LimpiarCampos()
+        {
+            txtCodigo.Text = "";
+            txtDescrpcion.Text = "";
+            materialCheckBox1.Checked = true;
         }
 
         private bool ValidarCampos()
@@ -200,10 +227,10 @@ namespace PresentationLayer
             this.SetStyle(ControlStyles.ResizeRedraw, true);
             btnAgregar.Parent = panel2;
             btnNuevo.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
+            btnCerrar.Parent = panel4;
             labelNoMouse1.Parent = btnAgregar;
             labelNoMouse2.Parent = btnNuevo;
-            labelNoMouse3.Parent = materialFlatButton3;
+            labelNoMouse3.Parent = btnCerrar;
         }
 
         private void PopUp_MouseEnter(object sender, EventArgs e)

@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="DB_AUTOMATIZACIONModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Costos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Categoria" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="150" />
+          <Property Name="Unidad" Type="nvarchar" MaxLength="50" />
+          <Property Name="Valor" Type="numeric" Precision="20" Scale="5" />
+          <Property Name="Estado" Type="int" />
+        </EntityType>
         <EntityType Name="Familia">
           <Key>
             <PropertyRef Name="id" />
@@ -13,6 +24,57 @@
           <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
           <Property Name="Estado" Type="int" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="250" />
+          <Property Name="Familia" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoItem" Type="nvarchar" MaxLength="50" />
+          <Property Name="Espesor" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Ancho" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Largo" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Diametro" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Volumen" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Peso" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="TipoAcero" Type="nvarchar" MaxLength="50" />
+          <Property Name="CostoCM" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="CostoRH" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="CostoPR" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="CostoTotal" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Imagen" Type="nchar" MaxLength="10" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="UsuarioCrea" Type="nvarchar" MaxLength="50" />
+          <Property Name="FechaModificacion" Type="datetime" />
+          <Property Name="UsuarioMod" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ItemCosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdItem" Type="int" />
+          <Property Name="IdCosto" Type="int" />
+          <Property Name="Unidad" Type="nchar" MaxLength="10" />
+          <Property Name="Valor" Type="numeric" Precision="20" Scale="5" />
+          <Property Name="Cantidad" Type="numeric" Precision="10" Scale="4" />
+          <Property Name="Total" Type="numeric" Precision="20" Scale="5" />
+        </EntityType>
+        <EntityType Name="ItemDetalle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdItem" Type="int" />
+          <Property Name="IdDetalle" Type="int" />
+          <Property Name="Linea" Type="int" />
+          <Property Name="Cantidad" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="CostoUnitario" Type="numeric" Precision="25" Scale="5" />
+          <Property Name="Total" Type="numeric" Precision="25" Scale="5" />
         </EntityType>
         <EntityType Name="Propiedades">
           <Key>
@@ -48,8 +110,15 @@
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Function Name="SP_GetItemCostoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Item" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_AUTOMATIZACIONModelStoreContainer">
+          <EntitySet Name="Costos" EntityType="Self.Costos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Familia" EntityType="Self.Familia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemCosto" EntityType="Self.ItemCosto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemDetalle" EntityType="Self.ItemDetalle" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedades" EntityType="Self.Propiedades" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ReglasFamilia" EntityType="Self.ReglasFamilia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoItem" EntityType="Self.TipoItem" Schema="dbo" store:Type="Tables" />
@@ -83,6 +152,13 @@
           <EntitySet Name="TipoItem" EntityType="DB_AUTOMATIZACIONModel.TipoItem" />
           <EntitySet Name="ReglasFamilia" EntityType="DB_AUTOMATIZACIONModel.ReglasFamilia" />
           <EntitySet Name="Unidades" EntityType="DB_AUTOMATIZACIONModel.Unidades" />
+          <EntitySet Name="Costos" EntityType="DB_AUTOMATIZACIONModel.Costos" />
+          <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
+          <EntitySet Name="ItemCosto" EntityType="DB_AUTOMATIZACIONModel.ItemCosto" />
+          <EntitySet Name="ItemDetalle" EntityType="DB_AUTOMATIZACIONModel.ItemDetalle" />
+          <FunctionImport Name="SP_GetItemCostoID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemCostoID_Result)">
+            <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -109,6 +185,79 @@
           <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <EntityType Name="Costos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Categoria" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Unidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Valor" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="Estado" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Item">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Familia" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoItem" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Espesor" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Ancho" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Largo" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Diametro" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Volumen" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Peso" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="TipoAcero" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CostoCM" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CostoRH" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CostoPR" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CostoTotal" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Imagen" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioCrea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
+          <Property Name="UsuarioMod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ItemCosto">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdItem" Type="Int32" />
+          <Property Name="IdCosto" Type="Int32" />
+          <Property Name="Unidad" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Valor" Type="Decimal" Precision="20" Scale="5" />
+          <Property Name="Cantidad" Type="Decimal" Precision="10" Scale="4" />
+          <Property Name="Total" Type="Decimal" Precision="20" Scale="5" />
+        </EntityType>
+        <EntityType Name="ItemDetalle">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdItem" Type="Int32" />
+          <Property Name="IdDetalle" Type="Int32" />
+          <Property Name="Linea" Type="Int32" />
+          <Property Name="Cantidad" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="CostoUnitario" Type="Decimal" Precision="25" Scale="5" />
+          <Property Name="Total" Type="Decimal" Precision="25" Scale="5" />
+        </EntityType>
+        <ComplexType Name="SP_GetItemCostoID_Result">
+          <Property Type="String" Name="IdItem" Nullable="false" MaxLength="1" />
+          <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="1" />
+          <Property Type="Int32" Name="IdCosto" Nullable="false" />
+          <Property Type="String" Name="Categoria" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Tipo" Nullable="true" MaxLength="150" />
+          <Property Type="String" Name="Unidad" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Valor" Nullable="true" Precision="20" Scale="5" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="Total" Nullable="false" Precision="20" Scale="5" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -163,6 +312,87 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Costos">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Costos">
+              <MappingFragment StoreEntitySet="Costos">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Item">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Item">
+              <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="UsuarioMod" ColumnName="UsuarioMod" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="CostoTotal" ColumnName="CostoTotal" />
+                <ScalarProperty Name="CostoPR" ColumnName="CostoPR" />
+                <ScalarProperty Name="CostoRH" ColumnName="CostoRH" />
+                <ScalarProperty Name="CostoCM" ColumnName="CostoCM" />
+                <ScalarProperty Name="TipoAcero" ColumnName="TipoAcero" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="TipoItem" ColumnName="TipoItem" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemCosto">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.ItemCosto">
+              <MappingFragment StoreEntitySet="ItemCosto">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="IdCosto" ColumnName="IdCosto" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemDetalle">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.ItemDetalle">
+              <MappingFragment StoreEntitySet="ItemDetalle">
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemCostoID" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemCostoID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemCostoID_Result">
+                <ScalarProperty Name="IdItem" ColumnName="IdItem" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="IdCosto" ColumnName="IdCosto" />
+                <ScalarProperty Name="Categoria" ColumnName="Categoria" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Unidad" ColumnName="Unidad" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

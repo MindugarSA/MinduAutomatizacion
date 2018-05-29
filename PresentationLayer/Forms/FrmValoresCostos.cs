@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Entities;
+using BusinessLayer;
+
 namespace PresentationLayer
 {
     public partial class FrmValoresCostos : Form
@@ -16,11 +19,40 @@ namespace PresentationLayer
         bool bControlActive = false;
         private const int cGrip = 16;
         private const int cCaption = 32;
+        BindingList<Costos> CostosDataSource = new BindingList<Costos>();
+
         public FrmValoresCostos()
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
+            CargarGridCostos();
+            CargarCombos();
+        }
+
+
+        private void FrmValoresCostos_Load(object sender, EventArgs e)
+        {
+            string Categ = "";
+
+            foreach (DataGridViewRow Fila in dataGridView1.Rows)
+            {
+                switch (Fila.Cells[2].Value.ToString())
+                {
+                    case "HH":
+                        Categ = "RR.HH.";
+                        break;
+                    case "PR":
+                        Categ = "Procesos";
+                        break;
+                    case "AC":
+                        Categ = "Aceros";
+                        break;
+                }
+                Fila.Cells["Categoria_"].Value = Categ;
+            }
+            dataGridView1.Refresh();
+            cmbTipo.Text = Convert.ToString(dataGridView1.Rows[0].Cells[0].Value).Trim();
         }
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
@@ -64,9 +96,40 @@ namespace PresentationLayer
 
         }
 
-        private void FrmValoresCostos_Load(object sender, EventArgs e)
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int indice = dataGridView1.SelectedRows[0].Index;
+                CargarCampos(indice);
+            }
+        }
 
+        private void CargarGridCostos()
+        {
+            CostosDataSource = new BindingList<Costos>(CostosBL.GetCostos());
+            dataGridView1.DataSource = CostosDataSource;
+            dataGridView1.Columns["Id"].Visible = false;
+            dataGridView1.Columns["Estado"].Visible = false;
+            dataGridView1.Columns["Categoria"].Visible = false;
+
+            dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridView1.Columns[5].DefaultCellStyle.Format = "#,0.00###";
+
+            dataGridView1.AjustColumnsWidthForGridWidth();
+            dataGridView1.Columns[3].Width = 200;
+
+        }
+
+        private void CargarCombos()
+        {
+            //Combox Unidades
+            cmbUnidad.DataSource = new DataTable().ListToDataTable(UnidadesBL.GetUnidades());
+            cmbUnidad.DisplayMember = "Codigo";
+            cmbUnidad.ValueMember = "Codigo";
+
+            cmbUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbUnidad.SelectedIndex = 0;
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -107,12 +170,12 @@ namespace PresentationLayer
         {
             formHeader1.ParentContainer = this;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            materialFlatButton1.Parent = panel2;
-            materialFlatButton2.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
-            labelNoMouse1.Parent = materialFlatButton1;
-            labelNoMouse2.Parent = materialFlatButton2;
-            labelNoMouse3.Parent = materialFlatButton3;
+            btnAgregar.Parent = panel2;
+            btnNuevo.Parent = panel3;
+            BtnCerrar.Parent = panel4;
+            labelNoMouse1.Parent = btnAgregar;
+            labelNoMouse2.Parent = btnNuevo;
+            labelNoMouse3.Parent = BtnCerrar;
         }
 
         private void PopUp_MouseEnter(object sender, EventArgs e)
@@ -178,5 +241,26 @@ namespace PresentationLayer
 
 
         #endregion
+
+
+
+        private void CargarCampos(int nRow)
+        {
+            labelNoMouse1.Text = "Actualizar";
+            btnNuevo.Enabled = true;
+
+            cmbTipo.Text =  Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
+            cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
+            materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
+            txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
+
+            // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
+        }
+
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

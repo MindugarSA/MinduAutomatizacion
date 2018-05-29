@@ -14,9 +14,9 @@ namespace PresentationLayer
     public partial class FrmPrincipal : Form
     {
         int MenuWidthMax;
-        int MenuWidthMin;
+        //int MenuWidthMin;
         bool MenuOculto = false;
-        int Level1Opt1Top = 169;
+        //int Level1Opt1Top = 169;
         int Level1Separation = 54;
         bool Opt1Open = false;
 
@@ -25,7 +25,7 @@ namespace PresentationLayer
             InitializeComponent();
 
             MenuWidthMax = pnlMenu.Width;
-            MenuWidthMin = 74;
+            //MenuWidthMin = 74;
 
             formHeader1.ParentContainer = this;
 
@@ -50,6 +50,7 @@ namespace PresentationLayer
 
             this.ControlBox = false;
             this.Text = String.Empty;
+           // pictureBox3.SendToBack();
             //this.FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 

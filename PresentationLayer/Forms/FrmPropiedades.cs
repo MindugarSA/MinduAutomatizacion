@@ -9,17 +9,35 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Entities;
+using BusinessLayer;
+
 namespace PresentationLayer
 {
     public partial class FrmPropiedades : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
+        BindingList<Propiedades> PropiedadesDataSource = new BindingList<Propiedades>();
+
         public FrmPropiedades()
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
+            CargarGridCostos();
+        }
+
+        private void CargarGridCostos()
+        {
+            PropiedadesDataSource = new BindingList<Propiedades>(PropiedadesBL.GetPropiedades());
+            dataGridView1.DataSource = PropiedadesDataSource;
+            dataGridView1.Columns["Id"].Visible = false;
+            dataGridView1.Columns["Activo"].Visible = false;
+
+            dataGridView1.AjustColumnsWidthForGridWidth();
+            dataGridView1.Columns[2].Width = 300;
+
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -60,12 +78,12 @@ namespace PresentationLayer
         {
             formHeader1.ParentContainer = this;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            materialFlatButton1.Parent = panel2;
-            materialFlatButton2.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
-            labelNoMouse1.Parent = materialFlatButton1;
-            labelNoMouse2.Parent = materialFlatButton2;
-            labelNoMouse3.Parent = materialFlatButton3;
+            btnAgregar.Parent = panel2;
+            btnNuevo.Parent = panel3;
+            btnCerrar.Parent = panel4;
+            labelNoMouse1.Parent = btnAgregar;
+            labelNoMouse2.Parent = btnNuevo;
+            labelNoMouse3.Parent = btnCerrar;
         }
 
         private void PopUp_MouseEnter(object sender, EventArgs e)
@@ -131,5 +149,34 @@ namespace PresentationLayer
 
 
         #endregion
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int indice = dataGridView1.SelectedRows[0].Index;
+                CargarCampos(indice);
+            }
+        }
+
+        private void CargarCampos(int nRow)
+        {
+            labelNoMouse1.Text = "Actualizar";
+            btnNuevo.Enabled = true;
+
+            txtCodigo.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[1].Value);
+            txtDescrpcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[2].Value);
+            materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[3].Value.ToString() == "1" ? true : false;
+
+        }
+
+        private void LimpiarCampos(int nRow)
+        {
+            txtCodigo.Text = "";
+            txtDescrpcion.Text = "";
+            materialCheckBox1.Checked =  true;
+        }
+
+
     }
 }

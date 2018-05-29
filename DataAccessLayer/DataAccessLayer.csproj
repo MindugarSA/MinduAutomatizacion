@@ -67,8 +67,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CostosDALC.cs" />
+    <Compile Include="DataTableExtensions.cs" />
     <Compile Include="EntityExceptionError.cs" />
     <Compile Include="FamiliaDALC.cs" />
+    <Compile Include="ItemCostoDALC.cs" />
+    <Compile Include="PropiedadesDALC.cs" />
     <Compile Include="ReglasFamiliaDALC.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>

@@ -241,6 +241,7 @@
     <Content Include="Logo %281%29.ico" />
     <Content Include="Logo.ico" />
     <Content Include="MinduAuto.ico" />
+    <None Include="Resources\magnifying-glass.png" />
     <None Include="Resources\plus-sign-in-a-black-circle.png" />
     <None Include="Resources\LogoAuto2.png" />
     <None Include="Resources\Logo.png" />
