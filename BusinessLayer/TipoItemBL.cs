@@ -10,10 +10,10 @@ namespace BusinessLayer
 {
     public class TipoItemBL
     {
-        public static List<TipoItem> GetTipoItems()
-        {
-            TipoItemDALC obj = new TipoItemDALC();
-            return obj.GetTipoItems();
-        }
+    public static List<TipoItem> GetTipoItems()
+    {
+        TipoItemDALC obj = new TipoItemDALC();
+        return obj.GetTipoItems();
+    }
     }
 }

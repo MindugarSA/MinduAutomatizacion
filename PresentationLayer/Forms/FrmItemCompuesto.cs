@@ -16,6 +16,19 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+        public FrmItemCompuesto()
+        {
+            Functions.ConfigurarMaterialSkinManager();
+            InitializeComponent();
+            SetearControles();
+        }
+
+        private void FrmItemCompuesto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
@@ -46,11 +59,19 @@ namespace PresentationLayer.Forms
             }
             base.WndProc(ref m);
         }
-        public FrmItemCompuesto()
+        #endregion
+
+        #region Aplicar Acciones Visuales a Controles
+        private void SetearControles()
         {
-            Functions.ConfigurarMaterialSkinManager();
-            InitializeComponent();
-            SetearControles();
+            formHeader1.ParentContainer = this;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            materialFlatButton1.Parent = panel2;
+            materialFlatButton2.Parent = panel3;
+            materialFlatButton3.Parent = panel4;
+            labelNoMouse1.Parent = materialFlatButton1;
+            labelNoMouse2.Parent = materialFlatButton2;
+            labelNoMouse3.Parent = materialFlatButton3;
         }
 
         private void PopUp_MouseEnter(object sender, EventArgs e)
@@ -114,16 +135,7 @@ namespace PresentationLayer.Forms
             }
         }
 
-        private void SetearControles()
-        {
-            formHeader1.ParentContainer = this;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            materialFlatButton1.Parent = panel2;
-            materialFlatButton2.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
-            labelNoMouse1.Parent = materialFlatButton1;
-            labelNoMouse2.Parent = materialFlatButton2;
-            labelNoMouse3.Parent = materialFlatButton3;
-        }
+
+        #endregion
     }
 }

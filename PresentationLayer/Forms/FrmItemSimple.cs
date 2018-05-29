@@ -16,6 +16,20 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+
+        public FrmItemSimple()
+        {
+            Functions.ConfigurarMaterialSkinManager();
+            InitializeComponent();
+            SetearControles();
+        }
+
+        private void FrmItemSimple_Load(object sender, EventArgs e)
+        {
+            txtCodigo.Select();
+        }
+
+        #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
         {
             base.OnPaintBackground(e);
@@ -46,34 +60,28 @@ namespace PresentationLayer.Forms
             }
             base.WndProc(ref m);
         }
+        #endregion
 
-        public FrmItemSimple()
+        #region Aplicar Acciones Visuales a Controles
+        private void SetearControles()
         {
-            Functions.ConfigurarMaterialSkinManager();
-            InitializeComponent();
-            SetearControles();
-        }
-
-        private void FrmItemSimple_Load(object sender, EventArgs e)
-        {
-
+            formHeader1.ParentContainer = this;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+            materialFlatButton1.Parent = panel2;
+            materialFlatButton2.Parent = panel3;
+            materialFlatButton3.Parent = panel4;
+            labelNoMouse1.Parent = materialFlatButton1;
+            labelNoMouse2.Parent = materialFlatButton2;
+            labelNoMouse3.Parent = materialFlatButton3;
         }
 
         private void PopUp_MouseEnter(object sender, EventArgs e)
         {
-            var Obj = (dynamic)sender;
-            Obj.Left = Obj.Left - 3;
-            Obj.Top = Obj.Top - 3;
-            Obj.Height = Obj.Height + 6;
-            Obj.Width = Obj.Width + 6;
+
         }
         private void PopUp_MouseLeave(object sender, EventArgs e)
         {
-            var Obj = (dynamic)sender;
-            Obj.Left = Obj.Left + 3;
-            Obj.Top = Obj.Top + 3;
-            Obj.Height = Obj.Height - 6;
-            Obj.Width = Obj.Width - 6;
+
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)
@@ -120,16 +128,11 @@ namespace PresentationLayer.Forms
             }
         }
 
-        private void SetearControles()
-        {
-            formHeader1.ParentContainer = this;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-            materialFlatButton1.Parent = panel2;
-            materialFlatButton2.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
-            labelNoMouse1.Parent = materialFlatButton1;
-            labelNoMouse2.Parent = materialFlatButton2;
-            labelNoMouse3.Parent = materialFlatButton3;
-        }
+
+
+
+        #endregion
+
+
     }
 }

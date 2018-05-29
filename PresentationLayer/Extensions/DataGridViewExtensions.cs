@@ -10,7 +10,7 @@ using System.Configuration;
 using System.IO;
 using Excel = Microsoft.Office.Interop.Excel;
 
-namespace CapaNegocios
+namespace PresentationLayer
 {
     public static class DataGridViewExtensions
     {
@@ -156,5 +156,65 @@ namespace CapaNegocios
 
         }
 
+        public static void SelectRowAndSroll(this DataGridView grid, int RowIndex)
+        {
+            if (grid.RowCount == 0) return;
+            {
+                grid.Rows[RowIndex].Selected = true;
+                grid.FirstDisplayedScrollingRowIndex = RowIndex;
+                //grid.CurrentCell = grid[, RowIndex];
+            }
+
+        }
+
+        public static void AjustColumnsWidthForGridWidth(this DataGridView oDataGridView)
+        {
+            dynamic iVisibleCount = 0;
+            //int iWidth = 0;
+            //int iLastColumn = 0;
+
+            int nLastColumn = oDataGridView.Columns.Count - 1;
+            for (int i = 0; i < oDataGridView.Columns.Count; i++)
+            {
+                if (nLastColumn == i)
+                    oDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                else
+                    oDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
+            for (int i = 0; i < oDataGridView.Columns.Count; i++)
+            {
+                int colw = oDataGridView.Columns[i].Width;
+                oDataGridView.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                oDataGridView.Columns[i].Width = colw;
+            }
+
+            //var _with1 = oDataGridView;
+
+            //if (_with1.RowCount > 0)
+            //{
+            //    foreach (DataGridViewColumn columna in _with1.Columns)
+            //    {
+            //        iVisibleCount += (columna.Visible ? 1 : 0);
+            //        iLastColumn = columna.Index;
+            //    }
+
+            //    foreach (DataGridViewColumn columna in _with1.Columns)
+            //    {
+            //        if (columna.Visible)
+            //        {
+            //            columna.AutoSizeMode = (columna.Index == iLastColumn ? 
+            //                                    DataGridViewAutoSizeColumnMode.Fill : 
+            //                                    DataGridViewAutoSizeColumnMode.AllCells);
+            //            iWidth = columna.Width;
+            //            columna.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            //            columna.Width = iWidth;
+
+            //            //columna.MinimumWidth = Int((.Width - .RowHeadersWidth) / iVisibleCount)
+            //            //columna.Width = Int((.Width - .RowHeadersWidth) / iVisibleCount)
+            //        }
+            //    }
+            //}
+        }
     }
 }

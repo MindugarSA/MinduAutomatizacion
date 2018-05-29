@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLayer
+namespace PresentationLayer
 {
     public static class DataTableExtensions
     {
@@ -42,8 +42,7 @@ namespace BusinessLayer
             T item = new T();
             foreach (var property in properties)
             {
-                if (row.Table.Columns.Contains(property.Name))
-                    property.SetValue(item, row[property.Name], null);
+                property.SetValue(item, row[property.Name], null);
             }
             return item;
         }
@@ -100,7 +99,8 @@ namespace BusinessLayer
 
                 foreach (PropertyInfo pinfo in columns)
                 {
-                    dr[pinfo.Name] = pinfo.GetValue(Record, null) ?? DBNull.Value;
+                    dr[pinfo.Name] = pinfo.GetValue(Record, null) == null ? DBNull.Value : pinfo.GetValue
+                    (Record, null);
                 }
 
                 dt.Rows.Add(dr);

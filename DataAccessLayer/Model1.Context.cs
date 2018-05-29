@@ -28,5 +28,7 @@ namespace Entities
         public virtual DbSet<Familia> Familia { get; set; }
         public virtual DbSet<Propiedades> Propiedades { get; set; }
         public virtual DbSet<TipoItem> TipoItem { get; set; }
+        public virtual DbSet<ReglasFamilia> ReglasFamilia { get; set; }
+        public virtual DbSet<Unidades> Unidades { get; set; }
     }
 }

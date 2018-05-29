@@ -21,6 +21,15 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
+          <Property Name="Activo" Type="int" />
+        </EntityType>
+        <EntityType Name="ReglasFamilia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="nchar" MaxLength="10" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="TipoItem">
           <Key>
@@ -30,10 +39,21 @@
           <Property Name="Codigo" Type="nchar" MaxLength="10" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
         </EntityType>
+        <EntityType Name="Unidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Codigo" Type="nchar" MaxLength="10" />
+          <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="DB_AUTOMATIZACIONModelStoreContainer">
           <EntitySet Name="Familia" EntityType="Self.Familia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Propiedades" EntityType="Self.Propiedades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ReglasFamilia" EntityType="Self.ReglasFamilia" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TipoItem" EntityType="Self.TipoItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unidades" EntityType="Self.Unidades" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -55,11 +75,14 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Activo" Type="Int32" />
         </EntityType>
         <EntityContainer Name="DB_AUTOMATIZACIONEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Familia" EntityType="Self.Familia" />
           <EntitySet Name="Propiedades" EntityType="Self.Propiedades" />
           <EntitySet Name="TipoItem" EntityType="DB_AUTOMATIZACIONModel.TipoItem" />
+          <EntitySet Name="ReglasFamilia" EntityType="DB_AUTOMATIZACIONModel.ReglasFamilia" />
+          <EntitySet Name="Unidades" EntityType="DB_AUTOMATIZACIONModel.Unidades" />
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -68,6 +91,23 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ReglasFamilia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Unidades">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Codigo" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tipo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -88,6 +128,7 @@
           <EntitySetMapping Name="Propiedades">
             <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Propiedades">
               <MappingFragment StoreEntitySet="Propiedades">
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
@@ -100,6 +141,25 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReglasFamilia">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.ReglasFamilia">
+              <MappingFragment StoreEntitySet="ReglasFamilia">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Unidades">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Unidades">
+              <MappingFragment StoreEntitySet="Unidades">
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

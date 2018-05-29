@@ -8,6 +8,8 @@
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.Familia" Width="1.5" PointX="0.75" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.Propiedades" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.TipoItem" Width="1.5" PointX="0.75" PointY="4.375" />
+        <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.ReglasFamilia" Width="1.5" PointX="3" PointY="0.5" />
+        <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.Unidades" Width="1.5" PointX="5.25" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

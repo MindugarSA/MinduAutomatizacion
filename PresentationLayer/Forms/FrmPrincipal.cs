@@ -67,7 +67,53 @@ namespace PresentationLayer
            // pnlMenu.SendToBack();
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            FrmPropiedades FrmProp = new FrmPropiedades();
+            FrmProp.TopLevel = false;
+            FrmProp.MdiParent = this;
+            //panel2.Controls.Add(FrmProp);
+            //panel2.Tag = FrmProp;
+            FrmProp.WindowState = FormWindowState.Normal;
+            FrmProp.Show();
+            FrmProp.Location = new Point(340, 190);
+        }
 
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FrmTipos FrmTipos = new FrmTipos();
+            FrmTipos.TopLevel = false;
+            FrmTipos.MdiParent = this;
+            //panel2.Controls.Add(FrmTipos);
+            //panel2.Tag = FrmTipos;
+            FrmTipos.WindowState = FormWindowState.Normal;
+            FrmTipos.Show();
+            FrmTipos.Location = new Point(320, 170);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FrmValoresCostos FrmCost = new FrmValoresCostos();
+            FrmCost.MdiParent = this;
+            FrmCost.Show();
+            FrmCost.Location = new Point(360, 210);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FrmItemSimple FrmItem = new FrmItemSimple();
+            FrmItem.MdiParent = this;
+            FrmItem.Show();
+            FrmItem.Location = new Point(370, 230);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            FrmItemCompuesto FrmCompu = new FrmItemCompuesto();
+            FrmCompu.MdiParent = this;
+            FrmCompu.Show();
+            FrmCompu.Location = new Point(390, 250);
+        }
 
         private void tmrOcultarMenu_Tick(object sender, EventArgs e)
         {
@@ -138,52 +184,6 @@ namespace PresentationLayer
 
         }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            FrmPropiedades FrmProp = new FrmPropiedades();
-            FrmProp.TopLevel = false;
-            FrmProp.MdiParent = this;
-            //panel2.Controls.Add(FrmProp);
-            //panel2.Tag = FrmProp;
-            FrmProp.WindowState = FormWindowState.Normal;
-            FrmProp.Show();
-            FrmProp.Location = new Point(310, 170);
-        }
-
-        private void button8_Click(object sender, EventArgs e)
-        {
-            FrmTipos FrmTipos = new FrmTipos();
-            FrmTipos.TopLevel = false;
-            FrmTipos.MdiParent = this;
-            //panel2.Controls.Add(FrmTipos);
-            //panel2.Tag = FrmTipos;
-            FrmTipos.WindowState = FormWindowState.Normal;
-            FrmTipos.Show();
-            FrmTipos.Location = new Point(320, 160);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            FrmValoresCostos FrmCost = new FrmValoresCostos();
-            FrmCost.MdiParent = this;
-            FrmCost.Show();
-            FrmCost.Location = new Point(330, 150);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            FrmItemSimple FrmItem = new FrmItemSimple();
-            FrmItem.MdiParent = this;
-            FrmItem.Show();
-            FrmItem.Location = new Point(350, 200);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            FrmItemCompuesto FrmCompu = new FrmItemCompuesto();
-            FrmCompu.MdiParent = this;
-            FrmCompu.Show();
-            FrmCompu.Location = new Point(370, 220);
-        }
+       
     }
 }

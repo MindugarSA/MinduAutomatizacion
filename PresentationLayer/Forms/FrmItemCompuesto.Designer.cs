@@ -205,6 +205,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmItemCompuesto";
             this.Text = "FrmItemCompuesto";
+            this.Load += new System.EventHandler(this.FrmItemCompuesto_Load);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);

@@ -339,8 +339,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1080, 602);
             this.Controls.Add(this.pnlMenu);
-            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.formHeader1);
+            this.Controls.Add(this.pictureBox3);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmPrincipal";
