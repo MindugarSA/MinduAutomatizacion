@@ -40,6 +40,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -50,27 +54,28 @@
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.materialSingleLineTextField11 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtTotCosPro = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label20 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField10 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtTotCosCom = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label19 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField9 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtTotCosRRHH = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label18 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField6 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtTotalCostos = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtValor = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtEspesor = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label5 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField3 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtAncho = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label1 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField5 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtLargo = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label14 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField4 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtDiametro = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label4 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField7 = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.materialSingleLineTextField8 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtVolumen = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtPeso = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -98,28 +103,28 @@
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtCostoRRHH = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dgvCostoRRHH = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtCostoAcero = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.dgvCostoAcero = new MetroFramework.Controls.MetroGrid();
             this.label3 = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtCostoProc = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.metroGrid3 = new MetroFramework.Controls.MetroGrid();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
+            this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.formHeader1 = new PresentationLayer.FormHeader();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -134,11 +139,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoRRHH)).BeginInit();
             this.metroTabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoAcero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -166,10 +172,10 @@
             // 
             // materialFlatButton3
             // 
-            this.materialFlatButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialFlatButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton3.BackColor = System.Drawing.Color.Transparent;
             this.materialFlatButton3.Depth = 0;
+            this.materialFlatButton3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialFlatButton3.ForeColor = System.Drawing.Color.White;
             this.materialFlatButton3.Icon = null;
             this.materialFlatButton3.Location = new System.Drawing.Point(0, 0);
@@ -224,6 +230,7 @@
             this.materialFlatButton2.TabIndex = 0;
             this.materialFlatButton2.UseCompatibleTextRendering = true;
             this.materialFlatButton2.UseVisualStyleBackColor = false;
+            this.materialFlatButton2.Click += new System.EventHandler(this.materialFlatButton2_Click);
             this.materialFlatButton2.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.materialFlatButton2.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
@@ -303,15 +310,29 @@
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(329, 31);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 93;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.materialSingleLineTextField11);
+            this.groupBox5.Controls.Add(this.txtTotCosPro);
             this.groupBox5.Controls.Add(this.label20);
-            this.groupBox5.Controls.Add(this.materialSingleLineTextField10);
+            this.groupBox5.Controls.Add(this.txtTotCosCom);
             this.groupBox5.Controls.Add(this.label19);
-            this.groupBox5.Controls.Add(this.materialSingleLineTextField9);
+            this.groupBox5.Controls.Add(this.txtTotCosRRHH);
             this.groupBox5.Controls.Add(this.label18);
-            this.groupBox5.Controls.Add(this.materialSingleLineTextField6);
+            this.groupBox5.Controls.Add(this.txtTotalCostos);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F);
             this.groupBox5.Location = new System.Drawing.Point(443, 294);
@@ -321,33 +342,38 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
             // 
-            // materialSingleLineTextField11
+            // txtTotCosPro
             // 
-            this.materialSingleLineTextField11.AcceptsReturn = false;
-            this.materialSingleLineTextField11.AcceptsTab = false;
-            this.materialSingleLineTextField11.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField11.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField11.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField11.Depth = 0;
-            this.materialSingleLineTextField11.Hint = "";
-            this.materialSingleLineTextField11.Location = new System.Drawing.Point(89, 101);
-            this.materialSingleLineTextField11.MaxLength = 32767;
-            this.materialSingleLineTextField11.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField11.Multiline = false;
-            this.materialSingleLineTextField11.Name = "materialSingleLineTextField11";
-            this.materialSingleLineTextField11.PasswordChar = '\0';
-            this.materialSingleLineTextField11.ReadOnly = false;
-            this.materialSingleLineTextField11.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField11.SelectedText = "";
-            this.materialSingleLineTextField11.SelectionLength = 0;
-            this.materialSingleLineTextField11.SelectionStart = 0;
-            this.materialSingleLineTextField11.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField11.TabIndex = 90;
-            this.materialSingleLineTextField11.TabStop = false;
-            this.materialSingleLineTextField11.Text = "0,00";
-            this.materialSingleLineTextField11.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField11.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField11.WordWrap = true;
+            this.txtTotCosPro.AcceptsReturn = false;
+            this.txtTotCosPro.AcceptsTab = false;
+            this.txtTotCosPro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTotCosPro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotCosPro.Depth = 0;
+            this.txtTotCosPro.Hint = "";
+            this.txtTotCosPro.Location = new System.Drawing.Point(89, 101);
+            this.txtTotCosPro.MaxLength = 32767;
+            this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTotCosPro.Multiline = false;
+            this.txtTotCosPro.Name = "txtTotCosPro";
+            this.txtTotCosPro.PasswordChar = '\0';
+            this.txtTotCosPro.ReadOnly = false;
+            this.txtTotCosPro.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTotCosPro.SelectedText = "";
+            this.txtTotCosPro.SelectionLength = 0;
+            this.txtTotCosPro.SelectionStart = 0;
+            this.txtTotCosPro.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosPro.TabIndex = 90;
+            this.txtTotCosPro.TabStop = false;
+            this.txtTotCosPro.Text = "0,00";
+            this.txtTotCosPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotCosPro.UseSystemPasswordChar = false;
+            this.txtTotCosPro.WordWrap = true;
+            this.txtTotCosPro.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtTotCosPro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtTotCosPro.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtTotCosPro.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtTotCosPro.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label20
             // 
@@ -359,33 +385,38 @@
             this.label20.TabIndex = 91;
             this.label20.Text = "Procesos";
             // 
-            // materialSingleLineTextField10
+            // txtTotCosCom
             // 
-            this.materialSingleLineTextField10.AcceptsReturn = false;
-            this.materialSingleLineTextField10.AcceptsTab = false;
-            this.materialSingleLineTextField10.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField10.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField10.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField10.Depth = 0;
-            this.materialSingleLineTextField10.Hint = "";
-            this.materialSingleLineTextField10.Location = new System.Drawing.Point(89, 33);
-            this.materialSingleLineTextField10.MaxLength = 32767;
-            this.materialSingleLineTextField10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField10.Multiline = false;
-            this.materialSingleLineTextField10.Name = "materialSingleLineTextField10";
-            this.materialSingleLineTextField10.PasswordChar = '\0';
-            this.materialSingleLineTextField10.ReadOnly = false;
-            this.materialSingleLineTextField10.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField10.SelectedText = "";
-            this.materialSingleLineTextField10.SelectionLength = 0;
-            this.materialSingleLineTextField10.SelectionStart = 0;
-            this.materialSingleLineTextField10.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField10.TabIndex = 88;
-            this.materialSingleLineTextField10.TabStop = false;
-            this.materialSingleLineTextField10.Text = "0,00";
-            this.materialSingleLineTextField10.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField10.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField10.WordWrap = true;
+            this.txtTotCosCom.AcceptsReturn = false;
+            this.txtTotCosCom.AcceptsTab = false;
+            this.txtTotCosCom.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTotCosCom.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTotCosCom.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotCosCom.Depth = 0;
+            this.txtTotCosCom.Hint = "";
+            this.txtTotCosCom.Location = new System.Drawing.Point(89, 33);
+            this.txtTotCosCom.MaxLength = 32767;
+            this.txtTotCosCom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTotCosCom.Multiline = false;
+            this.txtTotCosCom.Name = "txtTotCosCom";
+            this.txtTotCosCom.PasswordChar = '\0';
+            this.txtTotCosCom.ReadOnly = false;
+            this.txtTotCosCom.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTotCosCom.SelectedText = "";
+            this.txtTotCosCom.SelectionLength = 0;
+            this.txtTotCosCom.SelectionStart = 0;
+            this.txtTotCosCom.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosCom.TabIndex = 88;
+            this.txtTotCosCom.TabStop = false;
+            this.txtTotCosCom.Text = "0,00";
+            this.txtTotCosCom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotCosCom.UseSystemPasswordChar = false;
+            this.txtTotCosCom.WordWrap = true;
+            this.txtTotCosCom.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtTotCosCom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtTotCosCom.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtTotCosCom.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtTotCosCom.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label19
             // 
@@ -397,33 +428,38 @@
             this.label19.TabIndex = 89;
             this.label19.Text = "Comercial";
             // 
-            // materialSingleLineTextField9
+            // txtTotCosRRHH
             // 
-            this.materialSingleLineTextField9.AcceptsReturn = false;
-            this.materialSingleLineTextField9.AcceptsTab = false;
-            this.materialSingleLineTextField9.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField9.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField9.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField9.Depth = 0;
-            this.materialSingleLineTextField9.Hint = "";
-            this.materialSingleLineTextField9.Location = new System.Drawing.Point(89, 68);
-            this.materialSingleLineTextField9.MaxLength = 32767;
-            this.materialSingleLineTextField9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField9.Multiline = false;
-            this.materialSingleLineTextField9.Name = "materialSingleLineTextField9";
-            this.materialSingleLineTextField9.PasswordChar = '\0';
-            this.materialSingleLineTextField9.ReadOnly = false;
-            this.materialSingleLineTextField9.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField9.SelectedText = "";
-            this.materialSingleLineTextField9.SelectionLength = 0;
-            this.materialSingleLineTextField9.SelectionStart = 0;
-            this.materialSingleLineTextField9.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField9.TabIndex = 86;
-            this.materialSingleLineTextField9.TabStop = false;
-            this.materialSingleLineTextField9.Text = "0,00";
-            this.materialSingleLineTextField9.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField9.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField9.WordWrap = true;
+            this.txtTotCosRRHH.AcceptsReturn = false;
+            this.txtTotCosRRHH.AcceptsTab = false;
+            this.txtTotCosRRHH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTotCosRRHH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTotCosRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotCosRRHH.Depth = 0;
+            this.txtTotCosRRHH.Hint = "";
+            this.txtTotCosRRHH.Location = new System.Drawing.Point(89, 68);
+            this.txtTotCosRRHH.MaxLength = 32767;
+            this.txtTotCosRRHH.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTotCosRRHH.Multiline = false;
+            this.txtTotCosRRHH.Name = "txtTotCosRRHH";
+            this.txtTotCosRRHH.PasswordChar = '\0';
+            this.txtTotCosRRHH.ReadOnly = false;
+            this.txtTotCosRRHH.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTotCosRRHH.SelectedText = "";
+            this.txtTotCosRRHH.SelectionLength = 0;
+            this.txtTotCosRRHH.SelectionStart = 0;
+            this.txtTotCosRRHH.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosRRHH.TabIndex = 86;
+            this.txtTotCosRRHH.TabStop = false;
+            this.txtTotCosRRHH.Text = "0,00";
+            this.txtTotCosRRHH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotCosRRHH.UseSystemPasswordChar = false;
+            this.txtTotCosRRHH.WordWrap = true;
+            this.txtTotCosRRHH.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtTotCosRRHH.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtTotCosRRHH.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtTotCosRRHH.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtTotCosRRHH.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label18
             // 
@@ -435,33 +471,38 @@
             this.label18.TabIndex = 87;
             this.label18.Text = "RRHH";
             // 
-            // materialSingleLineTextField6
+            // txtTotalCostos
             // 
-            this.materialSingleLineTextField6.AcceptsReturn = false;
-            this.materialSingleLineTextField6.AcceptsTab = false;
-            this.materialSingleLineTextField6.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField6.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField6.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField6.Depth = 0;
-            this.materialSingleLineTextField6.Hint = "";
-            this.materialSingleLineTextField6.Location = new System.Drawing.Point(88, 138);
-            this.materialSingleLineTextField6.MaxLength = 32767;
-            this.materialSingleLineTextField6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField6.Multiline = false;
-            this.materialSingleLineTextField6.Name = "materialSingleLineTextField6";
-            this.materialSingleLineTextField6.PasswordChar = '\0';
-            this.materialSingleLineTextField6.ReadOnly = false;
-            this.materialSingleLineTextField6.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField6.SelectedText = "";
-            this.materialSingleLineTextField6.SelectionLength = 0;
-            this.materialSingleLineTextField6.SelectionStart = 0;
-            this.materialSingleLineTextField6.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField6.TabIndex = 84;
-            this.materialSingleLineTextField6.TabStop = false;
-            this.materialSingleLineTextField6.Text = "0,00";
-            this.materialSingleLineTextField6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField6.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField6.WordWrap = true;
+            this.txtTotalCostos.AcceptsReturn = false;
+            this.txtTotalCostos.AcceptsTab = false;
+            this.txtTotalCostos.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTotalCostos.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTotalCostos.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotalCostos.Depth = 0;
+            this.txtTotalCostos.Hint = "";
+            this.txtTotalCostos.Location = new System.Drawing.Point(88, 138);
+            this.txtTotalCostos.MaxLength = 32767;
+            this.txtTotalCostos.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTotalCostos.Multiline = false;
+            this.txtTotalCostos.Name = "txtTotalCostos";
+            this.txtTotalCostos.PasswordChar = '\0';
+            this.txtTotalCostos.ReadOnly = false;
+            this.txtTotalCostos.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTotalCostos.SelectedText = "";
+            this.txtTotalCostos.SelectionLength = 0;
+            this.txtTotalCostos.SelectionStart = 0;
+            this.txtTotalCostos.Size = new System.Drawing.Size(86, 23);
+            this.txtTotalCostos.TabIndex = 84;
+            this.txtTotalCostos.TabStop = false;
+            this.txtTotalCostos.Text = "0,00";
+            this.txtTotalCostos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotalCostos.UseSystemPasswordChar = false;
+            this.txtTotalCostos.WordWrap = true;
+            this.txtTotalCostos.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtTotalCostos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtTotalCostos.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtTotalCostos.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtTotalCostos.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label15
             // 
@@ -476,16 +517,16 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label16);
-            this.groupBox4.Controls.Add(this.txtValor);
+            this.groupBox4.Controls.Add(this.txtEspesor);
             this.groupBox4.Controls.Add(this.label5);
-            this.groupBox4.Controls.Add(this.materialSingleLineTextField3);
+            this.groupBox4.Controls.Add(this.txtAncho);
             this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Controls.Add(this.materialSingleLineTextField5);
+            this.groupBox4.Controls.Add(this.txtLargo);
             this.groupBox4.Controls.Add(this.label14);
-            this.groupBox4.Controls.Add(this.materialSingleLineTextField4);
+            this.groupBox4.Controls.Add(this.txtDiametro);
             this.groupBox4.Controls.Add(this.label4);
-            this.groupBox4.Controls.Add(this.materialSingleLineTextField7);
-            this.groupBox4.Controls.Add(this.materialSingleLineTextField8);
+            this.groupBox4.Controls.Add(this.txtVolumen);
+            this.groupBox4.Controls.Add(this.txtPeso);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(11, 294);
@@ -505,33 +546,38 @@
             this.label16.TabIndex = 83;
             this.label16.Text = "Volumen(cm3)";
             // 
-            // txtValor
+            // txtEspesor
             // 
-            this.txtValor.AcceptsReturn = false;
-            this.txtValor.AcceptsTab = false;
-            this.txtValor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtValor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtValor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtValor.Depth = 0;
-            this.txtValor.Hint = "";
-            this.txtValor.Location = new System.Drawing.Point(98, 33);
-            this.txtValor.MaxLength = 32767;
-            this.txtValor.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtValor.Multiline = false;
-            this.txtValor.Name = "txtValor";
-            this.txtValor.PasswordChar = '\0';
-            this.txtValor.ReadOnly = false;
-            this.txtValor.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtValor.SelectedText = "";
-            this.txtValor.SelectionLength = 0;
-            this.txtValor.SelectionStart = 0;
-            this.txtValor.Size = new System.Drawing.Size(86, 23);
-            this.txtValor.TabIndex = 64;
-            this.txtValor.TabStop = false;
-            this.txtValor.Text = "0,00";
-            this.txtValor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtValor.UseSystemPasswordChar = false;
-            this.txtValor.WordWrap = true;
+            this.txtEspesor.AcceptsReturn = false;
+            this.txtEspesor.AcceptsTab = false;
+            this.txtEspesor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtEspesor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtEspesor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtEspesor.Depth = 0;
+            this.txtEspesor.Hint = "";
+            this.txtEspesor.Location = new System.Drawing.Point(98, 33);
+            this.txtEspesor.MaxLength = 32767;
+            this.txtEspesor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtEspesor.Multiline = false;
+            this.txtEspesor.Name = "txtEspesor";
+            this.txtEspesor.PasswordChar = '\0';
+            this.txtEspesor.ReadOnly = false;
+            this.txtEspesor.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtEspesor.SelectedText = "";
+            this.txtEspesor.SelectionLength = 0;
+            this.txtEspesor.SelectionStart = 0;
+            this.txtEspesor.Size = new System.Drawing.Size(86, 23);
+            this.txtEspesor.TabIndex = 64;
+            this.txtEspesor.TabStop = false;
+            this.txtEspesor.Text = "0,00";
+            this.txtEspesor.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtEspesor.UseSystemPasswordChar = false;
+            this.txtEspesor.WordWrap = true;
+            this.txtEspesor.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtEspesor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtEspesor.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtEspesor.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtEspesor.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label5
             // 
@@ -543,33 +589,38 @@
             this.label5.TabIndex = 65;
             this.label5.Text = "Espesor";
             // 
-            // materialSingleLineTextField3
+            // txtAncho
             // 
-            this.materialSingleLineTextField3.AcceptsReturn = false;
-            this.materialSingleLineTextField3.AcceptsTab = false;
-            this.materialSingleLineTextField3.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField3.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField3.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField3.Depth = 0;
-            this.materialSingleLineTextField3.Hint = "";
-            this.materialSingleLineTextField3.Location = new System.Drawing.Point(98, 68);
-            this.materialSingleLineTextField3.MaxLength = 32767;
-            this.materialSingleLineTextField3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField3.Multiline = false;
-            this.materialSingleLineTextField3.Name = "materialSingleLineTextField3";
-            this.materialSingleLineTextField3.PasswordChar = '\0';
-            this.materialSingleLineTextField3.ReadOnly = false;
-            this.materialSingleLineTextField3.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField3.SelectedText = "";
-            this.materialSingleLineTextField3.SelectionLength = 0;
-            this.materialSingleLineTextField3.SelectionStart = 0;
-            this.materialSingleLineTextField3.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField3.TabIndex = 74;
-            this.materialSingleLineTextField3.TabStop = false;
-            this.materialSingleLineTextField3.Text = "0,00";
-            this.materialSingleLineTextField3.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField3.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField3.WordWrap = true;
+            this.txtAncho.AcceptsReturn = false;
+            this.txtAncho.AcceptsTab = false;
+            this.txtAncho.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtAncho.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtAncho.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAncho.Depth = 0;
+            this.txtAncho.Hint = "";
+            this.txtAncho.Location = new System.Drawing.Point(98, 68);
+            this.txtAncho.MaxLength = 32767;
+            this.txtAncho.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtAncho.Multiline = false;
+            this.txtAncho.Name = "txtAncho";
+            this.txtAncho.PasswordChar = '\0';
+            this.txtAncho.ReadOnly = false;
+            this.txtAncho.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtAncho.SelectedText = "";
+            this.txtAncho.SelectionLength = 0;
+            this.txtAncho.SelectionStart = 0;
+            this.txtAncho.Size = new System.Drawing.Size(86, 23);
+            this.txtAncho.TabIndex = 74;
+            this.txtAncho.TabStop = false;
+            this.txtAncho.Text = "0,00";
+            this.txtAncho.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtAncho.UseSystemPasswordChar = false;
+            this.txtAncho.WordWrap = true;
+            this.txtAncho.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtAncho.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtAncho.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtAncho.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtAncho.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label1
             // 
@@ -581,33 +632,38 @@
             this.label1.TabIndex = 75;
             this.label1.Text = "Ancho";
             // 
-            // materialSingleLineTextField5
+            // txtLargo
             // 
-            this.materialSingleLineTextField5.AcceptsReturn = false;
-            this.materialSingleLineTextField5.AcceptsTab = false;
-            this.materialSingleLineTextField5.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField5.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField5.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField5.Depth = 0;
-            this.materialSingleLineTextField5.Hint = "";
-            this.materialSingleLineTextField5.Location = new System.Drawing.Point(98, 103);
-            this.materialSingleLineTextField5.MaxLength = 32767;
-            this.materialSingleLineTextField5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField5.Multiline = false;
-            this.materialSingleLineTextField5.Name = "materialSingleLineTextField5";
-            this.materialSingleLineTextField5.PasswordChar = '\0';
-            this.materialSingleLineTextField5.ReadOnly = false;
-            this.materialSingleLineTextField5.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField5.SelectedText = "";
-            this.materialSingleLineTextField5.SelectionLength = 0;
-            this.materialSingleLineTextField5.SelectionStart = 0;
-            this.materialSingleLineTextField5.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField5.TabIndex = 76;
-            this.materialSingleLineTextField5.TabStop = false;
-            this.materialSingleLineTextField5.Text = "0,00";
-            this.materialSingleLineTextField5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField5.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField5.WordWrap = true;
+            this.txtLargo.AcceptsReturn = false;
+            this.txtLargo.AcceptsTab = false;
+            this.txtLargo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtLargo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtLargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtLargo.Depth = 0;
+            this.txtLargo.Hint = "";
+            this.txtLargo.Location = new System.Drawing.Point(98, 103);
+            this.txtLargo.MaxLength = 32767;
+            this.txtLargo.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtLargo.Multiline = false;
+            this.txtLargo.Name = "txtLargo";
+            this.txtLargo.PasswordChar = '\0';
+            this.txtLargo.ReadOnly = false;
+            this.txtLargo.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtLargo.SelectedText = "";
+            this.txtLargo.SelectionLength = 0;
+            this.txtLargo.SelectionStart = 0;
+            this.txtLargo.Size = new System.Drawing.Size(86, 23);
+            this.txtLargo.TabIndex = 76;
+            this.txtLargo.TabStop = false;
+            this.txtLargo.Text = "0,00";
+            this.txtLargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtLargo.UseSystemPasswordChar = false;
+            this.txtLargo.WordWrap = true;
+            this.txtLargo.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtLargo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtLargo.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtLargo.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtLargo.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label14
             // 
@@ -619,33 +675,38 @@
             this.label14.TabIndex = 77;
             this.label14.Text = "Largo";
             // 
-            // materialSingleLineTextField4
+            // txtDiametro
             // 
-            this.materialSingleLineTextField4.AcceptsReturn = false;
-            this.materialSingleLineTextField4.AcceptsTab = false;
-            this.materialSingleLineTextField4.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField4.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField4.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField4.Depth = 0;
-            this.materialSingleLineTextField4.Hint = "";
-            this.materialSingleLineTextField4.Location = new System.Drawing.Point(98, 138);
-            this.materialSingleLineTextField4.MaxLength = 32767;
-            this.materialSingleLineTextField4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField4.Multiline = false;
-            this.materialSingleLineTextField4.Name = "materialSingleLineTextField4";
-            this.materialSingleLineTextField4.PasswordChar = '\0';
-            this.materialSingleLineTextField4.ReadOnly = false;
-            this.materialSingleLineTextField4.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField4.SelectedText = "";
-            this.materialSingleLineTextField4.SelectionLength = 0;
-            this.materialSingleLineTextField4.SelectionStart = 0;
-            this.materialSingleLineTextField4.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField4.TabIndex = 78;
-            this.materialSingleLineTextField4.TabStop = false;
-            this.materialSingleLineTextField4.Text = "0,00";
-            this.materialSingleLineTextField4.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField4.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField4.WordWrap = true;
+            this.txtDiametro.AcceptsReturn = false;
+            this.txtDiametro.AcceptsTab = false;
+            this.txtDiametro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDiametro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtDiametro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtDiametro.Depth = 0;
+            this.txtDiametro.Hint = "";
+            this.txtDiametro.Location = new System.Drawing.Point(98, 138);
+            this.txtDiametro.MaxLength = 32767;
+            this.txtDiametro.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtDiametro.Multiline = false;
+            this.txtDiametro.Name = "txtDiametro";
+            this.txtDiametro.PasswordChar = '\0';
+            this.txtDiametro.ReadOnly = false;
+            this.txtDiametro.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDiametro.SelectedText = "";
+            this.txtDiametro.SelectionLength = 0;
+            this.txtDiametro.SelectionStart = 0;
+            this.txtDiametro.Size = new System.Drawing.Size(86, 23);
+            this.txtDiametro.TabIndex = 78;
+            this.txtDiametro.TabStop = false;
+            this.txtDiametro.Text = "0,00";
+            this.txtDiametro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDiametro.UseSystemPasswordChar = false;
+            this.txtDiametro.WordWrap = true;
+            this.txtDiametro.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtDiametro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtDiametro.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtDiametro.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtDiametro.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label4
             // 
@@ -657,61 +718,71 @@
             this.label4.TabIndex = 79;
             this.label4.Text = "Diametro";
             // 
-            // materialSingleLineTextField7
+            // txtVolumen
             // 
-            this.materialSingleLineTextField7.AcceptsReturn = false;
-            this.materialSingleLineTextField7.AcceptsTab = false;
-            this.materialSingleLineTextField7.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField7.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField7.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField7.Depth = 0;
-            this.materialSingleLineTextField7.Hint = "";
-            this.materialSingleLineTextField7.Location = new System.Drawing.Point(314, 68);
-            this.materialSingleLineTextField7.MaxLength = 32767;
-            this.materialSingleLineTextField7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField7.Multiline = false;
-            this.materialSingleLineTextField7.Name = "materialSingleLineTextField7";
-            this.materialSingleLineTextField7.PasswordChar = '\0';
-            this.materialSingleLineTextField7.ReadOnly = false;
-            this.materialSingleLineTextField7.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField7.SelectedText = "";
-            this.materialSingleLineTextField7.SelectionLength = 0;
-            this.materialSingleLineTextField7.SelectionStart = 0;
-            this.materialSingleLineTextField7.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField7.TabIndex = 82;
-            this.materialSingleLineTextField7.TabStop = false;
-            this.materialSingleLineTextField7.Text = "0,00";
-            this.materialSingleLineTextField7.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField7.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField7.WordWrap = true;
+            this.txtVolumen.AcceptsReturn = false;
+            this.txtVolumen.AcceptsTab = false;
+            this.txtVolumen.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtVolumen.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtVolumen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtVolumen.Depth = 0;
+            this.txtVolumen.Hint = "";
+            this.txtVolumen.Location = new System.Drawing.Point(314, 68);
+            this.txtVolumen.MaxLength = 32767;
+            this.txtVolumen.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtVolumen.Multiline = false;
+            this.txtVolumen.Name = "txtVolumen";
+            this.txtVolumen.PasswordChar = '\0';
+            this.txtVolumen.ReadOnly = false;
+            this.txtVolumen.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtVolumen.SelectedText = "";
+            this.txtVolumen.SelectionLength = 0;
+            this.txtVolumen.SelectionStart = 0;
+            this.txtVolumen.Size = new System.Drawing.Size(86, 23);
+            this.txtVolumen.TabIndex = 82;
+            this.txtVolumen.TabStop = false;
+            this.txtVolumen.Text = "0,00";
+            this.txtVolumen.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtVolumen.UseSystemPasswordChar = false;
+            this.txtVolumen.WordWrap = true;
+            this.txtVolumen.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtVolumen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtVolumen.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtVolumen.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtVolumen.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
-            // materialSingleLineTextField8
+            // txtPeso
             // 
-            this.materialSingleLineTextField8.AcceptsReturn = false;
-            this.materialSingleLineTextField8.AcceptsTab = false;
-            this.materialSingleLineTextField8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField8.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField8.Depth = 0;
-            this.materialSingleLineTextField8.Hint = "";
-            this.materialSingleLineTextField8.Location = new System.Drawing.Point(314, 33);
-            this.materialSingleLineTextField8.MaxLength = 32767;
-            this.materialSingleLineTextField8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField8.Multiline = false;
-            this.materialSingleLineTextField8.Name = "materialSingleLineTextField8";
-            this.materialSingleLineTextField8.PasswordChar = '\0';
-            this.materialSingleLineTextField8.ReadOnly = false;
-            this.materialSingleLineTextField8.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField8.SelectedText = "";
-            this.materialSingleLineTextField8.SelectionLength = 0;
-            this.materialSingleLineTextField8.SelectionStart = 0;
-            this.materialSingleLineTextField8.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField8.TabIndex = 80;
-            this.materialSingleLineTextField8.TabStop = false;
-            this.materialSingleLineTextField8.Text = "0,00";
-            this.materialSingleLineTextField8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField8.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField8.WordWrap = true;
+            this.txtPeso.AcceptsReturn = false;
+            this.txtPeso.AcceptsTab = false;
+            this.txtPeso.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPeso.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPeso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPeso.Depth = 0;
+            this.txtPeso.Hint = "";
+            this.txtPeso.Location = new System.Drawing.Point(314, 33);
+            this.txtPeso.MaxLength = 32767;
+            this.txtPeso.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPeso.Multiline = false;
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.PasswordChar = '\0';
+            this.txtPeso.ReadOnly = false;
+            this.txtPeso.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtPeso.SelectedText = "";
+            this.txtPeso.SelectionLength = 0;
+            this.txtPeso.SelectionStart = 0;
+            this.txtPeso.Size = new System.Drawing.Size(86, 23);
+            this.txtPeso.TabIndex = 80;
+            this.txtPeso.TabStop = false;
+            this.txtPeso.Text = "0,00";
+            this.txtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtPeso.UseSystemPasswordChar = false;
+            this.txtPeso.WordWrap = true;
+            this.txtPeso.Click += new System.EventHandler(this.TxtValidar_Click);
+            this.txtPeso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
+            this.txtPeso.Leave += new System.EventHandler(this.txtValidar_Leave);
+            this.txtPeso.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
+            this.txtPeso.Validated += new System.EventHandler(this.txtValidar_Validated);
             // 
             // label17
             // 
@@ -815,8 +886,7 @@
             this.metroComboBox3.FormattingEnabled = true;
             this.metroComboBox3.ItemHeight = 23;
             this.metroComboBox3.Items.AddRange(new object[] {
-            "P - Parte",
-            "K - Kit"});
+            "P - Parte"});
             this.metroComboBox3.Location = new System.Drawing.Point(105, 174);
             this.metroComboBox3.Name = "metroComboBox3";
             this.metroComboBox3.Size = new System.Drawing.Size(116, 29);
@@ -1026,7 +1096,7 @@
             this.metroTabControl1.Controls.Add(this.metroTabPage4);
             this.metroTabControl1.Location = new System.Drawing.Point(21, 41);
             this.metroTabControl1.Name = "metroTabControl1";
-            this.metroTabControl1.SelectedIndex = 2;
+            this.metroTabControl1.SelectedIndex = 0;
             this.metroTabControl1.Size = new System.Drawing.Size(733, 532);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
@@ -1065,7 +1135,7 @@
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.materialSingleLineTextField1);
+            this.groupBox2.Controls.Add(this.txtCostoRRHH);
             this.groupBox2.Controls.Add(this.dgvCostoRRHH);
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
@@ -1078,40 +1148,41 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label2.Location = new System.Drawing.Point(378, 370);
+            this.label2.Location = new System.Drawing.Point(447, 296);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 60;
             this.label2.Text = "Total Costos RRHH";
             // 
-            // materialSingleLineTextField1
+            // txtCostoRRHH
             // 
-            this.materialSingleLineTextField1.AcceptsReturn = false;
-            this.materialSingleLineTextField1.AcceptsTab = false;
-            this.materialSingleLineTextField1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.materialSingleLineTextField1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(526, 370);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Multiline = false;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.ReadOnly = false;
-            this.materialSingleLineTextField1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField1.TabIndex = 59;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.Text = "0,00";
-            this.materialSingleLineTextField1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField1.WordWrap = true;
+            this.txtCostoRRHH.AcceptsReturn = false;
+            this.txtCostoRRHH.AcceptsTab = false;
+            this.txtCostoRRHH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCostoRRHH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCostoRRHH.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtCostoRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCostoRRHH.Depth = 0;
+            this.txtCostoRRHH.Hint = "";
+            this.txtCostoRRHH.Location = new System.Drawing.Point(595, 296);
+            this.txtCostoRRHH.MaxLength = 32767;
+            this.txtCostoRRHH.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCostoRRHH.Multiline = false;
+            this.txtCostoRRHH.Name = "txtCostoRRHH";
+            this.txtCostoRRHH.PasswordChar = '\0';
+            this.txtCostoRRHH.ReadOnly = false;
+            this.txtCostoRRHH.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCostoRRHH.SelectedText = "";
+            this.txtCostoRRHH.SelectionLength = 0;
+            this.txtCostoRRHH.SelectionStart = 0;
+            this.txtCostoRRHH.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoRRHH.TabIndex = 59;
+            this.txtCostoRRHH.TabStop = false;
+            this.txtCostoRRHH.Text = "0,00";
+            this.txtCostoRRHH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCostoRRHH.UseSystemPasswordChar = false;
+            this.txtCostoRRHH.WordWrap = true;
+            this.txtCostoRRHH.TextChanged += new System.EventHandler(this.txtValidar_Validated);
             // 
             // dgvCostoRRHH
             // 
@@ -1135,9 +1206,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCostoRRHH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCostoRRHH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCostoRRHH.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1149,7 +1217,7 @@
             this.dgvCostoRRHH.EnableHeadersVisualStyles = false;
             this.dgvCostoRRHH.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoRRHH.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvCostoRRHH.Location = new System.Drawing.Point(32, 26);
+            this.dgvCostoRRHH.Location = new System.Drawing.Point(29, 19);
             this.dgvCostoRRHH.MultiSelect = false;
             this.dgvCostoRRHH.Name = "dgvCostoRRHH";
             this.dgvCostoRRHH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -1164,20 +1232,12 @@
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoRRHH.Size = new System.Drawing.Size(634, 266);
+            this.dgvCostoRRHH.Size = new System.Drawing.Size(652, 260);
             this.dgvCostoRRHH.TabIndex = 58;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "RowType";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "RowStatus";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dgvCostoRRHH.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
+            this.dgvCostoRRHH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
+            this.dgvCostoRRHH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvValidar_CellEndEdit);
+            this.dgvCostoRRHH.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCostoValidar_EditingControlShowing);
             // 
             // metroTabPage3
             // 
@@ -1189,7 +1249,7 @@
             this.metroTabPage3.Name = "metroTabPage3";
             this.metroTabPage3.Size = new System.Drawing.Size(725, 490);
             this.metroTabPage3.TabIndex = 2;
-            this.metroTabPage3.Text = "  Costos Procesos  ";
+            this.metroTabPage3.Text = "  Costos Fabriles / Procesos  ";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
             this.metroTabPage3.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage3.VerticalScrollbarSize = 10;
@@ -1197,8 +1257,11 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.txtCostoAcero);
+            this.groupBox3.Controls.Add(this.dgvCostoAcero);
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.materialSingleLineTextField2);
+            this.groupBox3.Controls.Add(this.txtCostoProc);
             this.groupBox3.Controls.Add(this.dgvCostoProc);
             this.groupBox3.Location = new System.Drawing.Point(2, 2);
             this.groupBox3.Name = "groupBox3";
@@ -1206,45 +1269,142 @@
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.BackColor = System.Drawing.Color.Transparent;
+            this.label21.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label21.Location = new System.Drawing.Point(462, 215);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(123, 20);
+            this.label21.TabIndex = 63;
+            this.label21.Text = "Total Costos Acero";
+            // 
+            // txtCostoAcero
+            // 
+            this.txtCostoAcero.AcceptsReturn = false;
+            this.txtCostoAcero.AcceptsTab = false;
+            this.txtCostoAcero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCostoAcero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCostoAcero.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtCostoAcero.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCostoAcero.Depth = 0;
+            this.txtCostoAcero.Hint = "";
+            this.txtCostoAcero.Location = new System.Drawing.Point(610, 215);
+            this.txtCostoAcero.MaxLength = 32767;
+            this.txtCostoAcero.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCostoAcero.Multiline = false;
+            this.txtCostoAcero.Name = "txtCostoAcero";
+            this.txtCostoAcero.PasswordChar = '\0';
+            this.txtCostoAcero.ReadOnly = false;
+            this.txtCostoAcero.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCostoAcero.SelectedText = "";
+            this.txtCostoAcero.SelectionLength = 0;
+            this.txtCostoAcero.SelectionStart = 0;
+            this.txtCostoAcero.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoAcero.TabIndex = 62;
+            this.txtCostoAcero.TabStop = false;
+            this.txtCostoAcero.Text = "0,00";
+            this.txtCostoAcero.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCostoAcero.UseSystemPasswordChar = false;
+            this.txtCostoAcero.WordWrap = true;
+            this.txtCostoAcero.TextChanged += new System.EventHandler(this.txtValidar_Validated);
+            // 
+            // dgvCostoAcero
+            // 
+            this.dgvCostoAcero.AllowUserToAddRows = false;
+            this.dgvCostoAcero.AllowUserToDeleteRows = false;
+            this.dgvCostoAcero.AllowUserToOrderColumns = true;
+            this.dgvCostoAcero.AllowUserToResizeColumns = false;
+            this.dgvCostoAcero.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvCostoAcero.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCostoAcero.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvCostoAcero.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvCostoAcero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvCostoAcero.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoAcero.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvCostoAcero.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCostoAcero.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvCostoAcero.EnableHeadersVisualStyles = false;
+            this.dgvCostoAcero.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvCostoAcero.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvCostoAcero.Location = new System.Drawing.Point(24, 19);
+            this.dgvCostoAcero.MultiSelect = false;
+            this.dgvCostoAcero.Name = "dgvCostoAcero";
+            this.dgvCostoAcero.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoAcero.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvCostoAcero.RowHeadersVisible = false;
+            this.dgvCostoAcero.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvCostoAcero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCostoAcero.Size = new System.Drawing.Size(672, 188);
+            this.dgvCostoAcero.TabIndex = 61;
+            this.dgvCostoAcero.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
+            this.dgvCostoAcero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
+            this.dgvCostoAcero.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvValidar_CellEndEdit);
+            this.dgvCostoAcero.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCostoValidar_EditingControlShowing);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label3.Location = new System.Drawing.Point(378, 370);
+            this.label3.Location = new System.Drawing.Point(462, 444);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 60;
             this.label3.Text = "Total Costos Procesos";
             // 
-            // materialSingleLineTextField2
+            // txtCostoProc
             // 
-            this.materialSingleLineTextField2.AcceptsReturn = false;
-            this.materialSingleLineTextField2.AcceptsTab = false;
-            this.materialSingleLineTextField2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.materialSingleLineTextField2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField2.Depth = 0;
-            this.materialSingleLineTextField2.Hint = "";
-            this.materialSingleLineTextField2.Location = new System.Drawing.Point(526, 370);
-            this.materialSingleLineTextField2.MaxLength = 32767;
-            this.materialSingleLineTextField2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField2.Multiline = false;
-            this.materialSingleLineTextField2.Name = "materialSingleLineTextField2";
-            this.materialSingleLineTextField2.PasswordChar = '\0';
-            this.materialSingleLineTextField2.ReadOnly = false;
-            this.materialSingleLineTextField2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField2.SelectedText = "";
-            this.materialSingleLineTextField2.SelectionLength = 0;
-            this.materialSingleLineTextField2.SelectionStart = 0;
-            this.materialSingleLineTextField2.Size = new System.Drawing.Size(86, 23);
-            this.materialSingleLineTextField2.TabIndex = 59;
-            this.materialSingleLineTextField2.TabStop = false;
-            this.materialSingleLineTextField2.Text = "0,00";
-            this.materialSingleLineTextField2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField2.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField2.WordWrap = true;
+            this.txtCostoProc.AcceptsReturn = false;
+            this.txtCostoProc.AcceptsTab = false;
+            this.txtCostoProc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCostoProc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCostoProc.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtCostoProc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCostoProc.Depth = 0;
+            this.txtCostoProc.Hint = "";
+            this.txtCostoProc.Location = new System.Drawing.Point(610, 444);
+            this.txtCostoProc.MaxLength = 32767;
+            this.txtCostoProc.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCostoProc.Multiline = false;
+            this.txtCostoProc.Name = "txtCostoProc";
+            this.txtCostoProc.PasswordChar = '\0';
+            this.txtCostoProc.ReadOnly = false;
+            this.txtCostoProc.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCostoProc.SelectedText = "";
+            this.txtCostoProc.SelectionLength = 0;
+            this.txtCostoProc.SelectionStart = 0;
+            this.txtCostoProc.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoProc.TabIndex = 59;
+            this.txtCostoProc.TabStop = false;
+            this.txtCostoProc.Text = "0,00";
+            this.txtCostoProc.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtCostoProc.UseSystemPasswordChar = false;
+            this.txtCostoProc.WordWrap = true;
+            this.txtCostoProc.TextChanged += new System.EventHandler(this.txtValidar_Validated);
             // 
             // dgvCostoProc
             // 
@@ -1253,64 +1413,53 @@
             this.dgvCostoProc.AllowUserToOrderColumns = true;
             this.dgvCostoProc.AllowUserToResizeColumns = false;
             this.dgvCostoProc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCostoProc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoProc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoProc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvCostoProc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoProc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoProc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCostoProc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCostoProc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCostoProc.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCostoProc.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCostoProc.EnableHeadersVisualStyles = false;
             this.dgvCostoProc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoProc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvCostoProc.Location = new System.Drawing.Point(32, 26);
+            this.dgvCostoProc.Location = new System.Drawing.Point(24, 250);
             this.dgvCostoProc.MultiSelect = false;
             this.dgvCostoProc.Name = "dgvCostoProc";
             this.dgvCostoProc.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoProc.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoProc.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoProc.Size = new System.Drawing.Size(580, 329);
+            this.dgvCostoProc.Size = new System.Drawing.Size(672, 188);
             this.dgvCostoProc.TabIndex = 58;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "RowType";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "RowStatus";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dgvCostoProc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
+            this.dgvCostoProc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
+            this.dgvCostoProc.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvValidar_CellEndEdit);
+            this.dgvCostoProc.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvCostoValidar_EditingControlShowing);
             // 
             // metroTabPage4
             // 
@@ -1330,78 +1479,110 @@
             // groupBox6
             // 
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox6.Controls.Add(this.metroGrid3);
+            this.groupBox6.Controls.Add(this.panel1);
+            this.groupBox6.Controls.Add(this.dgvListaItems);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(720, 483);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
-            // metroGrid3
+            // panel1
             // 
-            this.metroGrid3.AllowUserToAddRows = false;
-            this.metroGrid3.AllowUserToDeleteRows = false;
-            this.metroGrid3.AllowUserToOrderColumns = true;
-            this.metroGrid3.AllowUserToResizeColumns = false;
-            this.metroGrid3.AllowUserToResizeRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.metroGrid3.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.metroGrid3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.metroGrid3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.metroGrid3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.metroGrid3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.metroGrid3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.metroGrid3.DefaultCellStyle = dataGridViewCellStyle11;
-            this.metroGrid3.EnableHeadersVisualStyles = false;
-            this.metroGrid3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.metroGrid3.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.metroGrid3.Location = new System.Drawing.Point(32, 26);
-            this.metroGrid3.MultiSelect = false;
-            this.metroGrid3.Name = "metroGrid3";
-            this.metroGrid3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.metroGrid3.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.metroGrid3.RowHeadersVisible = false;
-            this.metroGrid3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.metroGrid3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.metroGrid3.Size = new System.Drawing.Size(580, 329);
-            this.metroGrid3.TabIndex = 58;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.labelNoMouse4);
+            this.panel1.Controls.Add(this.materialFlatButton4);
+            this.panel1.Location = new System.Drawing.Point(20, 437);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(111, 34);
+            this.panel1.TabIndex = 59;
             // 
-            // dataGridViewTextBoxColumn5
+            // labelNoMouse4
             // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "RowType";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.labelNoMouse4.AutoSize = true;
+            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse4.Location = new System.Drawing.Point(12, 7);
+            this.labelNoMouse4.Name = "labelNoMouse4";
+            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
+            this.labelNoMouse4.TabIndex = 1;
+            this.labelNoMouse4.Text = "Seleccionar";
             // 
-            // dataGridViewTextBoxColumn6
+            // materialFlatButton4
             // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "RowStatus";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton4.BackColor = System.Drawing.Color.Transparent;
+            this.materialFlatButton4.Depth = 0;
+            this.materialFlatButton4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialFlatButton4.ForeColor = System.Drawing.Color.White;
+            this.materialFlatButton4.Icon = null;
+            this.materialFlatButton4.Location = new System.Drawing.Point(0, 0);
+            this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton4.Name = "materialFlatButton4";
+            this.materialFlatButton4.Primary = false;
+            this.materialFlatButton4.Size = new System.Drawing.Size(111, 34);
+            this.materialFlatButton4.TabIndex = 0;
+            this.materialFlatButton4.UseCompatibleTextRendering = true;
+            this.materialFlatButton4.UseVisualStyleBackColor = false;
+            this.materialFlatButton4.Click += new System.EventHandler(this.materialFlatButton4_Click);
+            this.materialFlatButton4.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.materialFlatButton4.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            // 
+            // dgvListaItems
+            // 
+            this.dgvListaItems.AllowUserToAddRows = false;
+            this.dgvListaItems.AllowUserToDeleteRows = false;
+            this.dgvListaItems.AllowUserToOrderColumns = true;
+            this.dgvListaItems.AllowUserToResizeColumns = false;
+            this.dgvListaItems.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvListaItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvListaItems.EnableHeadersVisualStyles = false;
+            this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.Location = new System.Drawing.Point(20, 27);
+            this.dgvListaItems.MultiSelect = false;
+            this.dgvListaItems.Name = "dgvListaItems";
+            this.dgvListaItems.ReadOnly = true;
+            this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvListaItems.RowHeadersVisible = false;
+            this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaItems.Size = new System.Drawing.Size(676, 401);
+            this.dgvListaItems.TabIndex = 58;
+            this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
             // 
             // formHeader1
             // 
@@ -1415,19 +1596,6 @@
             this.formHeader1.ParentContainer = null;
             this.formHeader1.Size = new System.Drawing.Size(771, 44);
             this.formHeader1.TabIndex = 0;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(329, 31);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 93;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // FrmItemSimple
             // 
@@ -1453,6 +1621,7 @@
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
@@ -1471,11 +1640,13 @@
             this.metroTabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoAcero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).EndInit();
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.metroGrid3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1498,16 +1669,12 @@
         private MetroFramework.Controls.MetroTabPage metroTabPage3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label2;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCostoRRHH;
         private MetroFramework.Controls.MetroGrid dgvCostoRRHH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label3;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCostoProc;
         private MetroFramework.Controls.MetroGrid dgvCostoProc;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private System.Windows.Forms.Label label6;
@@ -1523,40 +1690,44 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCodigo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label15;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField6;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotalCostos;
         private System.Windows.Forms.Label label16;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField7;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtVolumen;
         private System.Windows.Forms.Label label17;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField8;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtPeso;
         private System.Windows.Forms.Label label4;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField4;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtDiametro;
         private System.Windows.Forms.Label label14;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField5;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtLargo;
         private System.Windows.Forms.Label label1;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField3;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAncho;
         private MetroFramework.Controls.MetroComboBox metroComboBox4;
         private System.Windows.Forms.Label label13;
         private MetroFramework.Controls.MetroComboBox metroComboBox3;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtValor;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtEspesor;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.GroupBox groupBox5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField11;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosPro;
         private System.Windows.Forms.Label label20;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField10;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosCom;
         private System.Windows.Forms.Label label19;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField9;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosRRHH;
         private System.Windows.Forms.Label label18;
         private MetroFramework.Controls.MetroTabPage metroTabPage4;
         private System.Windows.Forms.GroupBox groupBox6;
-        private MetroFramework.Controls.MetroGrid metroGrid3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private MetroFramework.Controls.MetroGrid dgvListaItems;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label21;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCostoAcero;
+        private MetroFramework.Controls.MetroGrid dgvCostoAcero;
+        private System.Windows.Forms.Panel panel1;
+        private Controls.LabelNoMouse labelNoMouse4;
+        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
     }
 }

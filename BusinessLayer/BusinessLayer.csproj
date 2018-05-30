@@ -62,6 +62,7 @@
     <Compile Include="CostosBL.cs" />
     <Compile Include="FamiliaBL.cs" />
     <Compile Include="ItemCostoBL.cs" />
+    <Compile Include="ItemsBL.cs" />
     <Compile Include="PropiedadesBL.cs" />
     <Compile Include="ReglasFamiliaBL.cs" />
     <Compile Include="DataTableExtensions.cs" />

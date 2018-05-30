@@ -18,7 +18,7 @@ namespace Entities
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
         public string Nombre { get; set; }
-        public string Familia { get; set; }
+        public int Familia { get; set; }
         public string TipoItem { get; set; }
         public Nullable<decimal> Espesor { get; set; }
         public Nullable<decimal> Ancho { get; set; }

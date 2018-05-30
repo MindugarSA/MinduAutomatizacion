@@ -72,6 +72,7 @@
     <Compile Include="EntityExceptionError.cs" />
     <Compile Include="FamiliaDALC.cs" />
     <Compile Include="ItemCostoDALC.cs" />
+    <Compile Include="ItemsDALC.cs" />
     <Compile Include="PropiedadesDALC.cs" />
     <Compile Include="ReglasFamiliaDALC.cs" />
     <Compile Include="Model1.Context.cs">

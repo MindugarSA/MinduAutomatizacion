@@ -26,12 +26,12 @@ namespace PresentationLayer
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
+            ListarTipos();
         }
 
         private void FrmTipos_Load(object sender, EventArgs e)
         {
-            TipoItemDataSource = new BindingList<TipoItem>(TipoItemBL.GetTipoItems());
-            ListarTipos();
+            FormatearGrid();
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -45,19 +45,20 @@ namespace PresentationLayer
 
         private void ListarTipos()
         {
+            TipoItemDataSource = new BindingList<TipoItem>(TipoItemBL.GetTipoItems());
             dataGridView1.DataSource = TipoItemDataSource;
-
-            //FormatearGrid();
-            foreach (DataGridViewRow Fila in dataGridView1.Rows)
-            {
-                Fila.Cells["RowType"].Value = "N";
-            }
         }
 
         private void FormatearGrid()
         {
-            dataGridView1.Columns["id"].Visible = false;
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
             dataGridView1.AjustColumnsWidthForGridWidth();
+            foreach (DataGridViewRow Fila in dataGridView1.Rows)
+            {
+                Fila.Cells["RowType"].Value = "N";
+            }
         }
 
 

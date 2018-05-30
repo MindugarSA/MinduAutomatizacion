@@ -24,10 +24,7 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
-
                 List<SP_GetItemCostoID_Result> result = db.SP_GetItemCostoID(IdItem).ToList();
-
-
 
                 return new DataTable().ListToDataTable(result);
             }
