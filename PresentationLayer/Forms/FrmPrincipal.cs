@@ -113,7 +113,7 @@ namespace PresentationLayer
             FrmItemCompuesto FrmCompu = new FrmItemCompuesto();
             FrmCompu.MdiParent = this;
             FrmCompu.Show();
-            FrmCompu.Location = new Point(390, 250);
+            FrmCompu.Location = new Point(500, 100);
         }
 
         private void tmrOcultarMenu_Tick(object sender, EventArgs e)

@@ -113,6 +113,9 @@
         <Function Name="SP_GetItemCostoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_GetItemDetalleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Item" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_AUTOMATIZACIONModelStoreContainer">
           <EntitySet Name="Costos" EntityType="Self.Costos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Familia" EntityType="Self.Familia" Schema="dbo" store:Type="Tables" />
@@ -159,6 +162,9 @@
           <Parameter Name="id_Item" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
+          <FunctionImport Name="SP_GetItemDetalleID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result1)">
+            <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -258,6 +264,32 @@
           <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
           <Property Name="UsuarioMod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
+        <ComplexType Name="SP_GetItemDetalleID_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdItem" Nullable="true" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
+          <Property Type="String" Name="Codigo1" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion1" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Linea" Nullable="true" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
+        </ComplexType>
+        <ComplexType Name="SP_GetItemDetalleID_Result1">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdC" Nullable="true" />
+          <Property Type="String" Name="CodigoC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionC" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Linea" Nullable="true" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -393,6 +425,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemDetalleID" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemDetalleID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result1">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdC" ColumnName="IdC" />
+                <ScalarProperty Name="CodigoC" ColumnName="CodigoC" />
+                <ScalarProperty Name="DescripcionC" ColumnName="DescripcionC" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

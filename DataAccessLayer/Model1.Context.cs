@@ -45,5 +45,14 @@ namespace Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemCostoID_Result>("SP_GetItemCostoID", id_ItemParameter);
         }
+    
+        public virtual ObjectResult<SP_GetItemDetalleID_Result1> SP_GetItemDetalleID(Nullable<int> id_Item)
+        {
+            var id_ItemParameter = id_Item.HasValue ?
+                new ObjectParameter("id_Item", id_Item) :
+                new ObjectParameter("id_Item", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDetalleID_Result1>("SP_GetItemDetalleID", id_ItemParameter);
+        }
     }
 }

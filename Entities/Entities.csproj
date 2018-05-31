@@ -88,6 +88,12 @@
     <Compile Include="SP_GetItemCostoID_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_GetItemDetalleID_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_GetItemDetalleID_Result1.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="TipoItem.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
