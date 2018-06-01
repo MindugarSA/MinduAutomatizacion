@@ -742,6 +742,12 @@
         HTdMDOFYEtffZFKWGIOllx4UFfX/AbP95+RIkjoVAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="tmrOcultarMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="tmrMostrarMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>172, 20</value>
+  </metadata>
   <data name="pictureBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAArwAAAC5CAYAAADK6OzZAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAX
@@ -970,12 +976,6 @@
         QmCC
 </value>
   </data>
-  <metadata name="tmrOcultarMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="tmrMostrarMenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>172, 20</value>
-  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAYAAAAAAAEAIAAqNwAAZgAAAICAAAABACAAKAgBAJA3AABAQAAAAQAgAChCAAC4PwEAMDAAAAEA

@@ -14,7 +14,7 @@ using BusinessLayer;
 
 namespace PresentationLayer.Forms
 {
-    public partial class FrmItemCompuesto : Form
+    public partial class FrmParte : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
@@ -24,9 +24,10 @@ namespace PresentationLayer.Forms
         ItemCosto Entidad = new ItemCosto();
         double ValorCostoEditado = 0;
         bool bControlActive = false;
+        string pathImagen = "";
 
 
-        public FrmItemCompuesto()
+        public FrmParte()
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace PresentationLayer.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text += metroComboBox2.SelectedValue.ToString().Trim();
+            txtCodigo.Text += metroComboBox2.SelectedValue.ToString().Trim() + "P-";
             //txtDescrpcion.Text += " " + ((DataRowView)metroComboBox2.SelectedItem).Row["Descripcion"];
             txtCodigo.Focus();
             txtCodigo.SelectionStart = txtCodigo.Text.Length;
@@ -110,19 +111,10 @@ namespace PresentationLayer.Forms
             metroComboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
             metroComboBox4.SelectedIndex = 0;
 
-            //Combox Unidades
-            metroComboBox1.DataSource = new DataTable().ListToDataTable(UnidadesBL.GetUnidades());
-            metroComboBox1.DisplayMember = "Codigo";
-            metroComboBox1.ValueMember = "Codigo";
-
-            metroComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
-            metroComboBox1.SelectedIndex = 0;
-
         }
 
         private void CargarGrids()
         {
-
             DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(Convert.ToInt32(Entidad.IdItem));
             //Costos RRHH
             DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
@@ -143,17 +135,9 @@ namespace PresentationLayer.Forms
             dgvCostoProc.DataSource = dtCostosPro;
             //Listado de Items
 
-            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("K");
+            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P");
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-        }
-
-        private void CargarGridDetalleItem(int itemId)
-        {
-            DataTable dtItemDetalle = ItemDetalleBL.GetItemCostosId(itemId);
-
-            dgvDetalleItem.DataSource = dtItemDetalle;
 
         }
 
@@ -461,8 +445,6 @@ namespace PresentationLayer.Forms
 
             if (dFami[1] != null) metroComboBox2.SelectedValue = dFami[1]; else metroComboBox2.SelectedIndex = 0;
 
-            CargarGridDetalleItem(itemId);
-
         }
 
         private void EnlazarCampos()
@@ -529,6 +511,40 @@ namespace PresentationLayer.Forms
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             metroTabControl1.SelectedIndex = 3;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oFD = new OpenFileDialog();
+            oFD.Title = "Seleccionar Imagen";
+            oFD.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            pathImagen = "";
+
+            try
+            {
+                if(oFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    pathImagen = oFD.FileName;
+                    pictureBox1.BackgroundImage = new Bitmap(@pathImagen);
+
+                    byte[] byteimg =  ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+                    ItemEntidad.Imagen = byteimg;
+                    //pictureBox1.BackgroundImage.Dispose();
+                    //pictureBox1.BackgroundImage = null;
+
+                    //MessageBox.Show("Conversion");
+
+                    //Image nImg =  ImageExtensions.byteArrayToImage(byteimg);
+
+                    //pictureBox1.BackgroundImage = nImg;
+                }
+            }
+            catch {}
+        }
+
+        private void metroComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

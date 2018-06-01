@@ -166,4 +166,10 @@
   <data name="magnifying_glass" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\magnifying-glass.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="puzzle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\puzzle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tetris" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tetris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

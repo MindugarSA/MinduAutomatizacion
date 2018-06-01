@@ -102,7 +102,7 @@ namespace PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmItemSimple FrmItem = new FrmItemSimple();
+            FrmParte FrmItem = new FrmParte();
             FrmItem.MdiParent = this;
             FrmItem.Show();
             FrmItem.Location = new Point(370, 230);
@@ -110,7 +110,7 @@ namespace PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmItemCompuesto FrmCompu = new FrmItemCompuesto();
+            FrmKit FrmCompu = new FrmKit();
             FrmCompu.MdiParent = this;
             FrmCompu.Show();
             FrmCompu.Location = new Point(500, 100);
@@ -168,6 +168,8 @@ namespace PresentationLayer
                         panel6.Top = button2.Top;
                         button3.Top = button2.Top + Level1Separation;
                         panel7.Top = button3.Top;
+                        button5.Top = button3.Top + Level1Separation;
+                        panel3.Top = button5.Top;
                         panel4.Visible = true;
                         Opt1Open = true;
                     }
@@ -178,6 +180,8 @@ namespace PresentationLayer
                         panel6.Top = button2.Top;
                         button3.Top = button2.Top + Level1Separation;
                         panel7.Top = button3.Top;
+                        button5.Top = button3.Top + Level1Separation;
+                        panel3.Top = button5.Top;
                         Opt1Open = false;
                     }
                     break;

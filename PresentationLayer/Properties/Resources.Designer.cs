@@ -193,6 +193,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap puzzle {
+            get {
+                object obj = ResourceManager.GetObject("puzzle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Restore_32px {
             get {
                 object obj = ResourceManager.GetObject("Restore_32px", resourceCulture);
@@ -206,6 +216,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap screw {
             get {
                 object obj = ResourceManager.GetObject("screw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tetris {
+            get {
+                object obj = ResourceManager.GetObject("tetris", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

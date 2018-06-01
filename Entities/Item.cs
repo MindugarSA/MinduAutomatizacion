@@ -31,7 +31,7 @@ namespace Entities
         public Nullable<decimal> CostoRH { get; set; }
         public Nullable<decimal> CostoPR { get; set; }
         public Nullable<decimal> CostoTotal { get; set; }
-        public string Imagen { get; set; }
+        public byte[] Imagen { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
         public string UsuarioCrea { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }

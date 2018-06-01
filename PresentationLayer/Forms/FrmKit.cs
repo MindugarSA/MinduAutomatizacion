@@ -14,19 +14,21 @@ using BusinessLayer;
 
 namespace PresentationLayer.Forms
 {
-    public partial class FrmItemSimple : Form
+    public partial class FrmKit : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
 
         private string ModoPantalla = "";
         Item ItemEntidad = new Item();
-        ItemCosto Entidad = new ItemCosto();
+        ItemCosto CostoEntidad = new ItemCosto();
+        ItemDetalle ItemDetalleEntidad = new ItemDetalle();
+        DataTable dtItemDetalle = new DataTable();
         double ValorCostoEditado = 0;
         bool bControlActive = false;
 
 
-        public FrmItemSimple()
+        public FrmKit()
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
@@ -41,7 +43,7 @@ namespace PresentationLayer.Forms
             ModoPantalla = "Crear";
             panel3.Visible = false;
 
-            metroTabControl1.SelectedIndex = 0;
+            metroGrid1.SelectedIndex = 0;
         }
 
         private void FrmItemSimple_Load(object sender, EventArgs e)
@@ -72,7 +74,7 @@ namespace PresentationLayer.Forms
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text += "P-";
+            txtCodigo.Text += "K-";
             txtCodigo.Focus();
             txtCodigo.SelectionStart = txtCodigo.Text.Length;
         }
@@ -122,7 +124,8 @@ namespace PresentationLayer.Forms
 
         private void CargarGrids()
         {
-            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(Convert.ToInt32(Entidad.IdItem));
+
+            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(Convert.ToInt32(CostoEntidad.IdItem));
             //Costos RRHH
             DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
                             .Where(r => r.Field<string>("Categoria") == "HH")
@@ -130,10 +133,10 @@ namespace PresentationLayer.Forms
             dgvCostoRRHH.DataSource = dtCostosRRHH;
             
             //Costos Procesos
-            DataTable dtCostosAcero = dtItemCostos.AsEnumerable()
-                            .Where(r => r.Field<string>("Categoria") == "AC")
-                            .CopyToDataTable();
-            dgvCostoAcero.DataSource = dtCostosAcero;
+            //DataTable dtCostosAcero = dtItemCostos.AsEnumerable()
+            //                .Where(r => r.Field<string>("Categoria") == "AC")
+            //                .CopyToDataTable();
+            //dgvCostoAcero.DataSource = dtCostosAcero;
 
             //Costos Procesos
             DataTable dtCostosPro = dtItemCostos.AsEnumerable()
@@ -142,15 +145,52 @@ namespace PresentationLayer.Forms
             dgvCostoProc.DataSource = dtCostosPro;
             //Listado de Items
 
-            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P");
+            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("K");
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
         }
 
+        private void CargarGridsDetalleItem(int itemId)
+        {
+            dtItemDetalle = ItemDetalleBL.GetItemCostosId(itemId);
+
+            dgvDetalleItem.DataSource = dtItemDetalle;
+            dgvDetalleItemAmp.DataSource = dtItemDetalle;
+
+            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp};
+
+            foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
+            {
+                List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10 };
+                foreach (DataGridViewColumn col in dgvActual.Columns)
+                {
+                    if (!visibleColumns.Contains(col.Index))
+                        col.Visible = false;
+                }
+
+                dgvActual.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                dgvActual.Columns[8].DefaultCellStyle.Format = "#,0.00###";
+                dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+                dgvActual.Columns[10].DefaultCellStyle.Format = "#,0.00###";
+
+                dgvActual.Columns[8].ReadOnly = false;
+
+                dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+        }
+
         private void FormatearGrids()
         {
-            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvCostoRRHH, dgvCostoProc, dgvCostoAcero };
+            //GRID COSTOS
+            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvCostoRRHH, dgvCostoProc };
 
             foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
             {
@@ -174,6 +214,7 @@ namespace PresentationLayer.Forms
                 dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             }
 
+            //GRID LISTA ITEMS
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             List<int> visibleColumns = new List<int> { 1, 2, 3 ,4 ,6 ,7, 8 ,9};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
@@ -202,12 +243,42 @@ namespace PresentationLayer.Forms
             
         }
 
+        private void dgvItemDetalleValidar_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+            if (e.RowIndex == -1)
+                return;
+            else if (dgvActual.SelectedRows.Count == 1)
+            {
+                try
+                {
+                    dgvActual.CurrentCell = dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[8];
+                    //dgvActual[7, dgvActual.CurrentRow.Index].Style.BackColor = Color.White;
+                    dgvActual[8, dgvActual.CurrentRow.Index].Selected = true;
+                    dgvActual.BeginEdit(true);
+                }
+                catch (Exception) { }
+            }
+
+        }
+
         private void dgvCostoValidar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
             if (dgvActual.CurrentRow.Index == -1)
                 return;
             else if (dgvActual.CurrentCell.ColumnIndex == 7 )
+            {
+                e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
+            }
+        }
+
+        private void dgvItemDetalleValidar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+            if (dgvActual.CurrentRow.Index == -1)
+                return;
+            else if (dgvActual.CurrentCell.ColumnIndex == 8)
             {
                 e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
             }
@@ -248,14 +319,14 @@ namespace PresentationLayer.Forms
                         break;
                     case "dgvCostoProc":
                         txtCostoProc.Text = SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "Valor").ToString();
-                        txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();//double.Parse(txtCostoProc.Text, System.Globalization.CultureInfo.InvariantCulture).ToString();
+                        txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) ).ToString();//double.Parse(txtCostoProc.Text, System.Globalization.CultureInfo.InvariantCulture).ToString();
                         break;
-                    case "dgvCostoAcero":
-                        txtCostoAcero.Text = SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "Valor").ToString();
-                        txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
-                        break;
+                    //case "dgvCostoAcero":
+                    //    txtCostoAcero.Text = SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "Valor").ToString();
+                    //    txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
+                    //    break;
                 }
-                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
+                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) +
                                        Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
 
             }
@@ -306,7 +377,7 @@ namespace PresentationLayer.Forms
         private void txtValidar_Leave(object sender, EventArgs e)
         {
             bControlActive = false;
-            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString(); ;
         }
 
@@ -439,7 +510,7 @@ namespace PresentationLayer.Forms
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
             EnlazarCampos();
-            metroTabControl1.SelectedIndex = 0;
+            metroGrid1.SelectedIndex = 0;
             labelNoMouse1.Text = "Actualizar";
             ModoPantalla = "Modificar";
             panel3.Visible = true;
@@ -451,6 +522,8 @@ namespace PresentationLayer.Forms
                                     .FirstOrDefault();
 
             if (dFami[1] != null) metroComboBox2.SelectedValue = dFami[1]; else metroComboBox2.SelectedIndex = 0;
+
+            CargarGridsDetalleItem(itemId);
 
         }
 
@@ -517,7 +590,41 @@ namespace PresentationLayer.Forms
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            metroTabControl1.SelectedIndex = 3;
+            metroGrid1.SelectedIndex = 3;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
+            txtEncabezado2.Text = txtEncabezado.Text;
+        }
+
+        private void txtDescrpcion_TextChanged(object sender, EventArgs e)
+        {
+            txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
+            txtEncabezado2.Text = txtEncabezado.Text;
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+            metroGrid1.SelectedIndex = 1;
+        }
+
+        private void dgvDetalleItemAmp_SelectionChanged(object sender, EventArgs e)
+        {
+            int ItemId = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+            Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
+
+            txtCodigoC.Text = ItemConsulta.Codigo;
+            txtDescripcionC.Text = ItemConsulta.Descripcion;
+            txtNombreC.Text = ItemConsulta.Nombre;
+            txtEspesor.Text = ItemConsulta.Espesor.ToString();
+            txtAncho.Text = ItemConsulta.Ancho.ToString();
+            txtLargo.Text = ItemConsulta.Largo.ToString();
+            txtDiametro.Text = ItemConsulta.Diametro.ToString();
+            txtVolumen.Text = ItemConsulta.Volumen.ToString();
+            txtPeso.Text = ItemConsulta.Peso.ToString();
+            txtTotalCostoC.Text = ItemConsulta.CostoTotal.ToString();
         }
     }
 }

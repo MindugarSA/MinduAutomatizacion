@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAcce
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{EBDA9D2D-3810-46A0-BDC1-947F2F3BA73F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PresentationLayer", "PresentationLayer\PresentationLayer.csproj", "{9D79237F-11FA-4E0B-9502-DD161405D17E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinduAutomatizacion", "PresentationLayer\MinduAutomatizacion.csproj", "{9D79237F-11FA-4E0B-9502-DD161405D17E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
