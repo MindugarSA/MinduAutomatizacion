@@ -29,6 +29,22 @@ namespace BusinessLayer
             return obj.GetItemId(ItemId);
         }
 
+        public static void InsertFamilias(List<Item> ListaItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            foreach (Item item in ListaItem)
+            {
+                obj.InsertItem(item);
+            }
+        }
 
+        public static void UpdateFamilias(List<Item> ListaItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            foreach (Item item in ListaItem)
+            {
+                obj.UpdateItem(item);
+            }
+        }
     }
 }

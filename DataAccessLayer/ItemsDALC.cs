@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,5 +41,41 @@ namespace DataAccessLayer
                                           .ToList();
             }
         }
+
+        public void InsertItem(Item Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    db.Item.Add(Obj);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+            }
+        }
+
+        public void UpdateItem(Item Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    Item Entidad = (from n in db.Item
+                                    where n.Id == Obj.Id
+                                       select n).FirstOrDefault();
+                    db.Entry(Entidad).CurrentValues.SetValues(Obj);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+            }
+        }
     }
 }
+

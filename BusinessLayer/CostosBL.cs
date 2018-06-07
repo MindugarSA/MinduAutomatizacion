@@ -15,5 +15,25 @@ namespace BusinessLayer
             CostosDALC obj = new CostosDALC();
             return obj.GetCostos();
         }
+
+        public static void InserCostos(List<Costos> ListaCosto)
+        {
+            CostosDALC obj = new CostosDALC();
+            foreach (Costos Cost in ListaCosto)
+            {
+                obj.InsertCostos(Cost);
+            }
+        }
+
+        public static void UpdateCostos(List<Costos> ListaCosto)
+        {
+            CostosDALC obj = new CostosDALC();
+            foreach (Costos Cost in ListaCosto)
+            {
+                obj.UpdateCostos(Cost);
+            }
+        }
     }
+
+
 }

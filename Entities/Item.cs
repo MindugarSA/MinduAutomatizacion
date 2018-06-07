@@ -36,5 +36,6 @@ namespace Entities
         public string UsuarioCrea { get; set; }
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public string UsuarioMod { get; set; }
+        public string TipoPieza { get; set; }
     }
 }

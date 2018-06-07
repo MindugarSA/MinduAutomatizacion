@@ -33,25 +33,9 @@ namespace PresentationLayer
 
         private void FrmValoresCostos_Load(object sender, EventArgs e)
         {
-            string Categ = "";
-
-            foreach (DataGridViewRow Fila in dataGridView1.Rows)
-            {
-                switch (Fila.Cells[2].Value.ToString())
-                {
-                    case "HH":
-                        Categ = "RR.HH.";
-                        break;
-                    case "PR":
-                        Categ = "Procesos";
-                        break;
-                    case "AC":
-                        Categ = "Aceros";
-                        break;
-                }
-                Fila.Cells["Categoria_"].Value = Categ;
-            }
+            FormatearCategoria();
             dataGridView1.Refresh();
+
             cmbTipo.Text = Convert.ToString(dataGridView1.Rows[0].Cells[0].Value).Trim();
         }
 
@@ -105,6 +89,91 @@ namespace PresentationLayer
             }
         }
 
+        private void BtnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                List<Costos> lcosto = new List<Costos>();
+                Costos Cost = new Costos();
+                string Categ = "";
+
+                switch (cmbTipo.Text.Trim())
+                {
+                    case "RR.HH.":
+                        Categ = "HH";
+                        break;
+                    case "Procesos":
+                        Categ = "PR";
+                        break;
+                    case "Aceros":
+                        Categ = "AC";
+                        break;
+                }
+
+                Cost.Categoria = Categ;
+                Cost.Tipo = txtDescripcion.Text.Trim();
+                Cost.Unidad = cmbUnidad.Text.Trim();
+                Cost.Estado = materialCheckBox1.Checked ? 1 : 0;
+                Cost.Valor = Convert.ToDecimal(txtValor.Text);
+
+                switch (labelNoMouse1.Text.Trim())
+                {
+
+                    case "Agregar":
+                        lcosto.Add(Cost);
+                        CostosBL.InserCostos(lcosto);
+
+                        CargarGridCostos();
+                       // LimpiarCampos();
+                        dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
+                        dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[3];
+
+                        CargarCampos(dataGridView1.RowCount - 1);
+                        FormatearCategoria();
+                        break;
+                    case "Actualizar":
+                        Cost.Id = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentRow.Index].Value);
+                        lcosto.Add(Cost);
+                        CostosBL.UpdateCostos(lcosto);
+
+                        int nRow = dataGridView1.CurrentRow.Index;
+                        CargarGridCostos();
+                        FormatearCategoria();
+
+                        dataGridView1.Rows[nRow].Selected = true;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[3];
+                        break;
+                }
+            }
+        }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescripcion.Text.Trim() != string.Empty)
+                errorIcono.SetError(txtDescripcion, "");
+        }
+
+        private void cmbUnidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ComboBox cControl = (ComboBox)sender;
+
+            if (cControl.SelectedIndex != -1)
+                errorIcono.SetError(cControl, "");
+        }
+
+
+        #region METODOS
         private void CargarGridCostos()
         {
             CostosDataSource = new BindingList<Costos>(CostosBL.GetCostos());
@@ -116,9 +185,34 @@ namespace PresentationLayer
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[5].DefaultCellStyle.Format = "#,0.00###";
 
-            dataGridView1.AjustColumnsWidthForGridWidth();
-            dataGridView1.Columns[3].Width = 200;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridView1.AjustColumnsWidthForGridWidth();
+            //dataGridView1.Columns[3].Width = 200;
 
+        }
+
+        private void FormatearCategoria()
+        {
+            string Categ = "";
+
+            foreach (DataGridViewRow Fila in dataGridView1.Rows)
+            {
+                switch (Fila.Cells[2].Value.ToString())
+                {
+                    case "HH":
+                        Categ = "RR.HH.";
+                        break;
+                    case "PR":
+                        Categ = "Procesos";
+                        break;
+                    case "AC":
+                        Categ = "Aceros";
+                        break;
+                }
+                Fila.Cells["Categoria_"].Value = Categ;
+            }
         }
 
         private void CargarCombos()
@@ -131,6 +225,58 @@ namespace PresentationLayer
             cmbUnidad.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbUnidad.SelectedIndex = 0;
         }
+
+        private void CargarCampos(int nRow)
+        {
+            labelNoMouse1.Text = "Actualizar";
+            btnNuevo.Enabled = true;
+
+            cmbTipo.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
+            cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
+            materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
+            txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
+
+            // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
+        }
+
+        private void LimpiarCampos()
+        {
+            labelNoMouse1.Text = "Agregar";
+            btnNuevo.Enabled = false;
+
+            cmbTipo.SelectedIndex = -1;
+            cmbUnidad.SelectedIndex = -1;
+            txtDescripcion.Text = "";
+            materialCheckBox1.Checked = true;
+            txtValor.Text = string.Format("{0:#,0.00###}", 0);
+
+            // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
+        }
+
+        private bool ValidarCampos()
+        {
+            bool Valido = true;
+
+            if (cmbTipo.Text == "")
+            {
+                errorIcono.SetError(cmbTipo, "Ingrese un Tipo");
+                Valido = false;
+            }
+            else if (cmbUnidad.Text == "")
+            {
+                errorIcono.SetError(cmbUnidad, "Ingrese una Unidad de Medida");
+                Valido = false;
+            }
+            else if (txtDescripcion.Text == string.Empty)
+            {
+                errorIcono.SetError(txtDescripcion, "Ingrese una Descripcion");
+                Valido = false;
+            }
+            return Valido;
+        }
+
+        #endregion
 
         #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -240,27 +386,12 @@ namespace PresentationLayer
         }
 
 
+
+
+
+
         #endregion
 
 
-
-        private void CargarCampos(int nRow)
-        {
-            labelNoMouse1.Text = "Actualizar";
-            btnNuevo.Enabled = true;
-
-            cmbTipo.Text =  Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
-            cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
-            txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
-            materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
-            txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
-
-            // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
-        }
-
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
     }
 }

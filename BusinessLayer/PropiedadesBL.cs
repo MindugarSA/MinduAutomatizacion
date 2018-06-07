@@ -15,5 +15,23 @@ namespace BusinessLayer
             PropiedadesDALC obj = new PropiedadesDALC();
             return obj.GetPropiedades();
         }
+
+        public static void InserPropiedades(List<Propiedades> ListaPropiedades)
+        {
+            PropiedadesDALC obj = new PropiedadesDALC();
+            foreach (Propiedades Prop in ListaPropiedades)
+            {
+                obj.InsertPropiedad(Prop);
+            }
+        }
+
+        public static void UpdatePropiedades(List<Propiedades> ListaPropiedades)
+        {
+            PropiedadesDALC obj = new PropiedadesDALC();
+            foreach (Propiedades Prop in ListaPropiedades)
+            {
+                obj.UpdatePropiedad(Prop);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ using BusinessLayer;
 
 namespace PresentationLayer.Forms
 {
-    public partial class FrmParte : Form
+    public partial class FrmPieza : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
@@ -27,7 +27,7 @@ namespace PresentationLayer.Forms
         string pathImagen = "";
 
 
-        public FrmParte()
+        public FrmPieza()
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();

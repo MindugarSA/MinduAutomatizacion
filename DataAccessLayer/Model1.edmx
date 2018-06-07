@@ -51,6 +51,7 @@
           <Property Name="UsuarioCrea" Type="nvarchar" MaxLength="50" />
           <Property Name="FechaModificacion" Type="datetime" />
           <Property Name="UsuarioMod" Type="nvarchar" MaxLength="50" />
+          <Property Name="TipoPieza" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="ItemCosto">
           <Key>
@@ -289,6 +290,7 @@
           <Property Name="UsuarioCrea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FechaModificacion" Type="DateTime" Precision="3" />
           <Property Name="UsuarioMod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TipoPieza" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -417,6 +419,7 @@
           <EntitySetMapping Name="Item">
             <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
                 <ScalarProperty Name="UsuarioMod" ColumnName="UsuarioMod" />
                 <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
                 <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />

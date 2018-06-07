@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,41 @@ namespace DataAccessLayer
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
                 return (List<Costos>)db.Costos.ToList().OrderByDescending(c => c.Categoria).ThenBy(c => c.Id).ToList();
+            }
+        }
+
+        public void InsertCostos(Costos Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    db.Costos.Add(Obj);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+            }
+        }
+
+        public void UpdateCostos(Costos Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    Costos Entidad = (from n in db.Costos
+                                       where n.Id == Obj.Id
+                                       select n).FirstOrDefault();
+                    db.Entry(Entidad).CurrentValues.SetValues(Obj);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
             }
         }
     }

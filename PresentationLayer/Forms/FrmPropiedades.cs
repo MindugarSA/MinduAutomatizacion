@@ -25,18 +25,20 @@ namespace PresentationLayer
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
-            CargarGridCostos();
+            CargarGridPropiedades();
         }
 
-        private void CargarGridCostos()
+        private void CargarGridPropiedades()
         {
             PropiedadesDataSource = new BindingList<Propiedades>(PropiedadesBL.GetPropiedades());
             dataGridView1.DataSource = PropiedadesDataSource;
             dataGridView1.Columns["Id"].Visible = false;
             dataGridView1.Columns["Activo"].Visible = false;
 
-            dataGridView1.AjustColumnsWidthForGridWidth();
-            dataGridView1.Columns[2].Width = 300;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dataGridView1.AjustColumnsWidthForGridWidth();
+            //dataGridView1.Columns[2].Width = 300;
 
         }
 
@@ -177,6 +179,91 @@ namespace PresentationLayer
             materialCheckBox1.Checked =  true;
         }
 
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
+
+        private void LimpiarCampos()
+        {
+            labelNoMouse1.Text = "Agregar";
+            btnNuevo.Enabled = false;
+
+            txtCodigo.Text = "";
+            txtDescrpcion.Text = "";
+            materialCheckBox1.Checked = true;
+        }
+
+        private bool ValidarCampos()
+        {
+            bool Valido = true;
+
+            if (txtCodigo.Text == string.Empty)
+            {
+                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
+                Valido = false;
+            }
+            else if (txtDescrpcion.Text == string.Empty)
+            {
+                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripcion");
+                Valido = false;
+            }
+            return Valido;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            TextBox cControl = (TextBox)sender;
+
+            if (cControl.Text.Trim().Length != 0)
+                errorIcono.SetError(cControl, "");
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                List<Propiedades> lpropi = new List<Propiedades>();
+                Propiedades Propi = new Propiedades();
+
+                Propi.Codigo = txtCodigo.Text;
+                Propi.Descripcion = txtDescrpcion.Text;
+                Propi.Activo = materialCheckBox1.Checked ? 1 : 0;
+
+                switch (labelNoMouse1.Text.Trim())
+                {
+
+                    case "Agregar":
+                        lpropi.Add(Propi);
+                        PropiedadesBL.InserPropiedades(lpropi);
+
+                        CargarGridPropiedades();
+                        // LimpiarCampos();
+                        dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
+                        dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[2];
+
+                        CargarCampos(dataGridView1.RowCount - 1);
+                        break;
+                    case "Actualizar":
+                        Propi.id = Convert.ToInt32(dataGridView1[0, dataGridView1.CurrentRow.Index].Value);
+                        lpropi.Add(Propi);
+                        PropiedadesBL.UpdatePropiedades(lpropi);
+
+                        int nRow = dataGridView1.CurrentRow.Index;
+                        CargarGridPropiedades();
+
+                        dataGridView1.Rows[nRow].Selected = true;
+                        dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[2];
+                        break;
+                }
+
+            }
+        }
     }
 }
