@@ -42,7 +42,7 @@ namespace DataAccessLayer
             }
         }
 
-        public void InsertItem(Item Obj)
+        public Item InsertItem(Item Obj)
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
@@ -55,10 +55,11 @@ namespace DataAccessLayer
                 {
                     EntityExceptionError.CatchError(ex);
                 }
+                return Obj;
             }
         }
 
-        public void UpdateItem(Item Obj)
+        public Item UpdateItem(Item Obj)
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
@@ -74,6 +75,7 @@ namespace DataAccessLayer
                 {
                     EntityExceptionError.CatchError(ex);
                 }
+                return Obj;
             }
         }
     }

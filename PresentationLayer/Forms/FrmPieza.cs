@@ -21,7 +21,8 @@ namespace PresentationLayer.Forms
 
         private string ModoPantalla = "";
         Item ItemEntidad = new Item();
-        ItemCosto Entidad = new ItemCosto();
+        ItemCosto CostoEntidad = new ItemCosto();
+        List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         double ValorCostoEditado = 0;
         bool bControlActive = false;
         string pathImagen = "";
@@ -33,8 +34,9 @@ namespace PresentationLayer.Forms
             InitializeComponent();
             SetearControles();
             CargarCombos();
-            CargarGrids();
-            FormatearGrids();
+            CargarGridsCostos();
+            FormatearGridsCostos();
+            CargarGridListadoItem();
             EnlazarCampos();
 
             metroComboBox3.SelectedIndex = 0;
@@ -43,7 +45,10 @@ namespace PresentationLayer.Forms
             panel3.Visible = false;
 
             metroTabControl1.SelectedIndex = 0;
+            materialCheckBox1.Checked = true;
         }
+
+        #region EVENTOS
 
         private void FrmItemSimple_Load(object sender, EventArgs e)
         {
@@ -54,7 +59,7 @@ namespace PresentationLayer.Forms
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
         {
             DataRow r = ((DataRowView)e.ListItem).Row;
-            e.Value = r["Codigo"].ToString().Trim().Replace("-","") + " - " + r["Descripcion"].ToString().Trim();
+            e.Value = r["Codigo"].ToString().Trim().Replace("-", "") + " - " + r["Descripcion"].ToString().Trim();
         }
 
         private void metroComboBox4_Format(object sender, ListControlConvertEventArgs e)
@@ -86,102 +91,12 @@ namespace PresentationLayer.Forms
             txtCodigo.SelectionStart = txtCodigo.Text.Length;
         }
 
-        private void CargarCombos()
-        {
-            //Combox Familia
-            DataTable DTFam = new DataTable().ListToDataTable(FamiliaBL.GetFamilias());
-            DataRow row = DTFam.NewRow();
-            row["Id"] = 0;
-            row["Codigo"] = "";
-            row["Descripcion"] = "";
-            DTFam.Rows.InsertAt(row, 0);
-
-            metroComboBox2.DataSource = DTFam;
-            metroComboBox2.DisplayMember = "Descripcion";
-            metroComboBox2.ValueMember = "Codigo";
-
-            metroComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            metroComboBox2.SelectedIndex = 1;
-
-            //Combox Familia
-            metroComboBox4.DataSource = new DataTable().ListToDataTable(PropiedadesBL.GetPropiedades());
-            metroComboBox4.DisplayMember = "Descripcion";
-            metroComboBox4.ValueMember = "Codigo";
-
-            metroComboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
-            metroComboBox4.SelectedIndex = 0;
-
-        }
-
-        private void CargarGrids()
-        {
-            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(Convert.ToInt32(Entidad.IdItem));
-            //Costos RRHH
-            DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
-                            .Where(r => r.Field<string>("Categoria") == "HH")
-                            .CopyToDataTable();
-            dgvCostoRRHH.DataSource = dtCostosRRHH;
-            
-            //Costos Procesos
-            DataTable dtCostosAcero = dtItemCostos.AsEnumerable()
-                            .Where(r => r.Field<string>("Categoria") == "AC")
-                            .CopyToDataTable();
-            dgvCostoAcero.DataSource = dtCostosAcero;
-
-            //Costos Procesos
-            DataTable dtCostosPro = dtItemCostos.AsEnumerable()
-                            .Where(r => r.Field<string>("Categoria") == "PR")
-                            .CopyToDataTable();
-            dgvCostoProc.DataSource = dtCostosPro;
-            //Listado de Items
-
-            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P");
-            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-        }
-
-        private void FormatearGrids()
-        {
-            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvCostoRRHH, dgvCostoProc, dgvCostoAcero };
-
-            foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
-            {
-                dgvActual.Columns[0].Visible = false;
-                dgvActual.Columns[1].Visible = false;
-                dgvActual.Columns[2].Visible = false;
-                dgvActual.Columns[3].Visible = false;
-
-                dgvActual.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvActual.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvActual.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                dgvActual.Columns[6].DefaultCellStyle.Format = "#,0.00###";
-                dgvActual.Columns[7].DefaultCellStyle.Format = "#,0.00###";
-                dgvActual.Columns[8].DefaultCellStyle.Format = "#,0.00###";
-
-                dgvActual.Columns[6].ReadOnly = false;
-
-                dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvActual.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
-
-            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3 ,4 ,6 ,7, 8 ,9};
-            foreach (DataGridViewColumn col in dgvListaItems.Columns)
-            {
-                if (!visibleColumns.Contains(col.Index))
-                    col.Visible = false;
-            }
-        }
-
         private void dgvCostoValidar_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
             if (e.RowIndex == -1)
                 return;
-            else if(dgvActual.SelectedRows.Count == 1)
+            else if (dgvActual.SelectedRows.Count == 1)
             {
                 try
                 {
@@ -192,7 +107,7 @@ namespace PresentationLayer.Forms
                 }
                 catch (Exception) { }
             }
-            
+
         }
 
         private void dgvCostoValidar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -200,7 +115,7 @@ namespace PresentationLayer.Forms
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
             if (dgvActual.CurrentRow.Index == -1)
                 return;
-            else if (dgvActual.CurrentCell.ColumnIndex == 7 )
+            else if (dgvActual.CurrentCell.ColumnIndex == 7)
             {
                 e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
             }
@@ -227,12 +142,12 @@ namespace PresentationLayer.Forms
             if (dgvActual.CurrentRow.Index == -1)
                 return;
 
-            if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value.ToString().Length == 0 )
+            if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value.ToString().Length == 0)
                 dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value = "0,00";
             else if (ValorCostoEditado != Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value))
             {
                 dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[8].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[6].Value) *
-                                                                                Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value)  ;
+                                                                                Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value);
                 switch (dgvActual.Name)
                 {
                     case "dgvCostoRRHH":
@@ -252,13 +167,6 @@ namespace PresentationLayer.Forms
                                        Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
 
             }
-        }
-
-        private double SumaColumnaDoubleDT(DataTable dt, string sCol1, string sCol2)
-        {
-            var Total = dt.AsEnumerable()
-                        .Sum(r => (r.Field<decimal>(sCol1) * r.Field<decimal>(sCol2)));
-            return Convert.ToDouble(Total);
         }
 
         private void TxtValidar_KeyPress(object sender, KeyPressEventArgs e)
@@ -302,6 +210,388 @@ namespace PresentationLayer.Forms
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString(); ;
         }
+
+        private void dgvListaItems_DoubleClick(object sender, EventArgs e)
+        {
+            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            LimpiarCampos();
+            CargarCampos(ItemId);
+            CargarGridsCostos();
+            FormatearGridsCostos();
+        }
+
+        private void materialFlatButton4_Click(object sender, EventArgs e)
+        {
+            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            LimpiarCampos();
+            CargarCampos(ItemId);
+            CargarGridsCostos();
+            FormatearGridsCostos();
+        }
+
+        private void txtValidar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox TxtActual = (TextBox)sender;
+            if (!TxtActual.Focused)
+                try
+                {
+                    if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
+                    TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+        }
+
+        private void materialFlatButton2_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+            ModoPantalla = "Crear";
+            panel3.Visible = false;
+            labelNoMouse1.Text = "Agregar";
+            CargarGridsCostos();
+            CargarGridListadoItem();
+            FormatearGridsCostos();
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e)
+        {
+            metroTabControl1.SelectedIndex = 3;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oFD = new OpenFileDialog();
+            oFD.Title = "Seleccionar Imagen";
+            oFD.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            pathImagen = "";
+
+            try
+            {
+                if (oFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    pathImagen = oFD.FileName;
+                    pictureBox1.BackgroundImage = new Bitmap(@pathImagen);
+
+                    byte[] byteimg = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+                    ItemEntidad.Imagen = byteimg;
+                    //pictureBox1.BackgroundImage.Dispose();
+                    //pictureBox1.BackgroundImage = null;
+
+                    //MessageBox.Show("Conversion");
+
+                    //Image nImg =  ImageExtensions.byteArrayToImage(byteimg);
+
+                    //pictureBox1.BackgroundImage = nImg;
+                }
+            }
+            catch { }
+        }
+
+        private void metroComboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                CargarEntidadItem();
+                switch (labelNoMouse1.Text.Trim())
+                {
+                    case "Agregar":
+                        ItemsBL.InsertItem(ItemEntidad);
+                        CargarEntidadCosto(ItemEntidad);
+                        ItemCostoBL.InsertItemCostos(ListCostoEntidad);
+                        break;
+                    case "Actualizar":
+                        ItemsBL.UpdateItem(ItemEntidad);
+                        CargarEntidadCosto(ItemEntidad);
+                        List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                        List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                        ItemCostoBL.InsertItemCostos(CostosInsert);
+                        ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                        break;
+                }
+            }
+        }
+
+        private void CargarEntidadItem()
+        {
+            ItemEntidad.Codigo = txtCodigo.Text.Trim();
+            ItemEntidad.Descripcion = txtDescrpcion.Text;
+            ItemEntidad.Nombre = txtNombre.Text;
+            ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
+            ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
+            ItemEntidad.TipoItem = "P";
+            ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
+            ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
+            ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
+            ItemEntidad.Diametro = Convert.ToDecimal(txtDiametro.Text);
+            ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
+            ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
+            ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
+            ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
+            ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
+            ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
+            ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
+            ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+            ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+            if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
+
+        }
+
+        private void CargarEntidadCosto(Item ItemEnti)
+        {
+            DataTable dtCostosItem = new DataTable();
+
+            dtCostosItem.Merge((DataTable)dgvCostoRRHH.DataSource);
+            dtCostosItem.Merge((DataTable)dgvCostoAcero.DataSource);
+            dtCostosItem.Merge((DataTable)dgvCostoProc.DataSource);
+
+            ListCostoEntidad = new List<ItemCosto>();
+
+            foreach (DataRow row in dtCostosItem.Rows)
+            {
+                CostoEntidad = new ItemCosto();
+                CostoEntidad.IdItem = ItemEnti.Id;
+                CostoEntidad.IdCosto = Convert.ToInt32(row["IdCosto"]);
+                CostoEntidad.Unidad = row["Unidad"].ToString();
+                CostoEntidad.Valor = Convert.ToDecimal(row["Valor"]);
+                CostoEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
+                CostoEntidad.Total = Convert.ToDecimal(row["Total"]);
+                CostoEntidad.Id = Convert.ToInt32(row["Id"]);
+                ListCostoEntidad.Add(CostoEntidad);
+            }
+
+        }
+
+        private void txtValidarVacio_TextChanged(object sender, EventArgs e)
+        {
+            TextBox cControl = (TextBox)sender;
+
+            if (cControl.Text.Trim().Length != 0)
+                errorIcono.SetError(cControl, "");
+        }
+
+        private bool ValidarCampos()
+        {
+            bool Valido = true;
+
+            if (txtCodigo.Text == string.Empty)
+            {
+                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
+                Valido = false;
+            }
+            else if (txtDescrpcion.Text == string.Empty)
+            {
+                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripción");
+                Valido = false;
+            }
+
+            return Valido;
+        }
+
+        #endregion
+
+        /// <summary>
+        ///  METODOS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+        #region METODOS
+
+        private void CargarCombos()
+        {
+            //Combox Familia
+            DataTable DTFam = new DataTable().ListToDataTable(FamiliaBL.GetFamilias());
+            DataRow row = DTFam.NewRow();
+            row["Id"] = 0;
+            row["Codigo"] = "";
+            row["Descripcion"] = "";
+            DTFam.Rows.InsertAt(row, 0);
+
+            metroComboBox2.DataSource = DTFam;
+            metroComboBox2.DisplayMember = "Descripcion";
+            metroComboBox2.ValueMember = "Codigo";
+
+            metroComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            metroComboBox2.SelectedIndex = 1;
+
+            //Combox Familia
+            metroComboBox4.DataSource = new DataTable().ListToDataTable(PropiedadesBL.GetPropiedades());
+            metroComboBox4.DisplayMember = "Descripcion";
+            metroComboBox4.ValueMember = "Codigo";
+
+            metroComboBox4.DropDownStyle = ComboBoxStyle.DropDownList;
+            metroComboBox4.SelectedIndex = 0;
+
+        }
+
+        private void CargarGridsCostos()
+        {
+            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(ItemEntidad.Id);
+            //Costos RRHH
+            DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
+                            .Where(r => r.Field<string>("Categoria") == "HH")
+                            .CopyToDataTable();
+            dgvCostoRRHH.DataSource = dtCostosRRHH;
+
+            //Costos Procesos
+            DataTable dtCostosAcero = dtItemCostos.AsEnumerable()
+                            .Where(r => r.Field<string>("Categoria") == "AC")
+                            .CopyToDataTable();
+            dgvCostoAcero.DataSource = dtCostosAcero;
+
+            //Costos Procesos
+            DataTable dtCostosPro = dtItemCostos.AsEnumerable()
+                            .Where(r => r.Field<string>("Categoria") == "PR")
+                            .CopyToDataTable();
+            dgvCostoProc.DataSource = dtCostosPro;
+        }
+
+        private void CargarGridListadoItem()
+        {
+            //Listado de Items
+            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P");
+            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 4, 6, 7, 8, 9 };
+            foreach (DataGridViewColumn col in dgvListaItems.Columns)
+            {
+                if (!visibleColumns.Contains(col.Index))
+                    col.Visible = false;
+            }
+        }
+
+        private void FormatearGridsCostos()
+        {
+            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvCostoRRHH, dgvCostoProc, dgvCostoAcero };
+
+            foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
+            {
+                dgvActual.Columns[0].Visible = false;
+                dgvActual.Columns[1].Visible = false;
+                dgvActual.Columns[2].Visible = false;
+                dgvActual.Columns[3].Visible = false;
+                dgvActual.Columns[9].Visible = false;
+
+                dgvActual.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvActual.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                dgvActual.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                dgvActual.Columns[6].DefaultCellStyle.Format = "#,0.00###";
+                dgvActual.Columns[7].DefaultCellStyle.Format = "#,0.00###";
+                dgvActual.Columns[8].DefaultCellStyle.Format = "#,0.00###";
+
+                dgvActual.Columns[6].ReadOnly = false;
+
+                dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                dgvActual.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+        }
+
+        private double SumaColumnaDoubleDT(DataTable dt, string sCol1, string sCol2)
+        {
+            var Total = dt.AsEnumerable()
+                        .Sum(r => (r.Field<decimal>(sCol1) * r.Field<decimal>(sCol2)));
+            return Convert.ToDouble(Total);
+        }
+
+        private void CargarCampos(int itemId)
+        {
+
+            ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
+            EnlazarCampos();
+            metroTabControl1.SelectedIndex = 0;
+            labelNoMouse1.Text = "Actualizar";
+            ModoPantalla = "Modificar";
+            panel3.Visible = true;
+
+            DataTable dt = (DataTable)metroComboBox2.DataSource;
+
+            var dFami = ((DataTable)metroComboBox2.DataSource).AsEnumerable()
+                                    .Where(r => r.Field<int>("Id") == ItemEntidad.Familia)
+                                    .FirstOrDefault();
+
+            if (dFami[1] != null) metroComboBox2.SelectedValue = dFami[1]; else metroComboBox2.SelectedIndex = 0;
+
+        }
+
+        private void EnlazarCampos()
+        {
+
+            txtCodigo.DataBindings.Clear();
+            txtDescrpcion.DataBindings.Clear();
+            txtNombre.DataBindings.Clear();
+            txtEspesor.DataBindings.Clear();
+            txtAncho.DataBindings.Clear();
+            txtLargo.DataBindings.Clear();
+            txtDiametro.DataBindings.Clear();
+            txtVolumen.DataBindings.Clear();
+            txtPeso.DataBindings.Clear();
+            txtTotCosCom.DataBindings.Clear();
+            txtTotCosPro.DataBindings.Clear();
+            txtTotCosRRHH.DataBindings.Clear();
+            txtTotalCostos.DataBindings.Clear();
+
+            txtCodigo.DataBindings.Add("Text", ItemEntidad, "Codigo", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtDescrpcion.DataBindings.Add("Text", ItemEntidad, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtNombre.DataBindings.Add("Text", ItemEntidad, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtEspesor.DataBindings.Add("Text", ItemEntidad, "Espesor", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtAncho.DataBindings.Add("Text", ItemEntidad, "Ancho", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtLargo.DataBindings.Add("Text", ItemEntidad, "Largo", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtDiametro.DataBindings.Add("Text", ItemEntidad, "Diametro", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtVolumen.DataBindings.Add("Text", ItemEntidad, "Volumen", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtPeso.DataBindings.Add("Text", ItemEntidad, "Peso", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTotCosCom.DataBindings.Add("Text", ItemEntidad, "CostoCM", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTotCosPro.DataBindings.Add("Text", ItemEntidad, "CostoPR", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTotCosRRHH.DataBindings.Add("Text", ItemEntidad, "CostoRH", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtTotalCostos.DataBindings.Add("Text", ItemEntidad, "CostoTotal", true, DataSourceUpdateMode.OnPropertyChanged);
+
+            materialCheckBox1.Checked = ItemEntidad.Estatus == 1 ? true : false;
+            if(ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
+
+            txtCostoAcero.Text = "";
+            txtCostoProc.Text = "";
+            txtCostoRRHH.Text = "";
+
+        }
+
+        private void LimpiarCampos()
+        {
+            ItemEntidad = new Item();
+
+            txtCodigo.Text = "";
+            txtDescrpcion.Text = "";
+            txtNombre.Text = "";
+            txtEspesor.Text = "";
+            txtAncho.Text = "";
+            txtLargo.Text = "";
+            txtDiametro.Text = "";
+            txtVolumen.Text = "";
+            txtPeso.Text = "";
+            txtTotCosCom.Text = "0.00";
+            txtTotCosPro.Text = "0.00";
+            txtTotCosRRHH.Text = "0.00";
+            txtTotalCostos.Text = "0.00";
+            txtCostoAcero.Text = "0.00";
+            txtCostoProc.Text = "0.00";
+            txtCostoRRHH.Text = "0.00";
+            pictureBox1.BackgroundImage = null;
+            metroComboBox2.SelectedIndex = -1;
+            metroComboBox3.SelectedIndex = 0;
+            metroComboBox4.SelectedIndex = -1;
+            materialCheckBox1.Checked = true;
+
+        }
+
+
+        #endregion
 
         #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -413,138 +703,13 @@ namespace PresentationLayer.Forms
         }
 
 
+
+
         #endregion
 
-        private void dgvListaItems_DoubleClick(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
-            CargarCampos(ItemId);
-        }
-
-        private void materialFlatButton4_Click(object sender, EventArgs e)
-        {
-            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
-            CargarCampos(ItemId);
-        }
-
-        private void CargarCampos(int itemId)
-        {
-
-            ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
-            EnlazarCampos();
-            metroTabControl1.SelectedIndex = 0;
-            labelNoMouse1.Text = "Actualizar";
-            ModoPantalla = "Modificar";
-            panel3.Visible = true;
-
-            DataTable dt = (DataTable)metroComboBox2.DataSource;
-
-            var dFami = ((DataTable)metroComboBox2.DataSource).AsEnumerable()
-                                    .Where(r => r.Field<int>("Id") == ItemEntidad.Familia)
-                                    .FirstOrDefault();
-
-            if (dFami[1] != null) metroComboBox2.SelectedValue = dFami[1]; else metroComboBox2.SelectedIndex = 0;
-
-        }
-
-        private void EnlazarCampos()
-        {
-
-            txtCodigo.DataBindings.Clear();
-            txtDescrpcion.DataBindings.Clear();
-            txtNombre.DataBindings.Clear();
-            txtEspesor.DataBindings.Clear();
-            txtAncho.DataBindings.Clear();
-            txtLargo.DataBindings.Clear();
-            txtDiametro.DataBindings.Clear();
-            txtVolumen.DataBindings.Clear();
-            txtPeso.DataBindings.Clear();
-
-            txtCodigo.DataBindings.Add("Text", ItemEntidad, "Codigo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtDescrpcion.DataBindings.Add("Text", ItemEntidad, "Descripcion", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtNombre.DataBindings.Add("Text", ItemEntidad, "Nombre", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtEspesor.DataBindings.Add("Text", ItemEntidad, "Espesor", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtAncho.DataBindings.Add("Text", ItemEntidad, "Ancho", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtLargo.DataBindings.Add("Text", ItemEntidad, "Largo", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtDiametro.DataBindings.Add("Text", ItemEntidad, "Diametro", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtVolumen.DataBindings.Add("Text", ItemEntidad, "Volumen", true, DataSourceUpdateMode.OnPropertyChanged);
-            txtPeso.DataBindings.Add("Text", ItemEntidad, "Peso", true, DataSourceUpdateMode.OnPropertyChanged);
-
-        }
-
-        private void LimpiarCampos()
-        {
-            txtCodigo.Text = "";
-            txtDescrpcion.Text = "";
-            txtNombre.Text = "";
-            txtEspesor.Text = "";
-            txtAncho.Text = "";
-            txtLargo.Text = "";
-            txtDiametro.Text = "";
-            txtVolumen.Text = "";
-            txtPeso.Text = "";
-        }
-
-        private void txtValidar_TextChanged(object sender, EventArgs e)
-        {
-            TextBox TxtActual = (TextBox)sender;
-            if(!TxtActual.Focused)
-            try
-            {
-                if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
-                TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
-            }
-            catch (Exception)
-            {
-                //throw;
-            }
-        }
-
-        private void materialFlatButton2_Click(object sender, EventArgs e)
-        {
-            LimpiarCampos();
-            ModoPantalla = "Crear";
-            panel3.Visible = false;
-            labelNoMouse1.Text = "Agregar";
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            metroTabControl1.SelectedIndex = 3;
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog oFD = new OpenFileDialog();
-            oFD.Title = "Seleccionar Imagen";
-            oFD.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            pathImagen = "";
-
-            try
-            {
-                if(oFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    pathImagen = oFD.FileName;
-                    pictureBox1.BackgroundImage = new Bitmap(@pathImagen);
-
-                    byte[] byteimg =  ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
-                    ItemEntidad.Imagen = byteimg;
-                    //pictureBox1.BackgroundImage.Dispose();
-                    //pictureBox1.BackgroundImage = null;
-
-                    //MessageBox.Show("Conversion");
-
-                    //Image nImg =  ImageExtensions.byteArrayToImage(byteimg);
-
-                    //pictureBox1.BackgroundImage = nImg;
-                }
-            }
-            catch {}
-        }
-
-        private void metroComboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
+            CargarEntidadCosto(ItemEntidad);
         }
     }
 }

@@ -30,6 +30,7 @@ namespace Entities
         public Nullable<decimal> CostoCM { get; set; }
         public Nullable<decimal> CostoRH { get; set; }
         public Nullable<decimal> CostoPR { get; set; }
+        public Nullable<decimal> CostoAC { get; set; }
         public Nullable<decimal> CostoTotal { get; set; }
         public byte[] Imagen { get; set; }
         public Nullable<System.DateTime> FechaCreacion { get; set; }
@@ -37,5 +38,6 @@ namespace Entities
         public Nullable<System.DateTime> FechaModificacion { get; set; }
         public string UsuarioMod { get; set; }
         public string TipoPieza { get; set; }
+        public Nullable<int> Estatus { get; set; }
     }
 }

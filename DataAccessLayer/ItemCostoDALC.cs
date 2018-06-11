@@ -64,5 +64,24 @@ namespace DataAccessLayer
                 }
             }
         }
+
+        public void DeleteItemCosto(ItemCosto Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    ItemCosto Entidad = (from n in db.ItemCosto
+                                         where n.Id == Obj.Id
+                                         select n).FirstOrDefault();
+                    db.ItemCosto.Remove(Entidad);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+            }
+        }
     }
 }

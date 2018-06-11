@@ -10,18 +10,14 @@
 namespace Entities
 {
     using System;
+    using System.Collections.Generic;
     
-    public partial class SP_GetItemCostoID_Result
+    public partial class sysdiagrams
     {
-        public int IdItem { get; set; }
-        public string Descripcion { get; set; }
-        public int IdCosto { get; set; }
-        public string Categoria { get; set; }
-        public string Tipo { get; set; }
-        public string Unidad { get; set; }
-        public Nullable<decimal> Valor { get; set; }
-        public decimal Cantidad { get; set; }
-        public decimal Total { get; set; }
-        public int Id { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

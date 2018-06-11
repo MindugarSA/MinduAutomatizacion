@@ -23,5 +23,32 @@ namespace BusinessLayer
             ItemCostoDALC obj = new ItemCostoDALC();
             return obj.GetItemCostosId(IdItem);
         }
+
+        public static void InsertItemCostos(List<ItemCosto> ListaIC)
+        {
+            ItemCostoDALC obj = new ItemCostoDALC();
+            foreach (ItemCosto ItenC in ListaIC)
+            {
+                obj.InsertItemCosto(ItenC);
+            }
+        }
+
+        public static void UpdateItemCostos(List<ItemCosto> ListaIC)
+        {
+            ItemCostoDALC obj = new ItemCostoDALC();
+            foreach (ItemCosto ItenC in ListaIC)
+            {
+                obj.UpdateItemCosto(ItenC);
+            }
+        }
+
+        public static void DeleteItemCostos(List<ItemCosto> ListaIC)
+        {
+            ItemCostoDALC obj = new ItemCostoDALC();
+            foreach (ItemCosto ItenC in ListaIC)
+            {
+                obj.DeleteItemCosto(ItenC);
+            }
+        }
     }
 }
