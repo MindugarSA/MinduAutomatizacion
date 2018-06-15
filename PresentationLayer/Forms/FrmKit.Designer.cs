@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -58,6 +59,7 @@
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txtItemSelec = new System.Windows.Forms.TextBox();
             this.dgvDetalleItem = new MetroFramework.Controls.MetroGrid();
@@ -84,21 +86,15 @@
             this.txtVolumen = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPeso = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNombre = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCodigo = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
             this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -109,6 +105,11 @@
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtEspesorC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label24 = new System.Windows.Forms.Label();
@@ -150,18 +151,18 @@
             this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
+            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -169,6 +170,11 @@
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).BeginInit();
@@ -180,6 +186,7 @@
             this.groupBox6.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -309,33 +316,29 @@
             this.materialFlatButton1.TabIndex = 0;
             this.materialFlatButton1.UseCompatibleTextRendering = true;
             this.materialFlatButton1.UseVisualStyleBackColor = false;
+            this.materialFlatButton1.Click += new System.EventHandler(this.materialFlatButton1_Click);
             this.materialFlatButton1.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.materialFlatButton1.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.txtItemSelec);
             this.groupBox1.Controls.Add(this.dgvDetalleItem);
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
-            this.groupBox1.Controls.Add(this.pictureBox5);
-            this.groupBox1.Controls.Add(this.pictureBox4);
             this.groupBox1.Controls.Add(this.pictureBox3);
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.metroComboBox4);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.metroComboBox3);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.txtCodigo);
-            this.groupBox1.Controls.Add(this.metroComboBox1);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.metroComboBox2);
             this.groupBox1.Controls.Add(this.materialCheckBox1);
             this.groupBox1.Controls.Add(this.label7);
@@ -348,12 +351,26 @@
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(680, 173);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.TabIndex = 90;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // pictureBox7
             // 
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(673, 368);
+            this.pictureBox7.Location = new System.Drawing.Point(673, 353);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(24, 24);
             this.pictureBox7.TabIndex = 96;
@@ -369,7 +386,7 @@
             this.txtItemSelec.Cursor = System.Windows.Forms.Cursors.Default;
             this.txtItemSelec.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemSelec.ForeColor = System.Drawing.Color.White;
-            this.txtItemSelec.Location = new System.Drawing.Point(11, 367);
+            this.txtItemSelec.Location = new System.Drawing.Point(11, 352);
             this.txtItemSelec.Margin = new System.Windows.Forms.Padding(0);
             this.txtItemSelec.Name = "txtItemSelec";
             this.txtItemSelec.ReadOnly = true;
@@ -412,7 +429,7 @@
             this.dgvDetalleItem.EnableHeadersVisualStyles = false;
             this.dgvDetalleItem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvDetalleItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvDetalleItem.Location = new System.Drawing.Point(14, 402);
+            this.dgvDetalleItem.Location = new System.Drawing.Point(14, 386);
             this.dgvDetalleItem.MultiSelect = false;
             this.dgvDetalleItem.Name = "dgvDetalleItem";
             this.dgvDetalleItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -427,7 +444,7 @@
             this.dgvDetalleItem.RowHeadersVisible = false;
             this.dgvDetalleItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleItem.Size = new System.Drawing.Size(679, 225);
+            this.dgvDetalleItem.Size = new System.Drawing.Size(679, 240);
             this.dgvDetalleItem.TabIndex = 94;
             this.dgvDetalleItem.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItemDetalleValidar_CellClick);
             this.dgvDetalleItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvItemDetalleValidar_EditingControlShowing);
@@ -457,7 +474,7 @@
             this.groupBox5.Controls.Add(this.txtTotalCostos);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F);
-            this.groupBox5.Location = new System.Drawing.Point(448, 209);
+            this.groupBox5.Location = new System.Drawing.Point(448, 194);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(247, 147);
             this.groupBox5.TabIndex = 92;
@@ -651,7 +668,7 @@
             this.groupBox4.Controls.Add(this.txtPeso);
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(11, 209);
+            this.groupBox4.Location = new System.Drawing.Point(11, 194);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(424, 147);
             this.groupBox4.TabIndex = 91;
@@ -916,39 +933,12 @@
             this.label17.TabIndex = 81;
             this.label17.Text = "Peso(Kg)";
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(680, 173);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 90;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(229, 142);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox4.TabIndex = 89;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(498, 181);
+            this.pictureBox3.Location = new System.Drawing.Point(498, 150);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(24, 24);
             this.pictureBox3.TabIndex = 88;
@@ -962,7 +952,7 @@
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(498, 101);
+            this.pictureBox2.Location = new System.Drawing.Point(498, 115);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(24, 24);
             this.pictureBox2.TabIndex = 87;
@@ -973,6 +963,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(539, 16);
             this.pictureBox1.Name = "pictureBox1";
@@ -985,7 +976,7 @@
             this.metroComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.metroComboBox4.FormattingEnabled = true;
             this.metroComboBox4.ItemHeight = 23;
-            this.metroComboBox4.Location = new System.Drawing.Point(105, 177);
+            this.metroComboBox4.Location = new System.Drawing.Point(105, 148);
             this.metroComboBox4.Name = "metroComboBox4";
             this.metroComboBox4.Size = new System.Drawing.Size(387, 29);
             this.metroComboBox4.TabIndex = 73;
@@ -996,35 +987,11 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label13.Location = new System.Drawing.Point(7, 181);
+            this.label13.Location = new System.Drawing.Point(7, 152);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 20);
             this.label13.TabIndex = 72;
             this.label13.Text = "Caracteristica";
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Items.AddRange(new object[] {
-            "K - Kit",
-            "T- Producto Terminado"});
-            this.metroComboBox3.Location = new System.Drawing.Point(105, 141);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(116, 29);
-            this.metroComboBox3.TabIndex = 71;
-            this.metroComboBox3.UseSelectable = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label12.Location = new System.Drawing.Point(49, 145);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(36, 20);
-            this.label12.TabIndex = 70;
-            this.label12.Text = "Tipo";
             // 
             // label11
             // 
@@ -1105,33 +1072,12 @@
             this.txtCodigo.WordWrap = true;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
-            // metroComboBox1
-            // 
-            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(376, 141);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(116, 29);
-            this.metroComboBox1.TabIndex = 63;
-            this.metroComboBox1.UseSelectable = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label6.Location = new System.Drawing.Point(312, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 20);
-            this.label6.TabIndex = 62;
-            this.label6.Text = "Unidad";
-            // 
             // metroComboBox2
             // 
             this.metroComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.metroComboBox2.FormattingEnabled = true;
             this.metroComboBox2.ItemHeight = 23;
-            this.metroComboBox2.Location = new System.Drawing.Point(105, 107);
+            this.metroComboBox2.Location = new System.Drawing.Point(105, 112);
             this.metroComboBox2.Name = "metroComboBox2";
             this.metroComboBox2.Size = new System.Drawing.Size(387, 29);
             this.metroComboBox2.TabIndex = 61;
@@ -1167,7 +1113,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label8.Location = new System.Drawing.Point(48, 111);
+            this.label8.Location = new System.Drawing.Point(48, 116);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 20);
             this.label8.TabIndex = 56;
@@ -1221,7 +1167,7 @@
             this.metroGrid1.Controls.Add(this.metroTabPage4);
             this.metroGrid1.Location = new System.Drawing.Point(21, 36);
             this.metroGrid1.Name = "metroGrid1";
-            this.metroGrid1.SelectedIndex = 0;
+            this.metroGrid1.SelectedIndex = 1;
             this.metroGrid1.Size = new System.Drawing.Size(733, 688);
             this.metroGrid1.TabIndex = 0;
             this.metroGrid1.UseSelectable = true;
@@ -1259,6 +1205,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.pictureBox13);
+            this.groupBox2.Controls.Add(this.pictureBox12);
+            this.groupBox2.Controls.Add(this.pictureBox11);
+            this.groupBox2.Controls.Add(this.pictureBox9);
+            this.groupBox2.Controls.Add(this.pictureBox4);
             this.groupBox2.Controls.Add(this.label23);
             this.groupBox2.Controls.Add(this.txtEspesorC);
             this.groupBox2.Controls.Add(this.label24);
@@ -1290,6 +1241,73 @@
             this.groupBox2.Size = new System.Drawing.Size(720, 641);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.BackgroundImage = global::PresentationLayer.Properties.Resources._checked;
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox13.Location = new System.Drawing.Point(670, 44);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox13.TabIndex = 125;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox13.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.BackgroundImage = global::PresentationLayer.Properties.Resources.up_arrow;
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox12.Location = new System.Drawing.Point(636, 45);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox12.TabIndex = 124;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox11.Location = new System.Drawing.Point(602, 45);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox11.TabIndex = 123;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_symbol_round_button;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(568, 45);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox9.TabIndex = 122;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.pictureBox9.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox9.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.settings__1_;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(498, 440);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.TabIndex = 121;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // label23
             // 
@@ -1527,6 +1545,7 @@
             // 
             // pictureBox10
             // 
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox10.Location = new System.Drawing.Point(534, 439);
             this.pictureBox10.Name = "pictureBox10";
@@ -1695,9 +1714,9 @@
             this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(467, 42);
+            this.pictureBox8.Location = new System.Drawing.Point(364, 45);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox8.Size = new System.Drawing.Size(27, 27);
             this.pictureBox8.TabIndex = 99;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
@@ -1735,7 +1754,7 @@
             this.materialSingleLineTextField1.SelectedText = "";
             this.materialSingleLineTextField1.SelectionLength = 0;
             this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(298, 23);
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(190, 23);
             this.materialSingleLineTextField1.TabIndex = 98;
             this.materialSingleLineTextField1.TabStop = false;
             this.materialSingleLineTextField1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2176,6 +2195,10 @@
             this.dgvListaItems.TabIndex = 58;
             this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
             // 
+            // errorIcono
+            // 
+            this.errorIcono.ContainerControl = this;
+            // 
             // formHeader1
             // 
             this.formHeader1.BackColor = System.Drawing.Color.Transparent;
@@ -2213,6 +2236,7 @@
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
@@ -2220,8 +2244,6 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -2230,6 +2252,11 @@
             this.metroTabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).EndInit();
@@ -2243,6 +2270,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2269,8 +2297,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCostoProc;
         private MetroFramework.Controls.MetroGrid dgvCostoProc;
         private MetroFramework.Controls.MetroTabPage metroTabPage1;
-        private MetroFramework.Controls.MetroComboBox metroComboBox1;
-        private System.Windows.Forms.Label label6;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
         private MaterialSkin.Controls.MaterialCheckBox materialCheckBox1;
         private System.Windows.Forms.Label label7;
@@ -2296,11 +2322,8 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtAncho;
         private MetroFramework.Controls.MetroComboBox metroComboBox4;
         private System.Windows.Forms.Label label13;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label5;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtEspesor;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -2352,5 +2375,11 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtCodigoC;
         private System.Windows.Forms.Label label35;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDescripcionC;
+        private System.Windows.Forms.ErrorProvider errorIcono;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox13;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }

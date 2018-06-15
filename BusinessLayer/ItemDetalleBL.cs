@@ -12,19 +12,19 @@ namespace BusinessLayer
 {
     public class ItemDetalleBL
     {
-        public static List<ItemDetalle> GetItemCostos()
+        public static List<ItemDetalle> GetItemDetalle()
         {
             ItemDetalleDALC obj = new ItemDetalleDALC();
             return obj.GetItemDetalle();
         }
 
-        public static DataTable GetItemCostosId(int IdItem)
+        public static DataTable GetItemDetalleId(int IdItem)
         {
             ItemDetalleDALC obj = new ItemDetalleDALC();
             return obj.GetItemDetalleId(IdItem);
         }
 
-        public static void InsertFamilias(List<ItemDetalle> ListaItem)
+        public static void InsertItemDetalle(List<ItemDetalle> ListaItem)
         {
             ItemDetalleDALC obj = new ItemDetalleDALC();
             foreach (ItemDetalle item in ListaItem)
@@ -33,12 +33,22 @@ namespace BusinessLayer
             }
         }
 
-        public static void UpdateFamilias(List<ItemDetalle> ListaItem)
+        public static void UpdateItemDetalle(List<ItemDetalle> ListaItem)
         {
             ItemDetalleDALC obj = new ItemDetalleDALC();
             foreach (ItemDetalle item in ListaItem)
             {
                 obj.UpdateItemDetalle(item);
+            }
+        }
+
+        public static void DeleteItemDetalle(List<ItemDetalle> ListaItem)
+        {
+            ItemDetalleDALC obj = new ItemDetalleDALC();
+            foreach (ItemDetalle item in ListaItem)
+            {
+                obj.DeleteItemDetalle(item);
+
             }
         }
     }

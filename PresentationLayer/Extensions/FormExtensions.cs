@@ -22,5 +22,30 @@ namespace PresentationLayer
 
             return controls;
         }
+
+        public static void InitializeClickHandlers(this Control parent)
+        {
+            if(parent is Form) parent.MouseClick += new MouseEventHandler(ControlsClick);
+
+            foreach (Control child in parent.Controls)
+            {
+                child.Click += new EventHandler(ControlsClick);
+                if (child is TextBox )
+                       child.TextChanged += new EventHandler(ControlsClick);
+                //child.MouseClick += new MouseEventHandler(ControlsClick);
+                InitializeClickHandlers(child);
+            }
+        }
+
+        private static void ControlsClick(object sender, EventArgs e)
+        {
+            try
+            {
+                //if((((Control)sender).FindForm()) != Form.ActiveForm)
+                    (((Control)sender).FindForm()).BringToFront();
+            }
+            catch {}
+        }
     }
+    
 }

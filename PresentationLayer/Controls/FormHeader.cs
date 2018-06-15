@@ -44,7 +44,11 @@ namespace PresentationLayer
 
         public void CerrarContenedor(Form oForm)
         {
-            oForm.Close();
+            try
+            {
+                oForm.Close();
+            }
+            catch {}
         }
 
         public void MaximizarContenedor(Form oForm)

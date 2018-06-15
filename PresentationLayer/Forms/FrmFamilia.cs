@@ -29,7 +29,7 @@ namespace PresentationLayer
             SetearControles();
             CargarComboReglaFamilia();
             CargarGridFamilia();
-
+            this.InitializeClickHandlers();
         }
 
         private void CargarGridFamilia()

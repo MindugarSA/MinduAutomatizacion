@@ -117,9 +117,8 @@
             this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
-            this.formHeader1 = new PresentationLayer.FormHeader();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.formHeader1 = new PresentationLayer.FormHeader();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -355,7 +354,7 @@
             this.txtTotCosPro.Multiline = false;
             this.txtTotCosPro.Name = "txtTotCosPro";
             this.txtTotCosPro.PasswordChar = '\0';
-            this.txtTotCosPro.ReadOnly = false;
+            this.txtTotCosPro.ReadOnly = true;
             this.txtTotCosPro.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTotCosPro.SelectedText = "";
             this.txtTotCosPro.SelectionLength = 0;
@@ -441,7 +440,7 @@
             this.txtTotCosRRHH.Multiline = false;
             this.txtTotCosRRHH.Name = "txtTotCosRRHH";
             this.txtTotCosRRHH.PasswordChar = '\0';
-            this.txtTotCosRRHH.ReadOnly = false;
+            this.txtTotCosRRHH.ReadOnly = true;
             this.txtTotCosRRHH.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTotCosRRHH.SelectedText = "";
             this.txtTotCosRRHH.SelectionLength = 0;
@@ -484,7 +483,7 @@
             this.txtTotalCostos.Multiline = false;
             this.txtTotalCostos.Name = "txtTotalCostos";
             this.txtTotalCostos.PasswordChar = '\0';
-            this.txtTotalCostos.ReadOnly = false;
+            this.txtTotalCostos.ReadOnly = true;
             this.txtTotalCostos.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txtTotalCostos.SelectedText = "";
             this.txtTotalCostos.SelectionLength = 0;
@@ -1553,6 +1552,10 @@
             this.dgvListaItems.TabIndex = 58;
             this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
             // 
+            // errorIcono
+            // 
+            this.errorIcono.ContainerControl = this;
+            // 
             // formHeader1
             // 
             this.formHeader1.BackColor = System.Drawing.Color.Transparent;
@@ -1566,27 +1569,12 @@
             this.formHeader1.Size = new System.Drawing.Size(771, 44);
             this.formHeader1.TabIndex = 0;
             // 
-            // errorIcono
-            // 
-            this.errorIcono.ContainerControl = this;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(469, 569);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 44;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // FrmPieza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(771, 613);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -1711,6 +1699,5 @@
         private Controls.LabelNoMouse labelNoMouse4;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
         private System.Windows.Forms.ErrorProvider errorIcono;
-        private System.Windows.Forms.Button button1;
     }
 }

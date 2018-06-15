@@ -19,7 +19,8 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
-        private string ModoPantalla = "";
+        public int IdIetmSearch { get; set; }
+        string ModoPantalla = "";
         Item ItemEntidad = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
@@ -34,6 +35,7 @@ namespace PresentationLayer.Forms
             InitializeComponent();
             SetearControles();
             CargarCombos();
+            LimpiarCampos();
             CargarGridsCostos();
             FormatearGridsCostos();
             CargarGridListadoItem();
@@ -46,6 +48,9 @@ namespace PresentationLayer.Forms
 
             metroTabControl1.SelectedIndex = 0;
             materialCheckBox1.Checked = true;
+            this.InitializeClickHandlers();
+            //InitializeClickHandlers(this);
+            //this.MouseClick += new MouseEventHandler(ControlsClick);
         }
 
         #region EVENTOS
@@ -54,6 +59,9 @@ namespace PresentationLayer.Forms
         {
             txtCodigo.Select();
             metroTabPage1.Select();
+            if (this.IdIetmSearch > 0)
+                CargarDatosItem(this.IdIetmSearch);
+            BringToFront();
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -199,6 +207,8 @@ namespace PresentationLayer.Forms
             TextBox TxtActual = (TextBox)sender;
             if (!bControlActive)
             {
+                if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
+                TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
                 bControlActive = true;
                 TxtActual.SelectAll();
             }
@@ -214,19 +224,30 @@ namespace PresentationLayer.Forms
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
-            LimpiarCampos();
-            CargarCampos(ItemId);
-            CargarGridsCostos();
-            FormatearGridsCostos();
+            CargarDatosItem(ItemId);
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            CargarDatosItem(ItemId);
+        }
+
+        private void CargarDatosItem(int ItemId)
+        {
             LimpiarCampos();
             CargarCampos(ItemId);
             CargarGridsCostos();
             FormatearGridsCostos();
+
+            txtCostoRRHH.Text = SumaColumnaDoubleDT((DataTable)dgvCostoRRHH.DataSource, "Cantidad", "Valor").ToString();
+            txtTotCosRRHH.Text = txtCostoRRHH.Text;
+            txtCostoProc.Text = SumaColumnaDoubleDT((DataTable)dgvCostoProc.DataSource, "Cantidad", "Valor").ToString();
+            txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
+            txtCostoAcero.Text = SumaColumnaDoubleDT((DataTable)dgvCostoAcero.DataSource, "Cantidad", "Valor").ToString();
+            txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -305,6 +326,9 @@ namespace PresentationLayer.Forms
                         ItemsBL.InsertItem(ItemEntidad);
                         CargarEntidadCosto(ItemEntidad);
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
+                        labelNoMouse1.Text = "Actualizar";
+                        ModoPantalla = "Modificar";
+                        panel3.Visible = true;
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -315,58 +339,12 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
                         break;
                 }
+                CargarGridsCostos();
+                FormatearGridsCostos();
             }
         }
 
-        private void CargarEntidadItem()
-        {
-            ItemEntidad.Codigo = txtCodigo.Text.Trim();
-            ItemEntidad.Descripcion = txtDescrpcion.Text;
-            ItemEntidad.Nombre = txtNombre.Text;
-            ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
-            ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
-            ItemEntidad.TipoItem = "P";
-            ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
-            ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
-            ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
-            ItemEntidad.Diametro = Convert.ToDecimal(txtDiametro.Text);
-            ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
-            ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
-            ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
-            ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
-            ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
-            ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
-            ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
-            ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
-            ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
-            if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
-        }
-
-        private void CargarEntidadCosto(Item ItemEnti)
-        {
-            DataTable dtCostosItem = new DataTable();
-
-            dtCostosItem.Merge((DataTable)dgvCostoRRHH.DataSource);
-            dtCostosItem.Merge((DataTable)dgvCostoAcero.DataSource);
-            dtCostosItem.Merge((DataTable)dgvCostoProc.DataSource);
-
-            ListCostoEntidad = new List<ItemCosto>();
-
-            foreach (DataRow row in dtCostosItem.Rows)
-            {
-                CostoEntidad = new ItemCosto();
-                CostoEntidad.IdItem = ItemEnti.Id;
-                CostoEntidad.IdCosto = Convert.ToInt32(row["IdCosto"]);
-                CostoEntidad.Unidad = row["Unidad"].ToString();
-                CostoEntidad.Valor = Convert.ToDecimal(row["Valor"]);
-                CostoEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
-                CostoEntidad.Total = Convert.ToDecimal(row["Total"]);
-                CostoEntidad.Id = Convert.ToInt32(row["Id"]);
-                ListCostoEntidad.Add(CostoEntidad);
-            }
-
-        }
 
         private void txtValidarVacio_TextChanged(object sender, EventArgs e)
         {
@@ -376,23 +354,7 @@ namespace PresentationLayer.Forms
                 errorIcono.SetError(cControl, "");
         }
 
-        private bool ValidarCampos()
-        {
-            bool Valido = true;
 
-            if (txtCodigo.Text == string.Empty)
-            {
-                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
-                Valido = false;
-            }
-            else if (txtDescrpcion.Text == string.Empty)
-            {
-                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripción");
-                Valido = false;
-            }
-
-            return Valido;
-        }
 
         #endregion
 
@@ -554,7 +516,7 @@ namespace PresentationLayer.Forms
             txtTotalCostos.DataBindings.Add("Text", ItemEntidad, "CostoTotal", true, DataSourceUpdateMode.OnPropertyChanged);
 
             materialCheckBox1.Checked = ItemEntidad.Estatus == 1 ? true : false;
-            if(ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
+            if (ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
 
             txtCostoAcero.Text = "";
             txtCostoProc.Text = "";
@@ -569,19 +531,19 @@ namespace PresentationLayer.Forms
             txtCodigo.Text = "";
             txtDescrpcion.Text = "";
             txtNombre.Text = "";
-            txtEspesor.Text = "";
-            txtAncho.Text = "";
-            txtLargo.Text = "";
-            txtDiametro.Text = "";
-            txtVolumen.Text = "";
-            txtPeso.Text = "";
-            txtTotCosCom.Text = "0.00";
-            txtTotCosPro.Text = "0.00";
-            txtTotCosRRHH.Text = "0.00";
-            txtTotalCostos.Text = "0.00";
-            txtCostoAcero.Text = "0.00";
-            txtCostoProc.Text = "0.00";
-            txtCostoRRHH.Text = "0.00";
+            txtEspesor.Text = "0,00";
+            txtAncho.Text = "0,00";
+            txtLargo.Text = "0,00";
+            txtDiametro.Text = "0,00";
+            txtVolumen.Text = "0,00";
+            txtPeso.Text = "0,00";
+            txtTotCosCom.Text = "0,00";
+            txtTotCosPro.Text = "0,00";
+            txtTotCosRRHH.Text = "0,00";
+            txtTotalCostos.Text = "0,00";
+            txtCostoAcero.Text = "0,00";
+            txtCostoProc.Text = "0,00";
+            txtCostoRRHH.Text = "0,00";
             pictureBox1.BackgroundImage = null;
             metroComboBox2.SelectedIndex = -1;
             metroComboBox3.SelectedIndex = 0;
@@ -590,7 +552,73 @@ namespace PresentationLayer.Forms
 
         }
 
+        private void CargarEntidadItem()
+        {
+            ItemEntidad.Codigo = txtCodigo.Text.Trim();
+            ItemEntidad.Descripcion = txtDescrpcion.Text;
+            ItemEntidad.Nombre = txtNombre.Text;
+            ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
+            ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
+            ItemEntidad.TipoItem = "P";
+            ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
+            ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
+            ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
+            ItemEntidad.Diametro = Convert.ToDecimal(txtDiametro.Text);
+            ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
+            ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
+            ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
+            ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
+            ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
+            ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
+            ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
+            ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+            ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+            if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
+        }
+
+        private void CargarEntidadCosto(Item ItemEnti)
+        {
+            DataTable dtCostosItem = new DataTable();
+
+            dtCostosItem.Merge((DataTable)dgvCostoRRHH.DataSource);
+            dtCostosItem.Merge((DataTable)dgvCostoAcero.DataSource);
+            dtCostosItem.Merge((DataTable)dgvCostoProc.DataSource);
+
+            ListCostoEntidad = new List<ItemCosto>();
+
+            foreach (DataRow row in dtCostosItem.Rows)
+            {
+                CostoEntidad = new ItemCosto();
+                CostoEntidad.IdItem = ItemEnti.Id;
+                CostoEntidad.IdCosto = Convert.ToInt32(row["IdCosto"]);
+                CostoEntidad.Unidad = row["Unidad"].ToString();
+                CostoEntidad.Valor = Convert.ToDecimal(row["Valor"]);
+                CostoEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
+                CostoEntidad.Total = Convert.ToDecimal(row["Total"]);
+                CostoEntidad.Id = Convert.ToInt32(row["Id"]);
+                ListCostoEntidad.Add(CostoEntidad);
+            }
+
+        }
+
+        private bool ValidarCampos()
+        {
+            bool Valido = true;
+
+            if (txtCodigo.Text == string.Empty)
+            {
+                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
+                Valido = false;
+            }
+            else if (txtDescrpcion.Text == string.Empty)
+            {
+                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripción");
+                Valido = false;
+            }
+
+            return Valido;
+        }
         #endregion
 
         #region Aplicar Modificaciones Visuales a Form
@@ -705,11 +733,22 @@ namespace PresentationLayer.Forms
 
 
 
+
+
         #endregion
 
-        private void button1_Click(object sender, EventArgs e)
+        private void InitializeClickHandlers(Control parent, bool bChilds = true)
         {
-            CargarEntidadCosto(ItemEntidad);
+            foreach (Control child in parent.Controls)
+            {
+                child.MouseClick += new MouseEventHandler(ControlsClick);
+                InitializeClickHandlers(child);
+            }
+        }
+
+        private void ControlsClick(object sender, EventArgs e)
+        {
+            this.BringToFront();
         }
     }
 }

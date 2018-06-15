@@ -20,6 +20,7 @@ namespace Entities
         public Nullable<int> IdDetalle { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
+        public string TipoPieza { get; set; }
         public Nullable<int> Linea { get; set; }
         public Nullable<decimal> Cantidad { get; set; }
         public Nullable<decimal> CostoUnitario { get; set; }

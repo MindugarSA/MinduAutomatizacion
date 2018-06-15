@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>4</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -164,6 +164,9 @@
     <Compile Include="Controls\LabelNoMouse.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MdiClientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controls\Positioning.cs" />
     <Compile Include="Extensions\DataGridViewExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
@@ -174,6 +177,12 @@
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Extensions\ManipulateObject.cs" />
     <Compile Include="Extensions\Visuales.cs" />
+    <Compile Include="Forms\FrmBusquedaItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmBusquedaItem.Designer.cs">
+      <DependentUpon>FrmBusquedaItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +206,12 @@
     </Compile>
     <Compile Include="Forms\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmPrincipalPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmPrincipalPanel.Designer.cs">
+      <DependentUpon>FrmPrincipalPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmPropiedades.cs">
       <SubType>Form</SubType>
@@ -222,6 +237,9 @@
     <EmbeddedResource Include="Controls\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmBusquedaItem.resx">
+      <DependentUpon>FrmBusquedaItem.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmFamilia.resx">
       <DependentUpon>FrmFamilia.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmPrincipalPanel.resx">
+      <DependentUpon>FrmPrincipalPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPropiedades.resx">
       <DependentUpon>FrmPropiedades.cs</DependentUpon>
@@ -289,6 +310,15 @@
     <Content Include="Logo %281%29.ico" />
     <Content Include="Logo.ico" />
     <Content Include="MinduAuto.ico" />
+    <None Include="Resources\Logo1.png" />
+    <None Include="Resources\up-arrow.png" />
+    <None Include="Resources\plus-symbol-round-button.png" />
+    <None Include="Resources\checked.png" />
+    <None Include="Resources\blocked-sign.png" />
+    <None Include="Resources\settings %281%29.png" />
+    <None Include="Resources\pencil-on-a-notes-paper.png" />
+    <None Include="Resources\pencil-on-a-notes-paper1.png" />
+    <None Include="Resources\settings.png" />
     <None Include="Resources\tetris.png" />
     <None Include="Resources\puzzle.png" />
     <None Include="Resources\magnifying-glass.png" />

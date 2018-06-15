@@ -1,5 +1,4 @@
-﻿using PresentationLayer.Forms;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,22 +10,14 @@ using System.Windows.Forms;
 
 using Entities;
 using BusinessLayer;
+using PresentationLayer.Forms;
 
 namespace PresentationLayer
 {
-    public partial class FrmPrincipal : Form
+    public partial class FrmPrincipalPanel : Form
     {
-        int MenuWidthMax;
-        //int MenuWidthMin;
-        bool MenuOculto = false;
-        //int Level1Opt1Top = 169;
-        int Level1Separation = 54;
-        bool Opt1Open = false;
-
-
-        public FrmPrincipal()
+        public FrmPrincipalPanel()
         {
-            this.SetStyle(ControlStyles.DoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
             InitializeComponent();
 
             MenuWidthMax = pnlMenu.Width;
@@ -36,6 +27,13 @@ namespace PresentationLayer
 
             panel4.Visible = false;
         }
+
+        int MenuWidthMax;
+        //int MenuWidthMin;
+        bool MenuOculto = false;
+        //int Level1Opt1Top = 169;
+        int Level1Separation = 54;
+        bool Opt1Open = false;
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
@@ -53,7 +51,6 @@ namespace PresentationLayer
 
             this.ControlBox = false;
             this.Text = String.Empty;
-            var FamiliaDataSource = new List<Familia>(FamiliaBL.GetFamilias());
             label1.Visible = false;
             // pictureBox3.SendToBack();
             //this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -70,8 +67,9 @@ namespace PresentationLayer
             FrmFami.MdiParent = this;
             FrmFami.StartPosition = FormStartPosition.Manual;
             FrmFami.Location = new Point(300, 150);
+            panel10.Controls.Add(FrmFami);
             FrmFami.Show();
-           // pnlMenu.SendToBack();
+            // pnlMenu.SendToBack();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -84,6 +82,7 @@ namespace PresentationLayer
             FrmProp.WindowState = FormWindowState.Normal;
             FrmProp.StartPosition = FormStartPosition.Manual;
             FrmProp.Location = new Point(340, 190);
+            panel10.Controls.Add(FrmProp);
             FrmProp.Show();
         }
 
@@ -97,6 +96,7 @@ namespace PresentationLayer
             FrmTipos.WindowState = FormWindowState.Normal;
             FrmTipos.StartPosition = FormStartPosition.Manual;
             FrmTipos.Location = new Point(320, 170);
+            panel10.Controls.Add(FrmTipos);
             FrmTipos.Show();
         }
 
@@ -106,16 +106,17 @@ namespace PresentationLayer
             FrmCost.MdiParent = this;
             FrmCost.StartPosition = FormStartPosition.Manual;
             FrmCost.Location = new Point(360, 210);
+            panel10.Controls.Add(FrmCost);
             FrmCost.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             FrmPieza FrmParte = new FrmPieza();
-            FrmParte.MdiParent = this; 
+            FrmParte.MdiParent = this ;//mdiClientPanel1.MdiForm;
             FrmParte.StartPosition = FormStartPosition.Manual;
             FrmParte.Location = new Point(370, 230);
-            //mdiClientPanel1.Controls.Add(FrmParte);
+            panel10.Controls.Add(FrmParte);
             FrmParte.Show();
         }
 
@@ -125,6 +126,7 @@ namespace PresentationLayer
             FrmKits.MdiParent = this;
             FrmKits.StartPosition = FormStartPosition.Manual;
             FrmKits.Location = new Point(500, 100);
+            panel10.Controls.Add(FrmKits);
             FrmKits.Show();
         }
 
@@ -139,7 +141,7 @@ namespace PresentationLayer
             {
                 pnlMenu.Width = pnlMenu.Width - 20;
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 6);
-                pictureBox2.Location = new Point(pictureBox2.Location.X-1, pictureBox2.Location.Y);
+                pictureBox2.Location = new Point(pictureBox2.Location.X - 1, pictureBox2.Location.Y);
             }
         }
 
@@ -201,6 +203,7 @@ namespace PresentationLayer
 
         }
 
-       
+
+
     }
 }

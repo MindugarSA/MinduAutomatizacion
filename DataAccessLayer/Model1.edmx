@@ -278,6 +278,7 @@
           <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
           <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
           <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
         </ComplexType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -441,6 +442,7 @@
                 <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
                 <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
                 <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

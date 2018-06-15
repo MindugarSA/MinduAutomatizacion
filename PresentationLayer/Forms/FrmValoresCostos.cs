@@ -28,6 +28,7 @@ namespace PresentationLayer
             SetearControles();
             CargarGridCostos();
             CargarCombos();
+            this.InitializeClickHandlers();
         }
 
 

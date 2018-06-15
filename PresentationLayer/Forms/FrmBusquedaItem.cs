@@ -8,65 +8,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entities;
-using BusinessLayer;
 
-namespace PresentationLayer
+namespace PresentationLayer.Forms
 {
-    public partial class FrmTipos : Form
+    public partial class FrmBusquedaItem : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
 
-        BindingList<TipoItem> TipoItemDataSource = new BindingList<TipoItem>();
-
-
-        public FrmTipos()
+        public FrmBusquedaItem()
         {
-            Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
-            ListarTipos();
-            this.InitializeClickHandlers();
         }
 
-        private void FrmTipos_Load(object sender, EventArgs e)
+        private void FrmBusquedaItem_Load(object sender, EventArgs e)
         {
-            FormatearGrid();
-            BringToFront();
-        }
-
-        private void materialFlatButton2_Click(object sender, EventArgs e)
-        {
-            TipoItemDataSource.AddNew();
-            dataGridView1.Rows[dataGridView1.Rows.Count - 1].ReadOnly = false;
-            dataGridView1.Rows[dataGridView1.Rows.Count - 1].Cells["RowType"].Value = "T";
-            dataGridView1[dataGridView1.Rows.Count - 1, 2].Value = 99;
 
         }
 
-        private void ListarTipos()
-        {
-            TipoItemDataSource = new BindingList<TipoItem>(TipoItemBL.GetTipoItems());
-            dataGridView1.DataSource = TipoItemDataSource;
-        }
-
-        private void FormatearGrid()
-        {
-            dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[2].Visible = false;
-            dataGridView1.AjustColumnsWidthForGridWidth();
-            foreach (DataGridViewRow Fila in dataGridView1.Rows)
-            {
-                Fila.Cells["RowType"].Value = "N";
-            }
-        }
-
-
-        /// <summary>
-        /// REGIONES
-        /// </summary>
         #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
         {
@@ -103,14 +63,29 @@ namespace PresentationLayer
         #region Aplicar Acciones Visuales a Controles
         private void SetearControles()
         {
-            formHeader1.ParentContainer = this;
+            formHeader2.ParentContainer = this;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
-            materialFlatButton1.Parent = panel2;
-            materialFlatButton2.Parent = panel3;
-            materialFlatButton3.Parent = panel4;
-            labelNoMouse1.Parent = materialFlatButton1;
-            labelNoMouse2.Parent = materialFlatButton2;
-            labelNoMouse3.Parent = materialFlatButton3;
+            btnAgregar.Parent = panel2;
+            btnCerrar.Parent = panel4;
+            labelNoMouse1.Parent = btnAgregar;
+            labelNoMouse3.Parent = btnCerrar;
+        }
+
+        private void PopUp_MouseEnter(object sender, EventArgs e)
+        {
+            var Obj = (dynamic)sender;
+            Obj.Left = Obj.Left - 3;
+            Obj.Top = Obj.Top - 3;
+            Obj.Height = Obj.Height + 6;
+            Obj.Width = Obj.Width + 6;
+        }
+        private void PopUp_MouseLeave(object sender, EventArgs e)
+        {
+            var Obj = (dynamic)sender;
+            Obj.Left = Obj.Left + 3;
+            Obj.Top = Obj.Top + 3;
+            Obj.Height = Obj.Height - 6;
+            Obj.Width = Obj.Width - 6;
         }
 
         private void Button_MouseEnter(object sender, EventArgs e)
@@ -158,16 +133,7 @@ namespace PresentationLayer
         }
 
 
+
         #endregion
-
-        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            if(e.RowIndex >= 0)
-            {
-                dataGridView1.Rows[e.RowIndex].Cells["RowStatus"].Value = "E";
-            }
-        }
     }
-
-
 }

@@ -26,6 +26,7 @@ namespace PresentationLayer
             InitializeComponent();
             SetearControles();
             CargarGridPropiedades();
+            this.InitializeClickHandlers();
         }
 
         private void CargarGridPropiedades()
