@@ -13,15 +13,25 @@ namespace PresentationLayer
         public static byte[] imageToByteArray(this System.Drawing.Image imageIn)
         {
             MemoryStream ms = new MemoryStream();
-            imageIn.Save(ms, imageIn.RawFormat);
+            try
+            {
+                imageIn.Save(ms, imageIn.RawFormat);
+            }
+            catch {}
             return ms.ToArray();
         }
 
         public static Image byteArrayToImage(this byte[] byteArrayIn)
         {
+            Image returnImage = null;
             MemoryStream ms = new MemoryStream(byteArrayIn);
-            Image returnImage = Image.FromStream(ms);
+            try
+            {
+                returnImage = Image.FromStream(ms);
+            }
+            catch {}
             return returnImage;
+
         }
     }
 }

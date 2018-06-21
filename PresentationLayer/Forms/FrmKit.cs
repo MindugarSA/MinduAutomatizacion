@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using Entities;
 using BusinessLayer;
+using System.IO;
 
 namespace PresentationLayer.Forms
 {
@@ -19,18 +20,21 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
-        private string ModoPantalla = "";
         Item ItemEntidad = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         ItemDetalle ItemDetalleEntidad = new ItemDetalle();
         List<ItemDetalle> ListItemDetalleEntidad = new List<ItemDetalle>();
+        List<ItemDetalle> ListItemDetalleDelete = new List<ItemDetalle>();
         DataTable dtItemDetalle = new DataTable();
         double ValorCostoEditado = 0;
+        double ValorDetalleEditado = 0;
         bool bControlActive = false;
+        bool bAgregandoRow = false;
+        private FrmPrincipalPanel formPrincipal;
 
 
-        public FrmKit()
+        public FrmKit(FrmPrincipalPanel FormP = null )
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
@@ -42,11 +46,11 @@ namespace PresentationLayer.Forms
             CargarGridsDetalleItem(0);
             EnlazarCampos();
 
-            ModoPantalla = "Crear";
             panel3.Visible = false;
 
-            metroGrid1.SelectedIndex = 0;
+            metroTab1.SelectedIndex = 0;
             this.InitializeClickHandlers();
+            formPrincipal = FormP;
         }
 
         /// <summary>
@@ -57,6 +61,7 @@ namespace PresentationLayer.Forms
         {
             txtCodigo.Select();
             metroTabPage1.Select();
+            formPrincipal.VisualizarLabel(false);
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -113,25 +118,6 @@ namespace PresentationLayer.Forms
 
         }
 
-        private void dgvItemDetalleValidar_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
-            if (e.RowIndex == -1)
-                return;
-            else if (dgvActual.SelectedRows.Count == 1)
-            {
-                try
-                {
-                    dgvActual.CurrentCell = dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9];
-                    //dgvActual[7, dgvActual.CurrentRow.Index].Style.BackColor = Color.White;
-                    dgvActual[9, dgvActual.CurrentRow.Index].Selected = true;
-                    dgvActual.BeginEdit(true);
-                }
-                catch (Exception) { }
-            }
-
-        }
-
         private void dgvCostoValidar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
@@ -168,6 +154,12 @@ namespace PresentationLayer.Forms
             ValorCostoEditado = Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[7].Value);
         }
 
+        private void dgvDetalleItemAmp_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
+        {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+            ValorDetalleEditado = Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value);
+        }
+
         private void dgvValidar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
@@ -196,9 +188,31 @@ namespace PresentationLayer.Forms
                         //    txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
                         //    break;
                 }
-                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) +
+                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                        Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
 
+            }
+        }
+
+        private void dgvDetalleItemAmp_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+
+            if (dgvActual.CurrentRow.Index == -1)
+                return;
+
+            if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value.ToString().Length == 0)
+                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value = "0,00";
+            else if (ValorDetalleEditado != Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value))
+            {
+                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+                                                                                Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[10].Value);
+
+                txtTotCosPiezas.Text = SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitario").ToString();
+                txtCostPiezasD.Text = txtTotCosPiezas.Text;
+                textBox1.Text = txtTotCosPiezas.Text;
+                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) + 
+                                       Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
             }
         }
 
@@ -240,8 +254,16 @@ namespace PresentationLayer.Forms
         private void txtValidar_Leave(object sender, EventArgs e)
         {
             bControlActive = false;
-            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) +
-                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString(); ;
+            TextBox TxtActual = (TextBox)sender;
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+
+                if (Convert.ToDecimal(txtEspesor.Text) > 0 && Convert.ToDecimal(txtAncho.Text) > 0 && Convert.ToDecimal(txtLargo.Text) > 0)
+                {
+                    string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008),2).ToString();
+                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                        txtPeso.Text = CalcPeso;
+                }
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -274,59 +296,62 @@ namespace PresentationLayer.Forms
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
             LimpiarCamposItem();
-            ModoPantalla = "Crear";
             panel3.Visible = false;
             labelNoMouse1.Text = "Agregar";
             CargarGridsCostos();
             FormatearGridsCostos();
             CargarGridsDetalleItem(0);
-            metroGrid1.SelectedIndex = 0;
+            metroTab1.SelectedIndex = 0;
             LimpiarCamposItemDetalle();
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            metroGrid1.SelectedIndex = 3;
+            metroTab1.SelectedIndex = 3;
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
             txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
             txtEncabezado2.Text = txtEncabezado.Text;
+            if (txtCodigo.Text.Trim() != string.Empty)
+                errorIcono.SetError(txtCodigo, "");
         }
 
         private void txtDescrpcion_TextChanged(object sender, EventArgs e)
         {
             txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
             txtEncabezado2.Text = txtEncabezado.Text;
+            if (txtDescrpcion.Text.Trim() != string.Empty)
+                errorIcono.SetError(txtDescrpcion, "");
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            metroGrid1.SelectedIndex = 1;
+            metroTab1.SelectedIndex = 1;
         }
 
         private void dgvDetalleItemAmp_SelectionChanged(object sender, EventArgs e)
         {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+
             try
             {
-                int ItemId = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
-                Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
+                if(!bAgregandoRow)
+                {
+                    int ItemId = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
+                    Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
 
-                txtCodigoC.Text = ItemConsulta.Codigo;
-                txtDescripcionC.Text = ItemConsulta.Descripcion;
-                txtNombreC.Text = ItemConsulta.Nombre;
-                txtEspesor.Text = ItemConsulta.Espesor.ToString();
-                txtAncho.Text = ItemConsulta.Ancho.ToString();
-                txtLargo.Text = ItemConsulta.Largo.ToString();
-                txtDiametro.Text = ItemConsulta.Diametro.ToString();
-                txtVolumen.Text = ItemConsulta.Volumen.ToString();
-                txtPeso.Text = ItemConsulta.Peso.ToString();
-                txtTotalCostoC.Text = ItemConsulta.CostoTotal.ToString();
-                pictureBox10.BackgroundImage = null;
-                if (ItemConsulta.Imagen != null)
-                    pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
-                
+                    if (dgvActual.Name == "dgvDetalleItemAmp") CargarCamposItemDetalle(ItemConsulta);
+
+                    try
+                    {
+                        dgvActual.CurrentCell = dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9];
+                        //dgvDetalleItemAmp[9, dgvDetalleItemAmp.CurrentRow.Index].Selected = true;
+                        dgvActual.BeginEdit(true);
+                    }
+                    catch (Exception) { }
+                }
             }
             catch { }
 
@@ -334,6 +359,7 @@ namespace PresentationLayer.Forms
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
+            VerificarCodigoItem();
             if (ValidarCampos())
             {
                 CargarEntidadItem();
@@ -346,7 +372,6 @@ namespace PresentationLayer.Forms
                         CargarEntidadCosto(ItemEntidad);
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
-                        ModoPantalla = "Modificar";
                         panel3.Visible = true;
                         break;
                     case "Actualizar":
@@ -356,6 +381,7 @@ namespace PresentationLayer.Forms
                         List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
                         ItemDetalleBL.InsertItemDetalle(DetallesInsert);
                         ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                        ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
                         CargarEntidadCosto(ItemEntidad);
                         List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
@@ -366,8 +392,102 @@ namespace PresentationLayer.Forms
                 CargarGridsCostos();
                 FormatearGridsCostos();
                 CargarGridsDetalleItem(ItemEntidad.Id);
+                CargarGridListadoItem();
             }
         }
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog oFD = new OpenFileDialog();
+            oFD.Title = "Seleccionar Imagen";
+            oFD.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            string pathImagen = "";
+
+            try
+            {
+                if (oFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    pathImagen = oFD.FileName;
+                    pictureBox1.BackgroundImage = new Bitmap(@pathImagen);
+
+                    byte[] byteimg = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+                    ItemEntidad.Imagen = byteimg;
+
+                }
+            }
+            catch { }
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+            if (IdDetalle > 0)
+            {
+                FrmPieza FrmParte = new FrmPieza();
+                FrmParte.MdiParent = this.MdiParent;
+                FrmParte.IdIetmSearch = IdDetalle;
+                FrmParte.StartPosition = FormStartPosition.Manual;
+                FrmParte.Location = new Point(370, 230);
+                FrmParte.Show();
+            }
+        }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            FrmBusquedaItem FrmBuscar = new FrmBusquedaItem();
+            FrmBuscar.MdiParent = this.MdiParent;
+            FrmBuscar.EnviarEvento += new FrmBusquedaItem.EnvEvent(AgregarDetalleItem);
+            FrmBuscar.ShowDialog();
+        }
+        private void dgvListaItems_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+                Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
+
+                CargarCamposListaKit(ItemConsulta);
+            }
+            catch { }
+        }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleItemAmp.SelectedRows.Count > 0)
+            {
+                DataGridViewRow dRow = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex];
+                CargarItemDetalleDelete(dRow);
+                dgvDetalleItemAmp.Rows.RemoveAt(dgvDetalleItemAmp.CurrentCell.RowIndex);
+                if (dgvDetalleItemAmp.Rows.Count > 0)
+                    foreach (DataGridViewRow row in dgvDetalleItemAmp.Rows)
+                    {
+                        row.Cells["Linea"].Value = row.Index + 1;
+                    }
+            }
+        }
+
+        private void pictureBox12_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleItemAmp.CurrentCell.RowIndex > 0)
+            {
+                int RowAct = dgvDetalleItemAmp.CurrentCell.RowIndex;
+                ((DataTable)dgvDetalleItemAmp.DataSource).SwapRows(RowAct, RowAct - 1);
+                dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[RowAct - 1].Cells[9];
+                dgvDetalleItemAmp[9, RowAct - 1].Selected = true;
+                dgvDetalleItemAmp.BeginEdit(true);
+            }
+        }
+        private void pictureBox13_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleItemAmp.CurrentCell.RowIndex < (dgvDetalleItemAmp.RowCount - 1))
+            {
+                int RowAct = dgvDetalleItemAmp.CurrentCell.RowIndex;
+                ((DataTable)dgvDetalleItemAmp.DataSource).SwapRows(RowAct, RowAct + 1);
+                dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[RowAct + 1].Cells[9];
+                dgvDetalleItemAmp[9, RowAct + 1].Selected = true;
+                dgvDetalleItemAmp.BeginEdit(true);
+            }
+        }
+
         /// <summary>
         /// METODOS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         /// </summary>
@@ -434,38 +554,42 @@ namespace PresentationLayer.Forms
         private void CargarGridsDetalleItem(int itemId)
         {
             dtItemDetalle = ItemDetalleBL.GetItemDetalleId(itemId);
-
-            dgvDetalleItemAmp.DataSource = dtItemDetalle;
-            dgvDetalleItem.DataSource = dtItemDetalle;
-
-            MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp };
-
-            foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
+            bAgregandoRow = true;
+            if(dtItemDetalle.Rows.Count >= 0)
             {
-                List<int> visibleColumns = new List<int> { 5, 6, 7, 9, 10, 11 };
-                foreach (DataGridViewColumn col in dgvActual.Columns)
+                dgvDetalleItemAmp.DataSource = dtItemDetalle;
+                dgvDetalleItem.DataSource = dtItemDetalle;
+
+                MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp };
+
+                foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
                 {
-                    if (!visibleColumns.Contains(col.Index))
-                        col.Visible = false;
+                    List<int> visibleColumns = new List<int> { 5, 6, 7, 9, 10, 11 };
+                    foreach (DataGridViewColumn col in dgvActual.Columns)
+                    {
+                        if (!visibleColumns.Contains(col.Index))
+                            col.Visible = false;
+                    }
+
+                    dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                    dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+                    dgvActual.Columns[10].DefaultCellStyle.Format = "#,0.00###";
+                    dgvActual.Columns[11].DefaultCellStyle.Format = "#,0.00###";
+
+                    dgvActual.Columns[9].ReadOnly = false;
+
+                    dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                    if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                 }
-
-                dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
-                dgvActual.Columns[10].DefaultCellStyle.Format = "#,0.00###";
-                dgvActual.Columns[11].DefaultCellStyle.Format = "#,0.00###";
-
-                dgvActual.Columns[9].ReadOnly = false;
-
-                dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                if(dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
             }
+            bAgregandoRow = false;
 
         }
 
@@ -480,6 +604,7 @@ namespace PresentationLayer.Forms
                 dgvActual.Columns[1].Visible = false;
                 dgvActual.Columns[2].Visible = false;
                 dgvActual.Columns[3].Visible = false;
+                dgvActual.Columns[9].Visible = false;
 
                 dgvActual.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                 dgvActual.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -509,9 +634,8 @@ namespace PresentationLayer.Forms
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
             EnlazarCampos();
-            metroGrid1.SelectedIndex = 0;
+            metroTab1.SelectedIndex = 0;
             labelNoMouse1.Text = "Actualizar";
-            ModoPantalla = "Modificar";
             panel3.Visible = true;
 
             DataTable dt = (DataTable)metroComboBox2.DataSource;
@@ -563,7 +687,7 @@ namespace PresentationLayer.Forms
             txtDiametro.Text = "0,00";
             txtVolumen.Text = "0,00";
             txtPeso.Text = "0,00";
-            txtTotCosCom.Text = "0,00";
+            txtTotCosPiezas.Text = "0,00";
             txtTotCosPro.Text = "0,00";
             txtTotCosRRHH.Text = "0,00";
             txtTotalCostos.Text = "0,00";
@@ -705,7 +829,6 @@ namespace PresentationLayer.Forms
 
 
         #endregion
-
         
 
         private void CargarEntidadItem()
@@ -722,7 +845,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Diametro = Convert.ToDecimal(txtDiametro.Text);
             ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
             ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
-            ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
+            ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosPiezas.Text);
             ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
             ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
@@ -776,25 +899,51 @@ namespace PresentationLayer.Forms
                 ItemDetalleEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
                 ItemDetalleEntidad.CostoUnitario = Convert.ToDecimal(row["CostoUnitario"]);
                 ItemDetalleEntidad.Total = Convert.ToDecimal(row["Total"]);
-                ItemDetalleEntidad.Id = Convert.ToInt32(row["Id"]);
+                ItemDetalleEntidad.Id = Convert.ToInt32(row["Id"] is DBNull ? 0 : row["Id"]) ;
                 ListItemDetalleEntidad.Add(ItemDetalleEntidad);
                 Linea += 1;
             }
 
         }
 
+        private void CargarItemDetalleDelete(DataGridViewRow Row)
+        {
+            if (Convert.ToInt32(Row.Cells["Id"].Value is DBNull ? 0 : Row.Cells["Id"].Value) > 0)
+            {
+                ItemDetalleEntidad = new ItemDetalle();
+                ItemDetalleEntidad.IdItem = Convert.ToInt32(Row.Cells["IdC"].Value);
+                 ItemDetalleEntidad.IdDetalle = Convert.ToInt32(Row.Cells["IdDetalle"].Value);
+                ItemDetalleEntidad.Linea = Convert.ToInt32(Row.Cells["Linea"].Value); 
+                ItemDetalleEntidad.Cantidad = Convert.ToDecimal(Row.Cells["Cantidad"].Value);
+                ItemDetalleEntidad.CostoUnitario = Convert.ToDecimal(Row.Cells["CostoUnitario"].Value);
+                ItemDetalleEntidad.Total = Convert.ToDecimal(Row.Cells["Total"].Value);
+                ItemDetalleEntidad.Id = Convert.ToInt32(Row.Cells["Id"].Value);
+                ListItemDetalleDelete.Add(ItemDetalleEntidad);
+            }
+        }
+
         private bool ValidarCampos()
         {
             bool Valido = true;
 
-            if (txtCodigo.Text == string.Empty)
+            if (errorIcono.HasErrors())
+                Valido = false;
+            else if (txtCodigo.Text == string.Empty)
             {
-                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
+                metroTab1.SelectedIndex = 0;
+                errorIcono.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
                 Valido = false;
             }
             else if (txtDescrpcion.Text == string.Empty)
             {
-                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripción");
+                metroTab1.SelectedIndex = 0;
+                errorIcono.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
+                Valido = false;
+            }
+            else if (dgvDetalleItemAmp.RowCount == 0)
+            {
+                metroTab1.SelectedIndex = 1;
+                errorIcono.SetErrorWithCount(dgvDetalleItemAmp, "Ingrese un Detalle");
                 Valido = false;
             }
 
@@ -805,63 +954,141 @@ namespace PresentationLayer.Forms
         {
             LimpiarCamposItem();
             CargarCampos(ItemId);
+            LimpiarCamposItemDetalle();
             CargarGridsDetalleItem(ItemId);
             //if(ItemId == 0) LimpiarCamposItemDetalle();
             CargarGridsCostos();
             FormatearGridsCostos();
+            ListItemDetalleDelete.Clear();
 
             txtCostoRRHH.Text = SumaColumnaDoubleDT((DataTable)dgvCostoRRHH.DataSource, "Cantidad", "Valor").ToString();
             txtTotCosRRHH.Text = txtCostoRRHH.Text;
             txtCostoProc.Text = SumaColumnaDoubleDT((DataTable)dgvCostoProc.DataSource, "Cantidad", "Valor").ToString();
             txtTotCosPro.Text = Convert.ToDouble(txtCostoProc.Text).ToString();
-            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoProc.Text) +
-                                   Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+            txtTotCosPiezas.Text = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString();
+            txtCostPiezasD.Text = txtTotCosPiezas.Text;
+            textBox1.Text = txtTotCosPiezas.Text;
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+            errorIcono.SetErrorWithCount(txtCodigo, "");
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void AgregarDetalleItem(int IdDetalle = 0)
         {
-            OpenFileDialog oFD = new OpenFileDialog();
-            oFD.Title = "Seleccionar Imagen";
-            oFD.Filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
-            string pathImagen = "";
 
-            try
+            bAgregandoRow = true;
+            Item ItemDet = ItemsBL.GetItemId(IdDetalle).FirstOrDefault();
+            DataTable dt = (DataTable)dgvDetalleItemAmp.DataSource;
+            DataRow row = dt.NewRow();
+            row[4] = IdDetalle;
+            row[5] = ItemDet.Codigo;
+            row[6] = ItemDet.Descripcion;
+            row[7] = dgvDetalleItemAmp.Rows.Count + 1 ;
+            row[8] = ItemDet.TipoPieza == "K" ? ItemDet.TipoItem : ItemDet.TipoItem + ItemDet.TipoPieza ;
+            row[9] = 0;
+            row[10] = ItemDet.CostoTotal ?? 0;
+            row[11] = 0;
+            dt.Rows.Add(row);
+            errorIcono.SetError(dgvDetalleItemAmp, "");
+            CargarCamposItemDetalle(ItemDet);
+            //dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Selected = true;
+            dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Cells[9];
+            dgvDetalleItemAmp[9, dgvDetalleItemAmp.Rows.Count - 1].Selected = true;
+            dgvDetalleItemAmp.BeginEdit(true);
+            bAgregandoRow = false;
+        }
+
+        private void CargarCamposItemDetalle(Item ItemConsulta)
+        {
+            txtCodigoC.Text = ItemConsulta.Codigo;
+            txtDescripcionC.Text = ItemConsulta.Descripcion;
+            txtNombreC.Text = ItemConsulta.Nombre;
+            txtEspesorC.Text = ItemConsulta.Espesor.ToString();
+            txtAnchoC.Text = ItemConsulta.Ancho.ToString();
+            txtLargoC.Text = ItemConsulta.Largo.ToString();
+            txtDiametroC.Text = ItemConsulta.Diametro.ToString();
+            txtVolumenC.Text = ItemConsulta.Volumen.ToString();
+            txtPesoC.Text = ItemConsulta.Peso.ToString();
+            txtTotalCostoC.Text = ItemConsulta.CostoTotal.ToString();
+            pictureBox10.BackgroundImage = null;
+            if (ItemConsulta.Imagen != null)
+                pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
+        }
+
+        private void CargarCamposListaKit(Item ItemConsulta)
+        {
+            txtCodigoK.Text = ItemConsulta.Codigo;
+            txtDescripcionK.Text = ItemConsulta.Descripcion;
+            txtNombreK.Text = ItemConsulta.Nombre;
+            txtEspesorK.Text = ItemConsulta.Espesor.ToString();
+            txtAnchoK.Text = ItemConsulta.Ancho.ToString();
+            txtLargoK.Text = ItemConsulta.Largo.ToString();
+            txtDiametroK.Text = ItemConsulta.Diametro.ToString();
+            txtVolumenK.Text = ItemConsulta.Volumen.ToString();
+            txtPesoK.Text = ItemConsulta.Peso.ToString();
+            txtCostoTotalK.Text = ItemConsulta.CostoTotal.ToString();
+            pictureBox15.BackgroundImage = null;
+            if (ItemConsulta.Imagen != null)
+                pictureBox15.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
+        }
+
+        private void FrmPieza_DragDrop(object sender, DragEventArgs e)
+        {
+            //TAKE DROPPED ITEMS AND STORE IN ARRAY
+            string[] droppedfiles = (string[])e.Data.GetData(DataFormats.FileDrop);
+            //LOOP THRU ALL DROPPED ITEMS AND DISPLAY THEM
+            foreach (string file in droppedfiles)
             {
-                if (oFD.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-                {
-                    pathImagen = oFD.FileName;
-                    pictureBox1.BackgroundImage = new Bitmap(@pathImagen);
-
-                    byte[] byteimg = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
-                    ItemEntidad.Imagen = byteimg;
-                   
-                }
+                //GET FILENAME
+                string filename = Path.GetFileNameWithoutExtension(file);
+                // SET IMAGE
+                pictureBox1.BackgroundImage = Image.FromFile(file);
             }
-            catch { }
+            // GET FILENAME
+
         }
 
-        private void pictureBox4_Click_1(object sender, EventArgs e)
+        private void FrmPieza_DragEnter(object sender, DragEventArgs e)
         {
-            int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
-            if (IdDetalle > 0)
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
             {
-                FrmPieza FrmParte = new FrmPieza();
-                FrmParte.MdiParent = this.MdiParent;
-                FrmParte.IdIetmSearch = IdDetalle;
-                FrmParte.StartPosition = FormStartPosition.Manual;
-                FrmParte.Location = new Point(370, 230);
-                FrmParte.Show();
+                e.Effect = DragDropEffects.All;
             }
         }
 
-        private void pictureBox9_Click(object sender, EventArgs e)
+        private void pictureBox8_Click(object sender, EventArgs e)
         {
-            FrmBusquedaItem FrmBuscar = new FrmBusquedaItem();
-            FrmBuscar.MdiParent = this.MdiParent;
-            FrmBuscar.StartPosition = FormStartPosition.Manual;
-            FrmBuscar.Location = new Point(300, 150);
-            //panel10.Controls.Add(FrmFami);
-            FrmBuscar.ShowDialog();
+            if(txtBuscarItem.Text.Trim().Length > 0)
+            {
+               var result = ItemsBL.GetItems()
+                            .Where(s => (!String.IsNullOrEmpty(s.Codigo)
+                                            && s.Codigo.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()))
+                                            || (!String.IsNullOrEmpty(s.Descripcion)
+                                                && s.Descripcion.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())))
+                            .FirstOrDefault();
+                if (result != null)
+                    AgregarDetalleItem(result.Id);
+            }
+
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if(labelNoMouse1.Text.Trim() == "Agregar" && txtCodigo.Text.Trim() != "")
+            {
+                VerificarCodigoItem();
+            }
+        }
+
+        private void VerificarCodigoItem()
+        {
+            var result = ItemsBL.GetItems()
+                             .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
+                             .FirstOrDefault();
+            if (result != null)
+                errorIcono.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
+            else
+                errorIcono.SetErrorWithCount(txtCodigo, "");
         }
     }
 }

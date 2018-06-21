@@ -123,6 +123,9 @@
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Function Name="SP_GetItemBusqueda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Item" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_GetItemCostoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
@@ -180,6 +183,9 @@
           </FunctionImport>
           <EntitySet Name="sysdiagrams" EntityType="DB_AUTOMATIZACIONModel.sysdiagrams" />
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
+          <FunctionImport Name="SP_GetItemBusqueda" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result)">
+          <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -320,6 +326,18 @@
           <Property Name="TipoPieza" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Estatus" Type="Int32" />
         </EntityType>
+        <ComplexType Name="SP_GetItemBusqueda_Result">
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Espesor" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Ancho" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Largo" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Diametro" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="OI" Nullable="false" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -488,6 +506,22 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemBusqueda" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemBusqueda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="OI" ColumnName="OI" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

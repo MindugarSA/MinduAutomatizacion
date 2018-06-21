@@ -9,6 +9,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using Entities;
+using BusinessLayer;
+
 namespace PresentationLayer.Forms
 {
     public partial class FrmBusquedaItem : Form
@@ -16,16 +19,179 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+        public delegate void EnvEvent(int idDetalle = 0);
+        public event EnvEvent EnviarEvento;
+
+        DataTable dtItems;
+
         public FrmBusquedaItem()
         {
             InitializeComponent();
             SetearControles();
         }
 
+        /// <summary>
+        /// EVENTOS    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
         private void FrmBusquedaItem_Load(object sender, EventArgs e)
         {
+            CargarGridListadoItem();
+            cmbTipo.SelectedIndex = 0;
+            txtBusqueda.Focus();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            FiltrarInstrumentos("Busqueda");
+        }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //FiltrarInstrumentos("TipoItem");
+        }
+
+        private void txtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((int)e.KeyChar == (int)Keys.Enter)
+                FiltrarInstrumentos("Busqueda");
+        }
+
+        private void dgvListaItems_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+                Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
+
+                txtCodigoC.Text = ItemConsulta.Codigo;
+                txtDescripcionC.Text = ItemConsulta.Descripcion;
+                txtNombreC.Text = ItemConsulta.Nombre;
+                txtEspesorC.Text = ItemConsulta.Espesor.ToString();
+                txtAnchoC.Text = ItemConsulta.Ancho.ToString();
+                txtLargoC.Text = ItemConsulta.Largo.ToString();
+                txtDiametroC.Text = ItemConsulta.Diametro.ToString();
+                txtVolumenC.Text = ItemConsulta.Volumen.ToString();
+                txtPesoC.Text = ItemConsulta.Peso.ToString();
+                pictureBox10.BackgroundImage = null;
+                if (ItemConsulta.Imagen != null)
+                    pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
+            }
+            catch { }
 
         }
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void dgvListaItems_DoubleClick(object sender, EventArgs e)
+        {
+            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            EnviarEvento(ItemId);
+            this.Close();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            EnviarEvento(ItemId);
+            this.Close();
+        }
+
+        /// <summary>
+        /// METODOS    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /// </summary>
+
+        private void CargarGridListadoItem()
+        {
+            //Listado de Items
+            dtItems = ItemsBL.GetItemsBusqueda(null); 
+            dgvListaItems.DataSource = dtItems; 
+            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+            foreach (DataGridViewColumn col in dgvListaItems.Columns)
+            {
+                if (!visibleColumns.Contains(col.Index))
+                    col.Visible = false;
+            }
+
+            dgvListaItems.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            dgvListaItems.Columns[5].DefaultCellStyle.Format = "#,0.00###";
+            dgvListaItems.Columns[6].DefaultCellStyle.Format = "#,0.00###";
+            dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
+            dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
+        }
+
+        private void FiltrarInstrumentos(String TipoFiltro = null)
+        {
+            DataTable dtf = null;
+            string sTipoPieza = cmbTipo.Text == "Pieza" ? "P" :
+                                                            cmbTipo.Text == "Kit" ? "K" : "T";
+            var results = dtItems.AsEnumerable()
+                          .Where(s => s.Field<int>("Id") != s.Field<int>("Id")); // Inicializar en vacio
+
+            if (TipoFiltro == null || TipoFiltro == "Busqueda")
+            {
+
+                results = dtItems.AsEnumerable()
+                          .Where(s => (!String.IsNullOrEmpty(s.Field<string>("Codigo"))
+                                        && s.Field<string>("Codigo").ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper()))
+                                        || (!String.IsNullOrEmpty(s.Field<string>("Descripcion"))
+                                            && s.Field<string>("Descripcion").ToUpper().Contains(txtBusqueda.Text.Trim().ToUpper())))
+                          .OrderBy(s => s[9])
+                          .ThenBy(s => s[1]);
+
+                if (sTipoPieza != "T") results = results
+                                                .Where(s => (!String.IsNullOrEmpty(s.Field<string>("TipoPieza"))
+                                                             && s.Field<string>("TipoPieza").ToUpper().Contains(sTipoPieza)))
+                                                .OrderBy(s => s[9])
+                                                .ThenBy(s => s[1]);
+            }
+            else if (TipoFiltro == "TipoItem")
+            {
+
+                if (sTipoPieza != "T")
+                {
+                    results = dtItems.AsEnumerable()
+                              .Where(s => (!String.IsNullOrEmpty(s.Field<string>("TipoPieza"))
+                                     && s.Field<string>("TipoPieza").ToUpper().Contains(sTipoPieza)))
+                              .OrderBy(s => s[9])
+                              .ThenBy(s => s[1]);
+
+                }
+                else
+                    results = dtItems.AsEnumerable()
+                                .OrderBy(s => s[9])
+                                .ThenBy(s => s[1]);
+            }
+
+            if (results.Any())
+            {
+                dtf = results.CopyToDataTable();
+                if (dtf.Rows.Count > 0)
+                    dgvListaItems.DataSource = dtf;
+            }
+        }
+        private void txtValidar_TextChanged(object sender, EventArgs e)
+        {
+            TextBox TxtActual = (TextBox)sender;
+            if (!TxtActual.Focused)
+                try
+                {
+                    if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
+                    TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+        }
+
 
         #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)
@@ -134,6 +300,10 @@ namespace PresentationLayer.Forms
 
 
 
+
+
         #endregion
+
+
     }
 }

@@ -104,6 +104,7 @@ namespace PresentationLayer
         {
             FrmValoresCostos FrmCost = new FrmValoresCostos();
             FrmCost.MdiParent = this;
+            VisualizarLabel(true);
             FrmCost.StartPosition = FormStartPosition.Manual;
             FrmCost.Location = new Point(360, 210);
             FrmCost.Show();
@@ -123,9 +124,11 @@ namespace PresentationLayer
         {
             FrmKit FrmKits = new FrmKit();
             FrmKits.MdiParent = this;
+            VisualizarLabel(true);
             FrmKits.StartPosition = FormStartPosition.Manual;
             FrmKits.Location = new Point(500, 100);
             FrmKits.Show();
+            VisualizarLabel(false);
         }
 
         private void tmrOcultarMenu_Tick(object sender, EventArgs e)
@@ -200,6 +203,12 @@ namespace PresentationLayer
             }
 
         }
+
+        public void VisualizarLabel(bool Visible)
+        {
+            label1.Visible = Visible;
+        }
+
 
        
     }

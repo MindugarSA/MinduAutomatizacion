@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,16 @@ namespace DataAccessLayer
                 return (List<Item>)db.Item.ToList()
                                           .Where(c => c.Id == idItem)
                                           .ToList();
+            }
+        }
+
+        public DataTable GetItemsBusqueda(int? idItem)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                List<SP_GetItemBusqueda_Result> result = db.SP_GetItemBusqueda(idItem).ToList();
+
+                return new DataTable().ListToDataTable(result);
             }
         }
 

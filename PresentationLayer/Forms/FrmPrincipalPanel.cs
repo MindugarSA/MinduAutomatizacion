@@ -112,7 +112,8 @@ namespace PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmPieza FrmParte = new FrmPieza();
+            VisualizarLabel(true);
+            FrmPieza FrmParte = new FrmPieza(this);
             FrmParte.MdiParent = this ;//mdiClientPanel1.MdiForm;
             FrmParte.StartPosition = FormStartPosition.Manual;
             FrmParte.Location = new Point(370, 230);
@@ -122,10 +123,11 @@ namespace PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmKit FrmKits = new FrmKit();
+            VisualizarLabel(true);
+            FrmKit FrmKits = new FrmKit(this);
             FrmKits.MdiParent = this;
             FrmKits.StartPosition = FormStartPosition.Manual;
-            FrmKits.Location = new Point(500, 100);
+            FrmKits.Location = new Point(450, 100);
             panel10.Controls.Add(FrmKits);
             FrmKits.Show();
         }
@@ -203,7 +205,17 @@ namespace PresentationLayer
 
         }
 
+        public void VisualizarLabel(bool Visible)
+        {
+             this.label1.Visible = Visible;
+        }
 
-
+        private void FrmPrincipalPanel_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
     }
 }

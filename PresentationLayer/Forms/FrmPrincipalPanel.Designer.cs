@@ -56,6 +56,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.clickEffect1 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect2 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect3 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect4 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect5 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect6 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect7 = new PresentationLayer.ClickEffect(this.components);
+            this.clickEffect8 = new PresentationLayer.ClickEffect(this.components);
             this.pnlMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -358,7 +366,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 16F);
-            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.ForeColor = System.Drawing.Color.MediumBlue;
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 30);
@@ -370,8 +378,10 @@
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel10.Controls.Add(this.label1);
+            this.panel10.BackColor = System.Drawing.Color.White;
+            this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel10.Controls.Add(this.pictureBox3);
+            this.panel10.Controls.Add(this.label1);
             this.panel10.Location = new System.Drawing.Point(204, 31);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(876, 571);
@@ -380,6 +390,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Location = new System.Drawing.Point(572, 479);
@@ -388,8 +399,49 @@
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
             // 
+            // clickEffect1
+            // 
+            this.clickEffect1.ClickControl = this.button1;
+            this.clickEffect1.Speed = 25;
+            // 
+            // clickEffect2
+            // 
+            this.clickEffect2.ClickControl = this.button2;
+            this.clickEffect2.Speed = 25;
+            // 
+            // clickEffect3
+            // 
+            this.clickEffect3.ClickControl = this.button3;
+            this.clickEffect3.Speed = 25;
+            // 
+            // clickEffect4
+            // 
+            this.clickEffect4.ClickControl = this.button4;
+            this.clickEffect4.Speed = 25;
+            // 
+            // clickEffect5
+            // 
+            this.clickEffect5.ClickControl = this.button9;
+            this.clickEffect5.Speed = 25;
+            // 
+            // clickEffect6
+            // 
+            this.clickEffect6.ClickControl = this.button8;
+            this.clickEffect6.Speed = 25;
+            // 
+            // clickEffect7
+            // 
+            this.clickEffect7.ClickControl = this.button7;
+            this.clickEffect7.Speed = 25;
+            // 
+            // clickEffect8
+            // 
+            this.clickEffect8.ClickControl = this.button4;
+            this.clickEffect8.Speed = 25;
+            // 
             // FrmPrincipalPanel
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
@@ -397,11 +449,13 @@
             this.Controls.Add(this.panel10);
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.formHeader1);
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmPrincipalPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPrincipalPanel_DragEnter);
             this.pnlMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -440,5 +494,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private ClickEffect clickEffect1;
+        private ClickEffect clickEffect2;
+        private ClickEffect clickEffect3;
+        private ClickEffect clickEffect4;
+        private ClickEffect clickEffect5;
+        private ClickEffect clickEffect6;
+        private ClickEffect clickEffect7;
+        private ClickEffect clickEffect8;
     }
 }

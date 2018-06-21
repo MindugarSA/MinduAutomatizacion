@@ -40,6 +40,12 @@
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbTipo = new MetroFramework.Controls.MetroComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBusqueda = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtEspesorC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label24 = new System.Windows.Forms.Label();
@@ -57,24 +63,23 @@
             this.label34 = new System.Windows.Forms.Label();
             this.txtCodigoC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label35 = new System.Windows.Forms.Label();
+            this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.txtDescripcionC = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.dgvDetalleItemAmp = new MetroFramework.Controls.MetroGrid();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
             // 
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.btnCerrar);
-            this.panel4.Location = new System.Drawing.Point(645, 647);
+            this.panel4.Location = new System.Drawing.Point(824, 647);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -108,6 +113,9 @@
             this.btnCerrar.TabIndex = 0;
             this.btnCerrar.UseCompatibleTextRendering = true;
             this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnCerrar.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // formHeader2
             // 
@@ -119,11 +127,12 @@
             this.formHeader2.Location = new System.Drawing.Point(0, 0);
             this.formHeader2.Name = "formHeader2";
             this.formHeader2.ParentContainer = null;
-            this.formHeader2.Size = new System.Drawing.Size(772, 47);
+            this.formHeader2.Size = new System.Drawing.Size(955, 47);
             this.formHeader2.TabIndex = 44;
             // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.labelNoMouse1);
             this.panel2.Controls.Add(this.btnAgregar);
@@ -161,9 +170,20 @@
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.UseCompatibleTextRendering = true;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.cmbTipo);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtBusqueda);
+            this.groupBox1.Controls.Add(this.pictureBox8);
             this.groupBox1.Controls.Add(this.pictureBox10);
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.txtEspesorC);
@@ -182,20 +202,111 @@
             this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.txtCodigoC);
             this.groupBox1.Controls.Add(this.label35);
+            this.groupBox1.Controls.Add(this.dgvListaItems);
             this.groupBox1.Controls.Add(this.txtDescripcionC);
-            this.groupBox1.Controls.Add(this.pictureBox8);
-            this.groupBox1.Controls.Add(this.dgvDetalleItemAmp);
             this.groupBox1.Location = new System.Drawing.Point(22, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(734, 590);
+            this.groupBox1.Size = new System.Drawing.Size(913, 590);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
+            // cmbTipo
+            // 
+            this.cmbTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmbTipo.FormattingEnabled = true;
+            this.cmbTipo.ItemHeight = 23;
+            this.cmbTipo.Items.AddRange(new object[] {
+            "Todos",
+            "Pieza",
+            "Kit"});
+            this.cmbTipo.Location = new System.Drawing.Point(474, 12);
+            this.cmbTipo.Name = "cmbTipo";
+            this.cmbTipo.Size = new System.Drawing.Size(97, 29);
+            this.cmbTipo.TabIndex = 149;
+            this.cmbTipo.UseSelectable = true;
+            this.cmbTipo.SelectedIndexChanged += new System.EventHandler(this.cmbTipo_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(432, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(32, 17);
+            this.label1.TabIndex = 148;
+            this.label1.Text = "Tipo";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label2.Location = new System.Drawing.Point(30, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(139, 20);
+            this.label2.TabIndex = 146;
+            this.label2.Text = "Codigo / Descripcion";
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.AcceptsReturn = false;
+            this.txtBusqueda.AcceptsTab = false;
+            this.txtBusqueda.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtBusqueda.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtBusqueda.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtBusqueda.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtBusqueda.Depth = 0;
+            this.txtBusqueda.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.Hint = "";
+            this.txtBusqueda.Location = new System.Drawing.Point(175, 15);
+            this.txtBusqueda.MaxLength = 32767;
+            this.txtBusqueda.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtBusqueda.Multiline = false;
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.PasswordChar = '\0';
+            this.txtBusqueda.ReadOnly = false;
+            this.txtBusqueda.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtBusqueda.SelectedText = "";
+            this.txtBusqueda.SelectionLength = 0;
+            this.txtBusqueda.SelectionStart = 0;
+            this.txtBusqueda.Size = new System.Drawing.Size(246, 23);
+            this.txtBusqueda.TabIndex = 147;
+            this.txtBusqueda.TabStop = false;
+            this.txtBusqueda.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtBusqueda.UseSystemPasswordChar = false;
+            this.txtBusqueda.WordWrap = true;
+            this.txtBusqueda.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBusqueda_KeyPress);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(582, 11);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox8.TabIndex = 122;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox10.Location = new System.Drawing.Point(664, 407);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(230, 170);
+            this.pictureBox10.TabIndex = 141;
+            this.pictureBox10.TabStop = false;
+            // 
             // label23
             // 
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label23.Location = new System.Drawing.Point(223, 558);
+            this.label23.Location = new System.Drawing.Point(428, 545);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(99, 20);
             this.label23.TabIndex = 140;
@@ -205,12 +316,13 @@
             // 
             this.txtEspesorC.AcceptsReturn = false;
             this.txtEspesorC.AcceptsTab = false;
+            this.txtEspesorC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtEspesorC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtEspesorC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtEspesorC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEspesorC.Depth = 0;
             this.txtEspesorC.Hint = "";
-            this.txtEspesorC.Location = new System.Drawing.Point(112, 497);
+            this.txtEspesorC.Location = new System.Drawing.Point(134, 516);
             this.txtEspesorC.MaxLength = 32767;
             this.txtEspesorC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEspesorC.Multiline = false;
@@ -221,19 +333,21 @@
             this.txtEspesorC.SelectedText = "";
             this.txtEspesorC.SelectionLength = 0;
             this.txtEspesorC.SelectionStart = 0;
-            this.txtEspesorC.Size = new System.Drawing.Size(86, 23);
+            this.txtEspesorC.Size = new System.Drawing.Size(72, 23);
             this.txtEspesorC.TabIndex = 129;
             this.txtEspesorC.TabStop = false;
             this.txtEspesorC.Text = "0,00";
             this.txtEspesorC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtEspesorC.UseSystemPasswordChar = false;
             this.txtEspesorC.WordWrap = true;
+            this.txtEspesorC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // label24
             // 
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label24.Location = new System.Drawing.Point(47, 498);
+            this.label24.Location = new System.Drawing.Point(69, 517);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(58, 20);
             this.label24.TabIndex = 130;
@@ -243,12 +357,13 @@
             // 
             this.txtAnchoC.AcceptsReturn = false;
             this.txtAnchoC.AcceptsTab = false;
+            this.txtAnchoC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtAnchoC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtAnchoC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtAnchoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAnchoC.Depth = 0;
             this.txtAnchoC.Hint = "";
-            this.txtAnchoC.Location = new System.Drawing.Point(112, 527);
+            this.txtAnchoC.Location = new System.Drawing.Point(134, 546);
             this.txtAnchoC.MaxLength = 32767;
             this.txtAnchoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAnchoC.Multiline = false;
@@ -259,19 +374,21 @@
             this.txtAnchoC.SelectedText = "";
             this.txtAnchoC.SelectionLength = 0;
             this.txtAnchoC.SelectionStart = 0;
-            this.txtAnchoC.Size = new System.Drawing.Size(86, 23);
+            this.txtAnchoC.Size = new System.Drawing.Size(72, 23);
             this.txtAnchoC.TabIndex = 131;
             this.txtAnchoC.TabStop = false;
             this.txtAnchoC.Text = "0,00";
             this.txtAnchoC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtAnchoC.UseSystemPasswordChar = false;
             this.txtAnchoC.WordWrap = true;
+            this.txtAnchoC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // label25
             // 
+            this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label25.Location = new System.Drawing.Point(56, 528);
+            this.label25.Location = new System.Drawing.Point(78, 547);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(49, 20);
             this.label25.TabIndex = 132;
@@ -281,12 +398,13 @@
             // 
             this.txtLargoC.AcceptsReturn = false;
             this.txtLargoC.AcceptsTab = false;
+            this.txtLargoC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtLargoC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtLargoC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtLargoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLargoC.Depth = 0;
             this.txtLargoC.Hint = "";
-            this.txtLargoC.Location = new System.Drawing.Point(112, 557);
+            this.txtLargoC.Location = new System.Drawing.Point(538, 516);
             this.txtLargoC.MaxLength = 32767;
             this.txtLargoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLargoC.Multiline = false;
@@ -297,19 +415,21 @@
             this.txtLargoC.SelectedText = "";
             this.txtLargoC.SelectionLength = 0;
             this.txtLargoC.SelectionStart = 0;
-            this.txtLargoC.Size = new System.Drawing.Size(86, 23);
+            this.txtLargoC.Size = new System.Drawing.Size(72, 23);
             this.txtLargoC.TabIndex = 133;
             this.txtLargoC.TabStop = false;
             this.txtLargoC.Text = "0,00";
             this.txtLargoC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtLargoC.UseSystemPasswordChar = false;
             this.txtLargoC.WordWrap = true;
+            this.txtLargoC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // label27
             // 
+            this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label27.Location = new System.Drawing.Point(61, 558);
+            this.label27.Location = new System.Drawing.Point(483, 517);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(44, 20);
             this.label27.TabIndex = 134;
@@ -319,12 +439,13 @@
             // 
             this.txtDiametroC.AcceptsReturn = false;
             this.txtDiametroC.AcceptsTab = false;
+            this.txtDiametroC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtDiametroC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtDiametroC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDiametroC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDiametroC.Depth = 0;
             this.txtDiametroC.Hint = "";
-            this.txtDiametroC.Location = new System.Drawing.Point(328, 495);
+            this.txtDiametroC.Location = new System.Drawing.Point(324, 514);
             this.txtDiametroC.MaxLength = 32767;
             this.txtDiametroC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDiametroC.Multiline = false;
@@ -335,19 +456,21 @@
             this.txtDiametroC.SelectedText = "";
             this.txtDiametroC.SelectionLength = 0;
             this.txtDiametroC.SelectionStart = 0;
-            this.txtDiametroC.Size = new System.Drawing.Size(86, 23);
+            this.txtDiametroC.Size = new System.Drawing.Size(72, 23);
             this.txtDiametroC.TabIndex = 135;
             this.txtDiametroC.TabStop = false;
             this.txtDiametroC.Text = "0,00";
             this.txtDiametroC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDiametroC.UseSystemPasswordChar = false;
             this.txtDiametroC.WordWrap = true;
+            this.txtDiametroC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // label28
             // 
+            this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label28.Location = new System.Drawing.Point(255, 496);
+            this.label28.Location = new System.Drawing.Point(251, 515);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(66, 20);
             this.label28.TabIndex = 136;
@@ -357,12 +480,13 @@
             // 
             this.txtVolumenC.AcceptsReturn = false;
             this.txtVolumenC.AcceptsTab = false;
+            this.txtVolumenC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtVolumenC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtVolumenC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtVolumenC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtVolumenC.Depth = 0;
             this.txtVolumenC.Hint = "";
-            this.txtVolumenC.Location = new System.Drawing.Point(328, 557);
+            this.txtVolumenC.Location = new System.Drawing.Point(538, 544);
             this.txtVolumenC.MaxLength = 32767;
             this.txtVolumenC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVolumenC.Multiline = false;
@@ -373,24 +497,26 @@
             this.txtVolumenC.SelectedText = "";
             this.txtVolumenC.SelectionLength = 0;
             this.txtVolumenC.SelectionStart = 0;
-            this.txtVolumenC.Size = new System.Drawing.Size(86, 23);
+            this.txtVolumenC.Size = new System.Drawing.Size(72, 23);
             this.txtVolumenC.TabIndex = 139;
             this.txtVolumenC.TabStop = false;
             this.txtVolumenC.Text = "0,00";
             this.txtVolumenC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtVolumenC.UseSystemPasswordChar = false;
             this.txtVolumenC.WordWrap = true;
+            this.txtVolumenC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // txtPesoC
             // 
             this.txtPesoC.AcceptsReturn = false;
             this.txtPesoC.AcceptsTab = false;
+            this.txtPesoC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtPesoC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtPesoC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtPesoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPesoC.Depth = 0;
             this.txtPesoC.Hint = "";
-            this.txtPesoC.Location = new System.Drawing.Point(328, 527);
+            this.txtPesoC.Location = new System.Drawing.Point(324, 546);
             this.txtPesoC.MaxLength = 32767;
             this.txtPesoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPesoC.Multiline = false;
@@ -401,19 +527,21 @@
             this.txtPesoC.SelectedText = "";
             this.txtPesoC.SelectionLength = 0;
             this.txtPesoC.SelectionStart = 0;
-            this.txtPesoC.Size = new System.Drawing.Size(86, 23);
+            this.txtPesoC.Size = new System.Drawing.Size(72, 23);
             this.txtPesoC.TabIndex = 137;
             this.txtPesoC.TabStop = false;
             this.txtPesoC.Text = "0,00";
             this.txtPesoC.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtPesoC.UseSystemPasswordChar = false;
             this.txtPesoC.WordWrap = true;
+            this.txtPesoC.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
             // 
             // label29
             // 
+            this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label29.Location = new System.Drawing.Point(260, 528);
+            this.label29.Location = new System.Drawing.Point(256, 547);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(62, 20);
             this.label29.TabIndex = 138;
@@ -421,9 +549,10 @@
             // 
             // label33
             // 
+            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label33.Location = new System.Drawing.Point(41, 463);
+            this.label33.Location = new System.Drawing.Point(63, 482);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(61, 20);
             this.label33.TabIndex = 127;
@@ -433,6 +562,7 @@
             // 
             this.txtNombreC.AcceptsReturn = false;
             this.txtNombreC.AcceptsTab = false;
+            this.txtNombreC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtNombreC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtNombreC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtNombreC.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -440,7 +570,7 @@
             this.txtNombreC.Depth = 0;
             this.txtNombreC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreC.Hint = "";
-            this.txtNombreC.Location = new System.Drawing.Point(109, 462);
+            this.txtNombreC.Location = new System.Drawing.Point(131, 481);
             this.txtNombreC.MaxLength = 32767;
             this.txtNombreC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombreC.Multiline = false;
@@ -451,7 +581,7 @@
             this.txtNombreC.SelectedText = "";
             this.txtNombreC.SelectionLength = 0;
             this.txtNombreC.SelectionStart = 0;
-            this.txtNombreC.Size = new System.Drawing.Size(413, 23);
+            this.txtNombreC.Size = new System.Drawing.Size(508, 23);
             this.txtNombreC.TabIndex = 128;
             this.txtNombreC.TabStop = false;
             this.txtNombreC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -460,9 +590,10 @@
             // 
             // label34
             // 
+            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label34.Location = new System.Drawing.Point(49, 405);
+            this.label34.Location = new System.Drawing.Point(71, 424);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 20);
             this.label34.TabIndex = 125;
@@ -472,6 +603,7 @@
             // 
             this.txtCodigoC.AcceptsReturn = false;
             this.txtCodigoC.AcceptsTab = false;
+            this.txtCodigoC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtCodigoC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCodigoC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCodigoC.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -479,7 +611,7 @@
             this.txtCodigoC.Depth = 0;
             this.txtCodigoC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoC.Hint = "";
-            this.txtCodigoC.Location = new System.Drawing.Point(109, 404);
+            this.txtCodigoC.Location = new System.Drawing.Point(131, 423);
             this.txtCodigoC.MaxLength = 32767;
             this.txtCodigoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigoC.Multiline = false;
@@ -490,7 +622,7 @@
             this.txtCodigoC.SelectedText = "";
             this.txtCodigoC.SelectionLength = 0;
             this.txtCodigoC.SelectionStart = 0;
-            this.txtCodigoC.Size = new System.Drawing.Size(210, 23);
+            this.txtCodigoC.Size = new System.Drawing.Size(206, 23);
             this.txtCodigoC.TabIndex = 126;
             this.txtCodigoC.TabStop = false;
             this.txtCodigoC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -499,18 +631,76 @@
             // 
             // label35
             // 
+            this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label35.Location = new System.Drawing.Point(20, 434);
+            this.label35.Location = new System.Drawing.Point(42, 453);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(82, 20);
             this.label35.TabIndex = 123;
             this.label35.Text = "Descripcion";
             // 
+            // dgvListaItems
+            // 
+            this.dgvListaItems.AllowUserToAddRows = false;
+            this.dgvListaItems.AllowUserToDeleteRows = false;
+            this.dgvListaItems.AllowUserToOrderColumns = true;
+            this.dgvListaItems.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListaItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgvListaItems.EnableHeadersVisualStyles = false;
+            this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.Location = new System.Drawing.Point(18, 47);
+            this.dgvListaItems.MultiSelect = false;
+            this.dgvListaItems.Name = "dgvListaItems";
+            this.dgvListaItems.ReadOnly = true;
+            this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvListaItems.RowHeadersVisible = false;
+            this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaItems.Size = new System.Drawing.Size(878, 350);
+            this.dgvListaItems.TabIndex = 121;
+            this.dgvListaItems.SelectionChanged += new System.EventHandler(this.dgvListaItems_SelectionChanged);
+            this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
+            // 
             // txtDescripcionC
             // 
             this.txtDescripcionC.AcceptsReturn = false;
             this.txtDescripcionC.AcceptsTab = false;
+            this.txtDescripcionC.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.txtDescripcionC.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtDescripcionC.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtDescripcionC.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -518,7 +708,7 @@
             this.txtDescripcionC.Depth = 0;
             this.txtDescripcionC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionC.Hint = "";
-            this.txtDescripcionC.Location = new System.Drawing.Point(109, 433);
+            this.txtDescripcionC.Location = new System.Drawing.Point(131, 452);
             this.txtDescripcionC.MaxLength = 32767;
             this.txtDescripcionC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescripcionC.Multiline = false;
@@ -529,97 +719,26 @@
             this.txtDescripcionC.SelectedText = "";
             this.txtDescripcionC.SelectionLength = 0;
             this.txtDescripcionC.SelectionStart = 0;
-            this.txtDescripcionC.Size = new System.Drawing.Size(413, 23);
+            this.txtDescripcionC.Size = new System.Drawing.Size(507, 23);
             this.txtDescripcionC.TabIndex = 124;
             this.txtDescripcionC.TabStop = false;
             this.txtDescripcionC.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescripcionC.UseSystemPasswordChar = false;
             this.txtDescripcionC.WordWrap = true;
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(492, 403);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox8.TabIndex = 122;
-            this.pictureBox8.TabStop = false;
-            // 
-            // dgvDetalleItemAmp
-            // 
-            this.dgvDetalleItemAmp.AllowUserToAddRows = false;
-            this.dgvDetalleItemAmp.AllowUserToDeleteRows = false;
-            this.dgvDetalleItemAmp.AllowUserToOrderColumns = true;
-            this.dgvDetalleItemAmp.AllowUserToResizeColumns = false;
-            this.dgvDetalleItemAmp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvDetalleItemAmp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvDetalleItemAmp.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvDetalleItemAmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvDetalleItemAmp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvDetalleItemAmp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItemAmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvDetalleItemAmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleItemAmp.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dgvDetalleItemAmp.EnableHeadersVisualStyles = false;
-            this.dgvDetalleItemAmp.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvDetalleItemAmp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvDetalleItemAmp.Location = new System.Drawing.Point(14, 21);
-            this.dgvDetalleItemAmp.MultiSelect = false;
-            this.dgvDetalleItemAmp.Name = "dgvDetalleItemAmp";
-            this.dgvDetalleItemAmp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItemAmp.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.dgvDetalleItemAmp.RowHeadersVisible = false;
-            this.dgvDetalleItemAmp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvDetalleItemAmp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleItemAmp.Size = new System.Drawing.Size(706, 365);
-            this.dgvDetalleItemAmp.TabIndex = 121;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(536, 407);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(185, 170);
-            this.pictureBox10.TabIndex = 141;
-            this.pictureBox10.TabStop = false;
-            // 
             // FrmBusquedaItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(772, 691);
+            this.ClientSize = new System.Drawing.Size(955, 691);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.formHeader2);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmBusquedaItem";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmBusquedaItem";
             this.Load += new System.EventHandler(this.FrmBusquedaItem_Load);
             this.panel4.ResumeLayout(false);
@@ -629,8 +748,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -663,7 +782,11 @@
         private System.Windows.Forms.Label label35;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtDescripcionC;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private MetroFramework.Controls.MetroGrid dgvDetalleItemAmp;
+        private MetroFramework.Controls.MetroGrid dgvListaItems;
         private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label label2;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtBusqueda;
+        private MetroFramework.Controls.MetroComboBox cmbTipo;
+        private System.Windows.Forms.Label label1;
     }
 }

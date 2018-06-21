@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -152,6 +153,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ClickEffect.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\ClickEffect.Designer.cs">
+      <DependentUpon>ClickEffect.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls\DragControl.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -168,14 +175,17 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Controls\Positioning.cs" />
+    <Compile Include="Controls\TimerAnimation.cs" />
     <Compile Include="Extensions\DataGridViewExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\ErrorProviderExtensions.cs" />
     <Compile Include="Extensions\ExcelExtensions.cs" />
     <Compile Include="Extensions\FilestoBinary.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\Funciones.cs" />
     <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Extensions\ManipulateObject.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\Visuales.cs" />
     <Compile Include="Forms\FrmBusquedaItem.cs">
       <SubType>Form</SubType>
@@ -234,6 +244,9 @@
     <Compile Include="Forms\Functions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Controls\ClickEffect.resx">
+      <DependentUpon>ClickEffect.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Controls\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>

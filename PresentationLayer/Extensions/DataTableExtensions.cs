@@ -66,6 +66,31 @@ namespace PresentationLayer
             }
         }
 
+        public static void SwapRows(this DataTable dt, int row1, int row2)
+        {
+            if (row1 != row2 && row1 >= 0 && row2 >= 0 && row1 < dt.Rows.Count && row2 < dt.Rows.Count)
+            {
+                DataRow selectedRow = dt.Rows[row1];
+                DataRow newRow = dt.NewRow();
+                newRow.ItemArray = selectedRow.ItemArray; // copy data
+                dt.Rows.Remove(selectedRow);
+                dt.Rows.InsertAt(newRow, row2);
+
+                //DataRow newRow1 = dt.NewRow();
+                //DataRow newRow2 = dt.NewRow();
+                //newRow1.ItemArray = (dt.Rows[row1]).ItemArray;
+                //newRow2.ItemArray = (dt.Rows[row2]).ItemArray;
+                //dt.Rows.Remove(dt.Rows[row1]);
+                //dt.Rows.InsertAt(newRow2, row1);
+                //dt.Rows.Remove(dt.Rows[row2]);
+                //dt.Rows.InsertAt(newRow1, row2 );
+
+
+            }
+        }
+
+        
+
         public static DataTable LINQResultToDataTable<T>(this DataTable dtbl, IEnumerable<T> Linqlist)
         {
             DataTable dt = new DataTable();

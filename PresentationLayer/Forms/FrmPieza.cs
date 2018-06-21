@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using Entities;
 using BusinessLayer;
+using System.IO;
 
 namespace PresentationLayer.Forms
 {
@@ -20,16 +21,15 @@ namespace PresentationLayer.Forms
         private const int cCaption = 32;
 
         public int IdIetmSearch { get; set; }
-        string ModoPantalla = "";
         Item ItemEntidad = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         double ValorCostoEditado = 0;
         bool bControlActive = false;
         string pathImagen = "";
+        private FrmPrincipalPanel formPrincipal;
 
-
-        public FrmPieza()
+        public FrmPieza(FrmPrincipalPanel FormP = null)
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
@@ -42,15 +42,13 @@ namespace PresentationLayer.Forms
             EnlazarCampos();
 
             metroComboBox3.SelectedIndex = 0;
-
-            ModoPantalla = "Crear";
             panel3.Visible = false;
 
             metroTabControl1.SelectedIndex = 0;
             materialCheckBox1.Checked = true;
             this.InitializeClickHandlers();
-            //InitializeClickHandlers(this);
-            //this.MouseClick += new MouseEventHandler(ControlsClick);
+            formPrincipal = FormP;
+
         }
 
         #region EVENTOS
@@ -62,6 +60,7 @@ namespace PresentationLayer.Forms
             if (this.IdIetmSearch > 0)
                 CargarDatosItem(this.IdIetmSearch);
             BringToFront();
+            if(formPrincipal != null) formPrincipal.VisualizarLabel(false);
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -217,8 +216,16 @@ namespace PresentationLayer.Forms
         private void txtValidar_Leave(object sender, EventArgs e)
         {
             bControlActive = false;
+            Control TxtActual = (Control)sender;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
-                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString(); ;
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+
+                if (Convert.ToDecimal(txtEspesor.Text) > 0 && Convert.ToDecimal(txtAncho.Text) > 0 && Convert.ToDecimal(txtLargo.Text) > 0)
+                {
+                    string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
+                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                    txtPeso.Text = CalcPeso;
+                }
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -248,6 +255,7 @@ namespace PresentationLayer.Forms
             txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+            errorIcono.SetErrorWithCount(txtCodigo, "");
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -268,7 +276,6 @@ namespace PresentationLayer.Forms
         private void materialFlatButton2_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            ModoPantalla = "Crear";
             panel3.Visible = false;
             labelNoMouse1.Text = "Agregar";
             CargarGridsCostos();
@@ -317,6 +324,7 @@ namespace PresentationLayer.Forms
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
+            VerificarCodigoItem();
             if (ValidarCampos())
             {
                 CargarEntidadItem();
@@ -327,7 +335,6 @@ namespace PresentationLayer.Forms
                         CargarEntidadCosto(ItemEntidad);
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
-                        ModoPantalla = "Modificar";
                         panel3.Visible = true;
                         break;
                     case "Actualizar":
@@ -339,12 +346,11 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
                         break;
                 }
+                CargarGridListadoItem();
                 CargarGridsCostos();
                 FormatearGridsCostos();
             }
         }
-
-
 
         private void txtValidarVacio_TextChanged(object sender, EventArgs e)
         {
@@ -471,7 +477,6 @@ namespace PresentationLayer.Forms
             EnlazarCampos();
             metroTabControl1.SelectedIndex = 0;
             labelNoMouse1.Text = "Actualizar";
-            ModoPantalla = "Modificar";
             panel3.Visible = true;
 
             DataTable dt = (DataTable)metroComboBox2.DataSource;
@@ -558,7 +563,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Descripcion = txtDescrpcion.Text;
             ItemEntidad.Nombre = txtNombre.Text;
             ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
-            ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
+            ItemEntidad.Familia = metroComboBox2.SelectedItem == null ? 0 : Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
             ItemEntidad.TipoItem = "P";
             ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
             ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
@@ -606,14 +611,16 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (txtCodigo.Text == string.Empty)
+            if (errorIcono.HasErrors())
+                Valido = false;
+            else if (txtCodigo.Text == string.Empty)
             {
-                errorIcono.SetError(txtCodigo, "Ingrese un Codigo");
+                errorIcono.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
                 Valido = false;
             }
             else if (txtDescrpcion.Text == string.Empty)
             {
-                errorIcono.SetError(txtDescrpcion, "Ingrese una Descripción");
+                errorIcono.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
 
@@ -750,5 +757,49 @@ namespace PresentationLayer.Forms
         {
             this.BringToFront();
         }
+
+        private void FrmPieza_DragDrop(object sender, DragEventArgs e)
+        {
+            //TAKE DROPPED ITEMS AND STORE IN ARRAY
+            string[] droppedfiles = (string[])e.Data.GetData(DataFormats.FileDrop);
+            //LOOP THRU ALL DROPPED ITEMS AND DISPLAY THEM
+            foreach (string file in droppedfiles)
+            {
+                //GET FILENAME
+                string filename = Path.GetFileNameWithoutExtension(file);
+                // SET IMAGE
+                pictureBox1.BackgroundImage = Image.FromFile(file);
+            }
+            // GET FILENAME
+            
+        }
+
+        private void FrmPieza_DragEnter(object sender, DragEventArgs e)
+        {
+            if(e.Data.GetDataPresent(DataFormats.FileDrop,false) == true)
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            if (labelNoMouse1.Text.Trim() == "Agregar" && txtCodigo.Text.Trim() != "")
+            {
+                VerificarCodigoItem();
+            }
+        }
+
+        private void VerificarCodigoItem()
+        {
+            var result = ItemsBL.GetItems()
+                             .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
+                             .FirstOrDefault();
+            if (result != null)
+                errorIcono.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
+            else
+                errorIcono.SetErrorWithCount(txtCodigo, "");
+        }
+
     }
 }

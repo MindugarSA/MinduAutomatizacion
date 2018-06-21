@@ -152,7 +152,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.materialFlatButton3);
-            this.panel4.Location = new System.Drawing.Point(643, 563);
+            this.panel4.Location = new System.Drawing.Point(719, 563);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -279,6 +279,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
@@ -303,7 +306,7 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(720, 463);
+            this.groupBox1.Size = new System.Drawing.Size(796, 463);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
@@ -332,9 +335,9 @@
             this.groupBox5.Controls.Add(this.txtTotalCostos);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F);
-            this.groupBox5.Location = new System.Drawing.Point(443, 250);
+            this.groupBox5.Location = new System.Drawing.Point(498, 250);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(253, 182);
+            this.groupBox5.Size = new System.Drawing.Size(271, 182);
             this.groupBox5.TabIndex = 92;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
@@ -348,7 +351,7 @@
             this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPro.Depth = 0;
             this.txtTotCosPro.Hint = "";
-            this.txtTotCosPro.Location = new System.Drawing.Point(109, 101);
+            this.txtTotCosPro.Location = new System.Drawing.Point(123, 101);
             this.txtTotCosPro.MaxLength = 32767;
             this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPro.Multiline = false;
@@ -376,7 +379,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label20.Location = new System.Drawing.Point(37, 104);
+            this.label20.Location = new System.Drawing.Point(51, 104);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 20);
             this.label20.TabIndex = 91;
@@ -391,7 +394,7 @@
             this.txtTotCosCom.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosCom.Depth = 0;
             this.txtTotCosCom.Hint = "";
-            this.txtTotCosCom.Location = new System.Drawing.Point(109, 33);
+            this.txtTotCosCom.Location = new System.Drawing.Point(123, 33);
             this.txtTotCosCom.MaxLength = 32767;
             this.txtTotCosCom.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosCom.Multiline = false;
@@ -419,7 +422,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label19.Location = new System.Drawing.Point(46, 34);
+            this.label19.Location = new System.Drawing.Point(60, 34);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 20);
             this.label19.TabIndex = 89;
@@ -434,7 +437,7 @@
             this.txtTotCosRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosRRHH.Depth = 0;
             this.txtTotCosRRHH.Hint = "";
-            this.txtTotCosRRHH.Location = new System.Drawing.Point(109, 68);
+            this.txtTotCosRRHH.Location = new System.Drawing.Point(123, 68);
             this.txtTotCosRRHH.MaxLength = 32767;
             this.txtTotCosRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosRRHH.Multiline = false;
@@ -462,7 +465,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label18.Location = new System.Drawing.Point(57, 69);
+            this.label18.Location = new System.Drawing.Point(71, 69);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(45, 20);
             this.label18.TabIndex = 87;
@@ -477,7 +480,7 @@
             this.txtTotalCostos.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotalCostos.Depth = 0;
             this.txtTotalCostos.Hint = "";
-            this.txtTotalCostos.Location = new System.Drawing.Point(108, 138);
+            this.txtTotalCostos.Location = new System.Drawing.Point(122, 138);
             this.txtTotalCostos.MaxLength = 32767;
             this.txtTotalCostos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotalCostos.Multiline = false;
@@ -505,7 +508,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label15.Location = new System.Drawing.Point(26, 139);
+            this.label15.Location = new System.Drawing.Point(40, 139);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(76, 20);
             this.label15.TabIndex = 85;
@@ -528,7 +531,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(11, 250);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(424, 182);
+            this.groupBox4.Size = new System.Drawing.Size(481, 182);
             this.groupBox4.TabIndex = 91;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Magnitudes";
@@ -537,7 +540,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label16.Location = new System.Drawing.Point(209, 69);
+            this.label16.Location = new System.Drawing.Point(217, 34);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(99, 20);
             this.label16.TabIndex = 83;
@@ -724,7 +727,7 @@
             this.txtVolumen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtVolumen.Depth = 0;
             this.txtVolumen.Hint = "";
-            this.txtVolumen.Location = new System.Drawing.Point(314, 68);
+            this.txtVolumen.Location = new System.Drawing.Point(322, 33);
             this.txtVolumen.MaxLength = 32767;
             this.txtVolumen.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVolumen.Multiline = false;
@@ -757,7 +760,7 @@
             this.txtPeso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPeso.Depth = 0;
             this.txtPeso.Hint = "";
-            this.txtPeso.Location = new System.Drawing.Point(314, 33);
+            this.txtPeso.Location = new System.Drawing.Point(322, 68);
             this.txtPeso.MaxLength = 32767;
             this.txtPeso.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPeso.Multiline = false;
@@ -785,7 +788,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label17.Location = new System.Drawing.Point(246, 34);
+            this.label17.Location = new System.Drawing.Point(254, 69);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 20);
             this.label17.TabIndex = 81;
@@ -796,7 +799,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(682, 173);
+            this.pictureBox5.Location = new System.Drawing.Point(745, 173);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.TabIndex = 90;
@@ -835,11 +838,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(539, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(547, 16);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(167, 152);
+            this.pictureBox1.Size = new System.Drawing.Size(230, 152);
             this.pictureBox1.TabIndex = 86;
             this.pictureBox1.TabStop = false;
             // 
@@ -967,6 +970,7 @@
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCodigo.UseSystemPasswordChar = false;
             this.txtCodigo.WordWrap = true;
+            this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtValidarVacio_TextChanged);
             // 
             // metroComboBox2
@@ -986,7 +990,7 @@
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
             this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox1.Location = new System.Drawing.Point(442, 30);
+            this.materialCheckBox1.Location = new System.Drawing.Point(498, 30);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1050,7 +1054,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(403, 37);
+            this.label9.Location = new System.Drawing.Point(459, 37);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(42, 17);
             this.label9.TabIndex = 60;
@@ -1058,6 +1062,9 @@
             // 
             // metroTabControl1
             // 
+            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroTabControl1.Controls.Add(this.metroTabPage1);
             this.metroTabControl1.Controls.Add(this.metroTabPage2);
             this.metroTabControl1.Controls.Add(this.metroTabPage3);
@@ -1065,7 +1072,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(21, 41);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(733, 514);
+            this.metroTabControl1.Size = new System.Drawing.Size(809, 514);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -1077,7 +1084,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(725, 472);
+            this.metroTabPage1.Size = new System.Drawing.Size(801, 472);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "      General      ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -1092,7 +1099,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(725, 472);
+            this.metroTabPage2.Size = new System.Drawing.Size(801, 472);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "    Costos RRHH    ";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -1101,22 +1108,26 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtCostoRRHH);
             this.groupBox2.Controls.Add(this.dgvCostoRRHH);
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(720, 483);
+            this.groupBox2.Size = new System.Drawing.Size(796, 483);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label2.Location = new System.Drawing.Point(468, 257);
+            this.label2.Location = new System.Drawing.Point(554, 257);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 60;
@@ -1126,13 +1137,14 @@
             // 
             this.txtCostoRRHH.AcceptsReturn = false;
             this.txtCostoRRHH.AcceptsTab = false;
+            this.txtCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoRRHH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoRRHH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoRRHH.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCostoRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoRRHH.Depth = 0;
             this.txtCostoRRHH.Hint = "";
-            this.txtCostoRRHH.Location = new System.Drawing.Point(595, 256);
+            this.txtCostoRRHH.Location = new System.Drawing.Point(681, 256);
             this.txtCostoRRHH.MaxLength = 32767;
             this.txtCostoRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoRRHH.Multiline = false;
@@ -1157,10 +1169,12 @@
             this.dgvCostoRRHH.AllowUserToAddRows = false;
             this.dgvCostoRRHH.AllowUserToDeleteRows = false;
             this.dgvCostoRRHH.AllowUserToOrderColumns = true;
-            this.dgvCostoRRHH.AllowUserToResizeColumns = false;
             this.dgvCostoRRHH.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoRRHH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoRRHH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoRRHH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoRRHH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1200,7 +1214,7 @@
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoRRHH.Size = new System.Drawing.Size(652, 227);
+            this.dgvCostoRRHH.Size = new System.Drawing.Size(743, 227);
             this.dgvCostoRRHH.TabIndex = 58;
             this.dgvCostoRRHH.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoRRHH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1215,7 +1229,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(725, 472);
+            this.metroTabPage3.Size = new System.Drawing.Size(801, 472);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "  Costos Fabriles / Procesos  ";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -1224,6 +1238,9 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.txtCostoAcero);
@@ -1233,16 +1250,17 @@
             this.groupBox3.Controls.Add(this.dgvCostoProc);
             this.groupBox3.Location = new System.Drawing.Point(2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(720, 469);
+            this.groupBox3.Size = new System.Drawing.Size(796, 469);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             // 
             // label21
             // 
+            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label21.Location = new System.Drawing.Point(481, 217);
+            this.label21.Location = new System.Drawing.Point(546, 217);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(123, 20);
             this.label21.TabIndex = 63;
@@ -1252,13 +1270,14 @@
             // 
             this.txtCostoAcero.AcceptsReturn = false;
             this.txtCostoAcero.AcceptsTab = false;
+            this.txtCostoAcero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoAcero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoAcero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoAcero.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCostoAcero.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoAcero.Depth = 0;
             this.txtCostoAcero.Hint = "";
-            this.txtCostoAcero.Location = new System.Drawing.Point(610, 217);
+            this.txtCostoAcero.Location = new System.Drawing.Point(675, 217);
             this.txtCostoAcero.MaxLength = 32767;
             this.txtCostoAcero.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoAcero.Multiline = false;
@@ -1283,10 +1302,11 @@
             this.dgvCostoAcero.AllowUserToAddRows = false;
             this.dgvCostoAcero.AllowUserToDeleteRows = false;
             this.dgvCostoAcero.AllowUserToOrderColumns = true;
-            this.dgvCostoAcero.AllowUserToResizeColumns = false;
             this.dgvCostoAcero.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoAcero.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvCostoAcero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoAcero.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoAcero.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoAcero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1326,7 +1346,7 @@
             this.dgvCostoAcero.RowHeadersVisible = false;
             this.dgvCostoAcero.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoAcero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoAcero.Size = new System.Drawing.Size(672, 192);
+            this.dgvCostoAcero.Size = new System.Drawing.Size(743, 192);
             this.dgvCostoAcero.TabIndex = 61;
             this.dgvCostoAcero.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoAcero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1335,10 +1355,11 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label3.Location = new System.Drawing.Point(462, 437);
+            this.label3.Location = new System.Drawing.Point(527, 437);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 60;
@@ -1348,13 +1369,14 @@
             // 
             this.txtCostoProc.AcceptsReturn = false;
             this.txtCostoProc.AcceptsTab = false;
+            this.txtCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoProc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoProc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoProc.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCostoProc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoProc.Depth = 0;
             this.txtCostoProc.Hint = "";
-            this.txtCostoProc.Location = new System.Drawing.Point(610, 437);
+            this.txtCostoProc.Location = new System.Drawing.Point(675, 437);
             this.txtCostoProc.MaxLength = 32767;
             this.txtCostoProc.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoProc.Multiline = false;
@@ -1379,10 +1401,11 @@
             this.dgvCostoProc.AllowUserToAddRows = false;
             this.dgvCostoProc.AllowUserToDeleteRows = false;
             this.dgvCostoProc.AllowUserToOrderColumns = true;
-            this.dgvCostoProc.AllowUserToResizeColumns = false;
             this.dgvCostoProc.AllowUserToResizeRows = false;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.dgvCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoProc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoProc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoProc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1422,7 +1445,7 @@
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoProc.Size = new System.Drawing.Size(672, 180);
+            this.dgvCostoProc.Size = new System.Drawing.Size(743, 180);
             this.dgvCostoProc.TabIndex = 58;
             this.dgvCostoProc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoProc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1437,7 +1460,7 @@
             this.metroTabPage4.HorizontalScrollbarSize = 10;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(725, 472);
+            this.metroTabPage4.Size = new System.Drawing.Size(801, 472);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "   Listado Partes   ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
@@ -1446,12 +1469,15 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox6.Controls.Add(this.panel1);
             this.groupBox6.Controls.Add(this.dgvListaItems);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(720, 467);
+            this.groupBox6.Size = new System.Drawing.Size(796, 467);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
@@ -1480,10 +1506,10 @@
             // 
             // materialFlatButton4
             // 
+            this.materialFlatButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.materialFlatButton4.BackColor = System.Drawing.Color.Transparent;
             this.materialFlatButton4.Depth = 0;
-            this.materialFlatButton4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialFlatButton4.ForeColor = System.Drawing.Color.White;
             this.materialFlatButton4.Icon = null;
             this.materialFlatButton4.Location = new System.Drawing.Point(0, 0);
@@ -1508,6 +1534,9 @@
             this.dgvListaItems.AllowUserToResizeRows = false;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListaItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1548,7 +1577,7 @@
             this.dgvListaItems.RowHeadersVisible = false;
             this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaItems.Size = new System.Drawing.Size(676, 385);
+            this.dgvListaItems.Size = new System.Drawing.Size(752, 385);
             this.dgvListaItems.TabIndex = 58;
             this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
             // 
@@ -1566,15 +1595,16 @@
             this.formHeader1.Location = new System.Drawing.Point(0, 0);
             this.formHeader1.Name = "formHeader1";
             this.formHeader1.ParentContainer = null;
-            this.formHeader1.Size = new System.Drawing.Size(771, 44);
+            this.formHeader1.Size = new System.Drawing.Size(847, 44);
             this.formHeader1.TabIndex = 0;
             // 
             // FrmPieza
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(771, 613);
+            this.ClientSize = new System.Drawing.Size(847, 613);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -1585,6 +1615,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmItemSimple";
             this.Load += new System.EventHandler(this.FrmItemSimple_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FrmPieza_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPieza_DragEnter);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);

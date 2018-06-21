@@ -103,6 +103,9 @@
     <Compile Include="ReglasFamilia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="SP_GetItemBusqueda_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="SP_GetItemCostoID_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

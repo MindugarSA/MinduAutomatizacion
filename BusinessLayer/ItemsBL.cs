@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Entities;
 using DataAccessLayer;
+using System.Data;
 
 namespace BusinessLayer
 {
@@ -27,6 +28,11 @@ namespace BusinessLayer
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemId(ItemId);
+        }
+        public static DataTable GetItemsBusqueda(int? ItemId)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsBusqueda(ItemId);
         }
 
         public static Item InsertItem(Item ObjItem)

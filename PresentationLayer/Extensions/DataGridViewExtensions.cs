@@ -156,7 +156,7 @@ namespace PresentationLayer
 
         }
 
-        public static void SelectRowAndSroll(this DataGridView grid, int RowIndex)
+        public static void SelectRowAndScroll(this DataGridView grid, int RowIndex)
         {
             if (grid.RowCount == 0) return;
             {
@@ -165,6 +165,30 @@ namespace PresentationLayer
                 //grid.CurrentCell = grid[, RowIndex];
             }
 
+        }
+
+        public static void SwapCellsValues(this DataGridView grid, int rowid, string option)
+        {
+            if (option == "UP")
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    var temp = grid.Rows[rowid - 1].Cells[i].Value;
+                    grid.Rows[rowid - 1].Cells[i].Value =
+                    grid.Rows[rowid].Cells[i].Value;
+                    grid.Rows[rowid].Cells[i].Value = temp;
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    var temp = grid.Rows[rowid].Cells[i].Value;
+                    grid.Rows[rowid].Cells[i].Value =
+                    grid.Rows[rowid + 1].Cells[i].Value;
+                    grid.Rows[rowid + 1].Cells[i].Value = temp;
+                }
+            }
         }
 
         public static void AjustColumnsWidthForGridWidth(this DataGridView oDataGridView)
