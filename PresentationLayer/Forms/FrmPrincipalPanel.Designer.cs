@@ -56,20 +56,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.clickEffect1 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect2 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect3 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect4 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect5 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect6 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect7 = new PresentationLayer.ClickEffect(this.components);
-            this.clickEffect8 = new PresentationLayer.ClickEffect(this.components);
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pnlMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -109,6 +103,7 @@
             this.button5.TabIndex = 11;
             this.button5.Text = "   Producto";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // panel3
             // 
@@ -380,6 +375,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.BackColor = System.Drawing.Color.White;
             this.panel10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel10.Controls.Add(this.pictureBox4);
             this.panel10.Controls.Add(this.pictureBox3);
             this.panel10.Controls.Add(this.label1);
             this.panel10.Location = new System.Drawing.Point(204, 31);
@@ -399,45 +395,15 @@
             this.pictureBox3.TabIndex = 13;
             this.pictureBox3.TabStop = false;
             // 
-            // clickEffect1
+            // pictureBox4
             // 
-            this.clickEffect1.ClickControl = this.button1;
-            this.clickEffect1.Speed = 25;
-            // 
-            // clickEffect2
-            // 
-            this.clickEffect2.ClickControl = this.button2;
-            this.clickEffect2.Speed = 25;
-            // 
-            // clickEffect3
-            // 
-            this.clickEffect3.ClickControl = this.button3;
-            this.clickEffect3.Speed = 25;
-            // 
-            // clickEffect4
-            // 
-            this.clickEffect4.ClickControl = this.button4;
-            this.clickEffect4.Speed = 25;
-            // 
-            // clickEffect5
-            // 
-            this.clickEffect5.ClickControl = this.button9;
-            this.clickEffect5.Speed = 25;
-            // 
-            // clickEffect6
-            // 
-            this.clickEffect6.ClickControl = this.button8;
-            this.clickEffect6.Speed = 25;
-            // 
-            // clickEffect7
-            // 
-            this.clickEffect7.ClickControl = this.button7;
-            this.clickEffect7.Speed = 25;
-            // 
-            // clickEffect8
-            // 
-            this.clickEffect8.ClickControl = this.button4;
-            this.clickEffect8.Speed = 25;
+            this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(340, 185);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(203, 200);
+            this.pictureBox4.TabIndex = 23;
+            this.pictureBox4.TabStop = false;
             // 
             // FrmPrincipalPanel
             // 
@@ -450,11 +416,13 @@
             this.Controls.Add(this.pnlMenu);
             this.Controls.Add(this.formHeader1);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "FrmPrincipalPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            this.Shown += new System.EventHandler(this.FrmPrincipalPanel_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPrincipalPanel_DragEnter);
             this.pnlMenu.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -463,6 +431,7 @@
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -492,15 +461,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel10;
+        public System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private ClickEffect clickEffect1;
-        private ClickEffect clickEffect2;
-        private ClickEffect clickEffect3;
-        private ClickEffect clickEffect4;
-        private ClickEffect clickEffect5;
-        private ClickEffect clickEffect6;
-        private ClickEffect clickEffect7;
-        private ClickEffect clickEffect8;
+        internal System.Windows.Forms.PictureBox pictureBox4;
     }
 }

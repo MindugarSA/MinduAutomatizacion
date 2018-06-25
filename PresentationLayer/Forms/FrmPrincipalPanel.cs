@@ -35,6 +35,14 @@ namespace PresentationLayer
         int Level1Separation = 54;
         bool Opt1Open = false;
 
+        //protected override void OnLoad(EventArgs e)
+        //{
+        //    base.OnLoad(e);
+        //    this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
+        //    //System.Drawing.Rectangle rect = Screen.GetWorkingArea(this);
+        //    //this.MaximizedBounds = Screen.GetWorkingArea(this);
+        //}
+
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             foreach (Control c in this.Controls)
@@ -47,13 +55,13 @@ namespace PresentationLayer
                 catch { }
             }
 
+            this.MaximumSize = Screen.PrimaryScreen.WorkingArea.Size;
             this.WindowState = FormWindowState.Maximized;
 
             this.ControlBox = false;
             this.Text = String.Empty;
             label1.Visible = false;
-            // pictureBox3.SendToBack();
-            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -64,73 +72,54 @@ namespace PresentationLayer
         private void button9_Click(object sender, EventArgs e)
         {
             FrmFamilia FrmFami = new FrmFamilia();
-            FrmFami.MdiParent = this;
-            FrmFami.StartPosition = FormStartPosition.Manual;
-            FrmFami.Location = new Point(300, 150);
-            panel10.Controls.Add(FrmFami);
-            FrmFami.Show();
-            // pnlMenu.SendToBack();
+            AbrirFormulario(FrmFami, 300, 150);
+
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             FrmPropiedades FrmProp = new FrmPropiedades();
-            FrmProp.TopLevel = false;
-            FrmProp.MdiParent = this;
-            //panel2.Controls.Add(FrmProp);
-            //panel2.Tag = FrmProp;
-            FrmProp.WindowState = FormWindowState.Normal;
-            FrmProp.StartPosition = FormStartPosition.Manual;
-            FrmProp.Location = new Point(340, 190);
-            panel10.Controls.Add(FrmProp);
-            FrmProp.Show();
+            AbrirFormulario(FrmProp, 340, 190);
+
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
             FrmTipos FrmTipos = new FrmTipos();
-            FrmTipos.TopLevel = false;
-            FrmTipos.MdiParent = this;
-            //panel2.Controls.Add(FrmTipos);
-            //panel2.Tag = FrmTipos;
-            FrmTipos.WindowState = FormWindowState.Normal;
-            FrmTipos.StartPosition = FormStartPosition.Manual;
-            FrmTipos.Location = new Point(320, 170);
-            panel10.Controls.Add(FrmTipos);
-            FrmTipos.Show();
+            AbrirFormulario(FrmTipos, 320, 170);
+
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             FrmValoresCostos FrmCost = new FrmValoresCostos();
-            FrmCost.MdiParent = this;
-            FrmCost.StartPosition = FormStartPosition.Manual;
-            FrmCost.Location = new Point(360, 210);
-            panel10.Controls.Add(FrmCost);
-            FrmCost.Show();
+            AbrirFormulario(FrmCost, 360, 210);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             VisualizarLabel(true);
             FrmPieza FrmParte = new FrmPieza(this);
-            FrmParte.MdiParent = this ;//mdiClientPanel1.MdiForm;
-            FrmParte.StartPosition = FormStartPosition.Manual;
-            FrmParte.Location = new Point(370, 230);
-            panel10.Controls.Add(FrmParte);
-            FrmParte.Show();
+            AbrirFormulario(FrmParte, 470, 230);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             VisualizarLabel(true);
             FrmKit FrmKits = new FrmKit(this);
-            FrmKits.MdiParent = this;
-            FrmKits.StartPosition = FormStartPosition.Manual;
-            FrmKits.Location = new Point(450, 100);
-            panel10.Controls.Add(FrmKits);
-            FrmKits.Show();
+            AbrirFormulario(FrmKits, 450, 100);
+
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            VisualizarLabel(true);
+            FrmProducto FrmKits = new FrmProducto(this);
+            AbrirFormulario(FrmKits, 470, 120);
+        }
+
+
 
         private void tmrOcultarMenu_Tick(object sender, EventArgs e)
         {
@@ -141,7 +130,9 @@ namespace PresentationLayer
             }
             else
             {
-                pnlMenu.Width = pnlMenu.Width - 20;
+                pnlMenu.Width -= 20;
+                panel10.Width += 20;
+                panel10.Left -= 20;
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y + 6);
                 pictureBox2.Location = new Point(pictureBox2.Location.X - 1, pictureBox2.Location.Y);
             }
@@ -157,6 +148,8 @@ namespace PresentationLayer
             else
             {
                 pnlMenu.Width = pnlMenu.Width + 20;
+                panel10.Width -= 20;
+                panel10.Left += 20;
                 pictureBox1.Location = new Point(pictureBox1.Location.X, pictureBox1.Location.Y - 6);
                 pictureBox2.Location = new Point(pictureBox2.Location.X + 1, pictureBox2.Location.Y);
             }
@@ -169,6 +162,15 @@ namespace PresentationLayer
             else
                 tmrMostrarMenu.Enabled = true;
 
+        }
+
+        public void AbrirFormulario(Form oForm, int X, int Y)
+        {
+            oForm.TopLevel = false;
+            oForm.StartPosition = FormStartPosition.Manual;
+            oForm.Location = new Point(X, Y);
+            panel10.Controls.Add(oForm);
+            oForm.Show();
         }
 
         private void AbrirSubMenu(int iNivel)
@@ -216,6 +218,12 @@ namespace PresentationLayer
             {
                 e.Effect = DragDropEffects.All;
             }
+        }
+
+        private void FrmPrincipalPanel_Shown(object sender, EventArgs e)
+        {
+            pictureBox4.Top = (panel10.Height / 2) - (pictureBox4.Height / 2);
+            pictureBox4.Left = (panel10.Width / 2) - (pictureBox4.Width / 2);
         }
     }
 }

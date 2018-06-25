@@ -15,12 +15,10 @@ using System.IO;
 
 namespace PresentationLayer.Forms
 {
-    public partial class FrmKit : Form
+    public partial class FrmProducto : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
-
-        public int IdIetmSearch { get; set; }
 
         Item ItemEntidad = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
@@ -37,7 +35,7 @@ namespace PresentationLayer.Forms
         private FrmPrincipalPanel formPrincipal;
 
 
-        public FrmKit(FrmPrincipalPanel FormP = null)
+        public FrmProducto(FrmPrincipalPanel FormP = null)
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
@@ -50,6 +48,11 @@ namespace PresentationLayer.Forms
             EnlazarCampos();
 
             panel3.Visible = false;
+            label3.Visible = false;
+            label20.Visible = false;
+            txtTotalCostos.Visible = false;
+            txtCostoProc.Visible = false;
+            dgvCostoProc.Visible = false;
 
             metroTab1.SelectedIndex = 0;
             materialCheckBox1.Checked = true;
@@ -65,9 +68,7 @@ namespace PresentationLayer.Forms
         {
             txtCodigo.Select();
             metroTabPage1.Select();
-            if (this.IdIetmSearch > 0)
-                CargarDatosItem(this.IdIetmSearch);
-            if (formPrincipal != null) formPrincipal.VisualizarLabel(false);
+            formPrincipal.VisualizarLabel(false);
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -276,14 +277,12 @@ namespace PresentationLayer.Forms
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
             CargarDatosItem(ItemId);
-            CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
             CargarDatosItem(ItemId);
-            CargarCamposListaKit(ItemsBL.GetItemId(ItemId).FirstOrDefault());
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -430,19 +429,27 @@ namespace PresentationLayer.Forms
 
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
-            if(dgvDetalleItemAmp.Rows.Count > 0)
-            {
-                int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value ?? 0);
-                if (IdDetalle > 0)
-                {
+            int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+            string TipoPieza = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[8].Value.ToString();
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
-                    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            if (IdDetalle > 0)
+            {
+                if (TipoPieza.Trim() == "K")
+                {
+                    FrmKit Frmkit = new FrmKit();
+                    Frmkit.IdIetmSearch = IdDetalle;
+                    frmParentForm.AbrirFormulario(Frmkit, 370, 230);
+
+                }
+                else
+                {
                     FrmPieza FrmParte = new FrmPieza();
                     FrmParte.IdIetmSearch = IdDetalle;
                     frmParentForm.AbrirFormulario(FrmParte, 370, 230);
                 }
+
             }
-           
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -616,7 +623,7 @@ namespace PresentationLayer.Forms
         private void CargarGridListadoItem()
         {
             //Listado de Items
-            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("K").Select(c =>
+            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("T").Select(c =>
                                                                 {
                                                                     c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                                                     return c;
@@ -641,6 +648,7 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+
         }
 
         private void CargarGridsDetalleItem(int itemId)
@@ -816,7 +824,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Nombre = txtNombre.Text;
             ItemEntidad.TipoPieza = "";
             ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
-            ItemEntidad.TipoItem = "K";
+            ItemEntidad.TipoItem = "T";
             ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
             ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
             ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
@@ -1013,8 +1021,8 @@ namespace PresentationLayer.Forms
         private void VerificarCodigoItem()
         {
             var result = ItemsBL.GetItems()
-                            .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
-                            .FirstOrDefault();
+                             .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
+                             .FirstOrDefault();
             if (result != null)
                 errorIcono.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
             else
@@ -1137,13 +1145,7 @@ namespace PresentationLayer.Forms
         private void txtBuscarItem_Enter(object sender, EventArgs e)
         {
             txtBuscarItem.SelectAll();
-            txtBuscarItem.Focus(); 
-        }
-
-        private void FrmKit_Shown(object sender, EventArgs e)
-        {
-            this.Activate();
-            this.BringToFront();
+            txtBuscarItem.Focus();
         }
 
         private void duplicarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
@@ -1159,5 +1161,6 @@ namespace PresentationLayer.Forms
             else
                 contextMenuStrip1.Items[0].Enabled = true;
         }
+
     }
 }

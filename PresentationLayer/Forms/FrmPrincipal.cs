@@ -122,7 +122,7 @@ namespace PresentationLayer
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FrmKit FrmKits = new FrmKit();
+            FrmProducto FrmKits = new FrmProducto();
             FrmKits.MdiParent = this;
             VisualizarLabel(true);
             FrmKits.StartPosition = FormStartPosition.Manual;

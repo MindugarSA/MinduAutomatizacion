@@ -43,6 +43,7 @@ namespace PresentationLayer
             {
                 //if((((Control)sender).FindForm()) != Form.ActiveForm)
                     (((Control)sender).FindForm()).BringToFront();
+                    (((Control)sender).FindForm()).Activate();
             }
             catch {}
         }

@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.Forms
 {
-    partial class FrmKit
+    partial class FrmProducto
     {
         /// <summary>
         /// Required designer variable.
@@ -49,7 +49,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKit));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProducto));
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -68,8 +68,6 @@
             this.dgvDetalleItem = new MetroFramework.Controls.MetroGrid();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtTotCosPro = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.label20 = new System.Windows.Forms.Label();
             this.txtTotCosPiezas = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label19 = new System.Windows.Forms.Label();
             this.txtTotCosRRHH = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -143,6 +141,8 @@
             this.dgvDetalleItemAmp = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtTotCosPro = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label20 = new System.Windows.Forms.Label();
             this.txtEncabezado2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCostoRRHH = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -535,8 +535,6 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.txtTotCosPro);
-            this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.txtTotCosPiezas);
             this.groupBox5.Controls.Add(this.label19);
             this.groupBox5.Controls.Add(this.txtTotCosRRHH);
@@ -551,49 +549,6 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
             // 
-            // txtTotCosPro
-            // 
-            this.txtTotCosPro.AcceptsReturn = false;
-            this.txtTotCosPro.AcceptsTab = false;
-            this.txtTotCosPro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtTotCosPro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtTotCosPro.Depth = 0;
-            this.txtTotCosPro.Hint = "";
-            this.txtTotCosPro.Location = new System.Drawing.Point(111, 50);
-            this.txtTotCosPro.MaxLength = 32767;
-            this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtTotCosPro.Multiline = false;
-            this.txtTotCosPro.Name = "txtTotCosPro";
-            this.txtTotCosPro.PasswordChar = '\0';
-            this.txtTotCosPro.ReadOnly = true;
-            this.txtTotCosPro.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTotCosPro.SelectedText = "";
-            this.txtTotCosPro.SelectionLength = 0;
-            this.txtTotCosPro.SelectionStart = 0;
-            this.txtTotCosPro.Size = new System.Drawing.Size(86, 23);
-            this.txtTotCosPro.TabIndex = 90;
-            this.txtTotCosPro.TabStop = false;
-            this.txtTotCosPro.Text = "0,00";
-            this.txtTotCosPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtTotCosPro.UseSystemPasswordChar = false;
-            this.txtTotCosPro.WordWrap = true;
-            this.txtTotCosPro.Click += new System.EventHandler(this.TxtValidar_Click);
-            this.txtTotCosPro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
-            this.txtTotCosPro.Leave += new System.EventHandler(this.txtValidar_Leave);
-            this.txtTotCosPro.TextChanged += new System.EventHandler(this.txtValidar_TextChanged);
-            this.txtTotCosPro.Validated += new System.EventHandler(this.txtValidar_Validated);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label20.Location = new System.Drawing.Point(39, 51);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(65, 20);
-            this.label20.TabIndex = 91;
-            this.label20.Text = "Procesos";
-            // 
             // txtTotCosPiezas
             // 
             this.txtTotCosPiezas.AcceptsReturn = false;
@@ -603,7 +558,7 @@
             this.txtTotCosPiezas.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPiezas.Depth = 0;
             this.txtTotCosPiezas.Hint = "";
-            this.txtTotCosPiezas.Location = new System.Drawing.Point(111, 80);
+            this.txtTotCosPiezas.Location = new System.Drawing.Point(111, 49);
             this.txtTotCosPiezas.MaxLength = 32767;
             this.txtTotCosPiezas.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPiezas.Multiline = false;
@@ -631,7 +586,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label19.Location = new System.Drawing.Point(8, 81);
+            this.label19.Location = new System.Drawing.Point(8, 50);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(91, 20);
             this.label19.TabIndex = 89;
@@ -1268,7 +1223,7 @@
             this.metroTabPage2.Name = "metroTabPage2";
             this.metroTabPage2.Size = new System.Drawing.Size(861, 636);
             this.metroTabPage2.TabIndex = 1;
-            this.metroTabPage2.Text = "       Piezas    ";
+            this.metroTabPage2.Text = "       Kits / Piezas    ";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
             this.metroTabPage2.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage2.VerticalScrollbarSize = 10;
@@ -1965,6 +1920,8 @@
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox3.Controls.Add(this.txtTotCosPro);
+            this.groupBox3.Controls.Add(this.label20);
             this.groupBox3.Controls.Add(this.txtEncabezado2);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.txtCostoRRHH);
@@ -1977,6 +1934,44 @@
             this.groupBox3.Size = new System.Drawing.Size(858, 629);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
+            // 
+            // txtTotCosPro
+            // 
+            this.txtTotCosPro.AcceptsReturn = false;
+            this.txtTotCosPro.AcceptsTab = false;
+            this.txtTotCosPro.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtTotCosPro.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtTotCosPro.Depth = 0;
+            this.txtTotCosPro.Hint = "";
+            this.txtTotCosPro.Location = new System.Drawing.Point(758, 551);
+            this.txtTotCosPro.MaxLength = 32767;
+            this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtTotCosPro.Multiline = false;
+            this.txtTotCosPro.Name = "txtTotCosPro";
+            this.txtTotCosPro.PasswordChar = '\0';
+            this.txtTotCosPro.ReadOnly = true;
+            this.txtTotCosPro.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTotCosPro.SelectedText = "";
+            this.txtTotCosPro.SelectionLength = 0;
+            this.txtTotCosPro.SelectionStart = 0;
+            this.txtTotCosPro.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosPro.TabIndex = 98;
+            this.txtTotCosPro.TabStop = false;
+            this.txtTotCosPro.Text = "0,00";
+            this.txtTotCosPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtTotCosPro.UseSystemPasswordChar = false;
+            this.txtTotCosPro.WordWrap = true;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label20.Location = new System.Drawing.Point(686, 552);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 20);
+            this.label20.TabIndex = 99;
+            this.label20.Text = "Procesos";
             // 
             // txtEncabezado2
             // 
@@ -2000,7 +1995,7 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label2.Location = new System.Drawing.Point(604, 524);
+            this.label2.Location = new System.Drawing.Point(604, 312);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 66;
@@ -2016,7 +2011,7 @@
             this.txtCostoRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoRRHH.Depth = 0;
             this.txtCostoRRHH.Hint = "";
-            this.txtCostoRRHH.Location = new System.Drawing.Point(731, 524);
+            this.txtCostoRRHH.Location = new System.Drawing.Point(731, 312);
             this.txtCostoRRHH.MaxLength = 32767;
             this.txtCostoRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoRRHH.Multiline = false;
@@ -2069,7 +2064,7 @@
             this.dgvCostoRRHH.EnableHeadersVisualStyles = false;
             this.dgvCostoRRHH.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoRRHH.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvCostoRRHH.Location = new System.Drawing.Point(18, 305);
+            this.dgvCostoRRHH.Location = new System.Drawing.Point(18, 43);
             this.dgvCostoRRHH.MultiSelect = false;
             this.dgvCostoRRHH.Name = "dgvCostoRRHH";
             this.dgvCostoRRHH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -2084,7 +2079,7 @@
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoRRHH.Size = new System.Drawing.Size(821, 210);
+            this.dgvCostoRRHH.Size = new System.Drawing.Size(821, 254);
             this.dgvCostoRRHH.TabIndex = 64;
             this.dgvCostoRRHH.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoRRHH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -2096,7 +2091,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label3.Location = new System.Drawing.Point(584, 275);
+            this.label3.Location = new System.Drawing.Point(604, 594);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 60;
@@ -2112,7 +2107,7 @@
             this.txtCostoProc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoProc.Depth = 0;
             this.txtCostoProc.Hint = "";
-            this.txtCostoProc.Location = new System.Drawing.Point(731, 274);
+            this.txtCostoProc.Location = new System.Drawing.Point(751, 593);
             this.txtCostoProc.MaxLength = 32767;
             this.txtCostoProc.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoProc.Multiline = false;
@@ -2165,7 +2160,7 @@
             this.dgvCostoProc.EnableHeadersVisualStyles = false;
             this.dgvCostoProc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoProc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvCostoProc.Location = new System.Drawing.Point(18, 47);
+            this.dgvCostoProc.Location = new System.Drawing.Point(26, 551);
             this.dgvCostoProc.MultiSelect = false;
             this.dgvCostoProc.Name = "dgvCostoProc";
             this.dgvCostoProc.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -2180,7 +2175,7 @@
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoProc.Size = new System.Drawing.Size(821, 215);
+            this.dgvCostoProc.Size = new System.Drawing.Size(821, 36);
             this.dgvCostoProc.TabIndex = 58;
             this.dgvCostoProc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoProc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -2197,7 +2192,7 @@
             this.metroTabPage4.Name = "metroTabPage4";
             this.metroTabPage4.Size = new System.Drawing.Size(861, 636);
             this.metroTabPage4.TabIndex = 3;
-            this.metroTabPage4.Text = "   Listado Kits    ";
+            this.metroTabPage4.Text = "   Listado Productos    ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.VerticalScrollbarSize = 10;
@@ -2741,7 +2736,7 @@
             this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
             this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
             this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.HeaderText = "Kits";
+            this.formHeader1.HeaderText = "Producto";
             this.formHeader1.Location = new System.Drawing.Point(0, 0);
             this.formHeader1.Name = "formHeader1";
             this.formHeader1.ParentContainer = null;
@@ -2764,7 +2759,7 @@
             this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
             this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click);
             // 
-            // FrmKit
+            // FrmProducto
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2779,11 +2774,10 @@
             this.Controls.Add(this.formHeader1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmKit";
+            this.Name = "FrmProducto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmItemSimple";
             this.Load += new System.EventHandler(this.FrmItemSimple_Load);
-            this.Shown += new System.EventHandler(this.FrmKit_Shown);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FrmPieza_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPieza_DragEnter);
             this.panel4.ResumeLayout(false);
@@ -2890,8 +2884,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.GroupBox groupBox5;
-        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosPro;
-        private System.Windows.Forms.Label label20;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosPiezas;
         private System.Windows.Forms.Label label19;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosRRHH;
@@ -2967,6 +2959,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox txtEncabezado;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtTotCosPro;
+        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem duplicarRegistroToolStripMenuItem;
     }
