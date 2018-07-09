@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.btnCerrar = new MaterialSkin.Controls.MaterialFlatButton();
@@ -79,7 +79,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.btnCerrar);
-            this.panel4.Location = new System.Drawing.Point(824, 647);
+            this.panel4.Location = new System.Drawing.Point(1022, 647);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -127,7 +127,7 @@
             this.formHeader2.Location = new System.Drawing.Point(0, 0);
             this.formHeader2.Name = "formHeader2";
             this.formHeader2.ParentContainer = null;
-            this.formHeader2.Size = new System.Drawing.Size(955, 47);
+            this.formHeader2.Size = new System.Drawing.Size(1153, 47);
             this.formHeader2.TabIndex = 44;
             // 
             // panel2
@@ -206,7 +206,7 @@
             this.groupBox1.Controls.Add(this.txtDescripcionC);
             this.groupBox1.Location = new System.Drawing.Point(22, 43);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(913, 590);
+            this.groupBox1.Size = new System.Drawing.Size(1111, 590);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
@@ -292,10 +292,10 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(664, 407);
+            this.pictureBox10.Location = new System.Drawing.Point(719, 407);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(230, 170);
             this.pictureBox10.TabIndex = 141;
@@ -306,7 +306,7 @@
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label23.Location = new System.Drawing.Point(428, 545);
+            this.label23.Location = new System.Drawing.Point(476, 545);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(99, 20);
             this.label23.TabIndex = 140;
@@ -322,7 +322,7 @@
             this.txtEspesorC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEspesorC.Depth = 0;
             this.txtEspesorC.Hint = "";
-            this.txtEspesorC.Location = new System.Drawing.Point(134, 516);
+            this.txtEspesorC.Location = new System.Drawing.Point(182, 516);
             this.txtEspesorC.MaxLength = 32767;
             this.txtEspesorC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEspesorC.Multiline = false;
@@ -347,7 +347,7 @@
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label24.Location = new System.Drawing.Point(69, 517);
+            this.label24.Location = new System.Drawing.Point(117, 517);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(58, 20);
             this.label24.TabIndex = 130;
@@ -363,7 +363,7 @@
             this.txtAnchoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAnchoC.Depth = 0;
             this.txtAnchoC.Hint = "";
-            this.txtAnchoC.Location = new System.Drawing.Point(134, 546);
+            this.txtAnchoC.Location = new System.Drawing.Point(182, 546);
             this.txtAnchoC.MaxLength = 32767;
             this.txtAnchoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAnchoC.Multiline = false;
@@ -388,7 +388,7 @@
             this.label25.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label25.Location = new System.Drawing.Point(78, 547);
+            this.label25.Location = new System.Drawing.Point(126, 547);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(49, 20);
             this.label25.TabIndex = 132;
@@ -404,7 +404,7 @@
             this.txtLargoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLargoC.Depth = 0;
             this.txtLargoC.Hint = "";
-            this.txtLargoC.Location = new System.Drawing.Point(538, 516);
+            this.txtLargoC.Location = new System.Drawing.Point(586, 516);
             this.txtLargoC.MaxLength = 32767;
             this.txtLargoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLargoC.Multiline = false;
@@ -429,7 +429,7 @@
             this.label27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label27.Location = new System.Drawing.Point(483, 517);
+            this.label27.Location = new System.Drawing.Point(531, 517);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(44, 20);
             this.label27.TabIndex = 134;
@@ -445,7 +445,7 @@
             this.txtDiametroC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDiametroC.Depth = 0;
             this.txtDiametroC.Hint = "";
-            this.txtDiametroC.Location = new System.Drawing.Point(324, 514);
+            this.txtDiametroC.Location = new System.Drawing.Point(372, 514);
             this.txtDiametroC.MaxLength = 32767;
             this.txtDiametroC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDiametroC.Multiline = false;
@@ -470,7 +470,7 @@
             this.label28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label28.Location = new System.Drawing.Point(251, 515);
+            this.label28.Location = new System.Drawing.Point(299, 515);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(66, 20);
             this.label28.TabIndex = 136;
@@ -486,7 +486,7 @@
             this.txtVolumenC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtVolumenC.Depth = 0;
             this.txtVolumenC.Hint = "";
-            this.txtVolumenC.Location = new System.Drawing.Point(538, 544);
+            this.txtVolumenC.Location = new System.Drawing.Point(586, 544);
             this.txtVolumenC.MaxLength = 32767;
             this.txtVolumenC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVolumenC.Multiline = false;
@@ -516,7 +516,7 @@
             this.txtPesoC.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPesoC.Depth = 0;
             this.txtPesoC.Hint = "";
-            this.txtPesoC.Location = new System.Drawing.Point(324, 546);
+            this.txtPesoC.Location = new System.Drawing.Point(372, 546);
             this.txtPesoC.MaxLength = 32767;
             this.txtPesoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPesoC.Multiline = false;
@@ -541,7 +541,7 @@
             this.label29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label29.Location = new System.Drawing.Point(256, 547);
+            this.label29.Location = new System.Drawing.Point(304, 547);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(62, 20);
             this.label29.TabIndex = 138;
@@ -552,7 +552,7 @@
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label33.Location = new System.Drawing.Point(63, 482);
+            this.label33.Location = new System.Drawing.Point(111, 482);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(61, 20);
             this.label33.TabIndex = 127;
@@ -570,7 +570,7 @@
             this.txtNombreC.Depth = 0;
             this.txtNombreC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreC.Hint = "";
-            this.txtNombreC.Location = new System.Drawing.Point(131, 481);
+            this.txtNombreC.Location = new System.Drawing.Point(179, 481);
             this.txtNombreC.MaxLength = 32767;
             this.txtNombreC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtNombreC.Multiline = false;
@@ -593,7 +593,7 @@
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label34.Location = new System.Drawing.Point(71, 424);
+            this.label34.Location = new System.Drawing.Point(119, 424);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(53, 20);
             this.label34.TabIndex = 125;
@@ -611,7 +611,7 @@
             this.txtCodigoC.Depth = 0;
             this.txtCodigoC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigoC.Hint = "";
-            this.txtCodigoC.Location = new System.Drawing.Point(131, 423);
+            this.txtCodigoC.Location = new System.Drawing.Point(179, 423);
             this.txtCodigoC.MaxLength = 32767;
             this.txtCodigoC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigoC.Multiline = false;
@@ -634,7 +634,7 @@
             this.label35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label35.Location = new System.Drawing.Point(42, 453);
+            this.label35.Location = new System.Drawing.Point(90, 453);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(82, 20);
             this.label35.TabIndex = 123;
@@ -646,8 +646,8 @@
             this.dgvListaItems.AllowUserToDeleteRows = false;
             this.dgvListaItems.AllowUserToOrderColumns = true;
             this.dgvListaItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -655,23 +655,23 @@
             this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvListaItems.EnableHeadersVisualStyles = false;
             this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -680,18 +680,18 @@
             this.dgvListaItems.Name = "dgvListaItems";
             this.dgvListaItems.ReadOnly = true;
             this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvListaItems.RowHeadersVisible = false;
             this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaItems.Size = new System.Drawing.Size(878, 350);
+            this.dgvListaItems.Size = new System.Drawing.Size(1076, 350);
             this.dgvListaItems.TabIndex = 121;
             this.dgvListaItems.SelectionChanged += new System.EventHandler(this.dgvListaItems_SelectionChanged);
             this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
@@ -708,7 +708,7 @@
             this.txtDescripcionC.Depth = 0;
             this.txtDescripcionC.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionC.Hint = "";
-            this.txtDescripcionC.Location = new System.Drawing.Point(131, 452);
+            this.txtDescripcionC.Location = new System.Drawing.Point(179, 452);
             this.txtDescripcionC.MaxLength = 32767;
             this.txtDescripcionC.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescripcionC.Multiline = false;
@@ -731,7 +731,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(955, 691);
+            this.ClientSize = new System.Drawing.Size(1153, 691);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.formHeader2);

@@ -16,7 +16,7 @@ namespace PresentationLayer
             if (message == "")
             {
                 if (ep.GetError(c) != "")
-                    count--;
+                    count = 0;
             }
             else
                 count++;

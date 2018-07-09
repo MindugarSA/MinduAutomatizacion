@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Entities;
 using BusinessLayer;
 using PresentationLayer.Forms;
+using BunifuAnimatorNS;
 
 namespace PresentationLayer
 {
@@ -34,6 +35,8 @@ namespace PresentationLayer
         //int Level1Opt1Top = 169;
         int Level1Separation = 54;
         bool Opt1Open = false;
+        private BunifuAnimatorNS.AnimationType AnimationType = (AnimationType)10;
+        
 
         //protected override void OnLoad(EventArgs e)
         //{
@@ -61,6 +64,16 @@ namespace PresentationLayer
             this.ControlBox = false;
             this.Text = String.Empty;
             label1.Visible = false;
+            MetroProgressSpinner1.Visible = false;
+            Control.CheckForIllegalCrossThreadCalls = false;
+            CheckForIllegalCrossThreadCalls = false;
+            pictureBox4.Visible = false;
+            label3.Visible = false;
+            panel10.BackgroundImage = PresentationLayer.Properties.Resources.FondoAutoM2;
+
+            Functions.ConfigurarMaterialSkinManagerInicio();
+            FrmLogin Login = new FrmLogin();
+            Login.ShowDialog();
 
         }
 
@@ -97,24 +110,30 @@ namespace PresentationLayer
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_ClickAsync(object sender, EventArgs e)
         {
-            VisualizarLabel(true);
-            FrmPieza FrmParte = new FrmPieza(this);
-            AbrirFormulario(FrmParte, 470, 230);
+            await CargaAsync();
+            FrmParte FrmParte = new FrmParte(this);
+            AbrirFormulario(FrmParte, 470, 230); 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private async Task CargaAsync()
         {
-            VisualizarLabel(true);
+            await Task.Run(() => VisualizarLabel(true));
+
+        }
+
+        private async void button3_ClickAsync(object sender, EventArgs e)
+        {
+            await CargaAsync();
             FrmKit FrmKits = new FrmKit(this);
             AbrirFormulario(FrmKits, 450, 100);
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private async void button5_ClickAsync(object sender, EventArgs e)
         {
-            VisualizarLabel(true);
+            await CargaAsync();
             FrmProducto FrmKits = new FrmProducto(this);
             AbrirFormulario(FrmKits, 470, 120);
         }
@@ -164,13 +183,35 @@ namespace PresentationLayer
 
         }
 
-        public void AbrirFormulario(Form oForm, int X, int Y)
+        public void AsignarNombreUsuario(string UserName)
         {
-            oForm.TopLevel = false;
+            label3.Visible = true;
+            label3.Text = UserName;
+        }
+
+        public void AbrirFormulario(Form oForm, int X, int Y, bool Modal = false)
+        {
             oForm.StartPosition = FormStartPosition.Manual;
-            oForm.Location = new Point(X, Y);
-            panel10.Controls.Add(oForm);
-            oForm.Show();
+            if (X == 0 && Y == 0)
+            {
+                oForm.Left =  (panel10.Width - oForm.Width) / 2;
+                oForm.Top =  (panel10.Height - oForm.Height) / 2;
+            }
+            else
+                oForm.Location = new Point(X, Y);
+
+
+            if (Modal)
+            {
+                oForm.ShowDialog();
+            }
+            else
+            {
+                oForm.MdiParent = this;
+                oForm.TopLevel = false;
+                panel10.Controls.Add(oForm);
+                oForm.Show();
+            }
         }
 
         private void AbrirSubMenu(int iNivel)
@@ -207,9 +248,56 @@ namespace PresentationLayer
 
         }
 
+        private void PopUp_MouseEnter(object sender, EventArgs e)
+        {
+            var Obj = (dynamic)sender;
+            Obj.Left = Obj.Left - 3;
+            Obj.Top = Obj.Top - 3;
+            Obj.Height = Obj.Height + 6;
+            Obj.Width = Obj.Width + 6;
+        }
+        private void PopUp_MouseLeave(object sender, EventArgs e)
+        {
+            var Obj = (dynamic)sender;
+            Obj.Left = Obj.Left + 3;
+            Obj.Top = Obj.Top + 3;
+            Obj.Height = Obj.Height - 6;
+            Obj.Width = Obj.Width - 6;
+        }
+
+        public void SetBackGroundImage()
+        {
+            if (panel10.BackgroundImage != null)
+                panel10.BackgroundImage = null;
+            else
+                panel10.BackgroundImage = PresentationLayer.Properties.Resources.FondoAutoM2;
+        }
+
+        public void Animate_BackLogo()
+        {
+            
+            if (pictureBox4.Visible == true)
+                BunifuTransition1.HideSync(pictureBox4);
+
+            pictureBox4.Visible = false;
+            //pictureBox4.BringToFront();
+
+            BunifuTransition1.AnimationType = AnimationType;
+            BunifuTransition1.ShowSync(pictureBox4);
+
+            if (AnimationType == (AnimationType)13)
+                AnimationType = (AnimationType)1;
+            else
+                AnimationType += 1;
+        }
+
+       
         public void VisualizarLabel(bool Visible)
         {
-             this.label1.Visible = Visible;
+            this.label1.BringToFront();
+            this.label1.Visible = Visible;
+            //this.MetroProgressSpinner1.Visible = Visible;
+           
         }
 
         private void FrmPrincipalPanel_DragEnter(object sender, DragEventArgs e)
@@ -224,6 +312,38 @@ namespace PresentationLayer
         {
             pictureBox4.Top = (panel10.Height / 2) - (pictureBox4.Height / 2);
             pictureBox4.Left = (panel10.Width / 2) - (pictureBox4.Width / 2);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox4.SendToBack();
+            Animate_BackLogo();
+        }
+
+        private void panel10_Resize(object sender, EventArgs e)
+        {
+            pictureBox4.Top = (panel10.Height / 2) - (pictureBox4.Height / 2);
+            pictureBox4.Left = (panel10.Width / 2) - (pictureBox4.Width / 2);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FrmPrincipalPanel_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox4.Visible = false;
+            label3.Visible = false;
+            SetBackGroundImage();
+            Functions.ConfigurarMaterialSkinManagerInicio();
+            FrmLogin Login = new FrmLogin();
+            Login.ShowDialog();
         }
     }
 }

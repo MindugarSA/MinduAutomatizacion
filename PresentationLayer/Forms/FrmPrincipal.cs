@@ -112,7 +112,7 @@ namespace PresentationLayer
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FrmPieza FrmParte = new FrmPieza();
+            FrmParte FrmParte = new FrmParte();
             FrmParte.MdiParent = this; 
             FrmParte.StartPosition = FormStartPosition.Manual;
             FrmParte.Location = new Point(370, 230);

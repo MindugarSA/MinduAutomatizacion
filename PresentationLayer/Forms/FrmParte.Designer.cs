@@ -1,6 +1,6 @@
 ﻿namespace PresentationLayer.Forms
 {
-    partial class FrmPieza
+    partial class FrmParte
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParte));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,16 +46,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPieza));
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.txtDirectFact = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label25 = new System.Windows.Forms.Label();
             this.txtTotCosPro = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label20 = new System.Windows.Forms.Label();
             this.txtTotCosCom = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -80,6 +87,9 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
@@ -111,28 +121,30 @@
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
-            this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
-            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
-            this.formHeader1 = new PresentationLayer.FormHeader();
+            this.materialCheckBox3 = new MaterialSkin.Controls.MaterialCheckBox();
+            this.label24 = new System.Windows.Forms.Label();
+            this.materialCheckBox2 = new MaterialSkin.Controls.MaterialCheckBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtBuscarItem = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.materialCheckBox2 = new MaterialSkin.Controls.MaterialCheckBox();
-            this.label23 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
+            this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
+            this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorDescr = new System.Windows.Forms.ErrorProvider(this.components);
+            this.formHeader1 = new PresentationLayer.FormHeader();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -140,6 +152,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
@@ -151,11 +164,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -169,6 +183,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
             this.panel4.TabIndex = 43;
+            // 
+            // labelNoMouse3
+            // 
+            this.labelNoMouse3.AutoSize = true;
+            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse3.Name = "labelNoMouse3";
+            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
+            this.labelNoMouse3.TabIndex = 1;
+            this.labelNoMouse3.Text = "Cerrar";
             // 
             // materialFlatButton3
             // 
@@ -187,6 +212,7 @@
             this.materialFlatButton3.TabIndex = 0;
             this.materialFlatButton3.UseCompatibleTextRendering = true;
             this.materialFlatButton3.UseVisualStyleBackColor = false;
+            this.materialFlatButton3.Click += new System.EventHandler(this.materialFlatButton3_Click);
             this.materialFlatButton3.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.materialFlatButton3.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
@@ -201,6 +227,17 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(111, 34);
             this.panel3.TabIndex = 42;
+            // 
+            // labelNoMouse2
+            // 
+            this.labelNoMouse2.AutoSize = true;
+            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse2.Name = "labelNoMouse2";
+            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
+            this.labelNoMouse2.TabIndex = 1;
+            this.labelNoMouse2.Text = "Nuevo";
             // 
             // materialFlatButton2
             // 
@@ -235,6 +272,17 @@
             this.panel2.Size = new System.Drawing.Size(111, 34);
             this.panel2.TabIndex = 41;
             // 
+            // labelNoMouse1
+            // 
+            this.labelNoMouse1.AutoSize = true;
+            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
+            this.labelNoMouse1.Name = "labelNoMouse1";
+            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
+            this.labelNoMouse1.TabIndex = 1;
+            this.labelNoMouse1.Text = "Agregar";
+            // 
             // materialFlatButton1
             // 
             this.materialFlatButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -262,6 +310,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.ContextMenuStrip = this.contextMenuStrip1;
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
             this.groupBox1.Controls.Add(this.groupBox4);
@@ -289,6 +338,22 @@
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.duplicarRegistroToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 26);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // duplicarRegistroToolStripMenuItem
+            // 
+            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
+            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
+            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
+            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click);
+            // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
@@ -305,6 +370,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.txtDirectFact);
+            this.groupBox5.Controls.Add(this.label25);
             this.groupBox5.Controls.Add(this.txtTotCosPro);
             this.groupBox5.Controls.Add(this.label20);
             this.groupBox5.Controls.Add(this.txtTotCosCom);
@@ -321,6 +388,44 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
             // 
+            // txtDirectFact
+            // 
+            this.txtDirectFact.AcceptsReturn = false;
+            this.txtDirectFact.AcceptsTab = false;
+            this.txtDirectFact.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtDirectFact.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtDirectFact.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtDirectFact.Depth = 0;
+            this.txtDirectFact.Hint = "";
+            this.txtDirectFact.Location = new System.Drawing.Point(139, 141);
+            this.txtDirectFact.MaxLength = 32767;
+            this.txtDirectFact.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtDirectFact.Multiline = false;
+            this.txtDirectFact.Name = "txtDirectFact";
+            this.txtDirectFact.PasswordChar = '\0';
+            this.txtDirectFact.ReadOnly = true;
+            this.txtDirectFact.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtDirectFact.SelectedText = "";
+            this.txtDirectFact.SelectionLength = 0;
+            this.txtDirectFact.SelectionStart = 0;
+            this.txtDirectFact.Size = new System.Drawing.Size(86, 23);
+            this.txtDirectFact.TabIndex = 92;
+            this.txtDirectFact.TabStop = false;
+            this.txtDirectFact.Text = "0,00";
+            this.txtDirectFact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtDirectFact.UseSystemPasswordChar = false;
+            this.txtDirectFact.WordWrap = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label25.Location = new System.Drawing.Point(16, 142);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(109, 20);
+            this.label25.TabIndex = 93;
+            this.label25.Text = "Directo + Factor";
+            // 
             // txtTotCosPro
             // 
             this.txtTotCosPro.AcceptsReturn = false;
@@ -330,7 +435,7 @@
             this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPro.Depth = 0;
             this.txtTotCosPro.Hint = "";
-            this.txtTotCosPro.Location = new System.Drawing.Point(123, 101);
+            this.txtTotCosPro.Location = new System.Drawing.Point(140, 83);
             this.txtTotCosPro.MaxLength = 32767;
             this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPro.Multiline = false;
@@ -358,7 +463,7 @@
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label20.Location = new System.Drawing.Point(51, 104);
+            this.label20.Location = new System.Drawing.Point(60, 84);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(65, 20);
             this.label20.TabIndex = 91;
@@ -373,7 +478,7 @@
             this.txtTotCosCom.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosCom.Depth = 0;
             this.txtTotCosCom.Hint = "";
-            this.txtTotCosCom.Location = new System.Drawing.Point(123, 33);
+            this.txtTotCosCom.Location = new System.Drawing.Point(140, 25);
             this.txtTotCosCom.MaxLength = 32767;
             this.txtTotCosCom.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosCom.Multiline = false;
@@ -401,7 +506,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label19.Location = new System.Drawing.Point(60, 34);
+            this.label19.Location = new System.Drawing.Point(69, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(56, 20);
             this.label19.TabIndex = 89;
@@ -416,7 +521,7 @@
             this.txtTotCosRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosRRHH.Depth = 0;
             this.txtTotCosRRHH.Hint = "";
-            this.txtTotCosRRHH.Location = new System.Drawing.Point(123, 68);
+            this.txtTotCosRRHH.Location = new System.Drawing.Point(140, 54);
             this.txtTotCosRRHH.MaxLength = 32767;
             this.txtTotCosRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosRRHH.Multiline = false;
@@ -444,7 +549,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label18.Location = new System.Drawing.Point(71, 69);
+            this.label18.Location = new System.Drawing.Point(80, 55);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(45, 20);
             this.label18.TabIndex = 87;
@@ -459,7 +564,7 @@
             this.txtTotalCostos.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotalCostos.Depth = 0;
             this.txtTotalCostos.Hint = "";
-            this.txtTotalCostos.Location = new System.Drawing.Point(122, 138);
+            this.txtTotalCostos.Location = new System.Drawing.Point(139, 112);
             this.txtTotalCostos.MaxLength = 32767;
             this.txtTotalCostos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotalCostos.Multiline = false;
@@ -487,11 +592,11 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label15.Location = new System.Drawing.Point(40, 139);
+            this.label15.Location = new System.Drawing.Point(32, 113);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 20);
+            this.label15.Size = new System.Drawing.Size(93, 20);
             this.label15.TabIndex = 85;
-            this.label15.Text = "Costo Total";
+            this.label15.Text = "Costo Directo";
             // 
             // groupBox4
             // 
@@ -819,11 +924,37 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
             this.pictureBox1.Location = new System.Drawing.Point(547, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(230, 152);
             this.pictureBox1.TabIndex = 86;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip3.Name = "contextMenuStrip2";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(153, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "Copiar Imagen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::PresentationLayer.Properties.Resources.file;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "Pegar Imagen";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // metroComboBox4
             // 
@@ -950,7 +1081,7 @@
             this.txtCodigo.UseSystemPasswordChar = false;
             this.txtCodigo.WordWrap = true;
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtValidarVacio_TextChanged);
+            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // metroComboBox2
             // 
@@ -968,7 +1099,7 @@
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(498, 30);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1027,7 +1158,7 @@
             this.txtDescrpcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtDescrpcion.UseSystemPasswordChar = false;
             this.txtDescrpcion.WordWrap = true;
-            this.txtDescrpcion.TextChanged += new System.EventHandler(this.txtValidarVacio_TextChanged);
+            this.txtDescrpcion.TextChanged += new System.EventHandler(this.txtDescrpcion_TextChanged);
             // 
             // label9
             // 
@@ -1441,7 +1572,7 @@
             this.metroTabPage4.Name = "metroTabPage4";
             this.metroTabPage4.Size = new System.Drawing.Size(801, 472);
             this.metroTabPage4.TabIndex = 3;
-            this.metroTabPage4.Text = "   Listado Partes   ";
+            this.metroTabPage4.Text = "      Listado     ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
             this.metroTabPage4.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage4.VerticalScrollbarSize = 10;
@@ -1452,6 +1583,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox6.Controls.Add(this.materialCheckBox3);
+            this.groupBox6.Controls.Add(this.label24);
             this.groupBox6.Controls.Add(this.materialCheckBox2);
             this.groupBox6.Controls.Add(this.label23);
             this.groupBox6.Controls.Add(this.metroComboBox1);
@@ -1467,170 +1600,82 @@
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
-            // panel1
+            // materialCheckBox3
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.labelNoMouse4);
-            this.panel1.Controls.Add(this.materialFlatButton4);
-            this.panel1.Location = new System.Drawing.Point(17, 423);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(111, 34);
-            this.panel1.TabIndex = 59;
+            this.materialCheckBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCheckBox3.AutoSize = true;
+            this.materialCheckBox3.Depth = 0;
+            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox3.Location = new System.Drawing.Point(583, 425);
+            this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckBox3.Name = "materialCheckBox3";
+            this.materialCheckBox3.Ripple = true;
+            this.materialCheckBox3.Size = new System.Drawing.Size(26, 30);
+            this.materialCheckBox3.TabIndex = 107;
+            this.materialCheckBox3.UseVisualStyleBackColor = true;
+            this.materialCheckBox3.CheckedChanged += new System.EventHandler(this.materialCheckBox3_CheckedChanged);
             // 
-            // materialFlatButton4
+            // label24
             // 
-            this.materialFlatButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton4.BackColor = System.Drawing.Color.Transparent;
-            this.materialFlatButton4.Depth = 0;
-            this.materialFlatButton4.ForeColor = System.Drawing.Color.White;
-            this.materialFlatButton4.Icon = null;
-            this.materialFlatButton4.Location = new System.Drawing.Point(0, 0);
-            this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton4.Name = "materialFlatButton4";
-            this.materialFlatButton4.Primary = false;
-            this.materialFlatButton4.Size = new System.Drawing.Size(111, 34);
-            this.materialFlatButton4.TabIndex = 0;
-            this.materialFlatButton4.UseCompatibleTextRendering = true;
-            this.materialFlatButton4.UseVisualStyleBackColor = false;
-            this.materialFlatButton4.Click += new System.EventHandler(this.materialFlatButton4_Click);
-            this.materialFlatButton4.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
-            this.materialFlatButton4.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
+            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(457, 431);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(128, 17);
+            this.label24.TabIndex = 108;
+            this.label24.Text = "Informacion Ampliada";
             // 
-            // dgvListaItems
+            // materialCheckBox2
             // 
-            this.dgvListaItems.AllowUserToAddRows = false;
-            this.dgvListaItems.AllowUserToDeleteRows = false;
-            this.dgvListaItems.AllowUserToOrderColumns = true;
-            this.dgvListaItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvListaItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
-            this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
-            this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dgvListaItems.EnableHeadersVisualStyles = false;
-            this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.dgvListaItems.Location = new System.Drawing.Point(20, 60);
-            this.dgvListaItems.MultiSelect = false;
-            this.dgvListaItems.Name = "dgvListaItems";
-            this.dgvListaItems.ReadOnly = true;
-            this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.dgvListaItems.RowHeadersVisible = false;
-            this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaItems.Size = new System.Drawing.Size(752, 352);
-            this.dgvListaItems.TabIndex = 58;
-            this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
+            this.materialCheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCheckBox2.AutoSize = true;
+            this.materialCheckBox2.Depth = 0;
+            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox2.Location = new System.Drawing.Point(734, 424);
+            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckBox2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckBox2.Name = "materialCheckBox2";
+            this.materialCheckBox2.Ripple = true;
+            this.materialCheckBox2.Size = new System.Drawing.Size(26, 30);
+            this.materialCheckBox2.TabIndex = 105;
+            this.materialCheckBox2.UseVisualStyleBackColor = true;
+            this.materialCheckBox2.CheckedChanged += new System.EventHandler(this.materialCheckBox2_CheckedChanged);
             // 
-            // errorIcono
+            // label23
             // 
-            this.errorIcono.ContainerControl = this;
+            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Location = new System.Drawing.Point(643, 430);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(93, 17);
+            this.label23.TabIndex = 106;
+            this.label23.Text = "Imagen Grande";
             // 
-            // contextMenuStrip1
+            // metroComboBox1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.duplicarRegistroToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 26);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Location = new System.Drawing.Point(473, 17);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(299, 29);
+            this.metroComboBox1.TabIndex = 104;
+            this.metroComboBox1.UseSelectable = true;
             // 
-            // duplicarRegistroToolStripMenuItem
+            // label6
             // 
-            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
-            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
-            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
-            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click);
-            // 
-            // labelNoMouse4
-            // 
-            this.labelNoMouse4.AutoSize = true;
-            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse4.Location = new System.Drawing.Point(12, 7);
-            this.labelNoMouse4.Name = "labelNoMouse4";
-            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
-            this.labelNoMouse4.TabIndex = 1;
-            this.labelNoMouse4.Text = "Seleccionar";
-            // 
-            // labelNoMouse3
-            // 
-            this.labelNoMouse3.AutoSize = true;
-            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse3.Name = "labelNoMouse3";
-            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
-            this.labelNoMouse3.TabIndex = 1;
-            this.labelNoMouse3.Text = "Cerrar";
-            // 
-            // labelNoMouse2
-            // 
-            this.labelNoMouse2.AutoSize = true;
-            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse2.Name = "labelNoMouse2";
-            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
-            this.labelNoMouse2.TabIndex = 1;
-            this.labelNoMouse2.Text = "Nuevo";
-            // 
-            // labelNoMouse1
-            // 
-            this.labelNoMouse1.AutoSize = true;
-            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
-            this.labelNoMouse1.Name = "labelNoMouse1";
-            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
-            this.labelNoMouse1.TabIndex = 1;
-            this.labelNoMouse1.Text = "Agregar";
-            // 
-            // formHeader1
-            // 
-            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.HeaderText = "Piezas";
-            this.formHeader1.Location = new System.Drawing.Point(0, 0);
-            this.formHeader1.Name = "formHeader1";
-            this.formHeader1.ParentContainer = null;
-            this.formHeader1.Size = new System.Drawing.Size(847, 44);
-            this.formHeader1.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label6.Location = new System.Drawing.Point(417, 21);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(50, 20);
+            this.label6.TabIndex = 103;
+            this.label6.Text = "Familia";
             // 
             // pictureBox8
             // 
@@ -1685,70 +1730,165 @@
             this.txtBuscarItem.UseSystemPasswordChar = false;
             this.txtBuscarItem.WordWrap = true;
             // 
-            // metroComboBox1
+            // panel1
             // 
-            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroComboBox1.FormattingEnabled = true;
-            this.metroComboBox1.ItemHeight = 23;
-            this.metroComboBox1.Location = new System.Drawing.Point(473, 17);
-            this.metroComboBox1.Name = "metroComboBox1";
-            this.metroComboBox1.Size = new System.Drawing.Size(299, 29);
-            this.metroComboBox1.TabIndex = 104;
-            this.metroComboBox1.UseSelectable = true;
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.panel1.Controls.Add(this.labelNoMouse4);
+            this.panel1.Controls.Add(this.materialFlatButton4);
+            this.panel1.Location = new System.Drawing.Point(17, 423);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(111, 34);
+            this.panel1.TabIndex = 59;
             // 
-            // label6
+            // labelNoMouse4
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label6.Location = new System.Drawing.Point(417, 21);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 20);
-            this.label6.TabIndex = 103;
-            this.label6.Text = "Familia";
+            this.labelNoMouse4.AutoSize = true;
+            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse4.Location = new System.Drawing.Point(12, 7);
+            this.labelNoMouse4.Name = "labelNoMouse4";
+            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
+            this.labelNoMouse4.TabIndex = 1;
+            this.labelNoMouse4.Text = "Seleccionar";
             // 
-            // materialCheckBox2
+            // materialFlatButton4
             // 
-            this.materialCheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialCheckBox2.AutoSize = true;
-            this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
-            this.materialCheckBox2.Location = new System.Drawing.Point(734, 424);
-            this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.materialCheckBox2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCheckBox2.Name = "materialCheckBox2";
-            this.materialCheckBox2.Ripple = true;
-            this.materialCheckBox2.Size = new System.Drawing.Size(26, 30);
-            this.materialCheckBox2.TabIndex = 105;
-            this.materialCheckBox2.UseVisualStyleBackColor = true;
-            this.materialCheckBox2.CheckedChanged += new System.EventHandler(this.materialCheckBox2_CheckedChanged);
+            this.materialFlatButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialFlatButton4.BackColor = System.Drawing.Color.Transparent;
+            this.materialFlatButton4.Depth = 0;
+            this.materialFlatButton4.ForeColor = System.Drawing.Color.White;
+            this.materialFlatButton4.Icon = null;
+            this.materialFlatButton4.Location = new System.Drawing.Point(0, 0);
+            this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialFlatButton4.Name = "materialFlatButton4";
+            this.materialFlatButton4.Primary = false;
+            this.materialFlatButton4.Size = new System.Drawing.Size(111, 34);
+            this.materialFlatButton4.TabIndex = 0;
+            this.materialFlatButton4.UseCompatibleTextRendering = true;
+            this.materialFlatButton4.UseVisualStyleBackColor = false;
+            this.materialFlatButton4.Click += new System.EventHandler(this.materialFlatButton4_Click);
+            this.materialFlatButton4.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
+            this.materialFlatButton4.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
-            // label23
+            // dgvListaItems
             // 
-            this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(643, 430);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(93, 17);
-            this.label23.TabIndex = 106;
-            this.label23.Text = "Imagen Grande";
+            this.dgvListaItems.AllowUserToAddRows = false;
+            this.dgvListaItems.AllowUserToDeleteRows = false;
+            this.dgvListaItems.AllowUserToOrderColumns = true;
+            this.dgvListaItems.AllowUserToResizeRows = false;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListaItems.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
+            this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaItems.ContextMenuStrip = this.contextMenuStrip3;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle15;
+            this.dgvListaItems.EnableHeadersVisualStyles = false;
+            this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.dgvListaItems.Location = new System.Drawing.Point(20, 60);
+            this.dgvListaItems.MultiSelect = false;
+            this.dgvListaItems.Name = "dgvListaItems";
+            this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.dgvListaItems.RowHeadersVisible = false;
+            this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaItems.Size = new System.Drawing.Size(752, 352);
+            this.dgvListaItems.TabIndex = 58;
+            this.dgvListaItems.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaItems_CellMouseDown);
+            this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
             // 
-            // FrmPieza
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copiarToolStripMenuItem,
+            this.copiarTablaToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
+            // 
+            // copiarTablaToolStripMenuItem
+            // 
+            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
+            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
+            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
+            // 
+            // errorCodigo
+            // 
+            this.errorCodigo.ContainerControl = this;
+            // 
+            // errorDescr
+            // 
+            this.errorDescr.ContainerControl = this;
+            // 
+            // formHeader1
+            // 
+            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.HeaderText = "Partes";
+            this.formHeader1.Location = new System.Drawing.Point(0, 0);
+            this.formHeader1.Name = "formHeader1";
+            this.formHeader1.ParentContainer = null;
+            this.formHeader1.Size = new System.Drawing.Size(847, 44);
+            this.formHeader1.TabIndex = 0;
+            // 
+            // FrmParte
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(847, 613);
-            this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.formHeader1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FrmPieza";
+            this.Name = "FrmParte";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FrmItemSimple";
             this.Load += new System.EventHandler(this.FrmItemSimple_Load);
@@ -1764,6 +1904,7 @@
             this.panel2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -1773,6 +1914,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
@@ -1787,12 +1929,13 @@
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1872,7 +2015,7 @@
         private System.Windows.Forms.Panel panel1;
         private Controls.LabelNoMouse labelNoMouse4;
         private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
-        private System.Windows.Forms.ErrorProvider errorIcono;
+        private System.Windows.Forms.ErrorProvider errorCodigo;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem duplicarRegistroToolStripMenuItem;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
@@ -1882,5 +2025,16 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtBuscarItem;
         private MaterialSkin.Controls.MaterialCheckBox materialCheckBox2;
         private System.Windows.Forms.Label label23;
+        private MaterialSkin.Controls.MaterialCheckBox materialCheckBox3;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ErrorProvider errorDescr;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtDirectFact;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copiarTablaToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }

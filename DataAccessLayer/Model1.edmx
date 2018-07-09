@@ -132,6 +132,10 @@
         <Function Name="SP_GetItemDetalleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_VerifyUserPass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Rut" Type="nvarchar" Mode="In" />
+          <Parameter Name="Pass" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="DB_AUTOMATIZACIONModelStoreContainer">
           <EntitySet Name="Costos" EntityType="Self.Costos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Familia" EntityType="Self.Familia" Schema="dbo" store:Type="Tables" />
@@ -185,6 +189,10 @@
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
           <FunctionImport Name="SP_GetItemBusqueda" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result)">
           <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_VerifyUserPass" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_VerifyUserPass_Result)">
+            <Parameter Name="Rut" Mode="In" Type="String" />
+            <Parameter Name="Pass" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
@@ -337,6 +345,18 @@
           <Property Type="Decimal" Name="Diametro" Nullable="true" Precision="18" Scale="4" />
           <Property Type="Int32" Name="OI" Nullable="false" />
           <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Binary" Name="Imagen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_VerifyUserPass_Result">
+        <Property Type="Int32" Name="IdUsuario" Nullable="false" />
+          <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="rut" Nullable="true" MaxLength="11" />
+          <Property Type="Int32" Name="id_rut" Nullable="false" />
+          <Property Type="DateTime" Name="FechaConexion" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="IdPerfilPred" Nullable="false" />
+          <Property Type="String" Name="RutEmp" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="IdAtributo" Nullable="false" />
+          <Property Type="String" Name="Acceso" Nullable="false" MaxLength="1" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -519,6 +539,22 @@
                 <ScalarProperty Name="Diametro" ColumnName="Diametro" />
                 <ScalarProperty Name="OI" ColumnName="OI" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_VerifyUserPass" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_VerifyUserPass" >
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_VerifyUserPass_Result">
+              <ScalarProperty Name="IdUsuario" ColumnName="IdUsuario" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+                <ScalarProperty Name="id_rut" ColumnName="id_rut" />
+                <ScalarProperty Name="FechaConexion" ColumnName="FechaConexion" />
+                <ScalarProperty Name="IdPerfilPred" ColumnName="IdPerfilPred" />
+                <ScalarProperty Name="RutEmp" ColumnName="RutEmp" />
+                <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
+                <ScalarProperty Name="Acceso" ColumnName="Acceso" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

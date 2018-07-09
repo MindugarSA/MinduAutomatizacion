@@ -15,7 +15,7 @@ using System.IO;
 
 namespace PresentationLayer.Forms
 {
-    public partial class FrmPieza : Form
+    public partial class FrmParte : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
@@ -30,17 +30,17 @@ namespace PresentationLayer.Forms
         string pathImagen = "";
         private FrmPrincipalPanel formPrincipal;
 
-        public FrmPieza(FrmPrincipalPanel FormP = null)
+        public FrmParte(FrmPrincipalPanel FormP = null)
         {
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
             CargarCombos();
-            LimpiarCampos();
             CargarGridsCostos();
             FormatearGridsCostos();
             CargarGridListadoItem();
             EnlazarCampos();
+            LimpiarCampos();
 
             metroComboBox3.SelectedIndex = 0;
             panel3.Visible = false;
@@ -64,6 +64,7 @@ namespace PresentationLayer.Forms
             this.BringToFront();
             txtCodigo.Focus();
             this.ActiveControl = txtCodigo;
+            CheckForIllegalCrossThreadCalls = false;
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -222,13 +223,17 @@ namespace PresentationLayer.Forms
             Control TxtActual = (Control)sender;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-
-            if (Convert.ToDecimal(txtEspesor.Text) > 0 && Convert.ToDecimal(txtAncho.Text) > 0 && Convert.ToDecimal(txtLargo.Text) > 0)
+            try
             {
-                string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
-                if (Convert.ToDouble(txtPeso.Text) == 0)
-                    txtPeso.Text = CalcPeso;
+                if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
+                {
+                    string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
+                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                        txtPeso.Text = CalcPeso;
+                }
             }
+            catch { }
+
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -258,7 +263,8 @@ namespace PresentationLayer.Forms
             txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-            errorIcono.SetErrorWithCount(txtCodigo, "");
+            errorCodigo.SetErrorWithCount(txtCodigo, "");
+            errorDescr.SetErrorWithCount(txtCodigo, "");
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -269,11 +275,9 @@ namespace PresentationLayer.Forms
                 {
                     if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
                     TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
+                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
                 }
-                catch (Exception)
-                {
-                    //throw;
-                }
+                catch { }
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -327,7 +331,7 @@ namespace PresentationLayer.Forms
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
         {
-            if (labelNoMouse1.Text.Trim() != "Actualizar" && CodigoInicial != txtCodigo.Text.Trim())
+            if (labelNoMouse1.Text.Trim() != "Actualizar" && CodigoInicial != txtCodigo.Text.Trim() && txtCodigo.Text.Trim().Length > 0)
                 VerificarCodigoItem();
 
             if (ValidarCampos())
@@ -356,15 +360,6 @@ namespace PresentationLayer.Forms
                 FormatearGridsCostos();
             }
         }
-
-        private void txtValidarVacio_TextChanged(object sender, EventArgs e)
-        {
-            TextBox cControl = (TextBox)sender;
-
-            if (cControl.Text.Trim().Length != 0)
-                errorIcono.SetError(cControl, "");
-        }
-
 
 
         #endregion
@@ -447,26 +442,47 @@ namespace PresentationLayer.Forms
                                                                 }).ToList();
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 18 };
+            if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
                     col.Visible = false;
-                //if(col.Name == "imageCol")
-
+                else
+                    col.Visible = true;
+                col.ReadOnly = true;
             }
+            dgvListaItems.AjustColumnsWidthForGridWidth();
+
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvListaItems.Columns[13].HeaderText = "CostoEXT";
 
-            dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgvListaItems.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            List<int> NumericColumns = new List<int> { 6, 7, 8, 9, 10, 11, 13, 14, 15, 17 };
+            foreach (DataGridViewColumn col in dgvListaItems.Columns)
+            {
+                if (NumericColumns.Contains(col.Index))
+                {
+                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    col.DefaultCellStyle.Format = "#,0.00###";
+                }
+            }
 
-            dgvListaItems.Columns[6].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+            if (materialCheckBox2.Checked)
+                foreach (DataGridViewRow row in dgvListaItems.Rows)
+                {
+                    row.Height = 60;
+                    dgvListaItems.Columns[18].Width = 150;
+                }
+            else
+                foreach (DataGridViewRow row in dgvListaItems.Rows)
+                {
+                    row.Height = 22;
+                    dgvListaItems.Columns[18].Width = 50;
+                }
+
+            dgvListaItems.AllowUserToResizeColumns = true;
 
         }
 
@@ -587,7 +603,8 @@ namespace PresentationLayer.Forms
             txtCostoAcero.Text = "0,00";
             txtCostoProc.Text = "0,00";
             txtCostoRRHH.Text = "0,00";
-            pictureBox1.BackgroundImage = null;
+            txtDirectFact.Text = "0,00";
+            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
             metroComboBox2.SelectedIndex = -1;
             metroComboBox3.SelectedIndex = 0;
             metroComboBox4.SelectedIndex = -1;
@@ -649,16 +666,16 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorIcono.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
-                errorIcono.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
+                errorCodigo.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
                 Valido = false;
             }
             else if (txtDescrpcion.Text == string.Empty)
             {
-                errorIcono.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
+                errorDescr.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
 
@@ -674,8 +691,9 @@ namespace PresentationLayer.Forms
             Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
 
             Brush aGradientBrush = new LinearGradientBrush(new Point(0, 0), new Point(50, 0), Color.Gray, Color.White);
-            Pen pencil = new Pen(Color.LightGray, 5);
+            Pen pencil = new Pen(Color.FromArgb(128, 211, 211, 211), 7);
             e.Graphics.DrawRectangle(pencil, rect);
+
         }
 
         //protected override void WndProc(ref Message m)
@@ -702,21 +720,28 @@ namespace PresentationLayer.Forms
         private const int WM_NCHITTEST = 132;
         private const int HTBOTTOMRIGHT = 17;
         private Rectangle sizeGripRectangle;
+        private int currentMouseOverRow;
+        private int currentMouseOverCol;
 
         protected override void WndProc(ref Message m)
         {
-            switch (m.Msg)
+            try
             {
-                case WM_NCHITTEST:
-                    base.WndProc(ref m);
-                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                    if (sizeGripRectangle.Contains(hitPoint))
-                        m.Result = new IntPtr(HTBOTTOMRIGHT);
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
+                switch (m.Msg)
+                {
+                    case WM_NCHITTEST:
+                        base.WndProc(ref m);
+                        var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
+                        if (sizeGripRectangle.Contains(hitPoint))
+                            m.Result = new IntPtr(HTBOTTOMRIGHT);
+                        break;
+                    default:
+                        base.WndProc(ref m);
+                        break;
+                }
             }
+            catch { }
+
         }
         //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
         protected override void OnSizeChanged(EventArgs e)
@@ -879,9 +904,9 @@ namespace PresentationLayer.Forms
                              .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
                              .FirstOrDefault();
             if (result != null)
-                errorIcono.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
+                errorCodigo.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
             else
-                errorIcono.SetErrorWithCount(txtCodigo, "");
+                errorCodigo.SetErrorWithCount(txtCodigo, "");
         }
 
 
@@ -914,7 +939,7 @@ namespace PresentationLayer.Forms
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
-            if(labelNoMouse1.Text.Trim() != "Actualizar")
+            if (labelNoMouse1.Text.Trim() != "Actualizar")
                 contextMenuStrip1.Items[0].Enabled = false;
             else
                 contextMenuStrip1.Items[0].Enabled = true;
@@ -953,20 +978,139 @@ namespace PresentationLayer.Forms
         private void materialCheckBox2_CheckedChanged(object sender, EventArgs e)
         {
             if (materialCheckBox2.Checked)
-            {
                 foreach (DataGridViewRow row in dgvListaItems.Rows)
                 {
                     row.Height = 60;
+                    dgvListaItems.Columns[18].Width = 150;
                 }
-            }
             else
-            {
                 foreach (DataGridViewRow row in dgvListaItems.Rows)
                 {
                     row.Height = 22;
+                    dgvListaItems.Columns[18].Width = 50;
                 }
+        }
+
+        private void materialCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarGridListadoItem();
+        }
+
+        private void materialFlatButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCodigo.Text.Trim().Length > 0 && errorCodigo.HasErrors())
+                errorCodigo.SetErrorWithCount(txtCodigo, "");
+        }
+
+        private void txtDescrpcion_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDescrpcion.Text.Trim().Length > 0 && errorDescr.HasErrors())
+                errorDescr.SetErrorWithCount(txtDescrpcion, "");
+        }
+
+        private void txtTotalCostos_TextChanged(object sender, EventArgs e)
+        {
+            txtDirectFact.Text = (txtTotalCostos.Text.ToDouble() * 1.752).ToString();
+        }
+
+        private void OpenImegeForm(Image Img)
+        {
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            FrmViewPicture form = new FrmViewPicture();//MetroFramework.Forms.MetroForm();
+            form.Imagen = Img;
+            form.AutoSize = true;
+            frmParentForm.AbrirFormulario(form, 0, 0, true);
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            OpenImegeForm(pictureBox1.BackgroundImage);
+        }
+
+        private void copiarTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //string dgvToHTMLTable = dgvListaItems.ConvertDataGridViewToHTMLWithFormatting();
+            //Clipboard.SetText(dgvToHTMLTable);
+            dgvListaItems.CopyContentToClipboard();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvListaItems[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void dgvListaItems_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvListaItems.CurrentCell = dgvListaItems[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvListaItems.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(pictureBox1.BackgroundImage);
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            IDataObject data = Clipboard.GetDataObject();
+            if (data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = ((string[])(data.GetData("FileDrop", false)));
+                FileInfo FInfo = new FileInfo(files[0]);
+                if (((FInfo.Extension.ToLower() == ".jpg")
+                            || ((FInfo.Extension.ToLower() == ".bmp")
+                            || (FInfo.Extension.ToLower() == ".png"))))
+                {
+                    Bitmap image = new Bitmap(FInfo.FullName);
+                    pictureBox1.BackgroundImage = image;
+                }
+
+            }
+            else if ((data.GetDataPresent(DataFormats.Bitmap) || data.GetDataPresent(DataFormats.Dib)))
+            {
+                Bitmap bmp = null;
+
+                Image  img = ((Image)data.GetData("Bitmap", false));
+                bmp = new Bitmap(img);
+                pictureBox1.BackgroundImage = bmp;
+
             }
 
+            //if (Clipboard.GetImage() != null) //Excel 2007
+            //{
+            //    //pictureBox1.Width = Clipboard.GetImage().Width;
+            //    //pictureBox1.Height = Clipboard.GetImage().Height;
+            //    pictureBox1.BackgroundImage = Clipboard.GetImage();
+            //    //...
+            //}
+            //else if (Clipboard.GetDataObject().GetDataPresent("PNG")) //Excel 2003
+            //{
+            //    Clipboard.GetDataObject().GetFormats();
+            //    IDataObject data = Clipboard.GetDataObject();
+            //    MemoryStream ms = (MemoryStream)data.GetData("PNG");
+
+            //    //pictureBox1.Width = Image.FromStream(ms).Width;
+            //    //pictureBox1.Height = Image.FromStream(ms).Height;
+            //    pictureBox1.BackgroundImage = Image.FromStream(ms);
+            //    //...
+            //}
         }
     }
+
 }

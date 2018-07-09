@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>8</ApplicationRevision>
+    <ApplicationRevision>12</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -118,12 +118,17 @@
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>..\packages\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Kesoft.Windows.Forms.Win7StyleTreeView, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kesoft.Windows.Forms.Win7StyleTreeView.1.0.0.1\lib\net20\Kesoft.Windows.Forms.Win7StyleTreeView.dll</HintPath>
     </Reference>
@@ -142,6 +147,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -174,12 +181,23 @@
     <Compile Include="Controls\MdiClientPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\MetroFlatDropShadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MetroRealisticDropShadow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\MetroShadowBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\WinApi.cs" />
     <Compile Include="Controls\Positioning.cs" />
     <Compile Include="Controls\TimerAnimation.cs" />
     <Compile Include="Extensions\DataGridViewExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ErrorProviderExtensions.cs" />
     <Compile Include="Extensions\ExcelExtensions.cs" />
+    <Compile Include="Extensions\Fader.cs" />
     <Compile Include="Extensions\FilestoBinary.cs" />
     <Compile Include="Extensions\FormExtensions.cs" />
     <Compile Include="Extensions\Funciones.cs" />
@@ -193,6 +211,12 @@
     <Compile Include="Forms\FrmBusquedaItem.Designer.cs">
       <DependentUpon>FrmBusquedaItem.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmDetalleKit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmDetalleKit.Designer.cs">
+      <DependentUpon>FrmDetalleKit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmFamilia.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -205,17 +229,23 @@
     <Compile Include="Forms\FrmKit.Designer.cs">
       <DependentUpon>FrmKit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmProducto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmProducto.Designer.cs">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmPieza.cs">
+    <Compile Include="Forms\FrmParte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FrmPieza.Designer.cs">
-      <DependentUpon>FrmPieza.cs</DependentUpon>
+    <Compile Include="Forms\FrmParte.Designer.cs">
+      <DependentUpon>FrmParte.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmPrincipal.cs">
       <SubType>Form</SubType>
@@ -235,6 +265,12 @@
     <Compile Include="Forms\FrmPropiedades.Designer.cs">
       <DependentUpon>FrmPropiedades.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmReportes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmReportes.Designer.cs">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmTipos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -246,6 +282,12 @@
     </Compile>
     <Compile Include="Forms\FrmValoresCostos.Designer.cs">
       <DependentUpon>FrmValoresCostos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmViewPicture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmViewPicture.Designer.cs">
+      <DependentUpon>FrmViewPicture.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Functions.cs" />
     <Compile Include="Program.cs" />
@@ -259,17 +301,23 @@
     <EmbeddedResource Include="Forms\FrmBusquedaItem.resx">
       <DependentUpon>FrmBusquedaItem.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmDetalleKit.resx">
+      <DependentUpon>FrmDetalleKit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmFamilia.resx">
       <DependentUpon>FrmFamilia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmKit.resx">
       <DependentUpon>FrmKit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmProducto.resx">
       <DependentUpon>FrmProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmPieza.resx">
-      <DependentUpon>FrmPieza.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmParte.resx">
+      <DependentUpon>FrmParte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -280,11 +328,17 @@
     <EmbeddedResource Include="Forms\FrmPropiedades.resx">
       <DependentUpon>FrmPropiedades.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmReportes.resx">
+      <DependentUpon>FrmReportes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmTipos.resx">
       <DependentUpon>FrmTipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmValoresCostos.resx">
       <DependentUpon>FrmValoresCostos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmViewPicture.resx">
+      <DependentUpon>FrmViewPicture.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -332,6 +386,19 @@
     <Content Include="Logo %281%29.ico" />
     <Content Include="Logo.ico" />
     <Content Include="MinduAuto.ico" />
+    <Content Include="Resources\ajax-loader %283%29.gif" />
+    <None Include="Resources\window.png" />
+    <None Include="Resources\clock-padlock.png" />
+    <None Include="Resources\FondoAutoM2.png" />
+    <None Include="Resources\excel.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\file.png" />
+    <Content Include="Resources\Loader.gif" />
+    <None Include="Resources\LogoAjust.png" />
+    <None Include="Resources\user %282%29.png" />
+    <None Include="Resources\plus.png" />
+    <None Include="Resources\lock %282%29.png" />
+    <None Include="Resources\ImagenBlank.png" />
     <None Include="Resources\Logo1.png" />
     <None Include="Resources\up-arrow.png" />
     <None Include="Resources\plus-symbol-round-button.png" />
@@ -400,6 +467,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Reports\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

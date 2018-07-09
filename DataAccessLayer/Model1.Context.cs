@@ -64,5 +64,18 @@ namespace Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemBusqueda_Result>("SP_GetItemBusqueda", id_ItemParameter);
         }
+    
+        public virtual ObjectResult<SP_VerifyUserPass_Result> SP_VerifyUserPass(string rut, string pass)
+        {
+            var rutParameter = rut != null ?
+                new ObjectParameter("Rut", rut) :
+                new ObjectParameter("Rut", typeof(string));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("Pass", pass) :
+                new ObjectParameter("Pass", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_VerifyUserPass_Result>("SP_VerifyUserPass", rutParameter, passParameter);
+        }
     }
 }

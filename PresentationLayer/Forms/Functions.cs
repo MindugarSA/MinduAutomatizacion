@@ -19,5 +19,16 @@ namespace PresentationLayer
             skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
             skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Orange500, MaterialSkin.Primary.LightBlue500, MaterialSkin.Primary.Blue500, MaterialSkin.Accent.LightBlue400, MaterialSkin.TextShade.WHITE);
         }
+
+        public static void ConfigurarMaterialSkinManagerInicio()
+        {
+            MaterialSkin.MaterialSkinManager skinManager = MaterialSkin.MaterialSkinManager.Instance;
+            skinManager.ROBOTO_MEDIUM_10 = new Font("Segoe UI Light", 10);
+            skinManager.ROBOTO_MEDIUM_11 = new Font("Segoe UI Light", 11);
+            skinManager.ROBOTO_MEDIUM_12 = new Font("Segoe UI Light", 12);
+            skinManager.ROBOTO_REGULAR_11 = new Font("Segoe UI Light", 16);
+            skinManager.Theme = MaterialSkin.MaterialSkinManager.Themes.LIGHT;
+            skinManager.ColorScheme = new MaterialSkin.ColorScheme(MaterialSkin.Primary.Orange500, MaterialSkin.Primary.LightBlue500, MaterialSkin.Primary.Blue500, MaterialSkin.Accent.LightBlue400, MaterialSkin.TextShade.WHITE);
+        }
     }
 }

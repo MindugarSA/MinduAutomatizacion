@@ -23,5 +23,6 @@ namespace Entities
         public Nullable<decimal> Largo { get; set; }
         public Nullable<decimal> Diametro { get; set; }
         public int OI { get; set; }
+        public byte[] Imagen { get; set; }
     }
 }

@@ -48,6 +48,7 @@ namespace PresentationLayer.Forms
             CargarGridListadoItem();
             CargarGridsDetalleItem(0);
             EnlazarCampos();
+            LimpiarCamposItem();
 
             panel3.Visible = false;
 
@@ -137,21 +138,29 @@ namespace PresentationLayer.Forms
 
         private void dgvItemDetalleValidar_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
-            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
-            if (dgvActual.CurrentRow.Index == -1)
-                return;
-            else if (dgvActual.CurrentCell.ColumnIndex == 8)
+            try
             {
-                e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
+                MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+                if (dgvActual.CurrentRow.Index == -1)
+                    return;
+                else if (dgvActual.CurrentCell.ColumnIndex == 8)
+                {
+                    e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
+                }
             }
+            catch {}
         }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox TxtActual = (TextBox)sender;
-            if (TxtActual.SelectedText == TxtActual.Text)
-                TxtActual.Text = "";
-            Funciones.Formato_Decimal(TxtActual, e);
+            try
+            {
+                TextBox TxtActual = (TextBox)sender;
+                if (TxtActual.SelectedText == TxtActual.Text)
+                    TxtActual.Text = "";
+                Funciones.Formato_Decimal(TxtActual, e);
+            }
+            catch {}
         }
 
         private void dgvCostoValidar_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -196,7 +205,6 @@ namespace PresentationLayer.Forms
                 }
                 txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                        Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-
             }
         }
 
@@ -264,12 +272,16 @@ namespace PresentationLayer.Forms
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
 
-            if (Convert.ToDecimal(txtEspesor.Text) > 0 && Convert.ToDecimal(txtAncho.Text) > 0 && Convert.ToDecimal(txtLargo.Text) > 0)
+            try
             {
-                string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
-                if (Convert.ToDouble(txtPeso.Text) == 0)
-                    txtPeso.Text = CalcPeso;
+                if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
+                {
+                    string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
+                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                        txtPeso.Text = CalcPeso;
+                }
             }
+            catch { }
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -283,7 +295,7 @@ namespace PresentationLayer.Forms
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
             CargarDatosItem(ItemId);
-            CargarCamposListaKit(ItemsBL.GetItemId(ItemId).FirstOrDefault());
+            CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -322,16 +334,16 @@ namespace PresentationLayer.Forms
         {
             txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
             txtEncabezado2.Text = txtEncabezado.Text;
-            if (txtCodigo.Text.Trim() != string.Empty)
-                errorIcono.SetError(txtCodigo, "");
+            if (txtCodigo.Text.Trim().Length > 0 && errorCodigo.HasErrors())
+                errorCodigo.SetErrorWithCount(txtCodigo, "");
         }
 
         private void txtDescrpcion_TextChanged(object sender, EventArgs e)
         {
             txtEncabezado.Text = (txtCodigo.Text + " : " + txtDescrpcion.Text).Trim();
             txtEncabezado2.Text = txtEncabezado.Text;
-            if (txtDescrpcion.Text.Trim() != string.Empty)
-                errorIcono.SetError(txtDescrpcion, "");
+            if (txtDescrpcion.Text.Trim().Length > 0 && errorDescr.HasErrors())
+                errorDescr.SetErrorWithCount(txtDescrpcion, "");
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -437,7 +449,7 @@ namespace PresentationLayer.Forms
                 {
 
                     FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
-                    FrmPieza FrmParte = new FrmPieza();
+                    FrmParte FrmParte = new FrmParte();
                     FrmParte.IdIetmSearch = IdDetalle;
                     frmParentForm.AbrirFormulario(FrmParte, 370, 230);
                 }
@@ -447,6 +459,7 @@ namespace PresentationLayer.Forms
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
+
             FrmBusquedaItem FrmBuscar = new FrmBusquedaItem();
             FrmBuscar.MdiParent = this.MdiParent;
             FrmBuscar.EnviarEvento += new FrmBusquedaItem.EnvEvent(AgregarDetalleItem);
@@ -661,6 +674,7 @@ namespace PresentationLayer.Forms
                     {
                         if (!visibleColumns.Contains(col.Index))
                             col.Visible = false;
+                        col.ReadOnly = true;
                     }
 
                     dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -786,12 +800,11 @@ namespace PresentationLayer.Forms
             txtTotalCostos.Text = "0,00";
             txtCostoProc.Text = "0,00";
             txtCostoRRHH.Text = "0,00";
-            pictureBox1.BackgroundImage = null;
+            txtDirectFact.Text = "0,00";
+            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank; 
             metroComboBox2.SelectedIndex = -1;
             metroComboBox4.SelectedIndex = -1;
             materialCheckBox1.Checked = true;
-
-
         }
 
         private void LimpiarCamposItemDetalle()
@@ -815,7 +828,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Descripcion = txtDescrpcion.Text;
             ItemEntidad.Nombre = txtNombre.Text;
             ItemEntidad.TipoPieza = "";
-            ItemEntidad.Familia = Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
+            ItemEntidad.Familia = metroComboBox2.SelectedItem == null ? 0 : Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
             ItemEntidad.TipoItem = "K";
             ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
             ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
@@ -904,24 +917,24 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorIcono.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorDetalle.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
                 metroTab1.SelectedIndex = 0;
-                errorIcono.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
+                errorCodigo.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
                 Valido = false;
             }
             else if (txtDescrpcion.Text == string.Empty)
             {
                 metroTab1.SelectedIndex = 0;
-                errorIcono.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
+                errorDescr.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
             else if (dgvDetalleItemAmp.RowCount == 0)
             {
                 metroTab1.SelectedIndex = 1;
-                errorIcono.SetErrorWithCount(dgvDetalleItemAmp, "Ingrese un Detalle");
+                errorDetalle.SetErrorWithCount(dgvDetalleItemAmp, "Ingrese un Detalle");
                 Valido = false;
             }
 
@@ -948,7 +961,7 @@ namespace PresentationLayer.Forms
             textBox1.Text = txtTotCosPiezas.Text;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-            errorIcono.SetErrorWithCount(txtCodigo, "");
+            errorCodigo.SetErrorWithCount(txtCodigo, "");
         }
 
         private void AgregarDetalleItem(int IdDetalle = 0)
@@ -967,7 +980,7 @@ namespace PresentationLayer.Forms
             row[10] = ItemDet.CostoTotal ?? 0;
             row[11] = 0;
             dt.Rows.Add(row);
-            errorIcono.SetError(dgvDetalleItemAmp, "");
+            errorDetalle.SetErrorWithCount(dgvDetalleItemAmp, "");
             CargarCamposItemDetalle(ItemDet);
             //dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Selected = true;
             dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Cells[9];
@@ -1016,9 +1029,9 @@ namespace PresentationLayer.Forms
                             .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper())
                             .FirstOrDefault();
             if (result != null)
-                errorIcono.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
+                errorCodigo.SetErrorWithCount(txtCodigo, "El Codigo Ya Existe en la Base de Datos");
             else
-                errorIcono.SetErrorWithCount(txtCodigo, "");
+                errorCodigo.SetErrorWithCount(txtCodigo, "");
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -1033,25 +1046,70 @@ namespace PresentationLayer.Forms
             e.Graphics.DrawRectangle(pencil, rect);
         }
 
+        private int tolerance = 15;
+        private const int WM_NCHITTEST = 132;
+        private const int HTBOTTOMRIGHT = 17;
+        private Rectangle sizeGripRectangle;
+        private int currentMouseOverRow;
+        private int currentMouseOverCol;
+
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 0x84)
+            switch (m.Msg)
             {
-                Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.Y < cCaption)
-                {
-                    m.Result = (IntPtr)2;
-                    return;
-                }
-                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-                {
-                    m.Result = (IntPtr)17;
-                    return;
-                }
+                case WM_NCHITTEST:
+                    base.WndProc(ref m);
+                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
+                    if (sizeGripRectangle.Contains(hitPoint))
+                        m.Result = new IntPtr(HTBOTTOMRIGHT);
+                    break;
+                default:
+                    base.WndProc(ref m);
+                    break;
             }
-            base.WndProc(ref m);
         }
+        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
+        protected override void OnSizeChanged(EventArgs e)
+        {
+            base.OnSizeChanged(e);
+            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
+
+            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
+
+            region.Exclude(sizeGripRectangle);
+            //this.panelPrincipal.Region = region;
+            this.Invalidate();
+        }
+        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
+        protected override void OnPaint(PaintEventArgs e)
+        {
+
+            SolidBrush blueBrush = new SolidBrush(Color.Transparent);
+            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
+
+            base.OnPaint(e);
+            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
+        }
+
+        //protected override void WndProc(ref Message m)
+        //{
+        //    if (m.Msg == 0x84)
+        //    {
+        //        Point pos = new Point(m.LParam.ToInt32());
+        //        pos = this.PointToClient(pos);
+        //        if (pos.Y < cCaption)
+        //        {
+        //            m.Result = (IntPtr)2;
+        //            return;
+        //        }
+        //        if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+        //        {
+        //            m.Result = (IntPtr)17;
+        //            return;
+        //        }
+        //    }
+        //    base.WndProc(ref m);
+        //}
         #endregion
 
         #region Aplicar Acciones Visuales a Controles
@@ -1130,8 +1188,6 @@ namespace PresentationLayer.Forms
             }
         }
 
-
-
         #endregion
 
         private void txtBuscarItem_Enter(object sender, EventArgs e)
@@ -1152,12 +1208,137 @@ namespace PresentationLayer.Forms
             panel3.Visible = false;
             labelNoMouse1.Text = "Agregar";
         }
+
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             if (labelNoMouse1.Text.Trim() != "Actualizar")
                 contextMenuStrip1.Items[0].Enabled = false;
             else
                 contextMenuStrip1.Items[0].Enabled = true;
+        }
+
+        private void materialFlatButton3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void txtTotalCostos_TextChanged(object sender, EventArgs e)
+        {
+            if (!txtTotalCostos.Focused)
+                try
+                {
+                    if (txtTotalCostos.Text == string.Empty) txtTotalCostos.Text = "0,00";
+                    txtTotalCostos.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(txtTotalCostos.Text));
+                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
+        }
+
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+            OpenImegeForm(pictureBox1.BackgroundImage);
+        }
+
+        private void OpenImegeForm(Image Img)
+        {
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            FrmViewPicture form = new FrmViewPicture();//MetroFramework.Forms.MetroForm();
+            form.Imagen = Img;
+            form.AutoSize = true;
+            frmParentForm.AbrirFormulario(form, 0, 0, true);
+        }
+
+        private void pictureBox10_DoubleClick(object sender, EventArgs e)
+        {
+            OpenImegeForm(pictureBox10.BackgroundImage);
+        }
+
+        private void pictureBox15_DoubleClick(object sender, EventArgs e)
+        {
+            OpenImegeForm(pictureBox15.BackgroundImage);
+        }
+
+        private void copiarTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvListaItems.CopyContentToClipboard();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvListaItems[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void dgvListaItems_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvListaItems.CurrentCell = dgvListaItems[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvListaItems.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            IDataObject data = Clipboard.GetDataObject();
+            if (data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = ((string[])(data.GetData("FileDrop", false)));
+                FileInfo FInfo = new FileInfo(files[0]);
+                if (((FInfo.Extension.ToLower() == ".jpg")
+                            || ((FInfo.Extension.ToLower() == ".bmp")
+                            || (FInfo.Extension.ToLower() == ".png"))))
+                {
+                    Bitmap image = new Bitmap(FInfo.FullName);
+                    pictureBox1.BackgroundImage = image;
+                }
+
+            }
+            else if ((data.GetDataPresent(DataFormats.Bitmap) || data.GetDataPresent(DataFormats.Dib)))
+            {
+                Bitmap bmp = null;
+
+                Image img = ((Image)data.GetData("Bitmap", false));
+                bmp = new Bitmap(img);
+                pictureBox1.BackgroundImage = bmp;
+
+            }
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetImage(pictureBox1.BackgroundImage);
+        }
+
+        private void dgvDetalleItemAmp_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MostrarDetalleKitProducto(sender,e);
+        }
+        private void MostrarDetalleKitProducto(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+
+            FrmDetalleKit FrmDetalle = new FrmDetalleKit();
+            var cellRectangle = dgvActual.GetCellDisplayRectangle(5, e.RowIndex, false);
+            FrmDetalle.StartPosition = FormStartPosition.Manual;
+            FrmDetalle.Location = dgvActual.PointToScreen(dgvActual.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
+            FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
+            FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
+            FrmDetalle.Show();
+        }
+
+        private void dgvDetalleItem_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            MostrarDetalleKitProducto(sender, e);
         }
     }
 }
