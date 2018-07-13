@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>12</ApplicationRevision>
+    <ApplicationRevision>13</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -393,6 +393,7 @@
     <None Include="Resources\excel.png" />
     <None Include="Resources\copy.png" />
     <None Include="Resources\file.png" />
+    <None Include="Resources\document-with-folded-corner.png" />
     <Content Include="Resources\Loader.gif" />
     <None Include="Resources\LogoAjust.png" />
     <None Include="Resources\user %282%29.png" />

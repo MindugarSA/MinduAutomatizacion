@@ -187,7 +187,6 @@ namespace PresentationLayer.Forms
             if (e.KeyChar == Convert.ToChar(13))
             {
                 SendKeys.Send("{TAB}");
-                //textBox4.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(textBox4.Text));
             }
         }
 
@@ -210,8 +209,6 @@ namespace PresentationLayer.Forms
             TextBox TxtActual = (TextBox)sender;
             if (!bControlActive)
             {
-                if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
-                TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
                 bControlActive = true;
                 TxtActual.SelectAll();
             }
@@ -233,7 +230,6 @@ namespace PresentationLayer.Forms
                 }
             }
             catch { }
-
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -263,6 +259,7 @@ namespace PresentationLayer.Forms
             txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+            txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
             errorCodigo.SetErrorWithCount(txtCodigo, "");
             errorDescr.SetErrorWithCount(txtCodigo, "");
         }
@@ -275,9 +272,11 @@ namespace PresentationLayer.Forms
                 {
                     if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
                     TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
-                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
                 }
-                catch { }
+                catch (Exception)
+                {
+                    //throw;
+                }
         }
 
         private void materialFlatButton2_Click(object sender, EventArgs e)
@@ -604,6 +603,7 @@ namespace PresentationLayer.Forms
             txtCostoProc.Text = "0,00";
             txtCostoRRHH.Text = "0,00";
             txtDirectFact.Text = "0,00";
+
             pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
             metroComboBox2.SelectedIndex = -1;
             metroComboBox3.SelectedIndex = 0;
@@ -968,7 +968,7 @@ namespace PresentationLayer.Forms
                             {
                                 c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                 return c;
-                            });
+                            }).ToList();
 
                 if (result != null)
                     dgvListaItems.DataSource = result;
@@ -1110,6 +1110,21 @@ namespace PresentationLayer.Forms
             //    pictureBox1.BackgroundImage = Image.FromStream(ms);
             //    //...
             //}
+        }
+
+        private void txtTotalCostos_TextChanged_1(object sender, EventArgs e)
+        {
+            if (!txtTotalCostos.Focused)
+                try
+                {
+                    if (txtTotalCostos.Text == string.Empty) txtTotalCostos.Text = "0,00";
+                    txtTotalCostos.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(txtTotalCostos.Text));
+                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
+                }
+                catch (Exception)
+                {
+                    //throw;
+                }
         }
     }
 

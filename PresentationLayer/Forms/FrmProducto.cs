@@ -1336,5 +1336,35 @@ namespace PresentationLayer.Forms
         {
             MostrarDetalleKitProducto(sender, e);
         }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarItem.Text.Trim().Length > 0)
+            {
+                var result = ItemsBL.GetItemsTipo("T")
+                            .Select(c =>
+                            {
+                                c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                                return c;
+                            })
+                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
+                                        || s.Descripcion.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()))).ToList();
+
+                if (result != null)
+                    dgvListaItems.DataSource = result;
+            }
+            else
+            {
+                var result = ItemsBL.GetItemsTipo("T")
+                            .Select(c =>
+                            {
+                                c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                                return c;
+                            }).ToList();
+
+                if (result != null)
+                    dgvListaItems.DataSource = result;
+            }
+        }
     }
 }

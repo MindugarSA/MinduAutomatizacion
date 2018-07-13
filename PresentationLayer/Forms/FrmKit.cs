@@ -442,16 +442,29 @@ namespace PresentationLayer.Forms
 
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
+
             if(dgvDetalleItemAmp.Rows.Count > 0)
             {
-                int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value ?? 0);
+                int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+                string TipoPieza = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
                 if (IdDetalle > 0)
                 {
+                    if (TipoPieza.Trim() == "K")
+                    {
+                        FrmKit Frmkit = new FrmKit();
+                        Frmkit.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(Frmkit, 370, 230);
 
-                    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
-                    FrmParte FrmParte = new FrmParte();
-                    FrmParte.IdIetmSearch = IdDetalle;
-                    frmParentForm.AbrirFormulario(FrmParte, 370, 230);
+                    }
+                    else
+                    {
+                        FrmParte FrmParte = new FrmParte();
+                        FrmParte.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(FrmParte, 370, 230);
+                    }
+
                 }
             }
            
@@ -1339,6 +1352,36 @@ namespace PresentationLayer.Forms
         private void dgvDetalleItem_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             MostrarDetalleKitProducto(sender, e);
+        }
+
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarItem.Text.Trim().Length > 0)
+            {
+                var result = ItemsBL.GetItemsTipo("P")
+                            .Select(c =>
+                            {
+                                c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                                return c;
+                            })
+                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
+                                        || s.Descripcion.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()))).ToList();
+
+                if (result != null)
+                    dgvListaItems.DataSource = result;
+            }
+            else
+            {
+                var result = ItemsBL.GetItemsTipo("P")
+                            .Select(c =>
+                            {
+                                c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                                return c;
+                            }).ToList();
+
+                if (result != null)
+                    dgvListaItems.DataSource = result;
+            }
         }
     }
 }

@@ -229,6 +229,8 @@ namespace PresentationLayer
                         panel7.Top = button3.Top;
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
+                        button6.Top = button5.Top + Level1Separation;
+                        panel11.Top = button6.Top;
                         panel4.Visible = true;
                         Opt1Open = true;
                     }
@@ -241,6 +243,8 @@ namespace PresentationLayer
                         panel7.Top = button3.Top;
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
+                        button6.Top = button5.Top + Level1Separation;
+                        panel11.Top = button6.Top;
                         Opt1Open = false;
                     }
                     break;

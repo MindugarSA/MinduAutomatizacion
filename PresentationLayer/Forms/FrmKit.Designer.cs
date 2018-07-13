@@ -191,6 +191,9 @@
             this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
             this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
@@ -366,6 +369,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtDescrpcion);
             this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.label44);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(858, 629);
@@ -1203,7 +1207,7 @@
             this.metroTab1.Controls.Add(this.metroTabPage4);
             this.metroTab1.Location = new System.Drawing.Point(21, 36);
             this.metroTab1.Name = "metroTab1";
-            this.metroTab1.SelectedIndex = 0;
+            this.metroTab1.SelectedIndex = 3;
             this.metroTab1.Size = new System.Drawing.Size(869, 678);
             this.metroTab1.TabIndex = 0;
             this.metroTab1.UseSelectable = true;
@@ -1277,6 +1281,7 @@
             this.groupBox2.Controls.Add(this.txtBuscarItem);
             this.groupBox2.Controls.Add(this.txtEncabezado);
             this.groupBox2.Controls.Add(this.dgvDetalleItemAmp);
+            this.groupBox2.Controls.Add(this.label45);
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(858, 629);
@@ -2147,6 +2152,7 @@
             this.groupBox6.Controls.Add(this.panel1);
             this.groupBox6.Controls.Add(this.dgvListaItems);
             this.groupBox6.Controls.Add(this.txtDescripcionK);
+            this.groupBox6.Controls.Add(this.label46);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(858, 629);
@@ -2822,7 +2828,6 @@
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
             this.pictureBox1.Location = new System.Drawing.Point(618, 16);
             this.pictureBox1.Name = "pictureBox1";
@@ -2910,8 +2915,7 @@
             // 
             this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox10.Location = new System.Drawing.Point(613, 462);
+            this.pictureBox10.Location = new System.Drawing.Point(611, 463);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(230, 152);
             this.pictureBox10.TabIndex = 108;
@@ -2942,6 +2946,7 @@
             this.pictureBox14.Size = new System.Drawing.Size(27, 27);
             this.pictureBox14.TabIndex = 145;
             this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
             this.pictureBox14.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
             this.pictureBox14.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
@@ -2949,8 +2954,7 @@
             // 
             this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox15.Location = new System.Drawing.Point(614, 439);
+            this.pictureBox15.Location = new System.Drawing.Point(614, 441);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(230, 152);
             this.pictureBox15.TabIndex = 130;
@@ -2988,6 +2992,32 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.toolStripMenuItem2.Text = "Pegar Imagen";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // label44
+            // 
+            this.label44.BackColor = System.Drawing.Color.LightGray;
+            this.label44.Location = new System.Drawing.Point(615, 13);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(236, 158);
+            this.label44.TabIndex = 100;
+            // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label45.BackColor = System.Drawing.Color.LightGray;
+            this.label45.Location = new System.Drawing.Point(608, 460);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(236, 158);
+            this.label45.TabIndex = 128;
+            // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label46.BackColor = System.Drawing.Color.LightGray;
+            this.label46.Location = new System.Drawing.Point(611, 438);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(236, 158);
+            this.label46.TabIndex = 148;
             // 
             // labelNoMouse4
             // 
@@ -3270,5 +3300,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.Label label46;
     }
 }

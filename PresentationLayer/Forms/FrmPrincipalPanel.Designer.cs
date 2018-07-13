@@ -32,6 +32,8 @@
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalPanel));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -79,6 +81,8 @@
             this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMenu.BackColor = System.Drawing.Color.DimGray;
+            this.pnlMenu.Controls.Add(this.button6);
+            this.pnlMenu.Controls.Add(this.panel11);
             this.pnlMenu.Controls.Add(this.pictureBox5);
             this.pnlMenu.Controls.Add(this.button5);
             this.pnlMenu.Controls.Add(this.panel3);
@@ -96,6 +100,33 @@
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(203, 673);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button6, BunifuAnimatorNS.DecorationType.None);
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = global::PresentationLayer.Properties.Resources.document_with_folded_corner;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(12, 331);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(189, 35);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "  Reportes";
+            this.button6.UseVisualStyleBackColor = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel11, BunifuAnimatorNS.DecorationType.None);
+            this.panel11.Location = new System.Drawing.Point(2, 331);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(9, 35);
+            this.panel11.TabIndex = 15;
             // 
             // pictureBox5
             // 
@@ -152,7 +183,7 @@
             this.panel4.Controls.Add(this.button9);
             this.panel4.Controls.Add(this.button7);
             this.BunifuTransition1.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
-            this.panel4.Location = new System.Drawing.Point(28, 332);
+            this.panel4.Location = new System.Drawing.Point(50, 417);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 177);
             this.panel4.TabIndex = 10;
@@ -594,5 +625,7 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel11;
     }
 }
