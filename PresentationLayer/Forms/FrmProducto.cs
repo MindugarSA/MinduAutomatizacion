@@ -389,6 +389,7 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
                         panel3.Visible = true;
+                        MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Registrada", Color.FromArgb(129, 152, 48));
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -403,6 +404,7 @@ namespace PresentationLayer.Forms
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                        MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Modificada", Color.FromArgb(0, 174, 219));
                         break;
                 }
                 CargarGridsCostos();
@@ -1294,7 +1296,7 @@ namespace PresentationLayer.Forms
                             || (FInfo.Extension.ToLower() == ".png"))))
                 {
                     Bitmap image = new Bitmap(FInfo.FullName);
-                    pictureBox1.BackgroundImage = image;
+                    pictureBox1.BackgroundImage = (Bitmap)image;
                 }
 
             }
@@ -1304,7 +1306,7 @@ namespace PresentationLayer.Forms
 
                 Image img = ((Image)data.GetData("Bitmap", false));
                 bmp = new Bitmap(img);
-                pictureBox1.BackgroundImage = bmp;
+                pictureBox1.BackgroundImage = (Bitmap)bmp;
 
             }
         }
@@ -1339,7 +1341,7 @@ namespace PresentationLayer.Forms
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
-            if (txtBuscarItem.Text.Trim().Length > 0)
+            if (txtBuscarProd.Text.Trim().Length > 0)
             {
                 var result = ItemsBL.GetItemsTipo("T")
                             .Select(c =>
@@ -1347,8 +1349,8 @@ namespace PresentationLayer.Forms
                                 c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                 return c;
                             })
-                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
-                                        || s.Descripcion.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()))).ToList();
+                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarProd.Text.Trim().ToUpper())
+                                        || s.Descripcion.ToUpper().Contains(txtBuscarProd.Text.Trim().ToUpper()))).ToList();
 
                 if (result != null)
                     dgvListaItems.DataSource = result;
@@ -1365,6 +1367,55 @@ namespace PresentationLayer.Forms
                 if (result != null)
                     dgvListaItems.DataSource = result;
             }
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
+        }
+
+        private void dgvListaItems_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            DataGridViewColumn objDG = this.dgvListaItems.Columns[e.ColumnIndex];
+            string sTextoMensaje;
+            sTextoMensaje = "Error en la columna: " + objDG.DataPropertyName + "\n" +
+            e.Exception.Message;
+            MessageBox.Show(sTextoMensaje, "Error de Carga", MessageBoxButtons.OK);
+            // si después del mensaje quieres dejar la celda en su estado original realizas la siguiente asignación
+            e.Cancel = false;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label47.Visible = false;
+            timer1.Stop();
+        }
+
+        private void MostrarMensajeRegistro(string Mensaje, Color TextColor)
+        {
+            label47.ForeColor = TextColor;
+            label47.Text = Mensaje;
+            label47.Visible = true;
+            timer1.Start();
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            var result = ItemsBL.GetItemsTipo("T")
+                           .Select(c =>
+                           {
+                               c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                               return c;
+                           }).ToList();
+
+            if (result != null)
+                dgvListaItems.DataSource = result;
+        }
+
+        private void txtBuscarProd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                pictureBox14_Click(pictureBox14, null);
         }
     }
 }

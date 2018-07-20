@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -15,7 +16,8 @@ namespace PresentationLayer
             MemoryStream ms = new MemoryStream();
             try
             {
-                imageIn.Save(ms, imageIn.RawFormat);
+                imageIn.Save(ms, ImageFormat.Jpeg);
+                //imageIn.Save(ms, imageIn.RawFormat);
             }
             catch {}
             return ms.ToArray();

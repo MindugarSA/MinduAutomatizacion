@@ -148,7 +148,7 @@ namespace PresentationLayer.Forms
                     e.Control.KeyPress += new KeyPressEventHandler(txt_KeyPress);
                 }
             }
-            catch {}
+            catch { }
         }
 
         private void txt_KeyPress(object sender, KeyPressEventArgs e)
@@ -160,7 +160,7 @@ namespace PresentationLayer.Forms
                     TxtActual.Text = "";
                 Funciones.Formato_Decimal(TxtActual, e);
             }
-            catch {}
+            catch { }
         }
 
         private void dgvCostoValidar_CellBeginEdit(object sender, DataGridViewCellCancelEventArgs e)
@@ -395,6 +395,7 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
                         panel3.Visible = true;
+                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Registrada", Color.FromArgb(129, 152, 48));
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -409,6 +410,7 @@ namespace PresentationLayer.Forms
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificada", Color.FromArgb(0, 174, 219));
                         break;
                 }
                 CargarGridsCostos();
@@ -443,7 +445,7 @@ namespace PresentationLayer.Forms
         private void pictureBox4_Click_1(object sender, EventArgs e)
         {
 
-            if(dgvDetalleItemAmp.Rows.Count > 0)
+            if (dgvDetalleItemAmp.Rows.Count > 0)
             {
                 int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
                 string TipoPieza = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[8].Value.ToString();
@@ -467,7 +469,7 @@ namespace PresentationLayer.Forms
 
                 }
             }
-           
+
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -814,7 +816,7 @@ namespace PresentationLayer.Forms
             txtCostoProc.Text = "0,00";
             txtCostoRRHH.Text = "0,00";
             txtDirectFact.Text = "0,00";
-            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank; 
+            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
             metroComboBox2.SelectedIndex = -1;
             metroComboBox4.SelectedIndex = -1;
             materialCheckBox1.Checked = true;
@@ -1206,7 +1208,7 @@ namespace PresentationLayer.Forms
         private void txtBuscarItem_Enter(object sender, EventArgs e)
         {
             txtBuscarItem.SelectAll();
-            txtBuscarItem.Focus(); 
+            txtBuscarItem.Focus();
         }
 
         private void FrmKit_Shown(object sender, EventArgs e)
@@ -1312,7 +1314,7 @@ namespace PresentationLayer.Forms
                             || (FInfo.Extension.ToLower() == ".png"))))
                 {
                     Bitmap image = new Bitmap(FInfo.FullName);
-                    pictureBox1.BackgroundImage = image;
+                    pictureBox1.BackgroundImage = (Bitmap)image;
                 }
 
             }
@@ -1322,7 +1324,7 @@ namespace PresentationLayer.Forms
 
                 Image img = ((Image)data.GetData("Bitmap", false));
                 bmp = new Bitmap(img);
-                pictureBox1.BackgroundImage = bmp;
+                pictureBox1.BackgroundImage = (Bitmap)bmp;
 
             }
         }
@@ -1334,7 +1336,7 @@ namespace PresentationLayer.Forms
 
         private void dgvDetalleItemAmp_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MostrarDetalleKitProducto(sender,e);
+            MostrarDetalleKitProducto(sender, e);
         }
         private void MostrarDetalleKitProducto(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1356,23 +1358,23 @@ namespace PresentationLayer.Forms
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
-            if (txtBuscarItem.Text.Trim().Length > 0)
+            if (txtBuscarKit.Text.Trim().Length > 0)
             {
-                var result = ItemsBL.GetItemsTipo("P")
+                var result = ItemsBL.GetItemsTipo("K")
                             .Select(c =>
                             {
                                 c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                 return c;
                             })
-                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
-                                        || s.Descripcion.ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()))).ToList();
+                            .Where(s => (s.Codigo.ToUpper().Contains(txtBuscarKit.Text.Trim().ToUpper())
+                                        || s.Descripcion.ToUpper().Contains(txtBuscarKit.Text.Trim().ToUpper()))).ToList();
 
                 if (result != null)
                     dgvListaItems.DataSource = result;
             }
             else
             {
-                var result = ItemsBL.GetItemsTipo("P")
+                var result = ItemsBL.GetItemsTipo("K")
                             .Select(c =>
                             {
                                 c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
@@ -1382,6 +1384,62 @@ namespace PresentationLayer.Forms
                 if (result != null)
                     dgvListaItems.DataSource = result;
             }
+        }
+
+        private void dgvListaItems_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            DataGridViewColumn objDG = this.dgvListaItems.Columns[e.ColumnIndex];
+            string sTextoMensaje;
+            sTextoMensaje = "Error en la columna: " + objDG.DataPropertyName + "\n" +
+            e.Exception.Message;
+            MessageBox.Show(sTextoMensaje, "Error de Carga", MessageBoxButtons.OK);
+            // si después del mensaje quieres dejar la celda en su estado original realizas la siguiente asignación
+            e.Cancel = false;
+        }
+
+        private void pictureBox16_Click(object sender, EventArgs e)
+        {
+            pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
+        }
+
+        private void duplicarRegistroToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CodigoInicial = "";
+            panel3.Visible = false;
+            labelNoMouse1.Text = "Agregar";
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label47.Visible = false;
+            timer1.Stop();
+        }
+
+        private void MostrarMensajeRegistro(string Mensaje, Color TextColor)
+        {
+            label47.ForeColor = TextColor;
+            label47.Text = Mensaje;
+            label47.Visible = true;
+            timer1.Start();
+        }
+
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            var result = ItemsBL.GetItemsTipo("K")
+                           .Select(c =>
+                           {
+                               c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                               return c;
+                           }).ToList();
+
+            if (result != null)
+                dgvListaItems.DataSource = result;
+        }
+
+        private void txtBuscarKit_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                pictureBox14_Click(pictureBox14,null);
         }
     }
 }
