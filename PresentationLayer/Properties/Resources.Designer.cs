@@ -123,6 +123,16 @@ namespace PresentationLayer.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cross_circular_button {
+            get {
+                object obj = ResourceManager.GetObject("cross_circular_button", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap document_with_folded_corner {
             get {
                 object obj = ResourceManager.GetObject("document_with_folded_corner", resourceCulture);
@@ -276,6 +286,16 @@ namespace PresentationLayer.Properties {
         internal static System.Drawing.Bitmap Minimize_32px {
             get {
                 object obj = ResourceManager.GetObject("Minimize_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap network_diagram {
+            get {
+                object obj = ResourceManager.GetObject("network_diagram", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

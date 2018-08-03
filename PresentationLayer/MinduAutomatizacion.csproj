@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -387,6 +387,7 @@
     <Content Include="Logo.ico" />
     <Content Include="MinduAuto.ico" />
     <Content Include="Resources\ajax-loader %283%29.gif" />
+    <None Include="Resources\network-diagram.png" />
     <None Include="Resources\refresh %281%29.png" />
     <None Include="Resources\refresh.png" />
     <None Include="Resources\refresh %282%291.png" />
@@ -397,6 +398,7 @@
     <None Include="Resources\copy.png" />
     <None Include="Resources\file.png" />
     <None Include="Resources\document-with-folded-corner.png" />
+    <None Include="Resources\cross-circular-button.png" />
     <Content Include="Resources\Loader.gif" />
     <None Include="Resources\LogoAjust.png" />
     <None Include="Resources\user %282%29.png" />

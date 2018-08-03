@@ -395,7 +395,7 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
                         panel3.Visible = true;
-                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Registrada", Color.FromArgb(129, 152, 48));
+                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Registrado", Color.FromArgb(129, 152, 48));
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -410,7 +410,7 @@ namespace PresentationLayer.Forms
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
-                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificada", Color.FromArgb(0, 174, 219));
+                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
                         break;
                 }
                 CargarGridsCostos();
@@ -1347,6 +1347,7 @@ namespace PresentationLayer.Forms
             FrmDetalle.StartPosition = FormStartPosition.Manual;
             FrmDetalle.Location = dgvActual.PointToScreen(dgvActual.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
             FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
+            FrmDetalle.Origen = "Detalle";
             FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
             FrmDetalle.Show();
         }
@@ -1440,6 +1441,48 @@ namespace PresentationLayer.Forms
         {
             if (e.KeyCode == Keys.Enter)
                 pictureBox14_Click(pictureBox14,null);
+        }
+
+        private void contextMenuStrip1_Opening_1(object sender, CancelEventArgs e)
+        {
+            if (labelNoMouse1.Text.Trim() != "Actualizar")
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+                contextMenuStrip1.Items[1].Enabled = false;
+            }
+            else
+            {
+                contextMenuStrip1.Items[0].Enabled = true;
+                contextMenuStrip1.Items[1].Enabled = true;
+            }
+        }
+
+        private void eliminarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ItemsBL.GetItemsDependencias(ItemEntidad.Id);
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+            if (dt.Rows.Count == 0)
+            {
+                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar la Eliminación del Kit '" + ItemEntidad.Codigo + "', Esta Acción es Irreversible.",
+                                           "Eliminacion de Registro",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+                {
+                    ItemsBL.DeleteItem(ItemEntidad);
+                    CargarGridListadoItem();
+                    materialFlatButton2.PerformClick();
+                }
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(frmParentForm, "Este Kit esta Relacionada con un Kit / Producto, No se Puede Eliminar.",
+                                           "Eliminacion de Registro",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation,
+                                           370);
+            }
         }
     }
 }

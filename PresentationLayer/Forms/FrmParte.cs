@@ -949,9 +949,17 @@ namespace PresentationLayer.Forms
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             if (labelNoMouse1.Text.Trim() != "Actualizar")
+            {
                 contextMenuStrip1.Items[0].Enabled = false;
+                contextMenuStrip1.Items[1].Enabled = false;
+                contextMenuStrip1.Items[2].Enabled = false;
+            }
             else
+            {
                 contextMenuStrip1.Items[0].Enabled = true;
+                contextMenuStrip1.Items[1].Enabled = true;
+                contextMenuStrip1.Items[2].Enabled = true;
+            }
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -1176,6 +1184,56 @@ namespace PresentationLayer.Forms
         {
             if (e.KeyCode == Keys.Enter)
                 pictureBox8_Click(pictureBox8, null);
+        }
+
+        private void eliminarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ItemsBL.GetItemsDependencias(ItemEntidad.Id);
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+            if (dt.Rows.Count == 0)
+            {
+                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar la Eliminación de la Parte '"+ ItemEntidad.Codigo + "', Esta Acción es Irreversible.",
+                                           "Eliminacion de Registro",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+                {
+                    ItemsBL.DeleteItem(ItemEntidad);
+                    CargarGridListadoItem();
+                    materialFlatButton2.PerformClick();
+                }
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(frmParentForm, "Esta Parte esta Relacionada con un Kit / Producto, No se Puede Eliminar.",
+                                           "Eliminacion de Registro",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Exclamation,
+                                           370);
+            }
+        }
+
+        private void verDependientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ItemsBL.GetItemsDependencias(ItemEntidad.Id);
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+            if (dt.Rows.Count > 0)
+            {
+                FrmDetalleKit FrmDetalle = new FrmDetalleKit();
+                FrmDetalle.Origen = "Dependencia";
+                FrmDetalle.itemIdDet = Convert.ToInt32(ItemEntidad.Id);
+                FrmDetalle.Show();
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(frmParentForm, "La Parte '" + ItemEntidad.Codigo + "' , No Está Relacionada a Ningun Registro",
+                                           "Relación de Dependencia",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning,
+                                           370);
+            }
         }
     }
 

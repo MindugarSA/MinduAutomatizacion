@@ -77,5 +77,23 @@ namespace Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_VerifyUserPass_Result>("SP_VerifyUserPass", rutParameter, passParameter);
         }
+    
+        public virtual int SP_ActualizarCostosItems(Nullable<int> idCosto)
+        {
+            var idCostoParameter = idCosto.HasValue ?
+                new ObjectParameter("IdCosto", idCosto) :
+                new ObjectParameter("IdCosto", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ActualizarCostosItems", idCostoParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetItemDependeceID_Result> SP_GetItemDependeceID(Nullable<int> id_Item)
+        {
+            var id_ItemParameter = id_Item.HasValue ?
+                new ObjectParameter("id_Item", id_Item) :
+                new ObjectParameter("id_Item", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDependeceID_Result>("SP_GetItemDependeceID", id_ItemParameter);
+        }
     }
 }

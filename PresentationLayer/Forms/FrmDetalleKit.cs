@@ -17,10 +17,13 @@ namespace PresentationLayer.Forms
     public partial class FrmDetalleKit : Form
     {
         public int itemIdDet { get; set; }
+        public string Origen { get; set; }
         int ClickCount = 0;
 
         DataTable dtItemDetalle = new DataTable();
         bool bAgregandoRow = false;
+        private int currentMouseOverRow;
+        private int currentMouseOverCol;
 
         public FrmDetalleKit()
         {
@@ -29,8 +32,18 @@ namespace PresentationLayer.Forms
 
         private void FrmDetalleKit_Load(object sender, EventArgs e)
         {
-            if(itemIdDet > 0)
-                CargarGridsDetalleItem(itemIdDet);
+            if (itemIdDet > 0)
+            {
+                switch (Origen)
+                {
+                    case "Detalle":
+                        CargarGridsDetalleItem(itemIdDet);
+                        break;
+                    case "Dependencia":
+                        CargarGridsDependenciasItem(itemIdDet);
+                        break;
+                }
+            }
 
         }
 
@@ -78,6 +91,43 @@ namespace PresentationLayer.Forms
 
         }
 
+        private void CargarGridsDependenciasItem(int itemId)
+        {
+            dtItemDetalle = ItemsBL.GetItemsDependencias(itemId);
+            bAgregandoRow = true;
+            if (dtItemDetalle.Rows.Count > 0)
+            {
+                dgvDetalleItemAmp.DataSource = dtItemDetalle;
+
+                MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItemAmp };
+
+                foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
+                {
+                    List<int> visibleColumns = new List<int> { 2, 3, 8, 9 };
+                    foreach (DataGridViewColumn col in dgvActual.Columns)
+                    {
+                        if (!visibleColumns.Contains(col.Index))
+                            col.Visible = false;
+                        col.ReadOnly = true;
+                    }
+
+                    dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+
+                    dgvActual.Columns[9].ReadOnly = false;
+
+                    dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                    if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[2];
+                }
+            }
+            else
+                this.Close();
+            bAgregandoRow = false;
+
+        }
+
         protected override void WndProc(ref Message m)
         {
             base.WndProc(ref m);
@@ -112,8 +162,38 @@ namespace PresentationLayer.Forms
             FrmDetalle.StartPosition = FormStartPosition.Manual;
             FrmDetalle.Location = dgvDetalleItemAmp.PointToScreen(dgvDetalleItemAmp.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
             FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
-            FrmDetalle.itemIdDet = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+            FrmDetalle.Origen = "Detalle";
+            if (Origen == "Detalle")
+                FrmDetalle.itemIdDet = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+            else
+                FrmDetalle.itemIdDet = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[1].Value);
             FrmDetalle.Show();
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvDetalleItemAmp[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void dgvDetalleItemAmp_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvDetalleItemAmp.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void copiarTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvDetalleItemAmp.CopyContentToClipboard();
         }
     }
 }

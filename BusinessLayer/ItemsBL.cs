@@ -34,6 +34,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemsBusqueda(ItemId);
         }
+        public static DataTable GetItemsDependencias(int? ItemId)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsDespendencias(ItemId);
+        }
 
         public static Item InsertItem(Item ObjItem)
         {
@@ -45,6 +50,11 @@ namespace BusinessLayer
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.UpdateItem(ObjItem);
+        }
+        public static Item DeleteItem(Item ObjItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.DeleteItem(ObjItem);
         }
     }
 }

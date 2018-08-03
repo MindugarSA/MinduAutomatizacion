@@ -29,39 +29,48 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKit));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.txtCostPiezasD = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label40 = new System.Windows.Forms.Label();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.txtItemSelec = new System.Windows.Forms.TextBox();
             this.dgvDetalleItem = new MetroFramework.Controls.MetroGrid();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDirectFact = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label41 = new System.Windows.Forms.Label();
@@ -86,6 +95,12 @@
             this.txtVolumen = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPeso = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -98,12 +113,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtDescrpcion = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label9 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
             this.metroTab1 = new MetroFramework.Controls.MetroTabControl();
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.metroTabPage2 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label23 = new System.Windows.Forms.Label();
             this.txtEspesorC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label24 = new System.Windows.Forms.Label();
@@ -116,6 +137,7 @@
             this.txtVolumenC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPesoC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label29 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label33 = new System.Windows.Forms.Label();
             this.txtNombreC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label34 = new System.Windows.Forms.Label();
@@ -124,10 +146,12 @@
             this.txtCodigoC = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label35 = new System.Windows.Forms.Label();
             this.txtDescripcionC = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtBuscarItem = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtEncabezado = new System.Windows.Forms.TextBox();
             this.dgvDetalleItemAmp = new MetroFramework.Controls.MetroGrid();
+            this.label45 = new System.Windows.Forms.Label();
             this.metroTabPage3 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtEncabezado2 = new System.Windows.Forms.TextBox();
@@ -139,8 +163,10 @@
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label42 = new System.Windows.Forms.Label();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label43 = new System.Windows.Forms.Label();
             this.txtBuscarKit = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label6 = new System.Windows.Forms.Label();
@@ -155,6 +181,7 @@
             this.txtVolumenK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPesoK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label32 = new System.Windows.Forms.Label();
+            this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.label36 = new System.Windows.Forms.Label();
             this.txtNombreK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label37 = new System.Windows.Forms.Label();
@@ -163,79 +190,41 @@
             this.txtCodigoK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label39 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDescripcionK = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label46 = new System.Windows.Forms.Label();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescr = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDetalle = new System.Windows.Forms.ErrorProvider(this.components);
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.formHeader1 = new PresentationLayer.FormHeader();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.metroTab1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
             this.metroTabPage2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).BeginInit();
-            this.metroTabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoRRHH)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
-            this.metroTabPage4.SuspendLayout();
-            this.groupBox6.SuspendLayout();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).BeginInit();
-            this.contextMenuStrip3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -243,9 +232,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).BeginInit();
+            this.metroTabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoRRHH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
+            this.metroTabPage4.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -259,6 +261,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
             this.panel4.TabIndex = 43;
+            // 
+            // labelNoMouse3
+            // 
+            this.labelNoMouse3.AutoSize = true;
+            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse3.Name = "labelNoMouse3";
+            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
+            this.labelNoMouse3.TabIndex = 1;
+            this.labelNoMouse3.Text = "Cerrar";
             // 
             // materialFlatButton3
             // 
@@ -293,6 +306,17 @@
             this.panel3.Size = new System.Drawing.Size(111, 34);
             this.panel3.TabIndex = 42;
             // 
+            // labelNoMouse2
+            // 
+            this.labelNoMouse2.AutoSize = true;
+            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse2.Name = "labelNoMouse2";
+            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
+            this.labelNoMouse2.TabIndex = 1;
+            this.labelNoMouse2.Text = "Nuevo";
+            // 
             // materialFlatButton2
             // 
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -325,6 +349,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
             this.panel2.TabIndex = 41;
+            // 
+            // labelNoMouse1
+            // 
+            this.labelNoMouse1.AutoSize = true;
+            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
+            this.labelNoMouse1.Name = "labelNoMouse1";
+            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
+            this.labelNoMouse1.TabIndex = 1;
+            this.labelNoMouse1.Text = "Agregar";
             // 
             // materialFlatButton1
             // 
@@ -386,9 +421,42 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.duplicarRegistroToolStripMenuItem});
+            this.duplicarRegistroToolStripMenuItem,
+            this.eliminarRegistroToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening_1);
+            // 
+            // duplicarRegistroToolStripMenuItem
+            // 
+            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
+            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
+            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
+            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click_1);
+            // 
+            // eliminarRegistroToolStripMenuItem
+            // 
+            this.eliminarRegistroToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cross_circular_button;
+            this.eliminarRegistroToolStripMenuItem.Name = "eliminarRegistroToolStripMenuItem";
+            this.eliminarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarRegistroToolStripMenuItem.Text = "Eliminar Registro";
+            this.eliminarRegistroToolStripMenuItem.Click += new System.EventHandler(this.eliminarRegistroToolStripMenuItem_Click);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox16.Location = new System.Drawing.Point(824, 174);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox16.TabIndex = 124;
+            this.pictureBox16.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox16, "Borrar Imagen");
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            this.pictureBox16.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox16.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // txtCostPiezasD
             // 
@@ -418,6 +486,21 @@
             this.txtCostPiezasD.UseSystemPasswordChar = false;
             this.txtCostPiezasD.WordWrap = true;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(793, 174);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.TabIndex = 90;
+            this.pictureBox5.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox5, "Agregar Imagen desde Carpeta");
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // label40
             // 
             this.label40.AutoSize = true;
@@ -427,6 +510,20 @@
             this.label40.Size = new System.Drawing.Size(91, 20);
             this.label40.TabIndex = 93;
             this.label40.Text = "Piezas/Partes";
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox7.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox7.Location = new System.Drawing.Point(823, 317);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox7.TabIndex = 96;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            this.pictureBox7.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // txtItemSelec
             // 
@@ -452,29 +549,29 @@
             this.dgvDetalleItem.AllowUserToOrderColumns = true;
             this.dgvDetalleItem.AllowUserToResizeColumns = false;
             this.dgvDetalleItem.AllowUserToResizeRows = false;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvDetalleItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvDetalleItem.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDetalleItem.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvDetalleItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleItem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvDetalleItem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDetalleItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleItem.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleItem.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleItem.EnableHeadersVisualStyles = false;
             this.dgvDetalleItem.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvDetalleItem.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -482,14 +579,14 @@
             this.dgvDetalleItem.MultiSelect = false;
             this.dgvDetalleItem.Name = "dgvDetalleItem";
             this.dgvDetalleItem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle40.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalleItem.RowHeadersVisible = false;
             this.dgvDetalleItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -498,6 +595,21 @@
             this.dgvDetalleItem.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetalleItem_CellMouseDoubleClick);
             this.dgvDetalleItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvItemDetalleValidar_EditingControlShowing);
             this.dgvDetalleItem.SelectionChanged += new System.EventHandler(this.dgvDetalleItemAmp_SelectionChanged);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(338, 17);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 93;
+            this.pictureBox6.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox6, "Buscar Codigo");
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // groupBox5
             // 
@@ -1014,6 +1126,69 @@
             this.label17.TabIndex = 81;
             this.label17.Text = "Peso(Kg)";
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(562, 150);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.TabIndex = 88;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(562, 115);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 87;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
+            this.pictureBox1.Location = new System.Drawing.Point(618, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 152);
+            this.pictureBox1.TabIndex = 86;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.contextMenuStrip3.Name = "contextMenuStrip2";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(153, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "Copiar Imagen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::PresentationLayer.Properties.Resources.file;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "Pegar Imagen";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
             // metroComboBox4
             // 
             this.metroComboBox4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1132,7 +1307,7 @@
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(563, 16);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1203,6 +1378,14 @@
             this.label9.TabIndex = 60;
             this.label9.Text = "Activo";
             // 
+            // label44
+            // 
+            this.label44.BackColor = System.Drawing.Color.LightGray;
+            this.label44.Location = new System.Drawing.Point(615, 13);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(236, 158);
+            this.label44.TabIndex = 100;
+            // 
             // metroTab1
             // 
             this.metroTab1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1214,7 +1397,7 @@
             this.metroTab1.Controls.Add(this.metroTabPage4);
             this.metroTab1.Location = new System.Drawing.Point(21, 36);
             this.metroTab1.Name = "metroTab1";
-            this.metroTab1.SelectedIndex = 3;
+            this.metroTab1.SelectedIndex = 0;
             this.metroTab1.Size = new System.Drawing.Size(869, 678);
             this.metroTab1.TabIndex = 0;
             this.metroTab1.UseSelectable = true;
@@ -1330,6 +1513,81 @@
             this.textBox2.TabStop = false;
             this.textBox2.Text = "COSTO PIEZAS:";
             this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox13.BackgroundImage = global::PresentationLayer.Properties.Resources._checked;
+            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox13.Location = new System.Drawing.Point(807, 45);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox13.TabIndex = 125;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            this.pictureBox13.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox13.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.BackgroundImage = global::PresentationLayer.Properties.Resources.up_arrow;
+            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox12.Location = new System.Drawing.Point(773, 45);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox12.TabIndex = 124;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            this.pictureBox12.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
+            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox11.Location = new System.Drawing.Point(739, 45);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox11.TabIndex = 123;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            this.pictureBox11.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox9.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_symbol_round_button;
+            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox9.Location = new System.Drawing.Point(705, 45);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox9.TabIndex = 122;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.pictureBox9.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox9.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.settings__1_;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(572, 465);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.TabIndex = 121;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // label23
             // 
@@ -1577,6 +1835,17 @@
             this.label29.TabIndex = 118;
             this.label29.Text = "Peso(Kg)";
             // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox10.Location = new System.Drawing.Point(611, 463);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(230, 152);
+            this.pictureBox10.TabIndex = 108;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.DoubleClick += new System.EventHandler(this.pictureBox10_DoubleClick);
+            // 
             // label33
             // 
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1741,6 +2010,20 @@
             this.txtDescripcionC.UseSystemPasswordChar = false;
             this.txtDescripcionC.WordWrap = true;
             // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(272, 45);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox8.TabIndex = 99;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -1806,8 +2089,8 @@
             this.dgvDetalleItemAmp.AllowUserToOrderColumns = true;
             this.dgvDetalleItemAmp.AllowUserToResizeColumns = false;
             this.dgvDetalleItemAmp.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvDetalleItemAmp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvDetalleItemAmp.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvDetalleItemAmp.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1815,23 +2098,23 @@
             this.dgvDetalleItemAmp.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvDetalleItemAmp.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvDetalleItemAmp.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItemAmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleItemAmp.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvDetalleItemAmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDetalleItemAmp.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDetalleItemAmp.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvDetalleItemAmp.EnableHeadersVisualStyles = false;
             this.dgvDetalleItemAmp.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvDetalleItemAmp.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -1839,14 +2122,14 @@
             this.dgvDetalleItemAmp.MultiSelect = false;
             this.dgvDetalleItemAmp.Name = "dgvDetalleItemAmp";
             this.dgvDetalleItemAmp.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleItemAmp.RowHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleItemAmp.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvDetalleItemAmp.RowHeadersVisible = false;
             this.dgvDetalleItemAmp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleItemAmp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1857,6 +2140,15 @@
             this.dgvDetalleItemAmp.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetalleItemAmp_CellMouseDoubleClick);
             this.dgvDetalleItemAmp.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvItemDetalleValidar_EditingControlShowing);
             this.dgvDetalleItemAmp.SelectionChanged += new System.EventHandler(this.dgvDetalleItemAmp_SelectionChanged);
+            // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label45.BackColor = System.Drawing.Color.LightGray;
+            this.label45.Location = new System.Drawing.Point(608, 460);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(236, 158);
+            this.label45.TabIndex = 128;
             // 
             // metroTabPage3
             // 
@@ -1960,31 +2252,31 @@
             this.dgvCostoRRHH.AllowUserToOrderColumns = true;
             this.dgvCostoRRHH.AllowUserToResizeColumns = false;
             this.dgvCostoRRHH.AllowUserToResizeRows = false;
-            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvCostoRRHH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvCostoRRHH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoRRHH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoRRHH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoRRHH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvCostoRRHH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle46.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoRRHH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoRRHH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvCostoRRHH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle47.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCostoRRHH.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCostoRRHH.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvCostoRRHH.EnableHeadersVisualStyles = false;
             this.dgvCostoRRHH.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoRRHH.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -1992,14 +2284,14 @@
             this.dgvCostoRRHH.MultiSelect = false;
             this.dgvCostoRRHH.Name = "dgvCostoRRHH";
             this.dgvCostoRRHH.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle48.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoRRHH.RowHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoRRHH.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2060,31 +2352,31 @@
             this.dgvCostoProc.AllowUserToOrderColumns = true;
             this.dgvCostoProc.AllowUserToResizeColumns = false;
             this.dgvCostoProc.AllowUserToResizeRows = false;
-            dataGridViewCellStyle49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dgvCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoProc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoProc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoProc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvCostoProc.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle50.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle50.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoProc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoProc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvCostoProc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCostoProc.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCostoProc.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvCostoProc.EnableHeadersVisualStyles = false;
             this.dgvCostoProc.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvCostoProc.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -2092,14 +2384,14 @@
             this.dgvCostoProc.MultiSelect = false;
             this.dgvCostoProc.Name = "dgvCostoProc";
             this.dgvCostoProc.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCostoProc.RowHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCostoProc.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2167,6 +2459,20 @@
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox17.BackgroundImage = global::PresentationLayer.Properties.Resources.refresh__1_;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox17.Location = new System.Drawing.Point(395, 14);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox17.TabIndex = 149;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            this.pictureBox17.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox17.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // metroComboBox1
             // 
             this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -2187,6 +2493,20 @@
             this.label42.Size = new System.Drawing.Size(50, 20);
             this.label42.TabIndex = 146;
             this.label42.Text = "Familia";
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox14.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox14.Location = new System.Drawing.Point(362, 14);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox14.TabIndex = 145;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            this.pictureBox14.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox14.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // label43
             // 
@@ -2474,6 +2794,17 @@
             this.label32.TabIndex = 140;
             this.label32.Text = "Peso(Kg)";
             // 
+            // pictureBox15
+            // 
+            this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox15.Location = new System.Drawing.Point(614, 441);
+            this.pictureBox15.Name = "pictureBox15";
+            this.pictureBox15.Size = new System.Drawing.Size(230, 152);
+            this.pictureBox15.TabIndex = 130;
+            this.pictureBox15.TabStop = false;
+            this.pictureBox15.DoubleClick += new System.EventHandler(this.pictureBox15_DoubleClick);
+            // 
             // label36
             // 
             this.label36.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -2620,6 +2951,17 @@
             this.panel1.Size = new System.Drawing.Size(107, 30);
             this.panel1.TabIndex = 59;
             // 
+            // labelNoMouse4
+            // 
+            this.labelNoMouse4.AutoSize = true;
+            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
+            this.labelNoMouse4.Name = "labelNoMouse4";
+            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
+            this.labelNoMouse4.TabIndex = 1;
+            this.labelNoMouse4.Text = "Seleccionar";
+            // 
             // materialFlatButton4
             // 
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -2647,8 +2989,8 @@
             this.dgvListaItems.AllowUserToDeleteRows = false;
             this.dgvListaItems.AllowUserToOrderColumns = true;
             this.dgvListaItems.AllowUserToResizeRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dgvListaItems.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvListaItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -2656,24 +2998,24 @@
             this.dgvListaItems.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListaItems.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dgvListaItems.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvListaItems.ContextMenuStrip = this.contextMenuStrip2;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle43.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvListaItems.DefaultCellStyle = dataGridViewCellStyle19;
             this.dgvListaItems.EnableHeadersVisualStyles = false;
             this.dgvListaItems.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dgvListaItems.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -2682,14 +3024,14 @@
             this.dgvListaItems.Name = "dgvListaItems";
             this.dgvListaItems.ReadOnly = true;
             this.dgvListaItems.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle44.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvListaItems.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvListaItems.RowHeadersVisible = false;
             this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2707,6 +3049,22 @@
             this.copiarTablaToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
+            // 
+            // copiarTablaToolStripMenuItem
+            // 
+            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
+            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
+            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
             // 
             // txtDescripcionK
             // 
@@ -2738,6 +3096,15 @@
             this.txtDescripcionK.UseSystemPasswordChar = false;
             this.txtDescripcionK.WordWrap = true;
             // 
+            // label46
+            // 
+            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label46.BackColor = System.Drawing.Color.LightGray;
+            this.label46.Location = new System.Drawing.Point(611, 438);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(236, 158);
+            this.label46.TabIndex = 148;
+            // 
             // errorCodigo
             // 
             this.errorCodigo.ContainerControl = this;
@@ -2749,40 +3116,6 @@
             // errorDetalle
             // 
             this.errorDetalle.ContainerControl = this;
-            // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2});
-            this.contextMenuStrip3.Name = "contextMenuStrip2";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(153, 48);
-            // 
-            // label44
-            // 
-            this.label44.BackColor = System.Drawing.Color.LightGray;
-            this.label44.Location = new System.Drawing.Point(615, 13);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(236, 158);
-            this.label44.TabIndex = 100;
-            // 
-            // label45
-            // 
-            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label45.BackColor = System.Drawing.Color.LightGray;
-            this.label45.Location = new System.Drawing.Point(608, 460);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(236, 158);
-            this.label45.TabIndex = 128;
-            // 
-            // label46
-            // 
-            this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label46.BackColor = System.Drawing.Color.LightGray;
-            this.label46.Location = new System.Drawing.Point(611, 438);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(236, 158);
-            this.label46.TabIndex = 148;
             // 
             // label47
             // 
@@ -2799,325 +3132,6 @@
             // 
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // duplicarRegistroToolStripMenuItem
-            // 
-            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
-            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
-            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
-            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
-            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click_1);
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.Location = new System.Drawing.Point(824, 174);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox16.TabIndex = 124;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
-            this.pictureBox16.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox16.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(793, 174);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 90;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox7.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(823, 317);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox7.TabIndex = 96;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
-            this.pictureBox7.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox7.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(338, 17);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 93;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(562, 150);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.TabIndex = 88;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.pictureBox3.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox3.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(562, 115);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 87;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.pictureBox2.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
-            this.pictureBox1.Location = new System.Drawing.Point(618, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 152);
-            this.pictureBox1.TabIndex = 86;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox13.BackgroundImage = global::PresentationLayer.Properties.Resources._checked;
-            this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox13.Location = new System.Drawing.Point(807, 45);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox13.TabIndex = 125;
-            this.pictureBox13.TabStop = false;
-            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
-            this.pictureBox13.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox13.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox12.BackgroundImage = global::PresentationLayer.Properties.Resources.up_arrow;
-            this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Location = new System.Drawing.Point(773, 45);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox12.TabIndex = 124;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
-            this.pictureBox12.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox12.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox11.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
-            this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Location = new System.Drawing.Point(739, 45);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox11.TabIndex = 123;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
-            this.pictureBox11.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox11.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox9.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_symbol_round_button;
-            this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(705, 45);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox9.TabIndex = 122;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
-            this.pictureBox9.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox9.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.settings__1_;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(572, 465);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.TabIndex = 121;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
-            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Location = new System.Drawing.Point(611, 463);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(230, 152);
-            this.pictureBox10.TabIndex = 108;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.DoubleClick += new System.EventHandler(this.pictureBox10_DoubleClick);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(272, 45);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox8.TabIndex = 99;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox8.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox14.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox14.Location = new System.Drawing.Point(362, 14);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox14.TabIndex = 145;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
-            this.pictureBox14.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox14.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.Location = new System.Drawing.Point(614, 441);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(230, 152);
-            this.pictureBox15.TabIndex = 130;
-            this.pictureBox15.TabStop = false;
-            this.pictureBox15.DoubleClick += new System.EventHandler(this.pictureBox15_DoubleClick);
-            // 
-            // copiarToolStripMenuItem
-            // 
-            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
-            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.copiarToolStripMenuItem.Text = "Copiar";
-            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
-            // 
-            // copiarTablaToolStripMenuItem
-            // 
-            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
-            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
-            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
-            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Copiar Imagen";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::PresentationLayer.Properties.Resources.file;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Pegar Imagen";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox17.BackgroundImage = global::PresentationLayer.Properties.Resources.refresh__1_;
-            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox17.Location = new System.Drawing.Point(395, 14);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox17.TabIndex = 149;
-            this.pictureBox17.TabStop = false;
-            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
-            this.pictureBox17.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox17.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // labelNoMouse4
-            // 
-            this.labelNoMouse4.AutoSize = true;
-            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
-            this.labelNoMouse4.Name = "labelNoMouse4";
-            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
-            this.labelNoMouse4.TabIndex = 1;
-            this.labelNoMouse4.Text = "Seleccionar";
-            // 
-            // labelNoMouse3
-            // 
-            this.labelNoMouse3.AutoSize = true;
-            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse3.Name = "labelNoMouse3";
-            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
-            this.labelNoMouse3.TabIndex = 1;
-            this.labelNoMouse3.Text = "Cerrar";
-            // 
-            // labelNoMouse2
-            // 
-            this.labelNoMouse2.AutoSize = true;
-            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse2.Name = "labelNoMouse2";
-            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
-            this.labelNoMouse2.TabIndex = 1;
-            this.labelNoMouse2.Text = "Nuevo";
-            // 
-            // labelNoMouse1
-            // 
-            this.labelNoMouse1.AutoSize = true;
-            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
-            this.labelNoMouse1.Name = "labelNoMouse1";
-            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
-            this.labelNoMouse1.TabIndex = 1;
-            this.labelNoMouse1.Text = "Agregar";
             // 
             // formHeader1
             // 
@@ -3163,16 +3177,31 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.metroTab1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
             this.metroTabPage2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleItemAmp)).EndInit();
             this.metroTabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
@@ -3182,6 +3211,9 @@
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
@@ -3189,24 +3221,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).EndInit();
-            this.contextMenuStrip3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3367,5 +3381,7 @@
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolStripMenuItem eliminarRegistroToolStripMenuItem;
     }
 }

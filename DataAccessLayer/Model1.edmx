@@ -123,10 +123,16 @@
           <Property Name="Descripcion" Type="nvarchar" MaxLength="50" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <Function Name="SP_ActualizarCostosItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdCosto" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_GetItemBusqueda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_GetItemCostoID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_Item" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SP_GetItemDependeceID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_GetItemDetalleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -193,6 +199,12 @@
           <FunctionImport Name="SP_VerifyUserPass" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_VerifyUserPass_Result)">
             <Parameter Name="Rut" Mode="In" Type="String" />
             <Parameter Name="Pass" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ActualizarCostosItems">
+          <Parameter Name="IdCosto" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetItemDependeceID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemDependeceID_Result)">
+          <Parameter Name="id_Item" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
@@ -357,6 +369,20 @@
           <Property Type="String" Name="RutEmp" Nullable="false" MaxLength="10" />
           <Property Type="Int32" Name="IdAtributo" Nullable="false" />
           <Property Type="String" Name="Acceso" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="SP_GetItemDependeceID_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdC" Nullable="true" />
+          <Property Type="String" Name="CodigoC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionC" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Linea" Nullable="true" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -555,6 +581,25 @@
                 <ScalarProperty Name="RutEmp" ColumnName="RutEmp" />
                 <ScalarProperty Name="IdAtributo" ColumnName="IdAtributo" />
                 <ScalarProperty Name="Acceso" ColumnName="Acceso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ActualizarCostosItems" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_ActualizarCostosItems" />
+          <FunctionImportMapping FunctionImportName="SP_GetItemDependeceID" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemDependeceID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemDependeceID_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdC" ColumnName="IdC" />
+                <ScalarProperty Name="CodigoC" ColumnName="CodigoC" />
+                <ScalarProperty Name="DescripcionC" ColumnName="DescripcionC" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

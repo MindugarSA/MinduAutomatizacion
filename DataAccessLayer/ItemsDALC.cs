@@ -53,6 +53,16 @@ namespace DataAccessLayer
             }
         }
 
+        public DataTable GetItemsDespendencias(int? idItem)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                List<SP_GetItemDependeceID_Result> result = db.SP_GetItemDependeceID(idItem).ToList();
+
+                return new DataTable().ListToDataTable(result);
+            }
+        }
+
         public Item InsertItem(Item Obj)
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
@@ -80,6 +90,26 @@ namespace DataAccessLayer
                                     where n.Id == Obj.Id
                                        select n).FirstOrDefault();
                     db.Entry(Entidad).CurrentValues.SetValues(Obj);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+                return Obj;
+            }
+        }
+
+        public Item DeleteItem(Item Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    Item Entidad = (from n in db.Item
+                                    where n.Id == Obj.Id
+                                    select n).FirstOrDefault();
+                    db.Item.Remove(Entidad);
                     db.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)
