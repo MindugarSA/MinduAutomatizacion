@@ -51,18 +51,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recetaDetalladaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.txtCostPiezasD = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -190,12 +188,12 @@
             this.txtCodigoK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label39 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recetaDetalladaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtDescripcionK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label46 = new System.Windows.Forms.Label();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
@@ -203,8 +201,12 @@
             this.errorDetalle = new System.Windows.Forms.ErrorProvider(this.components);
             this.label47 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.formHeader1 = new PresentationLayer.FormHeader();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
+            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
+            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
+            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
+            this.formHeader1 = new PresentationLayer.FormHeader();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -256,22 +258,11 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.materialFlatButton3);
-            this.panel4.Location = new System.Drawing.Point(774, 718);
+            this.panel4.Location = new System.Drawing.Point(832, 718);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
             this.panel4.TabIndex = 43;
-            // 
-            // labelNoMouse3
-            // 
-            this.labelNoMouse3.AutoSize = true;
-            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse3.Name = "labelNoMouse3";
-            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
-            this.labelNoMouse3.TabIndex = 1;
-            this.labelNoMouse3.Text = "Cerrar";
             // 
             // materialFlatButton3
             // 
@@ -306,17 +297,6 @@
             this.panel3.Size = new System.Drawing.Size(111, 34);
             this.panel3.TabIndex = 42;
             // 
-            // labelNoMouse2
-            // 
-            this.labelNoMouse2.AutoSize = true;
-            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse2.Name = "labelNoMouse2";
-            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
-            this.labelNoMouse2.TabIndex = 1;
-            this.labelNoMouse2.Text = "Nuevo";
-            // 
             // materialFlatButton2
             // 
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -349,17 +329,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
             this.panel2.TabIndex = 41;
-            // 
-            // labelNoMouse1
-            // 
-            this.labelNoMouse1.AutoSize = true;
-            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
-            this.labelNoMouse1.Name = "labelNoMouse1";
-            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
-            this.labelNoMouse1.TabIndex = 1;
-            this.labelNoMouse1.Text = "Agregar";
             // 
             // materialFlatButton1
             // 
@@ -414,7 +383,7 @@
             this.groupBox1.Controls.Add(this.label44);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(858, 629);
+            this.groupBox1.Size = new System.Drawing.Size(914, 629);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
@@ -422,16 +391,17 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.duplicarRegistroToolStripMenuItem,
-            this.eliminarRegistroToolStripMenuItem});
+            this.eliminarRegistroToolStripMenuItem,
+            this.recetaDetalladaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening_1);
             // 
             // duplicarRegistroToolStripMenuItem
             // 
             this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
             this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
-            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
             this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click_1);
             // 
@@ -439,16 +409,24 @@
             // 
             this.eliminarRegistroToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cross_circular_button;
             this.eliminarRegistroToolStripMenuItem.Name = "eliminarRegistroToolStripMenuItem";
-            this.eliminarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.eliminarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
             this.eliminarRegistroToolStripMenuItem.Text = "Eliminar Registro";
             this.eliminarRegistroToolStripMenuItem.Click += new System.EventHandler(this.eliminarRegistroToolStripMenuItem_Click);
+            // 
+            // recetaDetalladaToolStripMenuItem
+            // 
+            this.recetaDetalladaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.document;
+            this.recetaDetalladaToolStripMenuItem.Name = "recetaDetalladaToolStripMenuItem";
+            this.recetaDetalladaToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.recetaDetalladaToolStripMenuItem.Text = "Receta Detallada";
+            this.recetaDetalladaToolStripMenuItem.Click += new System.EventHandler(this.recetaDetalladaToolStripMenuItem_Click);
             // 
             // pictureBox16
             // 
             this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox16.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
             this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.Location = new System.Drawing.Point(824, 174);
+            this.pictureBox16.Location = new System.Drawing.Point(877, 174);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(24, 24);
             this.pictureBox16.TabIndex = 124;
@@ -467,7 +445,7 @@
             this.txtCostPiezasD.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostPiezasD.Depth = 0;
             this.txtCostPiezasD.Hint = "";
-            this.txtCostPiezasD.Location = new System.Drawing.Point(739, 597);
+            this.txtCostPiezasD.Location = new System.Drawing.Point(745, 597);
             this.txtCostPiezasD.MaxLength = 32767;
             this.txtCostPiezasD.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostPiezasD.Multiline = false;
@@ -478,7 +456,7 @@
             this.txtCostPiezasD.SelectedText = "";
             this.txtCostPiezasD.SelectionLength = 0;
             this.txtCostPiezasD.SelectionStart = 0;
-            this.txtCostPiezasD.Size = new System.Drawing.Size(86, 23);
+            this.txtCostPiezasD.Size = new System.Drawing.Size(156, 23);
             this.txtCostPiezasD.TabIndex = 92;
             this.txtCostPiezasD.TabStop = false;
             this.txtCostPiezasD.Text = "0,00";
@@ -491,7 +469,7 @@
             this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(793, 174);
+            this.pictureBox5.Location = new System.Drawing.Point(846, 174);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(24, 24);
             this.pictureBox5.TabIndex = 90;
@@ -505,7 +483,7 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label40.Location = new System.Drawing.Point(639, 598);
+            this.label40.Location = new System.Drawing.Point(645, 598);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(91, 20);
             this.label40.TabIndex = 93;
@@ -516,7 +494,7 @@
             this.pictureBox7.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox7.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox7.Location = new System.Drawing.Point(823, 317);
+            this.pictureBox7.Location = new System.Drawing.Point(880, 317);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(24, 24);
             this.pictureBox7.TabIndex = 96;
@@ -536,7 +514,7 @@
             this.txtItemSelec.Margin = new System.Windows.Forms.Padding(0);
             this.txtItemSelec.Name = "txtItemSelec";
             this.txtItemSelec.ReadOnly = true;
-            this.txtItemSelec.Size = new System.Drawing.Size(807, 26);
+            this.txtItemSelec.Size = new System.Drawing.Size(864, 26);
             this.txtItemSelec.TabIndex = 95;
             this.txtItemSelec.TabStop = false;
             this.txtItemSelec.Text = "PARTES";
@@ -590,8 +568,9 @@
             this.dgvDetalleItem.RowHeadersVisible = false;
             this.dgvDetalleItem.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleItem.Size = new System.Drawing.Size(833, 240);
+            this.dgvDetalleItem.Size = new System.Drawing.Size(890, 240);
             this.dgvDetalleItem.TabIndex = 94;
+            this.toolTip1.SetToolTip(this.dgvDetalleItem, "Piezas / Kit que Componen el Kit");
             this.dgvDetalleItem.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetalleItem_CellMouseDoubleClick);
             this.dgvDetalleItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvItemDetalleValidar_EditingControlShowing);
             this.dgvDetalleItem.SelectionChanged += new System.EventHandler(this.dgvDetalleItemAmp_SelectionChanged);
@@ -626,7 +605,7 @@
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F);
             this.groupBox5.Location = new System.Drawing.Point(410, 194);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(436, 118);
+            this.groupBox5.Size = new System.Drawing.Size(494, 118);
             this.groupBox5.TabIndex = 92;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
@@ -640,7 +619,7 @@
             this.txtDirectFact.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDirectFact.Depth = 0;
             this.txtDirectFact.Hint = "";
-            this.txtDirectFact.Location = new System.Drawing.Point(327, 50);
+            this.txtDirectFact.Location = new System.Drawing.Point(361, 49);
             this.txtDirectFact.MaxLength = 32767;
             this.txtDirectFact.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDirectFact.Multiline = false;
@@ -651,12 +630,14 @@
             this.txtDirectFact.SelectedText = "";
             this.txtDirectFact.SelectionLength = 0;
             this.txtDirectFact.SelectionStart = 0;
-            this.txtDirectFact.Size = new System.Drawing.Size(86, 23);
+            this.txtDirectFact.Size = new System.Drawing.Size(115, 23);
             this.txtDirectFact.TabIndex = 96;
             this.txtDirectFact.TabStop = false;
             this.txtDirectFact.Text = "0,00";
             this.txtDirectFact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtDirectFact, "Costo Directo + Factor Industrial (1.752)");
             this.txtDirectFact.UseSystemPasswordChar = false;
+            this.txtDirectFact.Visible = false;
             this.txtDirectFact.WordWrap = true;
             this.txtDirectFact.Click += new System.EventHandler(this.TxtValidar_Click);
             this.txtDirectFact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtValidar_KeyPress);
@@ -667,12 +648,13 @@
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label41.Location = new System.Drawing.Point(216, 51);
+            this.label41.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label41.Location = new System.Drawing.Point(250, 51);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(109, 20);
+            this.label41.Size = new System.Drawing.Size(104, 19);
             this.label41.TabIndex = 97;
             this.label41.Text = "Directo + Factor";
+            this.label41.Visible = false;
             // 
             // txtTotCosPro
             // 
@@ -683,7 +665,7 @@
             this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPro.Depth = 0;
             this.txtTotCosPro.Hint = "";
-            this.txtTotCosPro.Location = new System.Drawing.Point(111, 50);
+            this.txtTotCosPro.Location = new System.Drawing.Point(111, 49);
             this.txtTotCosPro.MaxLength = 32767;
             this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPro.Multiline = false;
@@ -694,11 +676,12 @@
             this.txtTotCosPro.SelectedText = "";
             this.txtTotCosPro.SelectionLength = 0;
             this.txtTotCosPro.SelectionStart = 0;
-            this.txtTotCosPro.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosPro.Size = new System.Drawing.Size(116, 23);
             this.txtTotCosPro.TabIndex = 90;
             this.txtTotCosPro.TabStop = false;
             this.txtTotCosPro.Text = "0,00";
             this.txtTotCosPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosPro, "Suma de Costos de \r\nProcesos.");
             this.txtTotCosPro.UseSystemPasswordChar = false;
             this.txtTotCosPro.WordWrap = true;
             this.txtTotCosPro.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -710,10 +693,10 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label20.Location = new System.Drawing.Point(39, 51);
+            this.label20.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label20.Location = new System.Drawing.Point(34, 51);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(65, 20);
+            this.label20.Size = new System.Drawing.Size(61, 19);
             this.label20.TabIndex = 91;
             this.label20.Text = "Procesos";
             // 
@@ -726,7 +709,7 @@
             this.txtTotCosPiezas.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPiezas.Depth = 0;
             this.txtTotCosPiezas.Hint = "";
-            this.txtTotCosPiezas.Location = new System.Drawing.Point(111, 80);
+            this.txtTotCosPiezas.Location = new System.Drawing.Point(111, 79);
             this.txtTotCosPiezas.MaxLength = 32767;
             this.txtTotCosPiezas.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPiezas.Multiline = false;
@@ -737,11 +720,12 @@
             this.txtTotCosPiezas.SelectedText = "";
             this.txtTotCosPiezas.SelectionLength = 0;
             this.txtTotCosPiezas.SelectionStart = 0;
-            this.txtTotCosPiezas.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosPiezas.Size = new System.Drawing.Size(116, 23);
             this.txtTotCosPiezas.TabIndex = 88;
             this.txtTotCosPiezas.TabStop = false;
             this.txtTotCosPiezas.Text = "0,00";
             this.txtTotCosPiezas.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosPiezas, "Suma de Costos de Partes \r\nque Componen el Kit");
             this.txtTotCosPiezas.UseSystemPasswordChar = false;
             this.txtTotCosPiezas.WordWrap = true;
             this.txtTotCosPiezas.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -753,10 +737,10 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label19.Location = new System.Drawing.Point(8, 81);
+            this.label19.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label19.Location = new System.Drawing.Point(9, 81);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(91, 20);
+            this.label19.Size = new System.Drawing.Size(86, 19);
             this.label19.TabIndex = 89;
             this.label19.Text = "Piezas/Partes";
             // 
@@ -769,7 +753,7 @@
             this.txtTotCosRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosRRHH.Depth = 0;
             this.txtTotCosRRHH.Hint = "";
-            this.txtTotCosRRHH.Location = new System.Drawing.Point(111, 20);
+            this.txtTotCosRRHH.Location = new System.Drawing.Point(111, 19);
             this.txtTotCosRRHH.MaxLength = 32767;
             this.txtTotCosRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosRRHH.Multiline = false;
@@ -780,11 +764,12 @@
             this.txtTotCosRRHH.SelectedText = "";
             this.txtTotCosRRHH.SelectionLength = 0;
             this.txtTotCosRRHH.SelectionStart = 0;
-            this.txtTotCosRRHH.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosRRHH.Size = new System.Drawing.Size(116, 23);
             this.txtTotCosRRHH.TabIndex = 86;
             this.txtTotCosRRHH.TabStop = false;
             this.txtTotCosRRHH.Text = "0,00";
             this.txtTotCosRRHH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosRRHH, "Suma de Costos de Mano de Obra");
             this.txtTotCosRRHH.UseSystemPasswordChar = false;
             this.txtTotCosRRHH.WordWrap = true;
             this.txtTotCosRRHH.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -796,10 +781,10 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label18.Location = new System.Drawing.Point(59, 21);
+            this.label18.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label18.Location = new System.Drawing.Point(52, 21);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(45, 20);
+            this.label18.Size = new System.Drawing.Size(43, 19);
             this.label18.TabIndex = 87;
             this.label18.Text = "RRHH";
             // 
@@ -812,7 +797,7 @@
             this.txtTotalCostos.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotalCostos.Depth = 0;
             this.txtTotalCostos.Hint = "";
-            this.txtTotalCostos.Location = new System.Drawing.Point(327, 21);
+            this.txtTotalCostos.Location = new System.Drawing.Point(361, 19);
             this.txtTotalCostos.MaxLength = 32767;
             this.txtTotalCostos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotalCostos.Multiline = false;
@@ -823,11 +808,12 @@
             this.txtTotalCostos.SelectedText = "";
             this.txtTotalCostos.SelectionLength = 0;
             this.txtTotalCostos.SelectionStart = 0;
-            this.txtTotalCostos.Size = new System.Drawing.Size(86, 23);
+            this.txtTotalCostos.Size = new System.Drawing.Size(115, 23);
             this.txtTotalCostos.TabIndex = 84;
             this.txtTotalCostos.TabStop = false;
             this.txtTotalCostos.Text = "0,00";
             this.txtTotalCostos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotalCostos, "Suma de los Mano de Obra \r\n+ Procesos + Piezas/Partes.");
             this.txtTotalCostos.UseSystemPasswordChar = false;
             this.txtTotalCostos.WordWrap = true;
             this.txtTotalCostos.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -839,10 +825,10 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label15.Location = new System.Drawing.Point(232, 22);
+            this.label15.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label15.Location = new System.Drawing.Point(266, 21);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(93, 20);
+            this.label15.Size = new System.Drawing.Size(89, 19);
             this.label15.TabIndex = 85;
             this.label15.Text = "Costo Directo";
             // 
@@ -871,10 +857,10 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label16.Location = new System.Drawing.Point(170, 53);
+            this.label16.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label16.Location = new System.Drawing.Point(189, 53);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 20);
+            this.label16.Size = new System.Drawing.Size(93, 19);
             this.label16.TabIndex = 83;
             this.label16.Text = "Volumen(cm3)";
             // 
@@ -887,7 +873,7 @@
             this.txtEspesor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEspesor.Depth = 0;
             this.txtEspesor.Hint = "";
-            this.txtEspesor.Location = new System.Drawing.Point(77, 22);
+            this.txtEspesor.Location = new System.Drawing.Point(92, 22);
             this.txtEspesor.MaxLength = 32767;
             this.txtEspesor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEspesor.Multiline = false;
@@ -914,12 +900,12 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label5.Location = new System.Drawing.Point(14, 23);
+            this.label5.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label5.Location = new System.Drawing.Point(5, 23);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.Size = new System.Drawing.Size(86, 19);
             this.label5.TabIndex = 65;
-            this.label5.Text = "Espesor";
+            this.label5.Text = "Espesor(mm)";
             // 
             // txtAncho
             // 
@@ -930,7 +916,7 @@
             this.txtAncho.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAncho.Depth = 0;
             this.txtAncho.Hint = "";
-            this.txtAncho.Location = new System.Drawing.Point(77, 52);
+            this.txtAncho.Location = new System.Drawing.Point(92, 52);
             this.txtAncho.MaxLength = 32767;
             this.txtAncho.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAncho.Multiline = false;
@@ -957,12 +943,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label1.Location = new System.Drawing.Point(21, 53);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label1.Location = new System.Drawing.Point(13, 53);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.Size = new System.Drawing.Size(78, 19);
             this.label1.TabIndex = 75;
-            this.label1.Text = "Ancho";
+            this.label1.Text = "Ancho(mm)";
             // 
             // txtLargo
             // 
@@ -973,7 +959,7 @@
             this.txtLargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLargo.Depth = 0;
             this.txtLargo.Hint = "";
-            this.txtLargo.Location = new System.Drawing.Point(77, 82);
+            this.txtLargo.Location = new System.Drawing.Point(92, 82);
             this.txtLargo.MaxLength = 32767;
             this.txtLargo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLargo.Multiline = false;
@@ -1000,12 +986,12 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label14.Location = new System.Drawing.Point(26, 83);
+            this.label14.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label14.Location = new System.Drawing.Point(16, 83);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 20);
+            this.label14.Size = new System.Drawing.Size(75, 19);
             this.label14.TabIndex = 77;
-            this.label14.Text = "Largo";
+            this.label14.Text = "Largo(mm)";
             // 
             // txtDiametro
             // 
@@ -1016,7 +1002,7 @@
             this.txtDiametro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDiametro.Depth = 0;
             this.txtDiametro.Hint = "";
-            this.txtDiametro.Location = new System.Drawing.Point(275, 22);
+            this.txtDiametro.Location = new System.Drawing.Point(290, 22);
             this.txtDiametro.MaxLength = 32767;
             this.txtDiametro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDiametro.Multiline = false;
@@ -1043,12 +1029,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label4.Location = new System.Drawing.Point(202, 23);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label4.Location = new System.Drawing.Point(186, 23);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(96, 19);
             this.label4.TabIndex = 79;
-            this.label4.Text = "Diametro";
+            this.label4.Text = "Diametro(mm)";
             // 
             // txtVolumen
             // 
@@ -1059,7 +1045,7 @@
             this.txtVolumen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtVolumen.Depth = 0;
             this.txtVolumen.Hint = "";
-            this.txtVolumen.Location = new System.Drawing.Point(275, 52);
+            this.txtVolumen.Location = new System.Drawing.Point(290, 52);
             this.txtVolumen.MaxLength = 32767;
             this.txtVolumen.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVolumen.Multiline = false;
@@ -1092,7 +1078,7 @@
             this.txtPeso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPeso.Depth = 0;
             this.txtPeso.Hint = "";
-            this.txtPeso.Location = new System.Drawing.Point(275, 82);
+            this.txtPeso.Location = new System.Drawing.Point(290, 82);
             this.txtPeso.MaxLength = 32767;
             this.txtPeso.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPeso.Multiline = false;
@@ -1119,10 +1105,10 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label17.Location = new System.Drawing.Point(207, 83);
+            this.label17.Font = new System.Drawing.Font("Segoe UI Light", 10F);
+            this.label17.Location = new System.Drawing.Point(223, 83);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 20);
+            this.label17.Size = new System.Drawing.Size(59, 19);
             this.label17.TabIndex = 81;
             this.label17.Text = "Peso(Kg)";
             // 
@@ -1158,7 +1144,7 @@
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
-            this.pictureBox1.Location = new System.Drawing.Point(618, 16);
+            this.pictureBox1.Location = new System.Drawing.Point(671, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(230, 152);
             this.pictureBox1.TabIndex = 86;
@@ -1243,7 +1229,7 @@
             this.txtNombre.SelectedText = "";
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(484, 23);
+            this.txtNombre.Size = new System.Drawing.Size(543, 23);
             this.txtNombre.TabIndex = 69;
             this.txtNombre.TabStop = false;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1286,9 +1272,11 @@
             this.txtCodigo.TabIndex = 67;
             this.txtCodigo.TabStop = false;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.toolTip1.SetToolTip(this.txtCodigo, "Codigo: La longitud Maxima \r\nSugerida es de 13 Caracteres.");
             this.txtCodigo.UseSystemPasswordChar = false;
             this.txtCodigo.WordWrap = true;
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
+            this.txtCodigo.MouseEnter += new System.EventHandler(this.txtCodigo_MouseEnter);
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // metroComboBox2
@@ -1307,7 +1295,7 @@
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(563, 16);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1360,7 +1348,7 @@
             this.txtDescrpcion.SelectedText = "";
             this.txtDescrpcion.SelectionLength = 0;
             this.txtDescrpcion.SelectionStart = 0;
-            this.txtDescrpcion.Size = new System.Drawing.Size(484, 23);
+            this.txtDescrpcion.Size = new System.Drawing.Size(543, 23);
             this.txtDescrpcion.TabIndex = 58;
             this.txtDescrpcion.TabStop = false;
             this.txtDescrpcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1381,7 +1369,7 @@
             // label44
             // 
             this.label44.BackColor = System.Drawing.Color.LightGray;
-            this.label44.Location = new System.Drawing.Point(615, 13);
+            this.label44.Location = new System.Drawing.Point(668, 13);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(236, 158);
             this.label44.TabIndex = 100;
@@ -1398,7 +1386,7 @@
             this.metroTab1.Location = new System.Drawing.Point(21, 36);
             this.metroTab1.Name = "metroTab1";
             this.metroTab1.SelectedIndex = 0;
-            this.metroTab1.Size = new System.Drawing.Size(869, 678);
+            this.metroTab1.Size = new System.Drawing.Size(927, 678);
             this.metroTab1.TabIndex = 0;
             this.metroTab1.UseSelectable = true;
             // 
@@ -1410,7 +1398,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(861, 636);
+            this.metroTabPage1.Size = new System.Drawing.Size(919, 636);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "      General      ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -1425,7 +1413,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(861, 636);
+            this.metroTabPage2.Size = new System.Drawing.Size(919, 636);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "       Partes      ";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -1474,7 +1462,7 @@
             this.groupBox2.Controls.Add(this.label45);
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(858, 629);
+            this.groupBox2.Size = new System.Drawing.Size(916, 629);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             // 
@@ -1486,11 +1474,11 @@
             this.textBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(705, 433);
+            this.textBox1.Location = new System.Drawing.Point(736, 433);
             this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(139, 26);
+            this.textBox1.Size = new System.Drawing.Size(168, 26);
             this.textBox1.TabIndex = 126;
             this.textBox1.TabStop = false;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -1504,15 +1492,14 @@
             this.textBox2.Cursor = System.Windows.Forms.Cursors.Default;
             this.textBox2.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.White;
-            this.textBox2.Location = new System.Drawing.Point(565, 433);
+            this.textBox2.Location = new System.Drawing.Point(586, 433);
             this.textBox2.Margin = new System.Windows.Forms.Padding(0);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(144, 26);
+            this.textBox2.Size = new System.Drawing.Size(167, 26);
             this.textBox2.TabIndex = 127;
             this.textBox2.TabStop = false;
-            this.textBox2.Text = "COSTO PIEZAS:";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox2.Text = "  COSTO PIEZAS:";
             // 
             // pictureBox13
             // 
@@ -1520,7 +1507,7 @@
             this.pictureBox13.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox13.BackgroundImage = global::PresentationLayer.Properties.Resources._checked;
             this.pictureBox13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox13.Location = new System.Drawing.Point(807, 45);
+            this.pictureBox13.Location = new System.Drawing.Point(873, 45);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(27, 27);
             this.pictureBox13.TabIndex = 125;
@@ -1535,7 +1522,7 @@
             this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox12.BackgroundImage = global::PresentationLayer.Properties.Resources.up_arrow;
             this.pictureBox12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox12.Location = new System.Drawing.Point(773, 45);
+            this.pictureBox12.Location = new System.Drawing.Point(839, 45);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(27, 27);
             this.pictureBox12.TabIndex = 124;
@@ -1550,7 +1537,7 @@
             this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox11.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
             this.pictureBox11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox11.Location = new System.Drawing.Point(739, 45);
+            this.pictureBox11.Location = new System.Drawing.Point(805, 45);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(27, 27);
             this.pictureBox11.TabIndex = 123;
@@ -1565,7 +1552,7 @@
             this.pictureBox9.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox9.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_symbol_round_button;
             this.pictureBox9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox9.Location = new System.Drawing.Point(705, 45);
+            this.pictureBox9.Location = new System.Drawing.Point(771, 45);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(27, 27);
             this.pictureBox9.TabIndex = 122;
@@ -1580,7 +1567,7 @@
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.settings__1_;
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(572, 465);
+            this.pictureBox4.Location = new System.Drawing.Point(630, 465);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 32);
             this.pictureBox4.TabIndex = 121;
@@ -1839,7 +1826,7 @@
             // 
             this.pictureBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox10.Location = new System.Drawing.Point(611, 463);
+            this.pictureBox10.Location = new System.Drawing.Point(669, 463);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(230, 152);
             this.pictureBox10.TabIndex = 108;
@@ -1919,7 +1906,7 @@
             this.txtTotalCostoC.SelectedText = "";
             this.txtTotalCostoC.SelectionLength = 0;
             this.txtTotalCostoC.SelectionStart = 0;
-            this.txtTotalCostoC.Size = new System.Drawing.Size(86, 23);
+            this.txtTotalCostoC.Size = new System.Drawing.Size(145, 23);
             this.txtTotalCostoC.TabIndex = 84;
             this.txtTotalCostoC.TabStop = false;
             this.txtTotalCostoC.Text = "0,00";
@@ -2077,7 +2064,7 @@
             this.txtEncabezado.Margin = new System.Windows.Forms.Padding(0);
             this.txtEncabezado.Name = "txtEncabezado";
             this.txtEncabezado.ReadOnly = true;
-            this.txtEncabezado.Size = new System.Drawing.Size(829, 26);
+            this.txtEncabezado.Size = new System.Drawing.Size(892, 26);
             this.txtEncabezado.TabIndex = 96;
             this.txtEncabezado.TabStop = false;
             this.txtEncabezado.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -2133,7 +2120,7 @@
             this.dgvDetalleItemAmp.RowHeadersVisible = false;
             this.dgvDetalleItemAmp.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvDetalleItemAmp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleItemAmp.Size = new System.Drawing.Size(821, 346);
+            this.dgvDetalleItemAmp.Size = new System.Drawing.Size(884, 346);
             this.dgvDetalleItemAmp.TabIndex = 95;
             this.dgvDetalleItemAmp.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetalleItemAmp_CellBeginEdit);
             this.dgvDetalleItemAmp.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleItemAmp_CellEndEdit);
@@ -2145,7 +2132,7 @@
             // 
             this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label45.BackColor = System.Drawing.Color.LightGray;
-            this.label45.Location = new System.Drawing.Point(608, 460);
+            this.label45.Location = new System.Drawing.Point(666, 460);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(236, 158);
             this.label45.TabIndex = 128;
@@ -2158,7 +2145,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(861, 636);
+            this.metroTabPage3.Size = new System.Drawing.Size(919, 636);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "      Costos      ";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -2180,7 +2167,7 @@
             this.groupBox3.Controls.Add(this.dgvCostoProc);
             this.groupBox3.Location = new System.Drawing.Point(2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(858, 629);
+            this.groupBox3.Size = new System.Drawing.Size(916, 629);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             // 
@@ -2197,14 +2184,13 @@
             this.txtEncabezado2.Margin = new System.Windows.Forms.Padding(0);
             this.txtEncabezado2.Name = "txtEncabezado2";
             this.txtEncabezado2.ReadOnly = true;
-            this.txtEncabezado2.Size = new System.Drawing.Size(829, 26);
+            this.txtEncabezado2.Size = new System.Drawing.Size(887, 26);
             this.txtEncabezado2.TabIndex = 97;
             this.txtEncabezado2.TabStop = false;
             this.txtEncabezado2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
@@ -2218,7 +2204,6 @@
             // 
             this.txtCostoRRHH.AcceptsReturn = false;
             this.txtCostoRRHH.AcceptsTab = false;
-            this.txtCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoRRHH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoRRHH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoRRHH.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -2236,7 +2221,7 @@
             this.txtCostoRRHH.SelectedText = "";
             this.txtCostoRRHH.SelectionLength = 0;
             this.txtCostoRRHH.SelectionStart = 0;
-            this.txtCostoRRHH.Size = new System.Drawing.Size(96, 23);
+            this.txtCostoRRHH.Size = new System.Drawing.Size(167, 23);
             this.txtCostoRRHH.TabIndex = 65;
             this.txtCostoRRHH.TabStop = false;
             this.txtCostoRRHH.Text = "0,00";
@@ -2254,8 +2239,6 @@
             this.dgvCostoRRHH.AllowUserToResizeRows = false;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoRRHH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoRRHH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoRRHH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoRRHH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -2295,7 +2278,7 @@
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoRRHH.Size = new System.Drawing.Size(821, 210);
+            this.dgvCostoRRHH.Size = new System.Drawing.Size(884, 210);
             this.dgvCostoRRHH.TabIndex = 64;
             this.dgvCostoRRHH.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoRRHH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -2304,11 +2287,10 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label3.Location = new System.Drawing.Point(584, 275);
+            this.label3.Location = new System.Drawing.Point(588, 275);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(142, 20);
             this.label3.TabIndex = 60;
@@ -2318,14 +2300,13 @@
             // 
             this.txtCostoProc.AcceptsReturn = false;
             this.txtCostoProc.AcceptsTab = false;
-            this.txtCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoProc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoProc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoProc.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCostoProc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoProc.Depth = 0;
             this.txtCostoProc.Hint = "";
-            this.txtCostoProc.Location = new System.Drawing.Point(731, 274);
+            this.txtCostoProc.Location = new System.Drawing.Point(735, 274);
             this.txtCostoProc.MaxLength = 32767;
             this.txtCostoProc.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoProc.Multiline = false;
@@ -2336,7 +2317,7 @@
             this.txtCostoProc.SelectedText = "";
             this.txtCostoProc.SelectionLength = 0;
             this.txtCostoProc.SelectionStart = 0;
-            this.txtCostoProc.Size = new System.Drawing.Size(96, 23);
+            this.txtCostoProc.Size = new System.Drawing.Size(167, 23);
             this.txtCostoProc.TabIndex = 59;
             this.txtCostoProc.TabStop = false;
             this.txtCostoProc.Text = "0,00";
@@ -2354,8 +2335,6 @@
             this.dgvCostoProc.AllowUserToResizeRows = false;
             dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
-            this.dgvCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoProc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoProc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoProc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -2395,7 +2374,7 @@
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoProc.Size = new System.Drawing.Size(821, 215);
+            this.dgvCostoProc.Size = new System.Drawing.Size(884, 215);
             this.dgvCostoProc.TabIndex = 58;
             this.dgvCostoProc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoProc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -2410,7 +2389,7 @@
             this.metroTabPage4.HorizontalScrollbarSize = 10;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(861, 636);
+            this.metroTabPage4.Size = new System.Drawing.Size(919, 636);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "     Listado     ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
@@ -2455,7 +2434,7 @@
             this.groupBox6.Controls.Add(this.label46);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(858, 629);
+            this.groupBox6.Size = new System.Drawing.Size(914, 629);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
@@ -2798,7 +2777,7 @@
             // 
             this.pictureBox15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox15.Location = new System.Drawing.Point(614, 441);
+            this.pictureBox15.Location = new System.Drawing.Point(665, 441);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(230, 152);
             this.pictureBox15.TabIndex = 130;
@@ -2878,7 +2857,7 @@
             this.txtCostoTotalK.SelectedText = "";
             this.txtCostoTotalK.SelectionLength = 0;
             this.txtCostoTotalK.SelectionStart = 0;
-            this.txtCostoTotalK.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoTotalK.Size = new System.Drawing.Size(147, 23);
             this.txtCostoTotalK.TabIndex = 122;
             this.txtCostoTotalK.TabStop = false;
             this.txtCostoTotalK.Text = "0,00";
@@ -2945,22 +2924,11 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.labelNoMouse4);
             this.panel1.Controls.Add(this.materialFlatButton4);
-            this.panel1.Location = new System.Drawing.Point(500, 440);
+            this.panel1.Location = new System.Drawing.Point(551, 440);
             this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(107, 30);
             this.panel1.TabIndex = 59;
-            // 
-            // labelNoMouse4
-            // 
-            this.labelNoMouse4.AutoSize = true;
-            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
-            this.labelNoMouse4.Name = "labelNoMouse4";
-            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
-            this.labelNoMouse4.TabIndex = 1;
-            this.labelNoMouse4.Text = "Seleccionar";
             // 
             // materialFlatButton4
             // 
@@ -3035,7 +3003,7 @@
             this.dgvListaItems.RowHeadersVisible = false;
             this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaItems.Size = new System.Drawing.Size(822, 376);
+            this.dgvListaItems.Size = new System.Drawing.Size(878, 376);
             this.dgvListaItems.TabIndex = 58;
             this.dgvListaItems.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaItems_CellMouseDown);
             this.dgvListaItems.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvListaItems_DataError);
@@ -3046,15 +3014,16 @@
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copiarToolStripMenuItem,
-            this.copiarTablaToolStripMenuItem});
+            this.copiarTablaToolStripMenuItem,
+            this.recetaDetalladaToolStripMenuItem1});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(162, 70);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
             this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
@@ -3062,9 +3031,17 @@
             // 
             this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
             this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
-            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
             this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
+            // 
+            // recetaDetalladaToolStripMenuItem1
+            // 
+            this.recetaDetalladaToolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.document;
+            this.recetaDetalladaToolStripMenuItem1.Name = "recetaDetalladaToolStripMenuItem1";
+            this.recetaDetalladaToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.recetaDetalladaToolStripMenuItem1.Text = "Receta Detallada";
+            this.recetaDetalladaToolStripMenuItem1.Click += new System.EventHandler(this.recetaDetalladaToolStripMenuItem1_Click);
             // 
             // txtDescripcionK
             // 
@@ -3100,7 +3077,7 @@
             // 
             this.label46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label46.BackColor = System.Drawing.Color.LightGray;
-            this.label46.Location = new System.Drawing.Point(611, 438);
+            this.label46.Location = new System.Drawing.Point(662, 438);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(236, 158);
             this.label46.TabIndex = 148;
@@ -3119,6 +3096,7 @@
             // 
             // label47
             // 
+            this.label47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.Location = new System.Drawing.Point(268, 722);
@@ -3133,6 +3111,55 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            this.toolTip1.ShowAlways = true;
+            // 
+            // labelNoMouse4
+            // 
+            this.labelNoMouse4.AutoSize = true;
+            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
+            this.labelNoMouse4.Name = "labelNoMouse4";
+            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
+            this.labelNoMouse4.TabIndex = 1;
+            this.labelNoMouse4.Text = "Seleccionar";
+            // 
+            // labelNoMouse3
+            // 
+            this.labelNoMouse3.AutoSize = true;
+            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse3.Name = "labelNoMouse3";
+            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
+            this.labelNoMouse3.TabIndex = 1;
+            this.labelNoMouse3.Text = "Cerrar";
+            // 
+            // labelNoMouse2
+            // 
+            this.labelNoMouse2.AutoSize = true;
+            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse2.Name = "labelNoMouse2";
+            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
+            this.labelNoMouse2.TabIndex = 1;
+            this.labelNoMouse2.Text = "Nuevo";
+            // 
+            // labelNoMouse1
+            // 
+            this.labelNoMouse1.AutoSize = true;
+            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
+            this.labelNoMouse1.Name = "labelNoMouse1";
+            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
+            this.labelNoMouse1.TabIndex = 1;
+            this.labelNoMouse1.Text = "Agregar";
+            // 
             // formHeader1
             // 
             this.formHeader1.BackColor = System.Drawing.Color.Transparent;
@@ -3143,7 +3170,7 @@
             this.formHeader1.Location = new System.Drawing.Point(0, 0);
             this.formHeader1.Name = "formHeader1";
             this.formHeader1.ParentContainer = null;
-            this.formHeader1.Size = new System.Drawing.Size(902, 44);
+            this.formHeader1.Size = new System.Drawing.Size(960, 44);
             this.formHeader1.TabIndex = 0;
             // 
             // FrmKit
@@ -3152,7 +3179,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(902, 761);
+            this.ClientSize = new System.Drawing.Size(960, 761);
             this.Controls.Add(this.label47);
             this.Controls.Add(this.metroTab1);
             this.Controls.Add(this.panel4);
@@ -3383,5 +3410,7 @@
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem eliminarRegistroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recetaDetalladaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem recetaDetalladaToolStripMenuItem1;
     }
 }

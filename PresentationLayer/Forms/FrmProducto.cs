@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using Entities;
 using BusinessLayer;
 using System.IO;
+using PresentationLayer.Reports;
 
 namespace PresentationLayer.Forms
 {
@@ -241,7 +242,7 @@ namespace PresentationLayer.Forms
             try
             {
                 if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
-                TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
+                TxtActual.Text = string.Format("{0:#,0.00}", Convert.ToDecimal(TxtActual.Text));
             }
             catch (Exception)
             {
@@ -271,7 +272,7 @@ namespace PresentationLayer.Forms
                 if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
                 {
                     string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
-                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                    if (Convert.ToDouble(txtPeso.Text) == 0 || txtPeso.Text.Trim() != CalcPeso.Trim())
                         txtPeso.Text = CalcPeso;
                 }
             }
@@ -280,9 +281,13 @@ namespace PresentationLayer.Forms
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
         {
-            int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
-            CargarDatosItem(ItemId);
-            CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
+            try
+            {
+                int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+                CargarDatosItem(ItemId);
+                CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
+            }
+            catch {}
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
@@ -299,7 +304,7 @@ namespace PresentationLayer.Forms
                 try
                 {
                     if (TxtActual.Text == string.Empty) TxtActual.Text = "0,00";
-                    TxtActual.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(TxtActual.Text));
+                    TxtActual.Text = string.Format("{0:#,0.00}", Convert.ToDecimal(TxtActual.Text));
                 }
                 catch (Exception)
                 {
@@ -640,7 +645,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9 };
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -652,55 +657,68 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[17].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             dgvListaItems.Columns[6].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+            dgvListaItems.Columns[17].DefaultCellStyle.Format = "#,0.00###";
 
         }
 
         private void CargarGridsDetalleItem(int itemId)
         {
-            dtItemDetalle = ItemDetalleBL.GetItemDetalleId(itemId);
-            bAgregandoRow = true;
-            if (dtItemDetalle.Rows.Count >= 0)
+            try
             {
-                dgvDetalleItemAmp.DataSource = dtItemDetalle;
-                dgvDetalleItem.DataSource = dtItemDetalle;
-
-                MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp };
-
-                foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
+                dtItemDetalle = ItemDetalleBL.GetItemDetalleId(itemId);
+                bAgregandoRow = true;
+                if (dtItemDetalle.Rows.Count >= 0)
                 {
-                    List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11 };
-                    foreach (DataGridViewColumn col in dgvActual.Columns)
+                    dgvDetalleItemAmp.DataSource = dtItemDetalle;
+                    dgvDetalleItem.DataSource = dtItemDetalle;
+
+                    MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp };
+
+                    foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
                     {
-                        if (!visibleColumns.Contains(col.Index))
-                            col.Visible = false;
-                        col.ReadOnly = true;
+                        List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11 };
+                        foreach (DataGridViewColumn col in dgvActual.Columns)
+                        {
+                            if (!visibleColumns.Contains(col.Index))
+                                col.Visible = false;
+                            col.ReadOnly = true;
+                        }
+
+                        dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                        dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+                        dgvActual.Columns[10].DefaultCellStyle.Format = "N2";
+                        dgvActual.Columns[11].DefaultCellStyle.Format = "N2";
+
+                        dgvActual.Columns[9].ReadOnly = false;
+
+                        dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                        dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                        if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                     }
 
-                    dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
-                    dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
-                    dgvActual.Columns[10].DefaultCellStyle.Format = "#,0.00###";
-                    dgvActual.Columns[11].DefaultCellStyle.Format = "#,0.00###";
-
-                    dgvActual.Columns[9].ReadOnly = false;
-
-                    dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                    if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
+                    dgvDetalleItem.Columns[12].Visible = true;
+                    ((DataGridViewImageColumn)dgvDetalleItem.Columns[12]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                    foreach (DataGridViewRow row in dgvDetalleItem.Rows)
+                    {
+                        row.Height = 22;
+                        dgvListaItems.Columns[12].Width = 50;
+                    }
                 }
+                bAgregandoRow = false;
             }
-            bAgregandoRow = false;
-
+            catch { }
         }
 
         private void FormatearGridsCostos()
@@ -983,8 +1001,9 @@ namespace PresentationLayer.Forms
             row[7] = dgvDetalleItemAmp.Rows.Count + 1;
             row[8] = ItemDet.TipoPieza == "K" ? ItemDet.TipoItem : ItemDet.TipoItem + ItemDet.TipoPieza;
             row[9] = 0;
-            row[10] = ItemDet.CostoTotal ?? 0;
+            row[10] = Convert.ToDouble(ItemDet.CostoTotal ?? 0) * (ItemDet.TipoItem.Trim() == "P" ? (ItemDet.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
             row[11] = 0;
+            row[12] = ItemDet.Imagen;
             dt.Rows.Add(row);
             errorDetalle.SetErrorWithCount(dgvDetalleItemAmp, "");
             CargarCamposItemDetalle(ItemDet);
@@ -997,6 +1016,9 @@ namespace PresentationLayer.Forms
 
         private void CargarCamposItemDetalle(Item ItemConsulta)
         {
+            double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
+                            (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
+
             txtCodigoC.Text = ItemConsulta.Codigo;
             txtDescripcionC.Text = ItemConsulta.Descripcion;
             txtNombreC.Text = ItemConsulta.Nombre;
@@ -1006,7 +1028,7 @@ namespace PresentationLayer.Forms
             txtDiametroC.Text = ItemConsulta.Diametro.ToString();
             txtVolumenC.Text = ItemConsulta.Volumen.ToString();
             txtPesoC.Text = ItemConsulta.Peso.ToString();
-            txtTotalCostoC.Text = ItemConsulta.CostoTotal.ToString();
+            txtTotalCostoC.Text = CostoC.ToString(); // ItemConsulta.CostoTotal.ToString();
             pictureBox10.BackgroundImage = null;
             if (ItemConsulta.Imagen != null)
                 pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
@@ -1014,6 +1036,9 @@ namespace PresentationLayer.Forms
 
         private void CargarCamposListaKit(Item ItemConsulta)
         {
+            double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
+                            (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
+
             txtCodigoK.Text = ItemConsulta.Codigo;
             txtDescripcionK.Text = ItemConsulta.Descripcion;
             txtNombreK.Text = ItemConsulta.Nombre;
@@ -1023,7 +1048,7 @@ namespace PresentationLayer.Forms
             txtDiametroK.Text = ItemConsulta.Diametro.ToString();
             txtVolumenK.Text = ItemConsulta.Volumen.ToString();
             txtPesoK.Text = ItemConsulta.Peso.ToString();
-            txtCostoTotalK.Text = ItemConsulta.CostoTotal.ToString();
+            txtCostoTotalK.Text = CostoC.ToString();  //ItemConsulta.CostoTotal.ToString();
             pictureBox15.BackgroundImage = null;
             if (ItemConsulta.Imagen != null)
                 pictureBox15.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
@@ -1215,11 +1240,13 @@ namespace PresentationLayer.Forms
             {
                 contextMenuStrip1.Items[0].Enabled = false;
                 contextMenuStrip1.Items[1].Enabled = false;
+                contextMenuStrip1.Items[2].Enabled = false;
             }
             else
             {
                 contextMenuStrip1.Items[0].Enabled = true;
                 contextMenuStrip1.Items[1].Enabled = true;
+                contextMenuStrip1.Items[2].Enabled = true;
             }
         }
 
@@ -1276,18 +1303,22 @@ namespace PresentationLayer.Forms
 
         private void dgvListaItems_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right )
+            try
             {
-                currentMouseOverRow = e.RowIndex;
-                currentMouseOverCol = e.ColumnIndex;
-                if (currentMouseOverCol > -1)
-                    try
-                    {
-                        dgvListaItems.CurrentCell = dgvListaItems[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
-                        dgvListaItems.Rows[(currentMouseOverRow)].Selected = true;
-                    }
-                    catch { }
+                if (e.Button == MouseButtons.Right)
+                {
+                    currentMouseOverRow = e.RowIndex;
+                    currentMouseOverCol = e.ColumnIndex;
+                    if (currentMouseOverCol > -1)
+                        try
+                        {
+                            dgvListaItems.CurrentCell = dgvListaItems[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                            dgvListaItems.Rows[(currentMouseOverRow)].Selected = true;
+                        }
+                        catch { }
+                }
             }
+            catch {}
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -1324,16 +1355,21 @@ namespace PresentationLayer.Forms
 
         private void MostrarDetalleKitProducto(object sender, DataGridViewCellMouseEventArgs e)
         {
-            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+            try
+            {
+                MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
 
-            FrmDetalleKit FrmDetalle = new FrmDetalleKit();
-            var cellRectangle = dgvActual.GetCellDisplayRectangle(5, e.RowIndex, false);
-            FrmDetalle.StartPosition = FormStartPosition.Manual;
-            FrmDetalle.Location = dgvActual.PointToScreen(dgvActual.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
-            FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
-            FrmDetalle.Origen = "Detalle";
-            FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
-            FrmDetalle.Show();
+                FrmDetalleKit FrmDetalle = new FrmDetalleKit();
+                var cellRectangle = dgvActual.GetCellDisplayRectangle(5, e.RowIndex, false);
+                FrmDetalle.StartPosition = FormStartPosition.Manual;
+                FrmDetalle.Location = dgvActual.PointToScreen(dgvActual.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
+                FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
+                FrmDetalle.Origen = "Detalle";
+                FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
+                FrmDetalle.Show();
+            }
+            catch {}
+            
         }
 
         private void dgvDetalleItemAmp_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1452,5 +1488,24 @@ namespace PresentationLayer.Forms
                                            370);
             }
         }
+
+        private void recetaDetalladaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string ItemCode = txtCodigo.Text.Trim();
+            RecetaKit Formato = new RecetaKit();
+            Formato.SetParameterValue("@Item", ItemCode);
+            FrmReportes formReportes = new FrmReportes(Formato);
+            formReportes.ShowDialog();
+        }
+
+        private void recetaDetalladaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            string ItemCode = dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[1].Value.ToString().Trim();
+            RecetaKit Formato = new RecetaKit();
+            Formato.SetParameterValue("@Item", ItemCode);
+            FrmReportes formReportes = new FrmReportes(Formato);
+            formReportes.ShowDialog();
+        }
+
     }
 }

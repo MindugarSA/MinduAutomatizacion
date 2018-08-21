@@ -11,20 +11,12 @@ namespace Entities
 {
     using System;
     
-    public partial class SP_GetItemDetalleID_Result1
+    public partial class SP_ListadoItemTipoCostoFactor_Result
     {
-        public int Id { get; set; }
-        public Nullable<int> IdC { get; set; }
-        public string CodigoC { get; set; }
-        public string DescripcionC { get; set; }
-        public Nullable<int> IdDetalle { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
-        public Nullable<int> Linea { get; set; }
-        public Nullable<decimal> Cantidad { get; set; }
-        public Nullable<decimal> CostoUnitario { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public string TipoPieza { get; set; }
-        public byte[] Imagen { get; set; }
+        public string Nombre { get; set; }
+        public string Familia { get; set; }
+        public Nullable<decimal> Directo___Factor { get; set; }
     }
 }

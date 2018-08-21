@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParte));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -45,7 +46,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmParte));
             this.panel4 = new System.Windows.Forms.Panel();
             this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
@@ -57,6 +57,11 @@
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verDependientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtDirectFact = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label25 = new System.Windows.Forms.Label();
@@ -81,7 +86,13 @@
             this.txtVolumen = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtPeso = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label17 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.metroComboBox4 = new MetroFramework.Controls.MetroComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
@@ -114,12 +125,14 @@
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.materialCheckBox3 = new MaterialSkin.Controls.MaterialCheckBox();
             this.label24 = new System.Windows.Forms.Label();
             this.materialCheckBox2 = new MaterialSkin.Controls.MaterialCheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtBuscarItem = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -127,34 +140,27 @@
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescr = new System.Windows.Forms.ErrorProvider(this.components);
-            this.formHeader1 = new PresentationLayer.FormHeader();
             this.label26 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.verDependientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.duplicarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.eliminarRegistroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.formHeader1 = new PresentationLayer.FormHeader();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip3.SuspendLayout();
             this.metroTabControl1.SuspendLayout();
             this.metroTabPage1.SuspendLayout();
@@ -167,19 +173,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -188,7 +188,7 @@
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.materialFlatButton3);
-            this.panel4.Location = new System.Drawing.Point(719, 563);
+            this.panel4.Location = new System.Drawing.Point(776, 563);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -346,7 +346,7 @@
             this.groupBox1.Controls.Add(this.label44);
             this.groupBox1.Location = new System.Drawing.Point(2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(796, 463);
+            this.groupBox1.Size = new System.Drawing.Size(853, 463);
             this.groupBox1.TabIndex = 44;
             this.groupBox1.TabStop = false;
             // 
@@ -357,8 +357,62 @@
             this.eliminarRegistroToolStripMenuItem,
             this.verDependientesToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(165, 70);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            // 
+            // duplicarRegistroToolStripMenuItem
+            // 
+            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
+            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
+            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
+            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click);
+            // 
+            // eliminarRegistroToolStripMenuItem
+            // 
+            this.eliminarRegistroToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cross_circular_button;
+            this.eliminarRegistroToolStripMenuItem.Name = "eliminarRegistroToolStripMenuItem";
+            this.eliminarRegistroToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.eliminarRegistroToolStripMenuItem.Text = "Eliminar Registro";
+            this.eliminarRegistroToolStripMenuItem.Click += new System.EventHandler(this.eliminarRegistroToolStripMenuItem_Click);
+            // 
+            // verDependientesToolStripMenuItem
+            // 
+            this.verDependientesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.network_diagram;
+            this.verDependientesToolStripMenuItem.Name = "verDependientesToolStripMenuItem";
+            this.verDependientesToolStripMenuItem.Size = new System.Drawing.Size(164, 22);
+            this.verDependientesToolStripMenuItem.Text = "Ver Relaciones";
+            this.verDependientesToolStripMenuItem.Click += new System.EventHandler(this.verDependientesToolStripMenuItem_Click);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox16.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox16.Location = new System.Drawing.Point(812, 174);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox16.TabIndex = 125;
+            this.pictureBox16.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox16, "Borrar Imagen");
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            this.pictureBox16.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox16.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(337, 31);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox6.TabIndex = 93;
+            this.pictureBox6.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox6, "Buscar Codigo");
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // groupBox5
             // 
@@ -373,9 +427,9 @@
             this.groupBox5.Controls.Add(this.txtTotalCostos);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Font = new System.Drawing.Font("Segoe UI Light", 11.25F);
-            this.groupBox5.Location = new System.Drawing.Point(498, 250);
+            this.groupBox5.Location = new System.Drawing.Point(518, 250);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(271, 182);
+            this.groupBox5.Size = new System.Drawing.Size(318, 182);
             this.groupBox5.TabIndex = 92;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Costos";
@@ -389,7 +443,7 @@
             this.txtDirectFact.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDirectFact.Depth = 0;
             this.txtDirectFact.Hint = "";
-            this.txtDirectFact.Location = new System.Drawing.Point(140, 141);
+            this.txtDirectFact.Location = new System.Drawing.Point(150, 141);
             this.txtDirectFact.MaxLength = 32767;
             this.txtDirectFact.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDirectFact.Multiline = false;
@@ -400,11 +454,12 @@
             this.txtDirectFact.SelectedText = "";
             this.txtDirectFact.SelectionLength = 0;
             this.txtDirectFact.SelectionStart = 0;
-            this.txtDirectFact.Size = new System.Drawing.Size(86, 23);
+            this.txtDirectFact.Size = new System.Drawing.Size(128, 23);
             this.txtDirectFact.TabIndex = 97;
             this.txtDirectFact.TabStop = false;
             this.txtDirectFact.Text = "0,00";
             this.txtDirectFact.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtDirectFact, "Costo Directo + Factor Industrial (1.752)");
             this.txtDirectFact.UseSystemPasswordChar = false;
             this.txtDirectFact.WordWrap = true;
             this.txtDirectFact.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -432,7 +487,7 @@
             this.txtTotCosPro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosPro.Depth = 0;
             this.txtTotCosPro.Hint = "";
-            this.txtTotCosPro.Location = new System.Drawing.Point(140, 83);
+            this.txtTotCosPro.Location = new System.Drawing.Point(150, 83);
             this.txtTotCosPro.MaxLength = 32767;
             this.txtTotCosPro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosPro.Multiline = false;
@@ -443,11 +498,12 @@
             this.txtTotCosPro.SelectedText = "";
             this.txtTotCosPro.SelectionLength = 0;
             this.txtTotCosPro.SelectionStart = 0;
-            this.txtTotCosPro.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosPro.Size = new System.Drawing.Size(128, 23);
             this.txtTotCosPro.TabIndex = 90;
             this.txtTotCosPro.TabStop = false;
             this.txtTotCosPro.Text = "0,00";
             this.txtTotCosPro.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosPro, "Suma de Costos de \r\nProcesos + Acero");
             this.txtTotCosPro.UseSystemPasswordChar = false;
             this.txtTotCosPro.WordWrap = true;
             this.txtTotCosPro.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -475,7 +531,7 @@
             this.txtTotCosCom.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosCom.Depth = 0;
             this.txtTotCosCom.Hint = "";
-            this.txtTotCosCom.Location = new System.Drawing.Point(140, 25);
+            this.txtTotCosCom.Location = new System.Drawing.Point(150, 25);
             this.txtTotCosCom.MaxLength = 32767;
             this.txtTotCosCom.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosCom.Multiline = false;
@@ -486,11 +542,12 @@
             this.txtTotCosCom.SelectedText = "";
             this.txtTotCosCom.SelectionLength = 0;
             this.txtTotCosCom.SelectionStart = 0;
-            this.txtTotCosCom.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosCom.Size = new System.Drawing.Size(128, 23);
             this.txtTotCosCom.TabIndex = 88;
             this.txtTotCosCom.TabStop = false;
             this.txtTotCosCom.Text = "0,00";
             this.txtTotCosCom.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosCom, "Costo desde el Proveedor");
             this.txtTotCosCom.UseSystemPasswordChar = false;
             this.txtTotCosCom.WordWrap = true;
             this.txtTotCosCom.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -518,7 +575,7 @@
             this.txtTotCosRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotCosRRHH.Depth = 0;
             this.txtTotCosRRHH.Hint = "";
-            this.txtTotCosRRHH.Location = new System.Drawing.Point(140, 54);
+            this.txtTotCosRRHH.Location = new System.Drawing.Point(150, 54);
             this.txtTotCosRRHH.MaxLength = 32767;
             this.txtTotCosRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotCosRRHH.Multiline = false;
@@ -529,11 +586,12 @@
             this.txtTotCosRRHH.SelectedText = "";
             this.txtTotCosRRHH.SelectionLength = 0;
             this.txtTotCosRRHH.SelectionStart = 0;
-            this.txtTotCosRRHH.Size = new System.Drawing.Size(86, 23);
+            this.txtTotCosRRHH.Size = new System.Drawing.Size(128, 23);
             this.txtTotCosRRHH.TabIndex = 86;
             this.txtTotCosRRHH.TabStop = false;
             this.txtTotCosRRHH.Text = "0,00";
             this.txtTotCosRRHH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotCosRRHH, "Suma de Costos de Mano de Obra");
             this.txtTotCosRRHH.UseSystemPasswordChar = false;
             this.txtTotCosRRHH.WordWrap = true;
             this.txtTotCosRRHH.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -561,7 +619,7 @@
             this.txtTotalCostos.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTotalCostos.Depth = 0;
             this.txtTotalCostos.Hint = "";
-            this.txtTotalCostos.Location = new System.Drawing.Point(139, 112);
+            this.txtTotalCostos.Location = new System.Drawing.Point(149, 112);
             this.txtTotalCostos.MaxLength = 32767;
             this.txtTotalCostos.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtTotalCostos.Multiline = false;
@@ -572,11 +630,12 @@
             this.txtTotalCostos.SelectedText = "";
             this.txtTotalCostos.SelectionLength = 0;
             this.txtTotalCostos.SelectionStart = 0;
-            this.txtTotalCostos.Size = new System.Drawing.Size(86, 23);
+            this.txtTotalCostos.Size = new System.Drawing.Size(128, 23);
             this.txtTotalCostos.TabIndex = 84;
             this.txtTotalCostos.TabStop = false;
             this.txtTotalCostos.Text = "0,00";
             this.txtTotalCostos.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtTotalCostos, "Suma de los Costos Externo\r\n+ Mano de Obra + Procesos\r\n+ Aceros");
             this.txtTotalCostos.UseSystemPasswordChar = false;
             this.txtTotalCostos.WordWrap = true;
             this.txtTotalCostos.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -612,7 +671,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Segoe UI Light", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(11, 250);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(481, 182);
+            this.groupBox4.Size = new System.Drawing.Size(490, 182);
             this.groupBox4.TabIndex = 91;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Magnitudes";
@@ -621,7 +680,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label16.Location = new System.Drawing.Point(217, 34);
+            this.label16.Location = new System.Drawing.Point(244, 34);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(99, 20);
             this.label16.TabIndex = 83;
@@ -636,7 +695,7 @@
             this.txtEspesor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEspesor.Depth = 0;
             this.txtEspesor.Hint = "";
-            this.txtEspesor.Location = new System.Drawing.Point(98, 33);
+            this.txtEspesor.Location = new System.Drawing.Point(130, 33);
             this.txtEspesor.MaxLength = 32767;
             this.txtEspesor.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtEspesor.Multiline = false;
@@ -664,11 +723,11 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label5.Location = new System.Drawing.Point(33, 34);
+            this.label5.Location = new System.Drawing.Point(39, 34);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 20);
+            this.label5.Size = new System.Drawing.Size(90, 20);
             this.label5.TabIndex = 65;
-            this.label5.Text = "Espesor";
+            this.label5.Text = "Espesor(mm)";
             // 
             // txtAncho
             // 
@@ -679,7 +738,7 @@
             this.txtAncho.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAncho.Depth = 0;
             this.txtAncho.Hint = "";
-            this.txtAncho.Location = new System.Drawing.Point(98, 68);
+            this.txtAncho.Location = new System.Drawing.Point(130, 68);
             this.txtAncho.MaxLength = 32767;
             this.txtAncho.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAncho.Multiline = false;
@@ -707,11 +766,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label1.Location = new System.Drawing.Point(42, 69);
+            this.label1.Location = new System.Drawing.Point(48, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 20);
+            this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 75;
-            this.label1.Text = "Ancho";
+            this.label1.Text = "Ancho(mm)";
             // 
             // txtLargo
             // 
@@ -722,7 +781,7 @@
             this.txtLargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLargo.Depth = 0;
             this.txtLargo.Hint = "";
-            this.txtLargo.Location = new System.Drawing.Point(98, 103);
+            this.txtLargo.Location = new System.Drawing.Point(130, 103);
             this.txtLargo.MaxLength = 32767;
             this.txtLargo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtLargo.Multiline = false;
@@ -750,11 +809,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label14.Location = new System.Drawing.Point(47, 104);
+            this.label14.Location = new System.Drawing.Point(53, 104);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 20);
+            this.label14.Size = new System.Drawing.Size(76, 20);
             this.label14.TabIndex = 77;
-            this.label14.Text = "Largo";
+            this.label14.Text = "Largo(mm)";
             // 
             // txtDiametro
             // 
@@ -765,7 +824,7 @@
             this.txtDiametro.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDiametro.Depth = 0;
             this.txtDiametro.Hint = "";
-            this.txtDiametro.Location = new System.Drawing.Point(98, 138);
+            this.txtDiametro.Location = new System.Drawing.Point(130, 138);
             this.txtDiametro.MaxLength = 32767;
             this.txtDiametro.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDiametro.Multiline = false;
@@ -793,11 +852,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label4.Location = new System.Drawing.Point(25, 139);
+            this.label4.Location = new System.Drawing.Point(31, 139);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(66, 20);
+            this.label4.Size = new System.Drawing.Size(98, 20);
             this.label4.TabIndex = 79;
-            this.label4.Text = "Diametro";
+            this.label4.Text = "Diametro(mm)";
             // 
             // txtVolumen
             // 
@@ -808,7 +867,7 @@
             this.txtVolumen.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtVolumen.Depth = 0;
             this.txtVolumen.Hint = "";
-            this.txtVolumen.Location = new System.Drawing.Point(322, 33);
+            this.txtVolumen.Location = new System.Drawing.Point(349, 33);
             this.txtVolumen.MaxLength = 32767;
             this.txtVolumen.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtVolumen.Multiline = false;
@@ -841,7 +900,7 @@
             this.txtPeso.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPeso.Depth = 0;
             this.txtPeso.Hint = "";
-            this.txtPeso.Location = new System.Drawing.Point(322, 68);
+            this.txtPeso.Location = new System.Drawing.Point(349, 68);
             this.txtPeso.MaxLength = 32767;
             this.txtPeso.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPeso.Multiline = false;
@@ -857,6 +916,7 @@
             this.txtPeso.TabStop = false;
             this.txtPeso.Text = "0,00";
             this.txtPeso.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtPeso, "(Espesor x Ancho x Lago) x 0.000008");
             this.txtPeso.UseSystemPasswordChar = false;
             this.txtPeso.WordWrap = true;
             this.txtPeso.Click += new System.EventHandler(this.TxtValidar_Click);
@@ -869,11 +929,65 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label17.Location = new System.Drawing.Point(254, 69);
+            this.label17.Location = new System.Drawing.Point(281, 69);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(62, 20);
             this.label17.TabIndex = 81;
             this.label17.Text = "Peso(Kg)";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(779, 174);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox5.TabIndex = 90;
+            this.pictureBox5.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox5, "Agregar Imagen desde Carpeta");
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(498, 210);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox3.TabIndex = 88;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(498, 134);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 87;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
+            this.pictureBox1.Location = new System.Drawing.Point(606, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(230, 152);
+            this.pictureBox1.TabIndex = 86;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
             // 
             // contextMenuStrip3
             // 
@@ -882,6 +996,22 @@
             this.toolStripMenuItem2});
             this.contextMenuStrip3.Name = "contextMenuStrip2";
             this.contextMenuStrip3.Size = new System.Drawing.Size(153, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem1.Text = "Copiar Imagen";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::PresentationLayer.Properties.Resources.file;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Text = "Pegar Imagen";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // metroComboBox4
             // 
@@ -962,7 +1092,7 @@
             this.txtNombre.SelectedText = "";
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
-            this.txtNombre.Size = new System.Drawing.Size(415, 23);
+            this.txtNombre.Size = new System.Drawing.Size(478, 23);
             this.txtNombre.TabIndex = 69;
             this.txtNombre.TabStop = false;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1005,6 +1135,7 @@
             this.txtCodigo.TabIndex = 67;
             this.txtCodigo.TabStop = false;
             this.txtCodigo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.toolTip1.SetToolTip(this.txtCodigo, "Codigo: La longitud Maxima \r\nSugerida es de 13 Caracteres");
             this.txtCodigo.UseSystemPasswordChar = false;
             this.txtCodigo.WordWrap = true;
             this.txtCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
@@ -1026,7 +1157,7 @@
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(498, 30);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1079,7 +1210,7 @@
             this.txtDescrpcion.SelectedText = "";
             this.txtDescrpcion.SelectionLength = 0;
             this.txtDescrpcion.SelectionStart = 0;
-            this.txtDescrpcion.Size = new System.Drawing.Size(415, 23);
+            this.txtDescrpcion.Size = new System.Drawing.Size(478, 23);
             this.txtDescrpcion.TabIndex = 58;
             this.txtDescrpcion.TabStop = false;
             this.txtDescrpcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1100,7 +1231,7 @@
             // label44
             // 
             this.label44.BackColor = System.Drawing.Color.LightGray;
-            this.label44.Location = new System.Drawing.Point(544, 13);
+            this.label44.Location = new System.Drawing.Point(603, 13);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(236, 158);
             this.label44.TabIndex = 100;
@@ -1117,7 +1248,7 @@
             this.metroTabControl1.Location = new System.Drawing.Point(21, 41);
             this.metroTabControl1.Name = "metroTabControl1";
             this.metroTabControl1.SelectedIndex = 0;
-            this.metroTabControl1.Size = new System.Drawing.Size(809, 514);
+            this.metroTabControl1.Size = new System.Drawing.Size(866, 514);
             this.metroTabControl1.TabIndex = 0;
             this.metroTabControl1.UseSelectable = true;
             // 
@@ -1129,7 +1260,7 @@
             this.metroTabPage1.HorizontalScrollbarSize = 10;
             this.metroTabPage1.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage1.Name = "metroTabPage1";
-            this.metroTabPage1.Size = new System.Drawing.Size(801, 472);
+            this.metroTabPage1.Size = new System.Drawing.Size(858, 472);
             this.metroTabPage1.TabIndex = 0;
             this.metroTabPage1.Text = "      General      ";
             this.metroTabPage1.VerticalScrollbarBarColor = true;
@@ -1144,7 +1275,7 @@
             this.metroTabPage2.HorizontalScrollbarSize = 10;
             this.metroTabPage2.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage2.Name = "metroTabPage2";
-            this.metroTabPage2.Size = new System.Drawing.Size(801, 472);
+            this.metroTabPage2.Size = new System.Drawing.Size(858, 472);
             this.metroTabPage2.TabIndex = 1;
             this.metroTabPage2.Text = "    Costos RRHH    ";
             this.metroTabPage2.VerticalScrollbarBarColor = true;
@@ -1162,17 +1293,16 @@
             this.groupBox2.Controls.Add(this.dgvCostoRRHH);
             this.groupBox2.Location = new System.Drawing.Point(2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(796, 483);
+            this.groupBox2.Size = new System.Drawing.Size(853, 467);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label2.Location = new System.Drawing.Point(554, 257);
+            this.label2.Location = new System.Drawing.Point(554, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 60;
@@ -1182,14 +1312,13 @@
             // 
             this.txtCostoRRHH.AcceptsReturn = false;
             this.txtCostoRRHH.AcceptsTab = false;
-            this.txtCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoRRHH.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoRRHH.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoRRHH.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtCostoRRHH.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCostoRRHH.Depth = 0;
             this.txtCostoRRHH.Hint = "";
-            this.txtCostoRRHH.Location = new System.Drawing.Point(681, 256);
+            this.txtCostoRRHH.Location = new System.Drawing.Point(681, 289);
             this.txtCostoRRHH.MaxLength = 32767;
             this.txtCostoRRHH.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCostoRRHH.Multiline = false;
@@ -1200,7 +1329,7 @@
             this.txtCostoRRHH.SelectedText = "";
             this.txtCostoRRHH.SelectionLength = 0;
             this.txtCostoRRHH.SelectionStart = 0;
-            this.txtCostoRRHH.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoRRHH.Size = new System.Drawing.Size(148, 23);
             this.txtCostoRRHH.TabIndex = 59;
             this.txtCostoRRHH.TabStop = false;
             this.txtCostoRRHH.Text = "0,00";
@@ -1217,9 +1346,6 @@
             this.dgvCostoRRHH.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoRRHH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCostoRRHH.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoRRHH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoRRHH.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoRRHH.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1259,7 +1385,7 @@
             this.dgvCostoRRHH.RowHeadersVisible = false;
             this.dgvCostoRRHH.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoRRHH.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoRRHH.Size = new System.Drawing.Size(743, 227);
+            this.dgvCostoRRHH.Size = new System.Drawing.Size(800, 261);
             this.dgvCostoRRHH.TabIndex = 58;
             this.dgvCostoRRHH.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoRRHH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1274,7 +1400,7 @@
             this.metroTabPage3.HorizontalScrollbarSize = 10;
             this.metroTabPage3.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage3.Name = "metroTabPage3";
-            this.metroTabPage3.Size = new System.Drawing.Size(801, 472);
+            this.metroTabPage3.Size = new System.Drawing.Size(858, 472);
             this.metroTabPage3.TabIndex = 2;
             this.metroTabPage3.Text = "  Costos Fabriles / Procesos  ";
             this.metroTabPage3.VerticalScrollbarBarColor = true;
@@ -1295,13 +1421,12 @@
             this.groupBox3.Controls.Add(this.dgvCostoProc);
             this.groupBox3.Location = new System.Drawing.Point(2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(796, 469);
+            this.groupBox3.Size = new System.Drawing.Size(853, 469);
             this.groupBox3.TabIndex = 47;
             this.groupBox3.TabStop = false;
             // 
             // label21
             // 
-            this.label21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label21.AutoSize = true;
             this.label21.BackColor = System.Drawing.Color.Transparent;
             this.label21.Font = new System.Drawing.Font("Segoe UI Light", 11F);
@@ -1315,7 +1440,6 @@
             // 
             this.txtCostoAcero.AcceptsReturn = false;
             this.txtCostoAcero.AcceptsTab = false;
-            this.txtCostoAcero.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoAcero.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoAcero.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoAcero.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1333,7 +1457,7 @@
             this.txtCostoAcero.SelectedText = "";
             this.txtCostoAcero.SelectionLength = 0;
             this.txtCostoAcero.SelectionStart = 0;
-            this.txtCostoAcero.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoAcero.Size = new System.Drawing.Size(156, 23);
             this.txtCostoAcero.TabIndex = 62;
             this.txtCostoAcero.TabStop = false;
             this.txtCostoAcero.Text = "0,00";
@@ -1350,8 +1474,6 @@
             this.dgvCostoAcero.AllowUserToResizeRows = false;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoAcero.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvCostoAcero.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoAcero.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoAcero.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoAcero.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1391,7 +1513,7 @@
             this.dgvCostoAcero.RowHeadersVisible = false;
             this.dgvCostoAcero.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoAcero.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoAcero.Size = new System.Drawing.Size(743, 192);
+            this.dgvCostoAcero.Size = new System.Drawing.Size(807, 192);
             this.dgvCostoAcero.TabIndex = 61;
             this.dgvCostoAcero.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoAcero.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1400,7 +1522,6 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 11F);
@@ -1414,7 +1535,6 @@
             // 
             this.txtCostoProc.AcceptsReturn = false;
             this.txtCostoProc.AcceptsTab = false;
-            this.txtCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCostoProc.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtCostoProc.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.txtCostoProc.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -1432,7 +1552,7 @@
             this.txtCostoProc.SelectedText = "";
             this.txtCostoProc.SelectionLength = 0;
             this.txtCostoProc.SelectionStart = 0;
-            this.txtCostoProc.Size = new System.Drawing.Size(86, 23);
+            this.txtCostoProc.Size = new System.Drawing.Size(156, 23);
             this.txtCostoProc.TabIndex = 59;
             this.txtCostoProc.TabStop = false;
             this.txtCostoProc.Text = "0,00";
@@ -1449,8 +1569,6 @@
             this.dgvCostoProc.AllowUserToResizeRows = false;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvCostoProc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.dgvCostoProc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvCostoProc.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvCostoProc.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvCostoProc.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -1490,7 +1608,7 @@
             this.dgvCostoProc.RowHeadersVisible = false;
             this.dgvCostoProc.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvCostoProc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCostoProc.Size = new System.Drawing.Size(743, 180);
+            this.dgvCostoProc.Size = new System.Drawing.Size(807, 180);
             this.dgvCostoProc.TabIndex = 58;
             this.dgvCostoProc.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvCostoValidar_CellBeginEdit);
             this.dgvCostoProc.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCostoValidar_CellClick);
@@ -1505,7 +1623,7 @@
             this.metroTabPage4.HorizontalScrollbarSize = 10;
             this.metroTabPage4.Location = new System.Drawing.Point(4, 38);
             this.metroTabPage4.Name = "metroTabPage4";
-            this.metroTabPage4.Size = new System.Drawing.Size(801, 472);
+            this.metroTabPage4.Size = new System.Drawing.Size(858, 472);
             this.metroTabPage4.TabIndex = 3;
             this.metroTabPage4.Text = "      Listado     ";
             this.metroTabPage4.VerticalScrollbarBarColor = true;
@@ -1532,17 +1650,31 @@
             this.groupBox6.Controls.Add(this.dgvListaItems);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(796, 467);
+            this.groupBox6.Size = new System.Drawing.Size(853, 467);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.refresh__1_;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(390, 17);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox4.TabIndex = 109;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // materialCheckBox3
             // 
             this.materialCheckBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCheckBox3.AutoSize = true;
             this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.materialCheckBox3.Location = new System.Drawing.Point(583, 425);
+            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox3.Location = new System.Drawing.Point(640, 425);
             this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1558,7 +1690,7 @@
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(457, 431);
+            this.label24.Location = new System.Drawing.Point(514, 431);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(128, 17);
             this.label24.TabIndex = 108;
@@ -1569,8 +1701,8 @@
             this.materialCheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCheckBox2.AutoSize = true;
             this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.materialCheckBox2.Location = new System.Drawing.Point(734, 424);
+            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
+            this.materialCheckBox2.Location = new System.Drawing.Point(791, 424);
             this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
             this.materialCheckBox2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1586,7 +1718,7 @@
             this.label23.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(643, 430);
+            this.label23.Location = new System.Drawing.Point(700, 430);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(93, 17);
             this.label23.TabIndex = 106;
@@ -1612,6 +1744,20 @@
             this.label6.Size = new System.Drawing.Size(50, 20);
             this.label6.TabIndex = 103;
             this.label6.Text = "Familia";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox8.Location = new System.Drawing.Point(357, 17);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(27, 27);
+            this.pictureBox8.TabIndex = 102;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // label22
             // 
@@ -1748,7 +1894,7 @@
             this.dgvListaItems.RowHeadersVisible = false;
             this.dgvListaItems.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListaItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaItems.Size = new System.Drawing.Size(752, 352);
+            this.dgvListaItems.Size = new System.Drawing.Size(809, 352);
             this.dgvListaItems.TabIndex = 58;
             this.dgvListaItems.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListaItems_CellMouseDown);
             this.dgvListaItems.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvListaItems_DataError);
@@ -1761,179 +1907,6 @@
             this.copiarTablaToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
-            // 
-            // errorCodigo
-            // 
-            this.errorCodigo.ContainerControl = this;
-            // 
-            // errorDescr
-            // 
-            this.errorDescr.ContainerControl = this;
-            // 
-            // formHeader1
-            // 
-            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.HeaderText = "Partes";
-            this.formHeader1.Location = new System.Drawing.Point(0, 0);
-            this.formHeader1.Name = "formHeader1";
-            this.formHeader1.ParentContainer = null;
-            this.formHeader1.Size = new System.Drawing.Size(847, 44);
-            this.formHeader1.TabIndex = 0;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(291, 568);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(128, 25);
-            this.label26.TabIndex = 73;
-            this.label26.Text = "Caracteristica";
-            this.label26.Visible = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 4000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // verDependientesToolStripMenuItem
-            // 
-            this.verDependientesToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.network_diagram;
-            this.verDependientesToolStripMenuItem.Name = "verDependientesToolStripMenuItem";
-            this.verDependientesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.verDependientesToolStripMenuItem.Text = "Ver Relaciones";
-            this.verDependientesToolStripMenuItem.Click += new System.EventHandler(this.verDependientesToolStripMenuItem_Click);
-            // 
-            // duplicarRegistroToolStripMenuItem
-            // 
-            this.duplicarRegistroToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("duplicarRegistroToolStripMenuItem.Image")));
-            this.duplicarRegistroToolStripMenuItem.Name = "duplicarRegistroToolStripMenuItem";
-            this.duplicarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.duplicarRegistroToolStripMenuItem.Text = "Duplicar Registro";
-            this.duplicarRegistroToolStripMenuItem.Click += new System.EventHandler(this.duplicarRegistroToolStripMenuItem_Click);
-            // 
-            // eliminarRegistroToolStripMenuItem
-            // 
-            this.eliminarRegistroToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.cross_circular_button;
-            this.eliminarRegistroToolStripMenuItem.Name = "eliminarRegistroToolStripMenuItem";
-            this.eliminarRegistroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.eliminarRegistroToolStripMenuItem.Text = "Eliminar Registro";
-            this.eliminarRegistroToolStripMenuItem.Click += new System.EventHandler(this.eliminarRegistroToolStripMenuItem_Click);
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox16.BackgroundImage = global::PresentationLayer.Properties.Resources.blocked_sign;
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox16.Location = new System.Drawing.Point(753, 174);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox16.TabIndex = 125;
-            this.pictureBox16.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox16, "Borrar Imagen");
-            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
-            this.pictureBox16.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox16.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(337, 31);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox6.TabIndex = 93;
-            this.pictureBox6.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox6, "Buscar Codigo");
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            this.pictureBox6.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox6.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(720, 174);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox5.TabIndex = 90;
-            this.pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox5, "Agregar Imagen desde Carpeta");
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(498, 210);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox3.TabIndex = 88;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.pictureBox3.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox3.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(498, 134);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox2.TabIndex = 87;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            this.pictureBox2.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox2.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.ContextMenuStrip = this.contextMenuStrip3;
-            this.pictureBox1.Location = new System.Drawing.Point(547, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 152);
-            this.pictureBox1.TabIndex = 86;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = global::PresentationLayer.Properties.Resources.refresh__1_;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(390, 17);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox4.TabIndex = 109;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click_1);
-            this.pictureBox4.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox8.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox8.Location = new System.Drawing.Point(357, 17);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(27, 27);
-            this.pictureBox8.TabIndex = 102;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            this.pictureBox8.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox8.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
             // copiarToolStripMenuItem
             // 
@@ -1951,21 +1924,43 @@
             this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
             this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem1
+            // errorCodigo
             // 
-            this.toolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem1.Image")));
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem1.Text = "Copiar Imagen";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.errorCodigo.ContainerControl = this;
             // 
-            // toolStripMenuItem2
+            // errorDescr
             // 
-            this.toolStripMenuItem2.Image = global::PresentationLayer.Properties.Resources.file;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
-            this.toolStripMenuItem2.Text = "Pegar Imagen";
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            this.errorDescr.ContainerControl = this;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Location = new System.Drawing.Point(291, 568);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(84, 25);
+            this.label26.TabIndex = 73;
+            this.label26.Text = "Mensaje";
+            this.label26.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 4000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // formHeader1
+            // 
+            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.HeaderText = "Partes";
+            this.formHeader1.Location = new System.Drawing.Point(0, 0);
+            this.formHeader1.Name = "formHeader1";
+            this.formHeader1.ParentContainer = null;
+            this.formHeader1.Size = new System.Drawing.Size(904, 44);
+            this.formHeader1.TabIndex = 0;
             // 
             // FrmParte
             // 
@@ -1973,7 +1968,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(847, 613);
+            this.ClientSize = new System.Drawing.Size(904, 613);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.panel4);
@@ -1998,10 +1993,16 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip3.ResumeLayout(false);
             this.metroTabControl1.ResumeLayout(false);
             this.metroTabPage1.ResumeLayout(false);
@@ -2017,20 +2018,14 @@
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaItems)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

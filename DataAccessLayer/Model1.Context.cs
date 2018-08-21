@@ -95,5 +95,38 @@ namespace Entities
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDependeceID_Result>("SP_GetItemDependeceID", id_ItemParameter);
         }
+    
+        public virtual int SP_ListadoItemsCostosDetallado()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ListadoItemsCostosDetallado");
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemsCostosResumen_Result> SP_ListadoItemsCostosResumen()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemsCostosResumen_Result>("SP_ListadoItemsCostosResumen");
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemsResumen_Result> SP_ListadoItemsResumen()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemsResumen_Result>("SP_ListadoItemsResumen");
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemTipoCostoFactor_Result> SP_ListadoItemTipoCostoFactor(string tipoItem)
+        {
+            var tipoItemParameter = tipoItem != null ?
+                new ObjectParameter("TipoItem", tipoItem) :
+                new ObjectParameter("TipoItem", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemTipoCostoFactor_Result>("SP_ListadoItemTipoCostoFactor", tipoItemParameter);
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemTipoCostoFactorRES_Result> SP_ListadoItemTipoCostoFactorRES(string tipoItem)
+        {
+            var tipoItemParameter = tipoItem != null ?
+                new ObjectParameter("TipoItem", tipoItem) :
+                new ObjectParameter("TipoItem", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemTipoCostoFactorRES_Result>("SP_ListadoItemTipoCostoFactorRES", tipoItemParameter);
+        }
     }
 }

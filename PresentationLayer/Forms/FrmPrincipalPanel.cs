@@ -27,6 +27,7 @@ namespace PresentationLayer
             formHeader1.ParentContainer = this;
 
             panel4.Visible = false;
+            panel12.Visible = false;
         }
 
         int MenuWidthMax;
@@ -348,6 +349,12 @@ namespace PresentationLayer
             Functions.ConfigurarMaterialSkinManagerInicio();
             FrmLogin Login = new FrmLogin();
             Login.ShowDialog();
+        }
+
+        private void button6_Click_1(object sender, EventArgs e)
+        {
+            FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
+            AbrirFormulario(FrmReportes, 0, 0);
         }
     }
 }

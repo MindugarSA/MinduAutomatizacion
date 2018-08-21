@@ -28,7 +28,7 @@ namespace PresentationLayer.Forms
         {
             crystalReportViewer1.ReportSource = ReporteActual;
             crystalReportViewer1.Zoom(140);
-            this.WindowState = FormWindowState.Maximized;
+           // this.WindowState = FormWindowState.Maximized;
         }
 
         private void FrmReportes_FormClosing(object sender, FormClosingEventArgs e)

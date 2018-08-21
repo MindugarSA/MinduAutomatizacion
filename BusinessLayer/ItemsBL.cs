@@ -40,6 +40,30 @@ namespace BusinessLayer
             return obj.GetItemsDespendencias(ItemId);
         }
 
+        public static DataTable ListadoItemsResumen()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsResumen();
+        }
+
+        public static DataTable ListadoItemsCostoResumen()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsCostoResumen();
+        }
+
+        public static DataTable ListadoItemsCostoDetallado()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsCostoDetallado();
+        }
+
+        public static DataTable ListadoItemsTipoCostoFactor(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsTipoCostoFactor(TipoItem);
+        }
+
         public static Item InsertItem(Item ObjItem)
         {
             ItemsDALC obj = new ItemsDALC();

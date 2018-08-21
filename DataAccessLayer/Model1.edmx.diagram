@@ -13,7 +13,7 @@
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.Costos" Width="1.5" PointX="3.75" PointY="3.75" />
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.ItemCosto" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.ItemDetalle" Width="1.5" PointX="2.75" PointY="6.75" />
-        <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.sysdiagrams" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.sysdiagrams" Width="1.5" PointX="4.875" PointY="6.75" />
         <EntityTypeShape EntityType="DB_AUTOMATIZACIONModel.Item" Width="1.5" PointX="7.125" PointY="0.5" />
       </Diagram>
     </edmx:Diagrams>

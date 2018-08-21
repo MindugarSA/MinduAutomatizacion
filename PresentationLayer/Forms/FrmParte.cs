@@ -225,7 +225,7 @@ namespace PresentationLayer.Forms
                 if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
                 {
                     string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
-                    if (Convert.ToDouble(txtPeso.Text) == 0)
+                    if (Convert.ToDouble(txtPeso.Text) == 0 || txtPeso.Text.Trim() != CalcPeso.Trim())
                         txtPeso.Text = CalcPeso;
                 }
             }
@@ -259,7 +259,7 @@ namespace PresentationLayer.Forms
             txtTotCosPro.Text = (Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoAcero.Text)).ToString();
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-            txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
+            txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * nFactor ?? 0), 2)).ToString();
             errorCodigo.SetErrorWithCount(txtCodigo, "");
             errorDescr.SetErrorWithCount(txtCodigo, "");
         }
@@ -325,7 +325,18 @@ namespace PresentationLayer.Forms
 
         private void metroComboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            switch (metroComboBox3.SelectedIndex)
+            {
+                case 0:
+                    nFactor = 1.409;
+                    break;
+                case 1:
+                    nFactor = 1.857;
+                    break;
+            }
 
+            double Direct = Convert.ToDouble(txtTotalCostos.Text);
+            txtDirectFact.Text = Math.Round(Direct * nFactor,2).ToString();
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -452,7 +463,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 18 };
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18 };
             if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
@@ -584,6 +595,8 @@ namespace PresentationLayer.Forms
 
             materialCheckBox1.Checked = ItemEntidad.Estatus == 1 ? true : false;
             if (ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
+
+            if(ItemEntidad.TipoPieza != null) metroComboBox3.SelectedIndex = ItemEntidad.TipoPieza.Trim() == "E" ? 1 : 0;
 
             txtCostoAcero.Text = "";
             txtCostoProc.Text = "";
@@ -731,6 +744,7 @@ namespace PresentationLayer.Forms
         private Rectangle sizeGripRectangle;
         private int currentMouseOverRow;
         private int currentMouseOverCol;
+        private double nFactor;
 
         protected override void WndProc(ref Message m)
         {
@@ -1032,7 +1046,7 @@ namespace PresentationLayer.Forms
 
         private void txtTotalCostos_TextChanged(object sender, EventArgs e)
         {
-            txtDirectFact.Text = (txtTotalCostos.Text.ToDouble() * 1.752).ToString();
+            txtDirectFact.Text = (txtTotalCostos.Text.ToDouble() * nFactor).ToString();
         }
 
         private void OpenImegeForm(Image Img)
@@ -1103,7 +1117,7 @@ namespace PresentationLayer.Forms
             {
                 Bitmap bmp = null;
 
-                Image  img = ((Image)data.GetData("Bitmap", false));
+                Image img = ((Image)data.GetData("Bitmap", false));
                 bmp = new Bitmap(img);
                 pictureBox1.BackgroundImage = (Bitmap)bmp;
 
@@ -1136,7 +1150,7 @@ namespace PresentationLayer.Forms
                 {
                     if (txtTotalCostos.Text == string.Empty) txtTotalCostos.Text = "0,00";
                     txtTotalCostos.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(txtTotalCostos.Text));
-                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
+                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * nFactor ?? 0), 2)).ToString();
                 }
                 catch (Exception)
                 {
@@ -1193,7 +1207,7 @@ namespace PresentationLayer.Forms
 
             if (dt.Rows.Count == 0)
             {
-                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar la Eliminación de la Parte '"+ ItemEntidad.Codigo + "', Esta Acción es Irreversible.",
+                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar la Eliminación de la Parte '" + ItemEntidad.Codigo + "', Esta Acción es Irreversible.",
                                            "Eliminacion de Registro",
                                            MessageBoxButtons.OKCancel,
                                            MessageBoxIcon.Question,

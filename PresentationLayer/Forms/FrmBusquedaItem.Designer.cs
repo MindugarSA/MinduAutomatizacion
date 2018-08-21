@@ -65,6 +65,7 @@
             this.label35 = new System.Windows.Forms.Label();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.txtDescripcionC = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label45 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -204,6 +205,7 @@
             this.groupBox1.Controls.Add(this.label35);
             this.groupBox1.Controls.Add(this.dgvListaItems);
             this.groupBox1.Controls.Add(this.txtDescripcionC);
+            this.groupBox1.Controls.Add(this.label45);
             this.groupBox1.Location = new System.Drawing.Point(22, 43);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1111, 590);
@@ -726,6 +728,15 @@
             this.txtDescripcionC.UseSystemPasswordChar = false;
             this.txtDescripcionC.WordWrap = true;
             // 
+            // label45
+            // 
+            this.label45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label45.BackColor = System.Drawing.Color.LightGray;
+            this.label45.Location = new System.Drawing.Point(716, 404);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(236, 176);
+            this.label45.TabIndex = 150;
+            // 
             // FrmBusquedaItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -788,5 +799,6 @@
         private MaterialSkin.Controls.MaterialSingleLineTextField txtBusqueda;
         private MetroFramework.Controls.MetroComboBox cmbTipo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label45;
     }
 }

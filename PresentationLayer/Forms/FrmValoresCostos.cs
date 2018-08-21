@@ -232,8 +232,10 @@ namespace PresentationLayer
             labelNoMouse1.Text = "Actualizar";
             btnNuevo.Enabled = true;
 
+            var Tipo = Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
             cmbTipo.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
-            cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            //cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            cmbUnidad.SelectedValue = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
             txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
             materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
             txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
