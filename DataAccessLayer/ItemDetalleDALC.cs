@@ -24,7 +24,7 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
-                List<SP_GetItemDetalleID_Result1> result = db.SP_GetItemDetalleID(IdItem).ToList();
+                List<SP_GetItemDetalleID_Result> result = db.SP_GetItemDetalleID(IdItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
             }

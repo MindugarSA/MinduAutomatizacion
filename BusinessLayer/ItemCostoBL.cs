@@ -42,6 +42,13 @@ namespace BusinessLayer
             }
         }
 
+        public static void UpdateItemCostosID(int CostoID)
+        {
+            ItemCostoDALC obj = new ItemCostoDALC();
+
+            obj.UpdateItemCostoID(CostoID);
+        }
+
         public static void DeleteItemCostos(List<ItemCosto> ListaIC)
         {
             ItemCostoDALC obj = new ItemCostoDALC();

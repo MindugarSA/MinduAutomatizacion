@@ -571,6 +571,8 @@
             this.dgvDetalleItem.Size = new System.Drawing.Size(890, 240);
             this.dgvDetalleItem.TabIndex = 94;
             this.toolTip1.SetToolTip(this.dgvDetalleItem, "Piezas / Kit que Componen el Kit");
+            this.dgvDetalleItem.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgvDetalleItemAmp_CellBeginEdit);
+            this.dgvDetalleItem.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleItemAmp_CellEndEdit);
             this.dgvDetalleItem.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetalleItem_CellMouseDoubleClick);
             this.dgvDetalleItem.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dgvItemDetalleValidar_EditingControlShowing);
             this.dgvDetalleItem.SelectionChanged += new System.EventHandler(this.dgvDetalleItemAmp_SelectionChanged);
@@ -1389,6 +1391,7 @@
             this.metroTab1.Size = new System.Drawing.Size(927, 678);
             this.metroTab1.TabIndex = 0;
             this.metroTab1.UseSelectable = true;
+            this.metroTab1.SelectedIndexChanged += new System.EventHandler(this.metroTab1_SelectedIndexChanged);
             // 
             // metroTabPage1
             // 

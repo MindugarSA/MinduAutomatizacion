@@ -74,6 +74,10 @@ namespace PresentationLayer
                     }
                     break;
                 case 3:
+                    dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
+                    NumericColumns.Add(3);
+                    break;
+                case 4:
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(4);
                     break;
@@ -169,5 +173,7 @@ namespace PresentationLayer
         private void dgvListado_BindingContextChanged(object sender, EventArgs e)
         {
         }
+
+
     }
 }

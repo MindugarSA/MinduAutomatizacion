@@ -11,7 +11,8 @@ namespace Entities
 {
     using System;
     using System.Collections.Generic;
-    
+
+    [Serializable]
     public partial class Item
     {
         public int Id { get; set; }
@@ -39,5 +40,6 @@ namespace Entities
         public string UsuarioMod { get; set; }
         public string TipoPieza { get; set; }
         public Nullable<int> Estatus { get; set; }
+        public Nullable<int> Autorizado { get; set; }
     }
 }

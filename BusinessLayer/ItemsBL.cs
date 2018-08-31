@@ -64,6 +64,18 @@ namespace BusinessLayer
             return obj.ListadoItemsTipoCostoFactor(TipoItem);
         }
 
+        public static DataTable ListadoItemsTipoCostoFactorRES(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsTipoCostoFactorRES(TipoItem);
+        }
+
+        public static DataTable ListadoItemsAutorizacion()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.ListadoItemsAutorizacion();
+        }
+
         public static Item InsertItem(Item ObjItem)
         {
             ItemsDALC obj = new ItemsDALC();
@@ -75,6 +87,13 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.UpdateItem(ObjItem);
         }
+
+        public static void UpdateItemCostoTotalRelacionados(int ItemID)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            obj.UpdateItemCostoTotalRelacionados(ItemID);
+        }
+
         public static Item DeleteItem(Item ObjItem)
         {
             ItemsDALC obj = new ItemsDALC();

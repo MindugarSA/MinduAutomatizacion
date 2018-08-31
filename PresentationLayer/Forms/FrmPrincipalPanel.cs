@@ -356,5 +356,11 @@ namespace PresentationLayer
             FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
             AbrirFormulario(FrmReportes, 0, 0);
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            FrmAprobacion FrmAutorizacion = new FrmAprobacion(this);
+            AbrirFormulario(FrmAutorizacion, 0, 0);
+        }
     }
 }

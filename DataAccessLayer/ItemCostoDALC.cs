@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,23 @@ namespace DataAccessLayer
                 {
                     EntityExceptionError.CatchError(ex);
                 }
+            }
+        }
+
+        public void UpdateItemCostoID(int CostoID)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+
+                var cmd = db.Database.Connection.CreateCommand();
+                cmd.CommandText = "[dbo].[SP_ActualizarCostosItems]";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@IdCosto", CostoID));
+
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+
             }
         }
 

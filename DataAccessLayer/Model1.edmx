@@ -54,6 +54,7 @@
           <Property Name="UsuarioMod" Type="nvarchar" MaxLength="50" />
           <Property Name="TipoPieza" Type="nchar" MaxLength="10" />
           <Property Name="Estatus" Type="int" />
+          <Property Name="Autorizado" Type="int" />
         </EntityType>
         <EntityType Name="ItemCosto">
           <Key>
@@ -126,6 +127,9 @@
         <Function Name="SP_ActualizarCostosItems" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="IdCosto" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_ActualizarCostosItemsKitProduto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="IdItemDet" Type="int" Mode="In" />
+        </Function>
         <Function Name="SP_GetItemBusqueda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
@@ -138,6 +142,7 @@
         <Function Name="SP_GetItemDetalleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_ListadoItemAutorizaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemsCostosDetallado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemsCostosResumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemsResumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -197,14 +202,8 @@
           <FunctionImport Name="SP_GetItemCostoID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemCostoID_Result)">
           <Parameter Name="id_Item" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="SP_GetItemDetalleID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result1)">
-          <Parameter Name="id_Item" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="sysdiagrams" EntityType="DB_AUTOMATIZACIONModel.sysdiagrams" />
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
-          <FunctionImport Name="SP_GetItemBusqueda" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result)">
-          <Parameter Name="id_Item" Mode="In" Type="Int32" />
-          </FunctionImport>
           <FunctionImport Name="SP_VerifyUserPass" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_VerifyUserPass_Result)">
             <Parameter Name="Rut" Mode="In" Type="String" />
             <Parameter Name="Pass" Mode="In" Type="String" />
@@ -222,8 +221,18 @@
           <Parameter Name="TipoItem" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_ListadoItemTipoCostoFactorRES" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_ListadoItemTipoCostoFactorRES_Result)">
-            <Parameter Name="TipoItem" Mode="In" Type="String" />
+          <Parameter Name="TipoItem" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="SP_GetItemBusqueda" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result)">
+          <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetItemDetalleID" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result)">
+          <Parameter Name="id_Item" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ActualizarCostosItemsKitProduto">
+          <Parameter Name="IdItemDet" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SP_ListadoItemAutorizaciones" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_ListadoItemAutorizaciones_Result)" />
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -297,34 +306,6 @@
           <Property Type="Decimal" Name="Total" Nullable="false" Precision="20" Scale="5" />
           <Property Type="Int32" Name="Id" Nullable="false" />
         </ComplexType>
-        <ComplexType Name="SP_GetItemDetalleID_Result">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="IdItem" Nullable="true" />
-          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
-          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
-          <Property Type="String" Name="Codigo1" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Descripcion1" Nullable="true" MaxLength="250" />
-          <Property Type="Int32" Name="Linea" Nullable="true" />
-          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
-        </ComplexType>
-        <ComplexType Name="SP_GetItemDetalleID_Result1">
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Int32" Name="IdC" Nullable="true" />
-          <Property Type="String" Name="CodigoC" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="DescripcionC" Nullable="true" MaxLength="250" />
-          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
-          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
-          <Property Type="Int32" Name="Linea" Nullable="true" />
-          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="25" Scale="5" />
-          <Property Type="Decimal" Name="Total" Nullable="true" Precision="25" Scale="5" />
-          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
-          <Property Type="Binary" Name="Imagen" Nullable="true" />
-        </ComplexType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -364,20 +345,8 @@
           <Property Name="UsuarioMod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="TipoPieza" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Estatus" Type="Int32" />
+          <Property Name="Autorizado" Type="Int32" />
         </EntityType>
-        <ComplexType Name="SP_GetItemBusqueda_Result">
-          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
-          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
-          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
-          <Property Type="Decimal" Name="Espesor" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Decimal" Name="Ancho" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Decimal" Name="Largo" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Decimal" Name="Diametro" Nullable="true" Precision="18" Scale="4" />
-          <Property Type="Int32" Name="OI" Nullable="false" />
-          <Property Type="Int32" Name="Id" Nullable="false" />
-          <Property Type="Binary" Name="Imagen" Nullable="true" />
-        </ComplexType>
         <ComplexType Name="SP_VerifyUserPass_Result">
         <Property Type="Int32" Name="IdUsuario" Nullable="false" />
           <Property Type="String" Name="Nombre" Nullable="false" MaxLength="100" />
@@ -451,6 +420,44 @@
           <Property Type="String" Name="Familia" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
           <Property Type="Decimal" Name="Directo___Factor" Nullable="true" Precision="23" Scale="7" />
+        </ComplexType>
+        <ComplexType Name="SP_GetItemBusqueda_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Espesor" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Ancho" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Largo" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Diametro" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="OI" Nullable="false" />
+          <Property Type="Binary" Name="Imagen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_GetItemDetalleID_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="IdC" Nullable="true" />
+          <Property Type="String" Name="CodigoC" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DescripcionC" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="IdDetalle" Nullable="true" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Linea" Nullable="true" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="60" />
+          <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoUnitario" Nullable="true" Precision="23" Scale="7" />
+          <Property Type="Decimal" Name="Total" Nullable="true" Precision="38" Scale="7" />
+          <Property Type="Binary" Name="Imagen" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="SP_ListadoItemAutorizaciones_Result">
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Familia" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="Costo_Mano_Obra" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Costo_Partes_Kit" Nullable="false" Precision="38" Scale="6" />
+          <Property Type="Decimal" Name="Costo_Directo" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="Autorizado" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -560,25 +567,6 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SP_GetItemDetalleID" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemDetalleID">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result1">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="IdC" ColumnName="IdC" />
-                <ScalarProperty Name="CodigoC" ColumnName="CodigoC" />
-                <ScalarProperty Name="DescripcionC" ColumnName="DescripcionC" />
-                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Linea" ColumnName="Linea" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
-                <ScalarProperty Name="Total" ColumnName="Total" />
-                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
-                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
@@ -593,6 +581,7 @@
           <EntitySetMapping Name="Item">
             <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Item">
               <MappingFragment StoreEntitySet="Item">
+                <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
                 <ScalarProperty Name="Estatus" ColumnName="Estatus" />
                 <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
                 <ScalarProperty Name="UsuarioMod" ColumnName="UsuarioMod" />
@@ -621,23 +610,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="SP_GetItemBusqueda" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemBusqueda">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result">
-                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
-                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
-                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
-                <ScalarProperty Name="Largo" ColumnName="Largo" />
-                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
-                <ScalarProperty Name="OI" ColumnName="OI" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="SP_VerifyUserPass" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_VerifyUserPass" >
             <ResultMapping>
               <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_VerifyUserPass_Result">
@@ -735,6 +707,57 @@
                 <ScalarProperty Name="Familia" ColumnName="Familia" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Directo___Factor" ColumnName="Directo + Factor" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemBusqueda" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemBusqueda">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemBusqueda_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="OI" ColumnName="OI" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemDetalleID" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemDetalleID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemDetalleID_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdC" ColumnName="IdC" />
+                <ScalarProperty Name="CodigoC" ColumnName="CodigoC" />
+                <ScalarProperty Name="DescripcionC" ColumnName="DescripcionC" />
+                <ScalarProperty Name="IdDetalle" ColumnName="IdDetalle" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Linea" ColumnName="Linea" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="CostoUnitario" ColumnName="CostoUnitario" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_ActualizarCostosItemsKitProduto" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_ActualizarCostosItemsKitProduto" />
+          <FunctionImportMapping FunctionImportName="SP_ListadoItemAutorizaciones" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_ListadoItemAutorizaciones">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_ListadoItemAutorizaciones_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Costo_Mano_Obra" ColumnName="Costo Mano Obra" />
+                <ScalarProperty Name="Costo_Partes_Kit" ColumnName="Costo Partes/Kit" />
+                <ScalarProperty Name="Costo_Directo" ColumnName="Costo Directo" />
+                <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

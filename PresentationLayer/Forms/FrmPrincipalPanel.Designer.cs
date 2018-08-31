@@ -29,15 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalPanel));
             this.pnlMenu = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.button10 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -46,6 +43,16 @@
             this.panel8 = new System.Windows.Forms.Panel();
             this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.button11 = new System.Windows.Forms.Button();
+            this.panel16 = new System.Windows.Forms.Panel();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.button3 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -66,20 +73,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.button11 = new System.Windows.Forms.Button();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel4.SuspendLayout();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlMenu
@@ -87,13 +89,13 @@
             this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMenu.BackColor = System.Drawing.Color.DimGray;
+            this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel12);
             this.pnlMenu.Controls.Add(this.button6);
             this.pnlMenu.Controls.Add(this.panel11);
             this.pnlMenu.Controls.Add(this.pictureBox5);
             this.pnlMenu.Controls.Add(this.button5);
             this.pnlMenu.Controls.Add(this.panel3);
-            this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel6);
             this.pnlMenu.Controls.Add(this.button3);
             this.pnlMenu.Controls.Add(this.panel7);
@@ -108,80 +110,10 @@
             this.pnlMenu.Size = new System.Drawing.Size(203, 673);
             this.pnlMenu.TabIndex = 1;
             // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.Color.Transparent;
-            this.BunifuTransition1.SetDecoration(this.button6, BunifuAnimatorNS.DecorationType.None);
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Image = global::PresentationLayer.Properties.Resources.document_with_folded_corner;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(12, 331);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(189, 35);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "  Reportes";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click_1);
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.BunifuTransition1.SetDecoration(this.panel11, BunifuAnimatorNS.DecorationType.None);
-            this.panel11.Location = new System.Drawing.Point(2, 331);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(9, 35);
-            this.panel11.TabIndex = 15;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.clock_padlock;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BunifuTransition1.SetDecoration(this.pictureBox5, BunifuAnimatorNS.DecorationType.None);
-            this.pictureBox5.Location = new System.Drawing.Point(6, 625);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
-            this.pictureBox5.TabIndex = 13;
-            this.pictureBox5.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox5, "Bloquear Sistema");
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.BunifuTransition1.SetDecoration(this.button5, BunifuAnimatorNS.DecorationType.None);
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Image = global::PresentationLayer.Properties.Resources.tetris;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(10, 277);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(189, 35);
-            this.button5.TabIndex = 11;
-            this.button5.Text = "   Producto";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_ClickAsync);
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.BunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(0, 277);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(9, 35);
-            this.panel3.TabIndex = 12;
-            // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.panel13);
+            this.panel4.Controls.Add(this.button10);
             this.panel4.Controls.Add(this.panel2);
             this.panel4.Controls.Add(this.button4);
             this.panel4.Controls.Add(this.panel9);
@@ -193,8 +125,36 @@
             this.BunifuTransition1.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
             this.panel4.Location = new System.Drawing.Point(90, 382);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 177);
+            this.panel4.Size = new System.Drawing.Size(200, 223);
             this.panel4.TabIndex = 10;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel13, BunifuAnimatorNS.DecorationType.None);
+            this.panel13.Location = new System.Drawing.Point(36, 177);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(9, 35);
+            this.panel13.TabIndex = 14;
+            // 
+            // button10
+            // 
+            this.button10.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button10, BunifuAnimatorNS.DecorationType.None);
+            this.button10.FlatAppearance.BorderSize = 0;
+            this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button10.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button10.ForeColor = System.Drawing.Color.White;
+            this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.Location = new System.Drawing.Point(46, 177);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(121, 35);
+            this.button10.TabIndex = 13;
+            this.button10.Text = "Autorizaciones";
+            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button10.UseVisualStyleBackColor = false;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // panel2
             // 
@@ -308,6 +268,144 @@
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.panel15);
+            this.panel12.Controls.Add(this.button11);
+            this.panel12.Controls.Add(this.panel16);
+            this.panel12.Controls.Add(this.button12);
+            this.BunifuTransition1.SetDecoration(this.panel12, BunifuAnimatorNS.DecorationType.None);
+            this.panel12.Location = new System.Drawing.Point(12, 411);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(197, 95);
+            this.panel12.TabIndex = 13;
+            // 
+            // panel15
+            // 
+            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel15, BunifuAnimatorNS.DecorationType.None);
+            this.panel15.Location = new System.Drawing.Point(36, 8);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(9, 35);
+            this.panel15.TabIndex = 8;
+            // 
+            // button11
+            // 
+            this.button11.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button11, BunifuAnimatorNS.DecorationType.None);
+            this.button11.FlatAppearance.BorderSize = 0;
+            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button11.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button11.ForeColor = System.Drawing.Color.White;
+            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.Location = new System.Drawing.Point(46, 50);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(121, 35);
+            this.button11.TabIndex = 3;
+            this.button11.Text = "Recetas";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.UseVisualStyleBackColor = false;
+            // 
+            // panel16
+            // 
+            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel16, BunifuAnimatorNS.DecorationType.None);
+            this.panel16.Location = new System.Drawing.Point(36, 50);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(9, 35);
+            this.panel16.TabIndex = 9;
+            // 
+            // button12
+            // 
+            this.button12.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button12, BunifuAnimatorNS.DecorationType.None);
+            this.button12.FlatAppearance.BorderSize = 0;
+            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button12.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button12.ForeColor = System.Drawing.Color.White;
+            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.Location = new System.Drawing.Point(46, 8);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(121, 35);
+            this.button12.TabIndex = 0;
+            this.button12.Text = "Listados Excel";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button6, BunifuAnimatorNS.DecorationType.None);
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.White;
+            this.button6.Image = global::PresentationLayer.Properties.Resources.document_with_folded_corner;
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(12, 331);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(189, 35);
+            this.button6.TabIndex = 14;
+            this.button6.Text = "  Reportes";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click_1);
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel11, BunifuAnimatorNS.DecorationType.None);
+            this.panel11.Location = new System.Drawing.Point(2, 331);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(9, 35);
+            this.panel11.TabIndex = 15;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox5.BackgroundImage = global::PresentationLayer.Properties.Resources.clock_padlock;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BunifuTransition1.SetDecoration(this.pictureBox5, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox5.Location = new System.Drawing.Point(6, 625);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox5.TabIndex = 13;
+            this.pictureBox5.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox5, "Bloquear Sistema");
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button5, BunifuAnimatorNS.DecorationType.None);
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.Color.White;
+            this.button5.Image = global::PresentationLayer.Properties.Resources.tetris;
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(10, 277);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(189, 35);
+            this.button5.TabIndex = 11;
+            this.button5.Text = "   Producto";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_ClickAsync);
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
+            this.panel3.Location = new System.Drawing.Point(0, 277);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(9, 35);
+            this.panel3.TabIndex = 12;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
@@ -412,7 +510,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(189, 35);
             this.button1.TabIndex = 0;
-            this.button1.Text = "      Configuracion";
+            this.button1.Text = "    Gestion";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -515,22 +613,22 @@
             // 
             this.BunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.BunifuTransition1.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.BunifuTransition1.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.BunifuTransition1.DefaultAnimation = animation1;
             this.BunifuTransition1.Interval = 40;
             this.BunifuTransition1.MaxAnimationTime = 3000;
             // 
@@ -562,72 +660,6 @@
             this.formHeader1.Size = new System.Drawing.Size(1174, 30);
             this.formHeader1.TabIndex = 5;
             // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.panel15);
-            this.panel12.Controls.Add(this.button11);
-            this.panel12.Controls.Add(this.panel16);
-            this.panel12.Controls.Add(this.button12);
-            this.BunifuTransition1.SetDecoration(this.panel12, BunifuAnimatorNS.DecorationType.None);
-            this.panel12.Location = new System.Drawing.Point(90, 564);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(197, 95);
-            this.panel12.TabIndex = 13;
-            // 
-            // panel15
-            // 
-            this.panel15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.BunifuTransition1.SetDecoration(this.panel15, BunifuAnimatorNS.DecorationType.None);
-            this.panel15.Location = new System.Drawing.Point(36, 8);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(9, 35);
-            this.panel15.TabIndex = 8;
-            // 
-            // button11
-            // 
-            this.button11.BackColor = System.Drawing.Color.Transparent;
-            this.BunifuTransition1.SetDecoration(this.button11, BunifuAnimatorNS.DecorationType.None);
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.Location = new System.Drawing.Point(46, 50);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(121, 35);
-            this.button11.TabIndex = 3;
-            this.button11.Text = "Recetas";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = false;
-            // 
-            // panel16
-            // 
-            this.panel16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.BunifuTransition1.SetDecoration(this.panel16, BunifuAnimatorNS.DecorationType.None);
-            this.panel16.Location = new System.Drawing.Point(36, 50);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(9, 35);
-            this.panel16.TabIndex = 9;
-            // 
-            // button12
-            // 
-            this.button12.BackColor = System.Drawing.Color.Transparent;
-            this.BunifuTransition1.SetDecoration(this.button12, BunifuAnimatorNS.DecorationType.None);
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.Location = new System.Drawing.Point(46, 8);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(121, 35);
-            this.button12.TabIndex = 0;
-            this.button12.Text = "Listados Excel";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = false;
-            // 
             // FrmPrincipalPanel
             // 
             this.AllowDrop = true;
@@ -652,15 +684,15 @@
             this.Shown += new System.EventHandler(this.FrmPrincipalPanel_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPrincipalPanel_DragEnter);
             this.pnlMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel4.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.panel12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -707,5 +739,7 @@
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button button10;
     }
 }

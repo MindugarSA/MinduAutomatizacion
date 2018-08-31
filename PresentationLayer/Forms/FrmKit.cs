@@ -24,6 +24,7 @@ namespace PresentationLayer.Forms
         public int IdIetmSearch { get; set; }
 
         Item ItemEntidad = new Item();
+        Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         ItemDetalle ItemDetalleEntidad = new ItemDetalle();
@@ -233,7 +234,7 @@ namespace PresentationLayer.Forms
                                            Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
                 }
             }
-            catch {}
+            catch { }
         }
 
         private void TxtValidar_KeyPress(object sender, KeyPressEventArgs e)
@@ -298,8 +299,8 @@ namespace PresentationLayer.Forms
                 CargarDatosItem(ItemId);
                 CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
             }
-            catch {}
-            
+            catch { }
+
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
@@ -410,6 +411,7 @@ namespace PresentationLayer.Forms
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
+                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
                         CargarEntidadItemDetalle(ItemEntidad);
                         List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
@@ -663,7 +665,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9 ,17};
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -775,6 +777,7 @@ namespace PresentationLayer.Forms
         {
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
+            ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
             CodigoInicial = ItemEntidad.Codigo;
             EnlazarCampos();
             metroTab1.SelectedIndex = 0;
@@ -877,8 +880,11 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
             ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
             ItemEntidad.CostoAC = 0;
+
             if (pictureBox1.BackgroundImage != null) ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+            ItemEntidad.Autorizado = 1;
+
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
         }
@@ -1028,7 +1034,7 @@ namespace PresentationLayer.Forms
 
         private void CargarCamposItemDetalle(Item ItemConsulta)
         {
-            double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) * 
+            double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
                             (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
 
             txtCodigoC.Text = ItemConsulta.Codigo;
@@ -1060,7 +1066,7 @@ namespace PresentationLayer.Forms
             txtDiametroK.Text = ItemConsulta.Diametro.ToString();
             txtVolumenK.Text = ItemConsulta.Volumen.ToString();
             txtPesoK.Text = ItemConsulta.Peso.ToString();
-            txtCostoTotalK.Text = CostoC.ToString() ;//ItemConsulta.CostoTotal.ToString();
+            txtCostoTotalK.Text = CostoC.ToString();//ItemConsulta.CostoTotal.ToString();
             pictureBox15.BackgroundImage = null;
             if (ItemConsulta.Imagen != null)
                 pictureBox15.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
@@ -1331,7 +1337,7 @@ namespace PresentationLayer.Forms
                         catch { }
                 }
             }
-            catch {}
+            catch { }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -1385,8 +1391,8 @@ namespace PresentationLayer.Forms
                 FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
                 FrmDetalle.Show();
             }
-            catch {}
-           
+            catch { }
+
         }
 
         private void dgvDetalleItem_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1477,7 +1483,7 @@ namespace PresentationLayer.Forms
         private void txtBuscarKit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
-                pictureBox14_Click(pictureBox14,null);
+                pictureBox14_Click(pictureBox14, null);
         }
 
         private void contextMenuStrip1_Opening_1(object sender, CancelEventArgs e)
@@ -1545,6 +1551,40 @@ namespace PresentationLayer.Forms
             Formato.SetParameterValue("@Item", ItemCode);
             FrmReportes formReportes = new FrmReportes(Formato);
             formReportes.ShowDialog();
+        }
+
+        private void metroTab1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (metroTab1.SelectedIndex)
+                {
+                    case 3:
+                        if (ItemEntidadInicial.Codigo.Trim().Length > 0)
+                        {
+                            CargarEntidadItem();
+                            ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
+                            ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            {
+                                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "El Kit '" + ItemEntidad.Codigo + "', Presenta Modificaciones.¿Desea Registrar los Cambios?",
+                                           "Modificacion de Registro",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+                                {
+                                    materialFlatButton1.PerformClick();
+                                    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception){}
+           
         }
     }
 }

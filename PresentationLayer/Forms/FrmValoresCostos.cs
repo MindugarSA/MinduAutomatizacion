@@ -147,6 +147,7 @@ namespace PresentationLayer
                         Cost.Id = Convert.ToInt32(dataGridView1[1, dataGridView1.CurrentRow.Index].Value);
                         lcosto.Add(Cost);
                         CostosBL.UpdateCostos(lcosto);
+                        ItemCostoBL.UpdateItemCostosID(Cost.Id);
 
                         int nRow = dataGridView1.CurrentRow.Index;
                         CargarGridCostos();

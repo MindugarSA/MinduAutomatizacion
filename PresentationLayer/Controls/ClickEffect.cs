@@ -57,12 +57,17 @@ namespace PresentationLayer
         /// </summary>
         private void  RegisterControl()
         {
-            // Subscribe paint Event in order to show bubble
-            _ClickControl.Paint += new PaintEventHandler(control_Paint);
-            //_ClickControl.MouseMove += new MouseEventHandler(_ClickControl_MouseMove);
-            // subscribe the click event
-            _ClickControl.Click += new EventHandler(control_Click);
-            SetDoubleBuffered(_ClickControl);
+            try
+            {
+                // Subscribe paint Event in order to show bubble
+                _ClickControl.Paint += new PaintEventHandler(control_Paint);
+                //_ClickControl.MouseMove += new MouseEventHandler(_ClickControl_MouseMove);
+                // subscribe the click event
+                _ClickControl.Click += new EventHandler(control_Click);
+                SetDoubleBuffered(_ClickControl);
+            }
+            catch {}
+           
         }
 
         

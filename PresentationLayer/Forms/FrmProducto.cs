@@ -22,6 +22,7 @@ namespace PresentationLayer.Forms
         private const int cCaption = 32;
 
         Item ItemEntidad = new Item();
+        Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         ItemDetalle ItemDetalleEntidad = new ItemDetalle();
@@ -71,6 +72,7 @@ namespace PresentationLayer.Forms
             txtCodigo.Select();
             metroTabPage1.Select();
             formPrincipal.VisualizarLabel(false);
+            CambioGrid = false;
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -222,6 +224,7 @@ namespace PresentationLayer.Forms
                 textBox1.Text = txtTotCosPiezas.Text;
                 txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                        Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+                CambioGrid = true;
             }
         }
 
@@ -293,8 +296,10 @@ namespace PresentationLayer.Forms
         private void materialFlatButton4_Click(object sender, EventArgs e)
         {
             int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+            CambioGrid = false;
             CargarDatosItem(ItemId);
             CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
+            ItemEntidadInicial.CostoTotal = ItemEntidad.CostoTotal;
         }
 
         private void txtValidar_TextChanged(object sender, EventArgs e)
@@ -395,9 +400,12 @@ namespace PresentationLayer.Forms
                         labelNoMouse1.Text = "Actualizar";
                         panel3.Visible = true;
                         MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Registrado", Color.FromArgb(129, 152, 48));
+                        lblAutoriz.Text = "No Autorizado";
+                        lblAutoriz.ForeColor = Color.Red;
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
+                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
                         CargarEntidadItemDetalle(ItemEntidad);
                         List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
@@ -761,6 +769,7 @@ namespace PresentationLayer.Forms
         {
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
+            ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
             CodigoInicial = ItemEntidad.Codigo;
             EnlazarCampos();
             metroTab1.SelectedIndex = 0;
@@ -801,6 +810,17 @@ namespace PresentationLayer.Forms
 
             if (ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
 
+            if (ItemEntidad.Autorizado == 1)
+            {
+                lblAutoriz.Text = "Autorizado";
+                lblAutoriz.ForeColor = Color.ForestGreen;
+            }
+            else
+            {
+                lblAutoriz.Text = "No Autorizado";
+                lblAutoriz.ForeColor = Color.Red;
+            }
+
         }
 
         private void LimpiarCamposItem()
@@ -827,8 +847,7 @@ namespace PresentationLayer.Forms
             metroComboBox2.SelectedIndex = -1;
             metroComboBox4.SelectedIndex = -1;
             materialCheckBox1.Checked = true;
-
-
+            lblAutoriz.Text = "";
         }
 
         private void LimpiarCamposItemDetalle()
@@ -867,6 +886,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoAC = 0;
             if (pictureBox1.BackgroundImage != null) ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+            ItemEntidad.Autorizado = 0;
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
         }
@@ -1083,6 +1103,7 @@ namespace PresentationLayer.Forms
         private Rectangle sizeGripRectangle;
         private int currentMouseOverRow;
         private int currentMouseOverCol;
+        private bool CambioGrid;
 
         protected override void WndProc(ref Message m)
         {
@@ -1507,5 +1528,39 @@ namespace PresentationLayer.Forms
             formReportes.ShowDialog();
         }
 
+        private void metroTab1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (metroTab1.SelectedIndex)
+                {
+                    case 3:
+                        if (ItemEntidadInicial.Codigo.Trim().Length > 0)
+                        {
+                            CargarEntidadItem();
+                            ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
+                            ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
+                            ItemEntidadInicial.CostoTotal = ItemEntidad.CostoTotal;
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            {
+                                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "El Producto '" + ItemEntidad.Codigo + "', Presenta Modificaciones.¿Desea Registrar los Cambios?",
+                                           "Modificacion de Registro",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+                                {
+                                    materialFlatButton1.PerformClick();
+                                    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+                                    CambioGrid = false;
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception) { }
+        }
     }
 }

@@ -47,24 +47,6 @@ namespace Entities
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemCostoID_Result>("SP_GetItemCostoID", id_ItemParameter);
         }
     
-        public virtual ObjectResult<SP_GetItemDetalleID_Result1> SP_GetItemDetalleID(Nullable<int> id_Item)
-        {
-            var id_ItemParameter = id_Item.HasValue ?
-                new ObjectParameter("id_Item", id_Item) :
-                new ObjectParameter("id_Item", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDetalleID_Result1>("SP_GetItemDetalleID", id_ItemParameter);
-        }
-    
-        public virtual ObjectResult<SP_GetItemBusqueda_Result> SP_GetItemBusqueda(Nullable<int> id_Item)
-        {
-            var id_ItemParameter = id_Item.HasValue ?
-                new ObjectParameter("id_Item", id_Item) :
-                new ObjectParameter("id_Item", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemBusqueda_Result>("SP_GetItemBusqueda", id_ItemParameter);
-        }
-    
         public virtual ObjectResult<SP_VerifyUserPass_Result> SP_VerifyUserPass(string rut, string pass)
         {
             var rutParameter = rut != null ?
@@ -127,6 +109,38 @@ namespace Entities
                 new ObjectParameter("TipoItem", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemTipoCostoFactorRES_Result>("SP_ListadoItemTipoCostoFactorRES", tipoItemParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetItemBusqueda_Result> SP_GetItemBusqueda(Nullable<int> id_Item)
+        {
+            var id_ItemParameter = id_Item.HasValue ?
+                new ObjectParameter("id_Item", id_Item) :
+                new ObjectParameter("id_Item", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemBusqueda_Result>("SP_GetItemBusqueda", id_ItemParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetItemDetalleID_Result> SP_GetItemDetalleID(Nullable<int> id_Item)
+        {
+            var id_ItemParameter = id_Item.HasValue ?
+                new ObjectParameter("id_Item", id_Item) :
+                new ObjectParameter("id_Item", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDetalleID_Result>("SP_GetItemDetalleID", id_ItemParameter);
+        }
+    
+        public virtual int SP_ActualizarCostosItemsKitProduto(Nullable<int> idItemDet)
+        {
+            var idItemDetParameter = idItemDet.HasValue ?
+                new ObjectParameter("IdItemDet", idItemDet) :
+                new ObjectParameter("IdItemDet", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ActualizarCostosItemsKitProduto", idItemDetParameter);
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemAutorizaciones_Result> SP_ListadoItemAutorizaciones()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemAutorizaciones_Result>("SP_ListadoItemAutorizaciones");
         }
     }
 }

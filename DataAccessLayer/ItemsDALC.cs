@@ -111,6 +111,26 @@ namespace DataAccessLayer
             }
         }
 
+        public DataTable ListadoItemsTipoCostoFactorRES(string TipoItem)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                List<SP_ListadoItemTipoCostoFactorRES_Result> result = db.SP_ListadoItemTipoCostoFactorRES(TipoItem).ToList();
+
+                return new DataTable().ListToDataTable(result);
+            }
+        }
+
+        public DataTable ListadoItemsAutorizacion()
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                List<SP_ListadoItemAutorizaciones_Result> result = db.SP_ListadoItemAutorizaciones().ToList();
+
+                return new DataTable().ListToDataTable(result);
+            }
+        }
+
         public Item InsertItem(Item Obj)
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
@@ -136,7 +156,7 @@ namespace DataAccessLayer
                 {
                     Item Entidad = (from n in db.Item
                                     where n.Id == Obj.Id
-                                       select n).FirstOrDefault();
+                                    select n).FirstOrDefault();
                     db.Entry(Entidad).CurrentValues.SetValues(Obj);
                     db.SaveChanges();
                 }
@@ -145,6 +165,23 @@ namespace DataAccessLayer
                     EntityExceptionError.CatchError(ex);
                 }
                 return Obj;
+            }
+        }
+
+        public void UpdateItemCostoTotalRelacionados(int ItemID)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+
+                var cmd = db.Database.Connection.CreateCommand();
+                cmd.CommandText = "[dbo].[SP_ActualizarCostosItemsKitProduto]";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@IdItemDet", ItemID));
+
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+
             }
         }
 

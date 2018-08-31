@@ -22,6 +22,7 @@ namespace PresentationLayer.Forms
 
         public int IdIetmSearch { get; set; }
         Item ItemEntidad = new Item();
+        Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         private string CodigoInicial;
@@ -359,6 +360,7 @@ namespace PresentationLayer.Forms
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
+                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
                         CargarEntidadCosto(ItemEntidad);
                         List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
@@ -546,6 +548,7 @@ namespace PresentationLayer.Forms
         {
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
+            ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
             CodigoInicial = ItemEntidad.Codigo;
             EnlazarCampos();
             metroTabControl1.SelectedIndex = 0;
@@ -655,6 +658,8 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+            ItemEntidad.Autorizado = 1 ;
+
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
         }
@@ -1248,6 +1253,39 @@ namespace PresentationLayer.Forms
                                            MessageBoxIcon.Warning,
                                            370);
             }
+        }
+
+        private void metroTabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (metroTabControl1.SelectedIndex)
+                {
+                    case 3:
+                        if (ItemEntidadInicial.Codigo.Trim().Length > 0)
+                        {
+                            CargarEntidadItem();
+                            ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
+                            ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            {
+                                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                                if (MetroFramework.MetroMessageBox.Show(frmParentForm, "La Parte '" + ItemEntidad.Codigo + "', Presenta Modificaciones.¿Desea Registrar los Cambios?",
+                                           "Modificacion de Registro",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+                                {
+                                    materialFlatButton1.PerformClick();
+                                    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+                                }
+                            }
+                        }
+                        break;
+                }
+            }
+            catch (Exception) { }
         }
     }
 
