@@ -217,20 +217,24 @@ namespace PresentationLayer.Forms
 
         private void txtValidar_Leave(object sender, EventArgs e)
         {
-            bControlActive = false;
-            Control TxtActual = (Control)sender;
-            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
-                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
             try
             {
-                if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
+                bControlActive = false;
+                Control TxtActual = (Control)sender;
+                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
+                                       Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+                try
                 {
-                    string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
-                    if (Convert.ToDouble(txtPeso.Text) == 0 || txtPeso.Text.Trim() != CalcPeso.Trim())
-                        txtPeso.Text = CalcPeso;
+                    if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
+                    {
+                        string CalcPeso = Math.Round(((Convert.ToDouble(txtEspesor.Text) * Convert.ToDouble(txtAncho.Text) * Convert.ToDouble(txtLargo.Text)) * 0.000008), 2).ToString();
+                        if (Convert.ToDouble(txtPeso.Text) == 0 || txtPeso.Text.Trim() != CalcPeso.Trim())
+                            txtPeso.Text = CalcPeso;
+                    }
                 }
+                catch { }
             }
-            catch { }
+            catch {}
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -330,9 +334,13 @@ namespace PresentationLayer.Forms
             {
                 case 0:
                     nFactor = 1.409;
+                    lblUSD.Visible = false;
+                    txtCostoUSD.Visible = false;
                     break;
                 case 1:
                     nFactor = 1.857;
+                    lblUSD.Visible = true;
+                    txtCostoUSD.Visible = true;
                     break;
             }
 

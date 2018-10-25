@@ -195,5 +195,33 @@ namespace PresentationLayer.Forms
         {
             dgvDetalleItemAmp.CopyContentToClipboard();
         }
+
+        private void verParteKitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleItemAmp.Rows.Count > 0)
+            {
+                int IdDetalle = Convert.ToInt32(dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[4].Value);
+                string TipoPieza = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                if (IdDetalle > 0)
+                {
+                    if (TipoPieza.Trim() == "K")
+                    {
+                        FrmKit Frmkit = new FrmKit();
+                        Frmkit.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(Frmkit, 370, 230);
+
+                    }
+                    else
+                    {
+                        FrmParte FrmParte = new FrmParte();
+                        FrmParte.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(FrmParte, 370, 230);
+                    }
+
+                }
+            }
+        }
     }
 }

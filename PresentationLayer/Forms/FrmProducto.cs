@@ -1562,5 +1562,58 @@ namespace PresentationLayer.Forms
             }
             catch (Exception) { }
         }
+
+        private void dgvDetalleItem_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvDetalleItem.CurrentCell = dgvDetalleItem[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvDetalleItem.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void verParteKitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvDetalleItem.Rows.Count > 0)
+            {
+                int IdDetalle = Convert.ToInt32(dgvDetalleItem.Rows[dgvDetalleItem.CurrentCell.RowIndex].Cells[4].Value);
+                string TipoPieza = dgvDetalleItem.Rows[dgvDetalleItem.CurrentCell.RowIndex].Cells[8].Value.ToString();
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                if (IdDetalle > 0)
+                {
+                    if (TipoPieza.Trim() == "K")
+                    {
+                        FrmKit Frmkit = new FrmKit();
+                        Frmkit.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(Frmkit, 370, 230);
+
+                    }
+                    else
+                    {
+                        FrmParte FrmParte = new FrmParte();
+                        FrmParte.IdIetmSearch = IdDetalle;
+                        frmParentForm.AbrirFormulario(FrmParte, 370, 230);
+                    }
+                }
+            }
+        }
+
+        private void copiarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvDetalleItem[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void copiarTablaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            dgvDetalleItem.CopyContentToClipboard();
+        }
     }
 }

@@ -102,7 +102,7 @@ namespace PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FrmValoresCostos FrmCost = new FrmValoresCostos();
+            FrmValoresCostos FrmCost = new FrmValoresCostos("Costos");
             FrmCost.MdiParent = this;
             VisualizarLabel(true);
             FrmCost.StartPosition = FormStartPosition.Manual;

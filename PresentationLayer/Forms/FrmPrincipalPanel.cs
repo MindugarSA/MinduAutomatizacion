@@ -106,9 +106,15 @@ namespace PresentationLayer
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FrmValoresCostos FrmCost = new FrmValoresCostos();
+            FrmValoresCostos FrmCost = new FrmValoresCostos("Costos");
             AbrirFormulario(FrmCost, 360, 210);
 
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            FrmValoresCostos FrmCost = new FrmValoresCostos("Factores");
+            AbrirFormulario(FrmCost, 360, 210);
         }
 
         private async void button2_ClickAsync(object sender, EventArgs e)
@@ -362,5 +368,7 @@ namespace PresentationLayer
             FrmAprobacion FrmAutorizacion = new FrmAprobacion(this);
             AbrirFormulario(FrmAutorizacion, 0, 0);
         }
+
+
     }
 }

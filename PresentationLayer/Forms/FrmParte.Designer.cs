@@ -148,6 +148,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.formHeader1 = new PresentationLayer.FormHeader();
+            this.txtCostoUSD = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblUSD = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -321,6 +323,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.groupBox1.ContextMenuStrip = this.contextMenuStrip1;
+            this.groupBox1.Controls.Add(this.txtCostoUSD);
+            this.groupBox1.Controls.Add(this.lblUSD);
             this.groupBox1.Controls.Add(this.pictureBox16);
             this.groupBox1.Controls.Add(this.pictureBox6);
             this.groupBox1.Controls.Add(this.groupBox5);
@@ -1963,6 +1967,47 @@
             this.formHeader1.Size = new System.Drawing.Size(904, 44);
             this.formHeader1.TabIndex = 0;
             // 
+            // txtCostoUSD
+            // 
+            this.txtCostoUSD.AcceptsReturn = false;
+            this.txtCostoUSD.AcceptsTab = false;
+            this.txtCostoUSD.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCostoUSD.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCostoUSD.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCostoUSD.Depth = 0;
+            this.txtCostoUSD.Hint = "";
+            this.txtCostoUSD.Location = new System.Drawing.Point(668, 214);
+            this.txtCostoUSD.MaxLength = 32767;
+            this.txtCostoUSD.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtCostoUSD.Multiline = false;
+            this.txtCostoUSD.Name = "txtCostoUSD";
+            this.txtCostoUSD.PasswordChar = '\0';
+            this.txtCostoUSD.ReadOnly = false;
+            this.txtCostoUSD.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtCostoUSD.SelectedText = "";
+            this.txtCostoUSD.SelectionLength = 0;
+            this.txtCostoUSD.SelectionStart = 0;
+            this.txtCostoUSD.Size = new System.Drawing.Size(128, 23);
+            this.txtCostoUSD.TabIndex = 98;
+            this.txtCostoUSD.TabStop = false;
+            this.txtCostoUSD.Text = "0,00";
+            this.txtCostoUSD.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.toolTip1.SetToolTip(this.txtCostoUSD, "Costo desde el Proveedor");
+            this.txtCostoUSD.UseSystemPasswordChar = false;
+            this.txtCostoUSD.Visible = false;
+            this.txtCostoUSD.WordWrap = true;
+            // 
+            // lblUSD
+            // 
+            this.lblUSD.AutoSize = true;
+            this.lblUSD.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.lblUSD.Location = new System.Drawing.Point(577, 215);
+            this.lblUSD.Name = "lblUSD";
+            this.lblUSD.Size = new System.Drawing.Size(75, 20);
+            this.lblUSD.TabIndex = 99;
+            this.lblUSD.Text = "Costo USD";
+            this.lblUSD.Visible = false;
+            // 
             // FrmParte
             // 
             this.AllowDrop = true;
@@ -2136,5 +2181,7 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarRegistroToolStripMenuItem;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolStripMenuItem verDependientesToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtCostoUSD;
+        private System.Windows.Forms.Label lblUSD;
     }
 }

@@ -20,9 +20,11 @@ namespace PresentationLayer
         private const int cGrip = 16;
         private const int cCaption = 32;
         BindingList<Costos> CostosDataSource = new BindingList<Costos>();
+        private string TipoPantalla { get; set; }
 
-        public FrmValoresCostos()
+        public FrmValoresCostos(string pTipoPantalla)
         {
+            TipoPantalla = pTipoPantalla;
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
@@ -34,10 +36,23 @@ namespace PresentationLayer
 
         private void FrmValoresCostos_Load(object sender, EventArgs e)
         {
+            if (TipoPantalla == "Factores")
+            {
+                formHeader1.HeaderText = "Tasas / Factores";
+                cmbUnidad.Visible = false;
+                label4.Visible = false;
+                cmbTipo.Items.Clear();
+                cmbTipo.Items.Add("Tasa");
+                cmbTipo.Items.Add("Factor");
+            }
             FormatearCategoria();
             dataGridView1.Refresh();
 
-            cmbTipo.Text = Convert.ToString(dataGridView1.Rows[0].Cells[0].Value).Trim();
+            if (dataGridView1.Rows.Count > 0)
+                cmbTipo.Text = Convert.ToString(dataGridView1.Rows[0].Cells[0].Value).Trim();
+            else
+                LimpiarCampos();
+            this.BringToFront();
         }
 
         private void txtValor_KeyPress(object sender, KeyPressEventArgs e)
@@ -119,6 +134,12 @@ namespace PresentationLayer
                     case "Aceros":
                         Categ = "AC";
                         break;
+                    case "Tasa":
+                        Categ = "TM";
+                        break;
+                    case "Factor":
+                        Categ = "FR";
+                        break;
                 }
 
                 Cost.Categoria = Categ;
@@ -135,7 +156,7 @@ namespace PresentationLayer
                         CostosBL.InserCostos(lcosto);
 
                         CargarGridCostos();
-                       // LimpiarCampos();
+                        // LimpiarCampos();
                         dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
                         dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
                         dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[3];
@@ -178,11 +199,20 @@ namespace PresentationLayer
         #region METODOS
         private void CargarGridCostos()
         {
-            CostosDataSource = new BindingList<Costos>(CostosBL.GetCostos());
+            var CostosFiltro = new[] { "" };
+
+            if (TipoPantalla == "Costos")
+                CostosFiltro = new[] { "PR", "HH", "AC" };
+            else
+                CostosFiltro = new[] { "TM", "FR" };
+
+
+            CostosDataSource = new BindingList<Costos>(CostosBL.GetCostos().Where(x => CostosFiltro.Contains(x.Categoria)).ToList());
             dataGridView1.DataSource = CostosDataSource;
             dataGridView1.Columns["Id"].Visible = false;
             dataGridView1.Columns["Estado"].Visible = false;
             dataGridView1.Columns["Categoria"].Visible = false;
+            if (TipoPantalla == "Factores") dataGridView1.Columns["Unidad"].Visible = false;
 
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[5].DefaultCellStyle.Format = "#,0.00###";
@@ -212,6 +242,12 @@ namespace PresentationLayer
                     case "AC":
                         Categ = "Aceros";
                         break;
+                    case "TM":
+                        Categ = "Tasa";
+                        break;
+                    case "FR":
+                        Categ = "Factor";
+                        break;
                 }
                 Fila.Cells["Categoria_"].Value = Categ;
             }
@@ -236,7 +272,7 @@ namespace PresentationLayer
             var Tipo = Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
             cmbTipo.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[0].Value).Trim();
             //cmbUnidad.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
-            cmbUnidad.SelectedValue = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            if (TipoPantalla == "Costos") cmbUnidad.SelectedValue = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
             txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
             materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
             txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
@@ -267,7 +303,7 @@ namespace PresentationLayer
                 errorIcono.SetError(cmbTipo, "Ingrese un Tipo");
                 Valido = false;
             }
-            else if (cmbUnidad.Text == "")
+            else if (cmbUnidad.Text == "" && TipoPantalla == "Costos")
             {
                 errorIcono.SetError(cmbUnidad, "Ingrese una Unidad de Medida");
                 Valido = false;
