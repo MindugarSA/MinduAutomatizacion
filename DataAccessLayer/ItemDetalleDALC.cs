@@ -16,6 +16,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 return db.ItemDetalle.ToList();
             }
         }
@@ -24,6 +27,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_GetItemDetalleID_Result> result = db.SP_GetItemDetalleID(IdItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -36,6 +42,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     db.ItemDetalle.Add(Obj);
                     db.SaveChanges();
                 }
@@ -52,6 +61,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     ItemDetalle Entidad = (from n in db.ItemDetalle
                                            where n.Id == Obj.Id
                                            select n).FirstOrDefault();
@@ -71,6 +83,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     ItemDetalle Entidad = (from n in db.ItemDetalle
                                            where n.Id == Obj.Id
                                            select n).FirstOrDefault();

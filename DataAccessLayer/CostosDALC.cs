@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     db.Costos.Add(Obj);
                     db.SaveChanges();
                 }
@@ -40,6 +44,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     Costos Entidad = (from n in db.Costos
                                        where n.Id == Obj.Id
                                        select n).FirstOrDefault();

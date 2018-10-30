@@ -25,6 +25,7 @@ namespace PresentationLayer.Forms
         Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
+        List<Costos> ListFactores = new List<Costos>();
         private string CodigoInicial;
         double ValorCostoEditado = 0;
         bool bControlActive = false;
@@ -219,10 +220,21 @@ namespace PresentationLayer.Forms
         {
             try
             {
+
                 bControlActive = false;
                 Control TxtActual = (Control)sender;
+                if (Convert.ToDouble(txtCostoUSD.Text) > 0 && metroComboBox3.SelectedIndex == 1) //"Material Externo (Proveedor)"
+                {
+                    var lTasa = CostosBL.GetCostos()
+                                .Where(x => x.Categoria == "TM" && x.Tipo.Contains("Externo") && x.Estado == 1)
+                                .OrderBy(x => x.Id)
+                                .ToList();
+                    Costos Tasa = lTasa[0];
+                    txtTotCosCom.Text = (Convert.ToDecimal(txtCostoUSD.Text) * Tasa.Valor).ToString();
+                }
+
                 txtTotalCostos.Text = (Convert.ToDouble(txtTotCosCom.Text) + Convert.ToDouble(txtCostoAcero.Text) +
-                                       Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
                 try
                 {
                     if ((txtEspesor.Text.ToDecimal() ?? 0) > 0 && (txtAncho.Text.ToDecimal() ?? 0) > 0 && (txtLargo.Text.ToDecimal() ?? 0) > 0)
@@ -234,7 +246,7 @@ namespace PresentationLayer.Forms
                 }
                 catch { }
             }
-            catch {}
+            catch { }
         }
 
         private void dgvListaItems_DoubleClick(object sender, EventArgs e)
@@ -336,16 +348,68 @@ namespace PresentationLayer.Forms
                     nFactor = 1.409;
                     lblUSD.Visible = false;
                     txtCostoUSD.Visible = false;
+                    CargarComboFactores("FI");
                     break;
                 case 1:
                     nFactor = 1.857;
                     lblUSD.Visible = true;
                     txtCostoUSD.Visible = true;
+                    CargarComboFactores("FE");
+                    break;
+
+            }
+
+            var FactorFiltro = new[] { "FII", "FIE" };
+            ListFactores = CostosBL.GetCostos().Where(x => FactorFiltro.Contains(x.Categoria)).ToList();
+        }
+
+        private void cmbFactores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbFactores.DisplayMember != "" && cmbFactores.ValueMember != "")
+                {
+                    nFactor = Convert.ToDouble((ListFactores
+                                       .Where(x => x.Id == Convert.ToDouble(cmbFactores.SelectedValue.ToString()))
+                                       .FirstOrDefault())
+                                       .Valor);
+                    double Direct = Convert.ToDouble(txtTotalCostos.Text);
+                    txtDirectFact.Text = Math.Round(Direct * nFactor, 2).ToString();
+                }
+            }
+            catch { }
+        }
+
+        private void CargarComboFactores(string TipoFactor)
+        {
+            var FactorFiltro = new[] { "" };
+
+            switch (TipoFactor)
+            {
+                case "FI":
+                    FactorFiltro = new[] { "FII" };
+                    break;
+                case "FE":
+                    FactorFiltro = new[] { "FIE" };
                     break;
             }
 
+            List<Costos> lFactores = CostosBL.GetCostos().Where(x => FactorFiltro.Contains(x.Categoria)).ToList();
+            lFactores.ForEach(c => c.Tipo = c.Tipo + " =    " + string.Format("{0:#,0.00###}", c.Valor));
+            cmbFactores.SelectedIndex = -1;
+            cmbFactores.DataSource = new DataTable().ListToDataTable(lFactores);
+            cmbFactores.DisplayMember = "Tipo";
+            cmbFactores.ValueMember = "Id";
+
+            cmbFactores.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFactores.SelectedIndex = 0;
+
+            nFactor = Convert.ToDouble((ListFactores
+                                        .Where(x => x.Id == Convert.ToDouble(cmbFactores.SelectedValue.ToString()))
+                                        .FirstOrDefault())
+                                        .Valor);
             double Direct = Convert.ToDouble(txtTotalCostos.Text);
-            txtDirectFact.Text = Math.Round(Direct * nFactor,2).ToString();
+            txtDirectFact.Text = Math.Round(Direct * nFactor, 2).ToString();
         }
 
         private void materialFlatButton1_Click(object sender, EventArgs e)
@@ -365,6 +429,7 @@ namespace PresentationLayer.Forms
                         labelNoMouse1.Text = "Actualizar";
                         panel3.Visible = true;
                         MostrarMensajeRegistro("Parte '" + ItemEntidad.Codigo.Trim() + "' Registrada", Color.FromArgb(129, 152, 48));
+                        ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -375,6 +440,7 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
                         MostrarMensajeRegistro("Parte '" + ItemEntidad.Codigo.Trim() + "' Modificada", Color.FromArgb(0, 174, 219));
+                        ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
                 }
                 CargarGridListadoItem();
@@ -401,6 +467,9 @@ namespace PresentationLayer.Forms
         }
         private void CargarCombos()
         {
+            //Listado de Factores Actuales
+            var FactorFiltro = new[] { "FII", "FIE" };
+            ListFactores = CostosBL.GetCostos().Where(x => FactorFiltro.Contains(x.Categoria)).ToList();
             //Combox Familia
             DataTable DTFam = new DataTable().ListToDataTable(FamiliaBL.GetFamilias());
             DataTable DTFam2 = new DataTable().ListToDataTable(FamiliaBL.GetFamilias());
@@ -570,7 +639,10 @@ namespace PresentationLayer.Forms
                                     .FirstOrDefault();
 
             if (dFami[1] != null) metroComboBox2.SelectedValue = dFami[1]; else metroComboBox2.SelectedIndex = 0;
-
+            if (ItemEntidad.FactorInd != null)
+                cmbFactores.SelectedValue = ItemEntidad.FactorInd;
+            else
+                cmbFactores.SelectedIndex = 0;
         }
 
         private void EnlazarCampos()
@@ -607,7 +679,7 @@ namespace PresentationLayer.Forms
             materialCheckBox1.Checked = ItemEntidad.Estatus == 1 ? true : false;
             if (ItemEntidad.Imagen != null) pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemEntidad.Imagen);
 
-            if(ItemEntidad.TipoPieza != null) metroComboBox3.SelectedIndex = ItemEntidad.TipoPieza.Trim() == "E" ? 1 : 0;
+            if (ItemEntidad.TipoPieza != null) metroComboBox3.SelectedIndex = ItemEntidad.TipoPieza.Trim() == "E" ? 1 : 0;
 
             txtCostoAcero.Text = "";
             txtCostoProc.Text = "";
@@ -666,7 +738,8 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
-            ItemEntidad.Autorizado = 1 ;
+            ItemEntidad.Autorizado = 1;
+            ItemEntidad.FactorInd = Convert.ToInt32(cmbFactores.SelectedValue.ToString());
 
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
@@ -1295,6 +1368,8 @@ namespace PresentationLayer.Forms
             }
             catch (Exception) { }
         }
+
+
     }
 
 }

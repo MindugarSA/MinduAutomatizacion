@@ -41,9 +41,12 @@ namespace PresentationLayer
                 formHeader1.HeaderText = "Tasas / Factores";
                 cmbUnidad.Visible = false;
                 label4.Visible = false;
+                cmbTipo.Width = 226;
                 cmbTipo.Items.Clear();
                 cmbTipo.Items.Add("Tasa");
-                cmbTipo.Items.Add("Factor");
+                cmbTipo.Items.Add("Factor Industrial Interno");
+                cmbTipo.Items.Add("Factor Industrial Externo");
+                cmbTipo.Items.Add("Factor Comercial");
             }
             FormatearCategoria();
             dataGridView1.Refresh();
@@ -137,8 +140,14 @@ namespace PresentationLayer
                     case "Tasa":
                         Categ = "TM";
                         break;
-                    case "Factor":
-                        Categ = "FR";
+                    case "Factor Industrial Interno":
+                        Categ = "FII";
+                        break;
+                    case "Factor Industrial Externo":
+                        Categ = "FIE";
+                        break;
+                    case "Factor Comercial":
+                        Categ = "FRC";
                         break;
                 }
 
@@ -204,8 +213,7 @@ namespace PresentationLayer
             if (TipoPantalla == "Costos")
                 CostosFiltro = new[] { "PR", "HH", "AC" };
             else
-                CostosFiltro = new[] { "TM", "FR" };
-
+                CostosFiltro = new[] { "TM", "FII", "FIE" , "FRC" };
 
             CostosDataSource = new BindingList<Costos>(CostosBL.GetCostos().Where(x => CostosFiltro.Contains(x.Categoria)).ToList());
             dataGridView1.DataSource = CostosDataSource;
@@ -245,9 +253,16 @@ namespace PresentationLayer
                     case "TM":
                         Categ = "Tasa";
                         break;
-                    case "FR":
-                        Categ = "Factor";
+                    case "FII":
+                        Categ = "Factor Industrial Interno";
                         break;
+                    case "FIE":
+                        Categ = "Factor Industrial Externo";
+                        break;
+                    case "FRC":
+                        Categ = "Factor Comercial";
+                        break;
+                        
                 }
                 Fila.Cells["Categoria_"].Value = Categ;
             }

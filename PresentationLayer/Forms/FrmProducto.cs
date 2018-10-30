@@ -59,6 +59,8 @@ namespace PresentationLayer.Forms
 
             metroTab1.SelectedIndex = 0;
             materialCheckBox1.Checked = true;
+            materialCheckBox2.Checked = true;
+            materialCheckBox3.Checked = true;
             this.InitializeClickHandlers();
             formPrincipal = FormP;
         }
@@ -218,8 +220,11 @@ namespace PresentationLayer.Forms
             {
                 dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
                                                                                 Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[10].Value);
+                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[13].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+                                                                                 Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value);
 
-                txtTotCosPiezas.Text = SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitario").ToString();
+                txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                                 : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
                 txtCostPiezasD.Text = txtTotCosPiezas.Text;
                 textBox1.Text = txtTotCosPiezas.Text;
                 txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
@@ -290,7 +295,7 @@ namespace PresentationLayer.Forms
                 CargarDatosItem(ItemId);
                 CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
             }
-            catch {}
+            catch { }
         }
 
         private void materialFlatButton4_Click(object sender, EventArgs e)
@@ -402,6 +407,7 @@ namespace PresentationLayer.Forms
                         MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Registrado", Color.FromArgb(129, 152, 48));
                         lblAutoriz.Text = "No Autorizado";
                         lblAutoriz.ForeColor = Color.Red;
+                        ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
                     case "Actualizar":
                         ItemsBL.UpdateItem(ItemEntidad);
@@ -418,6 +424,7 @@ namespace PresentationLayer.Forms
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
                         MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
+                        ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
                 }
                 CargarGridsCostos();
@@ -507,7 +514,8 @@ namespace PresentationLayer.Forms
                     {
                         row.Cells["Linea"].Value = row.Index + 1;
                     }
-                txtTotCosPiezas.Text = SumaColumnaDoubleDT((DataTable)dgvDetalleItemAmp.DataSource, "Cantidad", "CostoUnitario").ToString();
+                txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                                 : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
                 txtCostPiezasD.Text = txtTotCosPiezas.Text;
                 textBox1.Text = txtTotCosPiezas.Text;
                 txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
@@ -690,7 +698,7 @@ namespace PresentationLayer.Forms
 
                     foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
                     {
-                        List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11 };
+                        List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11, 12, 13 };
                         foreach (DataGridViewColumn col in dgvActual.Columns)
                         {
                             if (!visibleColumns.Contains(col.Index))
@@ -701,10 +709,14 @@ namespace PresentationLayer.Forms
                         dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        dgvActual.Columns[12].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                        dgvActual.Columns[13].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
                         dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
                         dgvActual.Columns[10].DefaultCellStyle.Format = "N2";
                         dgvActual.Columns[11].DefaultCellStyle.Format = "N2";
+                        dgvActual.Columns[12].DefaultCellStyle.Format = "N2";
+                        dgvActual.Columns[13].DefaultCellStyle.Format = "N2";
 
                         dgvActual.Columns[9].ReadOnly = false;
 
@@ -712,6 +724,8 @@ namespace PresentationLayer.Forms
                         dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dgvActual.Columns[12].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        dgvActual.Columns[13].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
                         if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                     }
@@ -1000,7 +1014,8 @@ namespace PresentationLayer.Forms
             txtTotCosRRHH.Text = txtCostoRRHH.Text;
             txtCostoProc.Text = SumaColumnaDoubleDT((DataTable)dgvCostoProc.DataSource, "Cantidad", "Valor").ToString();
             txtTotCosPro.Text = Convert.ToDouble(txtCostoProc.Text).ToString();
-            txtTotCosPiezas.Text = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString();
+            txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                             : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
             txtCostPiezasD.Text = txtTotCosPiezas.Text;
             textBox1.Text = txtTotCosPiezas.Text;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
@@ -1048,7 +1063,8 @@ namespace PresentationLayer.Forms
             txtDiametroC.Text = ItemConsulta.Diametro.ToString();
             txtVolumenC.Text = ItemConsulta.Volumen.ToString();
             txtPesoC.Text = ItemConsulta.Peso.ToString();
-            txtTotalCostoC.Text = CostoC.ToString(); // ItemConsulta.CostoTotal.ToString();
+            txtCostoDC.Text = string.Format("{0:#,0.00###}", Math.Round(Convert.ToDouble(ItemConsulta.CostoTotal), 2));
+            txtTotalCostoC.Text = Math.Round(CostoC, 2).ToString(); //ItemConsulta.CostoTotal.ToString();
             pictureBox10.BackgroundImage = null;
             if (ItemConsulta.Imagen != null)
                 pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
@@ -1283,7 +1299,7 @@ namespace PresentationLayer.Forms
                 {
                     if (txtTotalCostos.Text == string.Empty) txtTotalCostos.Text = "0,00";
                     txtTotalCostos.Text = string.Format("{0:#,0.00###}", Convert.ToDecimal(txtTotalCostos.Text));
-                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0),2)).ToString();
+                    txtDirectFact.Text = (Math.Round((txtTotalCostos.Text.ToDouble() * 1.752 ?? 0), 2)).ToString();
                 }
                 catch { }
         }
@@ -1339,7 +1355,7 @@ namespace PresentationLayer.Forms
                         catch { }
                 }
             }
-            catch {}
+            catch { }
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -1389,8 +1405,8 @@ namespace PresentationLayer.Forms
                 FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
                 FrmDetalle.Show();
             }
-            catch {}
-            
+            catch { }
+
         }
 
         private void dgvDetalleItemAmp_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -1614,6 +1630,28 @@ namespace PresentationLayer.Forms
         private void copiarTablaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             dgvDetalleItem.CopyContentToClipboard();
+        }
+
+        private void materialCheckBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            materialCheckBox2.Checked = materialCheckBox3.Checked;
+            txtTotCosPiezas.Text = materialCheckBox3.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                             : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
+            txtCostPiezasD.Text = txtTotCosPiezas.Text;
+            textBox1.Text = txtTotCosPiezas.Text;
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+        }
+
+        private void materialCheckBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            materialCheckBox3.Checked = materialCheckBox2.Checked;
+            txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                             : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
+            txtCostPiezasD.Text = txtTotCosPiezas.Text;
+            textBox1.Text = txtTotCosPiezas.Text;
+            txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+                                   Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
         }
     }
 }

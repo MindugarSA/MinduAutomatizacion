@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalPanel));
             this.pnlMenu = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.panel13 = new System.Windows.Forms.Panel();
             this.button10 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -73,8 +75,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -132,6 +132,34 @@
             this.panel4.Size = new System.Drawing.Size(200, 260);
             this.panel4.TabIndex = 10;
             // 
+            // panel14
+            // 
+            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel14, BunifuAnimatorNS.DecorationType.None);
+            this.panel14.Location = new System.Drawing.Point(36, 176);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(9, 35);
+            this.panel14.TabIndex = 16;
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.button13, BunifuAnimatorNS.DecorationType.None);
+            this.button13.FlatAppearance.BorderSize = 0;
+            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button13.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button13.ForeColor = System.Drawing.Color.White;
+            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.Location = new System.Drawing.Point(46, 176);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(142, 35);
+            this.button13.TabIndex = 15;
+            this.button13.Text = "Tasas / Factores";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
+            // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
@@ -179,7 +207,7 @@
             this.button4.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(46, 133);
+            this.button4.Location = new System.Drawing.Point(46, 134);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(142, 35);
             this.button4.TabIndex = 11;
@@ -617,22 +645,22 @@
             // 
             this.BunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.Particles;
             this.BunifuTransition1.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 1;
-            animation2.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 2F;
-            animation2.TransparencyCoeff = 0F;
-            this.BunifuTransition1.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 1;
+            animation1.Padding = new System.Windows.Forms.Padding(100, 50, 100, 150);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 2F;
+            animation1.TransparencyCoeff = 0F;
+            this.BunifuTransition1.DefaultAnimation = animation1;
             this.BunifuTransition1.Interval = 40;
             this.BunifuTransition1.MaxAnimationTime = 3000;
             // 
@@ -663,34 +691,6 @@
             this.formHeader1.ParentContainer = null;
             this.formHeader1.Size = new System.Drawing.Size(1174, 30);
             this.formHeader1.TabIndex = 5;
-            // 
-            // panel14
-            // 
-            this.panel14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.BunifuTransition1.SetDecoration(this.panel14, BunifuAnimatorNS.DecorationType.None);
-            this.panel14.Location = new System.Drawing.Point(36, 176);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(9, 35);
-            this.panel14.TabIndex = 16;
-            // 
-            // button13
-            // 
-            this.button13.BackColor = System.Drawing.Color.Transparent;
-            this.BunifuTransition1.SetDecoration(this.button13, BunifuAnimatorNS.DecorationType.None);
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.Location = new System.Drawing.Point(46, 175);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(142, 35);
-            this.button13.TabIndex = 15;
-            this.button13.Text = "Tasas / Factores";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // FrmPrincipalPanel
             // 

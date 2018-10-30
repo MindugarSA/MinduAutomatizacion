@@ -24,7 +24,12 @@ namespace Entities
         public string TipoPieza { get; set; }
         public Nullable<decimal> Cantidad { get; set; }
         public Nullable<decimal> CostoUnitario { get; set; }
+        public Nullable<decimal> CostoUnitFactor { get; set; }
         public Nullable<decimal> Total { get; set; }
+        public Nullable<decimal> TotalFactor { get; set; }
         public byte[] Imagen { get; set; }
+        public Nullable<decimal> Factor { get; set; }
+        public string TipoFactor { get; set; }
+        public Nullable<int> FactorID { get; set; }
     }
 }

@@ -17,6 +17,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 return db.ItemCosto.ToList();
             }
         }
@@ -25,6 +28,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_GetItemCostoID_Result> result = db.SP_GetItemCostoID(IdItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -37,6 +43,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     db.ItemCosto.Add(Obj);
                     db.SaveChanges();
                 }
@@ -53,6 +62,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     ItemCosto Entidad = (from n in db.ItemCosto
                                          where n.Id == Obj.Id
                                          select n).FirstOrDefault();
@@ -70,6 +82,8 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
 
                 var cmd = db.Database.Connection.CreateCommand();
                 cmd.CommandText = "[dbo].[SP_ActualizarCostosItems]";
@@ -89,6 +103,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     ItemCosto Entidad = (from n in db.ItemCosto
                                          where n.Id == Obj.Id
                                          select n).FirstOrDefault();

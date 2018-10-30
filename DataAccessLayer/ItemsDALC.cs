@@ -17,6 +17,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 return (List<Item>)db.Item.ToList()
                                           .OrderBy(c => c.Codigo)
                                           .ToList();
@@ -27,6 +30,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 return (List<Item>)db.Item.ToList()
                                           .Where(c => c.TipoItem == sItemTipo)
                                           .OrderBy(c => c.Codigo)
@@ -38,6 +44,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 return (List<Item>)db.Item.ToList()
                                           .Where(c => c.Id == idItem)
                                           .ToList();
@@ -48,6 +57,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_GetItemBusqueda_Result> result = db.SP_GetItemBusqueda(idItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -58,6 +70,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_GetItemDependeceID_Result> result = db.SP_GetItemDependeceID(idItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -68,6 +83,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_ListadoItemsResumen_Result> result = db.SP_ListadoItemsResumen().ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -78,6 +96,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_ListadoItemsCostosResumen_Result> result = db.SP_ListadoItemsCostosResumen().ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -105,6 +126,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_ListadoItemTipoCostoFactor_Result> result = db.SP_ListadoItemTipoCostoFactor(TipoItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -115,6 +139,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_ListadoItemTipoCostoFactorRES_Result> result = db.SP_ListadoItemTipoCostoFactorRES(TipoItem).ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -125,6 +152,9 @@ namespace DataAccessLayer
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 List<SP_ListadoItemAutorizaciones_Result> result = db.SP_ListadoItemAutorizaciones().ToList();
 
                 return new DataTable().ListToDataTable(result);
@@ -137,6 +167,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     db.Item.Add(Obj);
                     db.SaveChanges();
                 }
@@ -154,6 +187,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     Item Entidad = (from n in db.Item
                                     where n.Id == Obj.Id
                                     select n).FirstOrDefault();
@@ -173,6 +209,9 @@ namespace DataAccessLayer
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             {
 
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
                 var cmd = db.Database.Connection.CreateCommand();
                 cmd.CommandText = "[dbo].[SP_ActualizarCostosItemsKitProduto]";
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -191,6 +230,9 @@ namespace DataAccessLayer
             {
                 try
                 {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
                     Item Entidad = (from n in db.Item
                                     where n.Id == Obj.Id
                                     select n).FirstOrDefault();
