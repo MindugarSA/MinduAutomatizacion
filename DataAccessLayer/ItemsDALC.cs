@@ -115,7 +115,7 @@ namespace DataAccessLayer
                 cmd.CommandText = "[dbo].[SP_ListadoItemsCostosDetallado]";
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Connection.Open();
+                if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
                 dt.Load(cmd.ExecuteReader());
 
                 return dt;
@@ -218,7 +218,7 @@ namespace DataAccessLayer
 
                 cmd.Parameters.Add(new SqlParameter("@IdItemDet", ItemID));
 
-                cmd.Connection.Open();
+                if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
 
             }

@@ -32,10 +32,10 @@ namespace Entities
         public virtual DbSet<TipoItem> TipoItem { get; set; }
         public virtual DbSet<ReglasFamilia> ReglasFamilia { get; set; }
         public virtual DbSet<Unidades> Unidades { get; set; }
-        public virtual DbSet<Costos> Costos { get; set; }
         public virtual DbSet<ItemCosto> ItemCosto { get; set; }
-        public virtual DbSet<ItemDetalle> ItemDetalle { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<Costos> Costos { get; set; }
+        public virtual DbSet<ItemDetalle> ItemDetalle { get; set; }
         public virtual DbSet<Item> Item { get; set; }
     
         public virtual ObjectResult<SP_GetItemCostoID_Result> SP_GetItemCostoID(Nullable<int> id_Item)

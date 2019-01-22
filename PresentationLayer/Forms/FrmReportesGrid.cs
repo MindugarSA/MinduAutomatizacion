@@ -18,6 +18,7 @@ namespace PresentationLayer
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
+        private DataTable DTListado;
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
             InitializeComponent();
@@ -32,6 +33,26 @@ namespace PresentationLayer
         {
             this.Activate();
             this.BringToFront();
+            CargarCombos();
+            DTListado = new DataTable();
+        }
+
+        private void CargarCombos()
+        {
+            //Combox Familia
+            DataTable DTFam = new DataTable().ListToDataTable(FamiliaBL.GetFamilias());
+            DataRow row = DTFam.NewRow();
+            row["Id"] = 0;
+            row["Codigo"] = "";
+            row["Descripcion"] = "";
+            DTFam.Rows.InsertAt(row, 0);
+
+            metroComboBox2.DataSource = DTFam;
+            metroComboBox2.DisplayMember = "Descripcion";
+            metroComboBox2.ValueMember = "Codigo";
+
+            metroComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            metroComboBox2.SelectedIndex = 0;
         }
 
         private void metroComboBox1_SelectedIndexChangedAsync(object sender, EventArgs e)
@@ -49,12 +70,11 @@ namespace PresentationLayer
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
 
-
             switch (metroComboBox1.SelectedIndex)
             {
                 case 0:
                     dt = ItemsBL.ListadoItemsResumen();
-                    for (int i = 6; i <= 17; i++)
+                    for (int i = 6; i <= dt.Columns.Count; i++)
                     {
                         NumericColumns.Add(i);
                     }
@@ -76,15 +96,19 @@ namespace PresentationLayer
                 case 3:
                     dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
                     NumericColumns.Add(3);
+                    NumericColumns.Add(4);
                     break;
                 case 4:
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(4);
+                    NumericColumns.Add(5);
                     break;
             }
 
             dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
+            DTListado = dt.Copy();
+
             if (metroComboBox1.SelectedIndex == 2) dgvListado.Columns[5].Visible = false;
 
             foreach (DataGridViewColumn col in dgvListado.Columns)
@@ -92,7 +116,7 @@ namespace PresentationLayer
                 if (NumericColumns.Contains(col.Index))
                 {
                     col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    col.DefaultCellStyle.Format = "#,0.00###";
+                    col.DefaultCellStyle.Format = "N2";
                 }
             }
         }
@@ -174,6 +198,65 @@ namespace PresentationLayer
         {
         }
 
+        private void pictureBox17_Click(object sender, EventArgs e)
+        {
+            CargarGridGistado();
+        }
 
+        private void pictureBox14_Click(object sender, EventArgs e)
+        {
+            BuscarItemPorCodigoDescripcion();
+        }
+
+        private void BuscarItemPorCodigoDescripcion()
+        {
+            if (txtBuscarItem.Text.Trim().Length > 0)
+            {
+                DataTable dt = null;
+
+                var rows = ((DataTable)dgvListado.DataSource).AsEnumerable()
+                           .Where(r => r.Field<string>("Codigo").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
+                                    || r.Field<string>("Nombre").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()));
+                //.CopyToDataTable();
+
+                if (rows.Any())
+                {
+                    dt = rows.CopyToDataTable();
+                    dgvListado.DataSource = dt;
+                }
+            }
+            else
+            {
+                dgvListado.DataSource = DTListado;
+            }
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.SelectedIndex > -1 && dgvListado.DataSource != null)
+            {
+                DataTable dt = null;
+
+                var rows = DTListado.AsEnumerable()
+                           .Where(r => r.Field<string>("Familia").ToUpper().Contains(metroComboBox2.Text.Trim().ToUpper()));
+                //.CopyToDataTable();
+
+                if (rows.Any())
+                {
+                    dt = rows.CopyToDataTable();
+                    dgvListado.DataSource = dt;
+                }
+                else
+                    ((DataTable)dgvListado.DataSource).Clear(); 
+            }
+        }
+
+        private void txtBuscarItem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Return))
+            {
+                BuscarItemPorCodigoDescripcion();
+            }
+        }
     }
 }

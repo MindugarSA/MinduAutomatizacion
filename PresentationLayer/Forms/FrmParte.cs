@@ -21,6 +21,8 @@ namespace PresentationLayer.Forms
         private const int cCaption = 32;
 
         public int IdIetmSearch { get; set; }
+        public string TipoAcceso { get; set; }
+
         Item ItemEntidad = new Item();
         Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
@@ -67,6 +69,8 @@ namespace PresentationLayer.Forms
             txtCodigo.Focus();
             this.ActiveControl = txtCodigo;
             CheckForIllegalCrossThreadCalls = false;
+            if (TipoAcceso == "LECTURA") materialFlatButton1.Enabled = false;
+
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -83,7 +87,7 @@ namespace PresentationLayer.Forms
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            txtCodigo.Text += metroComboBox2.SelectedValue.ToString().Trim() + "P-";
+            txtCodigo.Text += metroComboBox2.SelectedValue.ToString().Trim();// + "P-";
             //txtDescrpcion.Text += " " + ((DataRowView)metroComboBox2.SelectedItem).Row["Descripcion"];
             txtCodigo.Focus();
             txtCodigo.SelectionStart = txtCodigo.Text.Length;
@@ -542,8 +546,8 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18 };
-            if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 };
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28 };
+            if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 ,28};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -556,14 +560,19 @@ namespace PresentationLayer.Forms
 
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvListaItems.Columns[13].HeaderText = "CostoEXT";
+            dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
+            dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
 
-            List<int> NumericColumns = new List<int> { 6, 7, 8, 9, 10, 11, 13, 14, 15, 17 };
+            dgvListaItems.Columns[18].DisplayIndex = 28;
+            dgvListaItems.Columns[28].DisplayIndex = 18;
+
+            List<int> NumericColumns = new List<int> { 6, 7, 8, 9, 10, 11, 13, 14, 15, 17 ,28};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (NumericColumns.Contains(col.Index))
                 {
                     col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    col.DefaultCellStyle.Format = "#,0.00###";
+                    col.DefaultCellStyle.Format = "N2";//"#,0.00###";
                 }
             }
 
@@ -581,6 +590,7 @@ namespace PresentationLayer.Forms
                 }
 
             dgvListaItems.AllowUserToResizeColumns = true;
+            dgvListaItems.Columns[28].Width = dgvListaItems.Columns[17].Width;
 
         }
 
@@ -732,9 +742,11 @@ namespace PresentationLayer.Forms
             ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
             ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
             ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
-            ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
+            ItemEntidad.CostoPR = Convert.ToDecimal(txtCostoProc.Text);
+            ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
             ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
+            ItemEntidad.CostoTotalFactor = Convert.ToDecimal(txtDirectFact.Text);
             ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
@@ -778,7 +790,7 @@ namespace PresentationLayer.Forms
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
-                errorCodigo.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
+                errorDescr.SetErrorWithCount(txtCodigo, "Ingrese un Codigo");
                 Valido = false;
             }
             else if (txtDescrpcion.Text == string.Empty)
@@ -1057,7 +1069,7 @@ namespace PresentationLayer.Forms
             else
             {
                 contextMenuStrip1.Items[0].Enabled = true;
-                contextMenuStrip1.Items[1].Enabled = true;
+                contextMenuStrip1.Items[1].Enabled = TipoAcceso == "LECTURA" ? false : true;
                 contextMenuStrip1.Items[2].Enabled = true;
             }
         }

@@ -18,5 +18,6 @@ namespace Entities
         public string Nombre { get; set; }
         public string Familia { get; set; }
         public Nullable<decimal> Directo___Factor { get; set; }
+        public decimal Factor { get; set; }
     }
 }

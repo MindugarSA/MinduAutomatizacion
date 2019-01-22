@@ -43,6 +43,7 @@
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtValor2 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.Categoria_ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtDescripcion = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -203,6 +204,7 @@
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox1.Controls.Add(this.txtValor2);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label5);
@@ -219,6 +221,40 @@
             this.groupBox1.Size = new System.Drawing.Size(564, 385);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
+            // 
+            // txtValor2
+            // 
+            this.txtValor2.AcceptsReturn = false;
+            this.txtValor2.AcceptsTab = false;
+            this.txtValor2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtValor2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtValor2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtValor2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtValor2.Depth = 0;
+            this.txtValor2.Hint = "";
+            this.txtValor2.Location = new System.Drawing.Point(368, 306);
+            this.txtValor2.MaxLength = 32767;
+            this.txtValor2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtValor2.Multiline = false;
+            this.txtValor2.Name = "txtValor2";
+            this.txtValor2.PasswordChar = '\0';
+            this.txtValor2.ReadOnly = false;
+            this.txtValor2.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtValor2.SelectedText = "";
+            this.txtValor2.SelectionLength = 0;
+            this.txtValor2.SelectionStart = 0;
+            this.txtValor2.Size = new System.Drawing.Size(86, 23);
+            this.txtValor2.TabIndex = 58;
+            this.txtValor2.TabStop = false;
+            this.txtValor2.Text = "0,00";
+            this.txtValor2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtValor2.UseSystemPasswordChar = false;
+            this.txtValor2.Visible = false;
+            this.txtValor2.WordWrap = true;
+            this.txtValor2.Click += new System.EventHandler(this.TxtValor_Click);
+            this.txtValor2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValor_KeyPress);
+            this.txtValor2.Leave += new System.EventHandler(this.txtValor_Leave);
+            this.txtValor2.Validated += new System.EventHandler(this.txtValor_Validated);
             // 
             // dataGridView1
             // 
@@ -294,7 +330,7 @@
             this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDescripcion.Depth = 0;
             this.txtDescripcion.Hint = "";
-            this.txtDescripcion.Location = new System.Drawing.Point(105, 341);
+            this.txtDescripcion.Location = new System.Drawing.Point(92, 341);
             this.txtDescripcion.MaxLength = 32767;
             this.txtDescripcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescripcion.Multiline = false;
@@ -391,7 +427,7 @@
             "Procesos",
             "Aceros",
             "RR.HH."});
-            this.cmbTipo.Location = new System.Drawing.Point(129, 300);
+            this.cmbTipo.Location = new System.Drawing.Point(91, 300);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(113, 29);
             this.cmbTipo.TabIndex = 51;
@@ -419,7 +455,7 @@
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 344);
+            this.label2.Location = new System.Drawing.Point(16, 344);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 47;
@@ -430,7 +466,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 306);
+            this.label1.Location = new System.Drawing.Point(21, 306);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 17);
             this.label1.TabIndex = 45;
@@ -525,5 +561,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria_;
         private System.Windows.Forms.ErrorProvider errorIcono;
         private ClickEffect clickEffect1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtValor2;
     }
 }

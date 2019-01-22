@@ -91,7 +91,7 @@ namespace DataAccessLayer
 
                 cmd.Parameters.Add(new SqlParameter("@IdCosto", CostoID));
 
-                cmd.Connection.Open();
+                if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
 
             }

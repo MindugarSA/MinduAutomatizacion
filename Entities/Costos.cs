@@ -20,5 +20,6 @@ namespace Entities
         public string Unidad { get; set; }
         public Nullable<decimal> Valor { get; set; }
         public Nullable<int> Estado { get; set; }
+        public Nullable<decimal> Valor2 { get; set; }
     }
 }

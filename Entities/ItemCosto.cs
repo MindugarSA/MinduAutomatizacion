@@ -11,7 +11,8 @@ namespace Entities
 {
     using System;
     using System.Collections.Generic;
-    
+    [Serializable]
+
     public partial class ItemCosto
     {
         public int Id { get; set; }

@@ -47,20 +47,48 @@ namespace PresentationLayer
                 {
                     if (dtUserInfo.Rows[0].Field<string>("Acceso") == "Y") // Verificacion de Pass correcto
                     {
-                        if (dtUserInfo.Rows[0].Field<int>("IdAtributo") == 96000) // Verificacion del Acceso 9600 MINDUMAS
+                        switch (dtUserInfo.Rows[0].Field<int>("IdAtributo"))
                         {
-                            Usuario.Instance().UserId = dtUserInfo.Rows[0].Field<int>("IdUsuario");
-                            Usuario.Instance().UserName = dtUserInfo.Rows[0].Field<string>("Nombre");
-                            Usuario.Instance().UserRut = dtUserInfo.Rows[0].Field<string>("rut");
-                            frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
-                            ClosedFadeOutAsync();
+                            case 96000: // Verificacion del Acceso 9600 MINDUMAS ADMINISTRADOR
+                                Usuario.Instance().UserId = dtUserInfo.Rows[0].Field<int>("IdUsuario");
+                                Usuario.Instance().UserName = dtUserInfo.Rows[0].Field<string>("Nombre");
+                                Usuario.Instance().UserRut = dtUserInfo.Rows[0].Field<string>("rut");
+                                frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                frmParentForm.TipoAcceso = "ADMIN";
+                                frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                frmParentForm.ConfigurarMenuAcceso();
+                                ClosedFadeOutAsync();
+                                break;
+                            default:
+                            case 96001: // Verificacion del Acceso 9600 LECTURA
+                                Usuario.Instance().UserId = dtUserInfo.Rows[0].Field<int>("IdUsuario");
+                                Usuario.Instance().UserName = dtUserInfo.Rows[0].Field<string>("Nombre");
+                                Usuario.Instance().UserRut = dtUserInfo.Rows[0].Field<string>("rut");
+                                frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                frmParentForm.TipoAcceso = "LECTURA";
+                                frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                frmParentForm.ConfigurarMenuAcceso();
+                                ClosedFadeOutAsync();
+                                break;
+                            case 96002: // Verificacion del Acceso 9600 VENTAS
+                                Usuario.Instance().UserId = dtUserInfo.Rows[0].Field<int>("IdUsuario");
+                                Usuario.Instance().UserName = dtUserInfo.Rows[0].Field<string>("Nombre");
+                                Usuario.Instance().UserRut = dtUserInfo.Rows[0].Field<string>("rut");
+                                frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                frmParentForm.TipoAcceso = "VENTAS";
+                                frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                frmParentForm.ConfigurarMenuAcceso();
+                                ClosedFadeOutAsync();
+                                break;
+                                MetroFramework.MetroMessageBox.Show(frmParentForm, "No Posee la Autorizacion en MinduMas para Acceder al Sistema",
+                                          "Acceso No Habilitado",
+                                          MessageBoxButtons.OK,
+                                          MessageBoxIcon.Information,
+                                          370);
+                                break;
+
                         }
-                        else
-                            MetroFramework.MetroMessageBox.Show(frmParentForm, "No Posee la Autorizacion en MinduMas para Acceder al Sistema",
-                                           "Acceso No Habilitado",
-                                           MessageBoxButtons.OK,
-                                           MessageBoxIcon.Information,
-                                           370);
+                           
                     }
                     else
                     {
@@ -87,7 +115,7 @@ namespace PresentationLayer
         private bool VerificarCampos()
         {
             bool Valido = true;
-            if(TxtBx_UserID.Text.Trim().Length == 0)
+            if (TxtBx_UserID.Text.Trim().Length == 0)
                 Valido = false;
             else if (TxtBx_UserID.Text.Trim().Length == 0)
                 Valido = false;
@@ -102,7 +130,7 @@ namespace PresentationLayer
 
             Fader.FadeOutAndClose(this, Fader.FadeSpeed.Slower);
             //this.FadeOut();
-            
+
             await Task.Delay(80);
             frmParentForm.Animate_BackLogo();
         }
@@ -124,17 +152,17 @@ namespace PresentationLayer
         {
             TextBox tbtmp = sender as TextBox;
 
-            if (e.KeyChar == Convert.ToChar(Keys.Back) || 
-                e.KeyChar == Convert.ToChar(Keys.Delete) || 
-                e.KeyChar == Convert.ToChar(Keys.Left) || 
+            if (e.KeyChar == Convert.ToChar(Keys.Back) ||
+                e.KeyChar == Convert.ToChar(Keys.Delete) ||
+                e.KeyChar == Convert.ToChar(Keys.Left) ||
                 e.KeyChar == Convert.ToChar(Keys.Right) ||
-                e.KeyChar.ToString().ToUpper() == Convert.ToChar("K").ToString() || 
+                e.KeyChar.ToString().ToUpper() == Convert.ToChar("K").ToString() ||
                 (e.KeyChar.ToString().IsNumber()))
             {
-                if((tbtmp.Text.CountChars('K') == 1 || tbtmp.Text.CountChars('k') == 1) && 
+                if ((tbtmp.Text.CountChars('K') == 1 || tbtmp.Text.CountChars('k') == 1) &&
                   e.KeyChar.ToString().ToUpper() == Convert.ToChar("K").ToString())
                     e.Handled = true;
-                else if (tbtmp.Text.CountChars('-') == 1  && e.KeyChar == Convert.ToChar("-"))
+                else if (tbtmp.Text.CountChars('-') == 1 && e.KeyChar == Convert.ToChar("-"))
                     e.Handled = true;
                 else if (e.KeyChar == Convert.ToChar("."))
                     e.Handled = true;
@@ -150,12 +178,12 @@ namespace PresentationLayer
             if (UsernameLabel.Visible)
                 UsernameLabel.Visible = false;
             else if (!UsernameLabel.Visible && TxtBx_UserID.Text.Trim().Length == 0)
-                    UsernameLabel.Visible = true;
+                UsernameLabel.Visible = true;
         }
 
         private void EnterKeyPress(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
                 this.SelectNextControl(this.ActiveControl, true, true, true, true);
@@ -174,7 +202,7 @@ namespace PresentationLayer
 
         private void TxtBx_Password_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 SendKeys.Send("{TAB}");
                 e.Handled = e.SuppressKeyPress = true;

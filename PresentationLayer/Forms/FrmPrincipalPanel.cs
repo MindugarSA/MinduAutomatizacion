@@ -17,6 +17,10 @@ namespace PresentationLayer
 {
     public partial class FrmPrincipalPanel : Form
     {
+        public string TipoAcceso { get; set; }
+        public string AccesoActual { get; set; }
+        public string AccesoBloqueo { get; set; }
+
         public FrmPrincipalPanel()
         {
             InitializeComponent();
@@ -37,7 +41,7 @@ namespace PresentationLayer
         int Level1Separation = 54;
         bool Opt1Open = false;
         private BunifuAnimatorNS.AnimationType AnimationType = (AnimationType)10;
-        
+
 
         //protected override void OnLoad(EventArgs e)
         //{
@@ -80,7 +84,8 @@ namespace PresentationLayer
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AbrirSubMenu(1);
+            if (TipoAcceso != "LECTURA")
+                AbrirSubMenu(1);
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -120,8 +125,9 @@ namespace PresentationLayer
         private async void button2_ClickAsync(object sender, EventArgs e)
         {
             await CargaAsync();
-            FrmParte FrmParte = new FrmParte(this);
-            AbrirFormulario(FrmParte, 470, 230); 
+            FrmParte FormParte = new FrmParte(this);
+            FormParte.TipoAcceso = TipoAcceso;
+            AbrirFormulario(FormParte, 470, 230);
         }
 
         private async Task CargaAsync()
@@ -134,6 +140,7 @@ namespace PresentationLayer
         {
             await CargaAsync();
             FrmKit FrmKits = new FrmKit(this);
+            FrmKits.TipoAcceso = TipoAcceso;
             AbrirFormulario(FrmKits, 450, 100);
 
         }
@@ -141,11 +148,10 @@ namespace PresentationLayer
         private async void button5_ClickAsync(object sender, EventArgs e)
         {
             await CargaAsync();
-            FrmProducto FrmKits = new FrmProducto(this);
-            AbrirFormulario(FrmKits, 470, 120);
+            FrmProducto FrmProd = new FrmProducto(this);
+            FrmProd.TipoAcceso = TipoAcceso;
+            AbrirFormulario(FrmProd, 470, 120);
         }
-
-
 
         private void tmrOcultarMenu_Tick(object sender, EventArgs e)
         {
@@ -196,13 +202,80 @@ namespace PresentationLayer
             label3.Text = UserName;
         }
 
+        public void ConfigurarMenuAcceso()
+        {
+            switch (TipoAcceso)
+            {
+                case "VENTAS":
+                    Opt1Open = true;
+                    AbrirSubMenu(1);
+                    MenuAccesoVentas();
+                    break;
+                case "ADMIN":
+                    MenuAccesoAdmin();
+                    break;
+                case "LECTURA":
+                    Opt1Open = true;
+                    AbrirSubMenu(1);
+                    MenuAccesoAdmin();
+                    break;
+            }
+
+            if (AccesoBloqueo != AccesoActual)
+            {
+                List<Form> lform = new List<Form>();
+
+                foreach (Form OpenForm in Application.OpenForms)
+                {
+                    if (OpenForm.Name != "FrmPrincipalPanel")
+                        lform.Add(OpenForm);
+                }
+
+                foreach (Form f in lform)
+                {
+                    f.Close();
+                }
+            }
+
+        }
+
+        private void MenuAccesoVentas()
+        {
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button5.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+            panel3.Visible = false;
+            button6.Location = new Point(11, 115);
+            panel11.Location = new Point(0, 115);
+
+        }
+
+        private void MenuAccesoAdmin()
+        {
+            button1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            button5.Visible = true;
+            panel5.Visible = true;
+            panel6.Visible = true;
+            panel7.Visible = true;
+            panel3.Visible = true;
+            button6.Location = new Point(12, 331);
+            panel11.Location = new Point(2, 331);
+
+        }
+
         public void AbrirFormulario(Form oForm, int X, int Y, bool Modal = false)
         {
             oForm.StartPosition = FormStartPosition.Manual;
             if (X == 0 && Y == 0)
             {
-                oForm.Left =  (panel10.Width - oForm.Width) / 2;
-                oForm.Top =  (panel10.Height - oForm.Height) / 2;
+                oForm.Left = (panel10.Width - oForm.Width) / 2;
+                oForm.Top = (panel10.Height - oForm.Height) / 2;
             }
             else
                 oForm.Location = new Point(X, Y);
@@ -286,7 +359,7 @@ namespace PresentationLayer
 
         public void Animate_BackLogo()
         {
-            
+
             if (pictureBox4.Visible == true)
                 BunifuTransition1.HideSync(pictureBox4);
 
@@ -302,13 +375,13 @@ namespace PresentationLayer
                 AnimationType += 1;
         }
 
-       
+
         public void VisualizarLabel(bool Visible)
         {
             this.label1.BringToFront();
             this.label1.Visible = Visible;
             //this.MetroProgressSpinner1.Visible = Visible;
-           
+
         }
 
         private void FrmPrincipalPanel_DragEnter(object sender, DragEventArgs e)
@@ -339,7 +412,7 @@ namespace PresentationLayer
 
         private void button6_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void FrmPrincipalPanel_FormClosing(object sender, FormClosingEventArgs e)
@@ -349,6 +422,8 @@ namespace PresentationLayer
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
+            AccesoBloqueo = AccesoActual;
+
             pictureBox4.Visible = false;
             label3.Visible = false;
             SetBackGroundImage();

@@ -26,5 +26,6 @@ namespace Entities
         public Nullable<decimal> Costo_Directo { get; set; }
         public Nullable<decimal> Directo___Factor { get; set; }
         public string Estado { get; set; }
+        public decimal Factor { get; set; }
     }
 }

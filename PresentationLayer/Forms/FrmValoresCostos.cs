@@ -40,8 +40,10 @@ namespace PresentationLayer
             {
                 formHeader1.HeaderText = "Tasas / Factores";
                 cmbUnidad.Visible = false;
-                label4.Visible = false;
-                cmbTipo.Width = 226;
+                txtValor2.Visible = true;
+                label4.Text = "Valor Base";
+                label4.Left = 300;
+                cmbTipo.Width = 190;
                 cmbTipo.Items.Clear();
                 cmbTipo.Items.Add("Tasa");
                 cmbTipo.Items.Add("Factor Industrial Interno");
@@ -86,17 +88,18 @@ namespace PresentationLayer
 
         private void TxtValor_Click(object sender, EventArgs e)
         {
+            TextBox TxtActual = (TextBox)sender;
+
             if (!bControlActive)
             {
                 bControlActive = true;
-                txtValor.SelectAll();
+                TxtActual.SelectAll();
             }
         }
 
         private void txtValor_Leave(object sender, EventArgs e)
         {
             bControlActive = false;
-
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
@@ -156,6 +159,7 @@ namespace PresentationLayer
                 Cost.Unidad = cmbUnidad.Text.Trim();
                 Cost.Estado = materialCheckBox1.Checked ? 1 : 0;
                 Cost.Valor = Convert.ToDecimal(txtValor.Text);
+                Cost.Valor2 = Convert.ToDecimal(txtValor2.Text);
 
                 switch (labelNoMouse1.Text.Trim())
                 {
@@ -202,6 +206,20 @@ namespace PresentationLayer
 
             if (cControl.SelectedIndex != -1)
                 errorIcono.SetError(cControl, "");
+
+            if(cControl.Name == "cmbTipo" && TipoPantalla == "Factores")
+            {
+                if (cControl.SelectedIndex == 0)
+                {
+                    txtValor2.Visible = true;
+                    label4.Visible = true;
+                }
+                else
+                {
+                    txtValor2.Visible = false;
+                    label4.Visible = false;
+                }
+            }
         }
 
 
@@ -220,6 +238,7 @@ namespace PresentationLayer
             dataGridView1.Columns["Id"].Visible = false;
             dataGridView1.Columns["Estado"].Visible = false;
             dataGridView1.Columns["Categoria"].Visible = false;
+            dataGridView1.Columns["Valor2"].Visible = false;
             if (TipoPantalla == "Factores") dataGridView1.Columns["Unidad"].Visible = false;
 
             dataGridView1.Columns[5].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -291,6 +310,7 @@ namespace PresentationLayer
             txtDescripcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
             materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[6].Value.ToString() == "1" ? true : false;
             txtValor.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[5].Value);
+            txtValor2.Text = string.Format("{0:#,0.00###}", dataGridView1.Rows[nRow].Cells[7].Value);
 
             // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
         }

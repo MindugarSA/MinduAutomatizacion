@@ -43,5 +43,6 @@ namespace Entities
         public Nullable<int> Autorizado { get; set; }
         public Nullable<decimal> CostoUSD { get; set; }
         public Nullable<int> FactorInd { get; set; }
+        public Nullable<decimal> CostoTotalFactor { get; set; }
     }
 }

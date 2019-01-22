@@ -21,6 +21,8 @@ namespace PresentationLayer.Forms
         private const int cGrip = 16;
         private const int cCaption = 32;
 
+        public string TipoAcceso { get; set; }
+
         Item ItemEntidad = new Item();
         Item ItemEntidadInicial = new Item();
         ItemCosto CostoEntidad = new ItemCosto();
@@ -75,6 +77,8 @@ namespace PresentationLayer.Forms
             metroTabPage1.Select();
             formPrincipal.VisualizarLabel(false);
             CambioGrid = false;
+            if (TipoAcceso == "LECTURA") materialFlatButton1.Enabled = false;
+
         }
 
         private void metroComboBox2_Format(object sender, ListControlConvertEventArgs e)
@@ -171,6 +175,7 @@ namespace PresentationLayer.Forms
         {
             MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
             ValorDetalleEditado = Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value);
+            bAgregandoRow = false;
         }
 
         private void dgvValidar_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -209,28 +214,53 @@ namespace PresentationLayer.Forms
 
         private void dgvDetalleItemAmp_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
-
-            if (dgvActual.CurrentRow.Index == -1 || bAgregandoRow)
-                return;
-
-            if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value.ToString().Length == 0)
-                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value = "0,00";
-            else if (ValorDetalleEditado != Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value))
+            try
             {
-                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
-                                                                                Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[10].Value);
-                dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[13].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
-                                                                                 Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value);
+                MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
 
-                txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
-                                                                 : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
-                txtCostPiezasD.Text = txtTotCosPiezas.Text;
-                textBox1.Text = txtTotCosPiezas.Text;
-                txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
-                                       Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
-                CambioGrid = true;
+                if (dgvActual.CurrentRow.Index == -1 || bAgregandoRow)
+                    return;
+
+                if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value.ToString().Length == 0)
+                    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value = "0,00";
+                else if (ValorDetalleEditado != Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value))
+                {
+                    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[12].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+                                                                                    Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[10].Value);
+                    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[13].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+                                                                                    Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value);
+
+                    txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitFactor").ToString()
+                                                                     : SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitario").ToString();
+                    txtCostPiezasD.Text = txtTotCosPiezas.Text;
+                    textBox1.Text = txtTotCosPiezas.Text;
+                    txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+                                           Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+                }
             }
+            catch { }
+            //MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
+
+            //if (dgvActual.CurrentRow.Index == -1 || bAgregandoRow)
+            //    return;
+
+            //if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value.ToString().Length == 0)
+            //    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value = "0,00";
+            //else if (ValorDetalleEditado != Convert.ToDouble(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value))
+            //{
+            //    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[12].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+            //                                                                    Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[10].Value);
+            //    dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[13].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
+            //                                                                     Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value);
+
+            //    txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+            //                                                     : SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
+            //    txtCostPiezasD.Text = txtTotCosPiezas.Text;
+            //    textBox1.Text = txtTotCosPiezas.Text;
+            //    txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
+            //                           Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+            //    CambioGrid = true;
+            //}
         }
 
         private void TxtValidar_KeyPress(object sender, KeyPressEventArgs e)
@@ -393,7 +423,7 @@ namespace PresentationLayer.Forms
 
             if (ValidarCampos())
             {
-                CargarEntidadItem();
+                CargarEntidadItem(0);
                 switch (labelNoMouse1.Text.Trim())
                 {
                     case "Agregar":
@@ -661,7 +691,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 };
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 ,28 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -674,12 +704,17 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[17].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[28].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            dgvListaItems.Columns[6].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[9].DefaultCellStyle.Format = "#,0.00###";
-            dgvListaItems.Columns[17].DefaultCellStyle.Format = "#,0.00###";
+            dgvListaItems.Columns[6].DefaultCellStyle.Format = "N2";
+            dgvListaItems.Columns[7].DefaultCellStyle.Format = "N2";
+            dgvListaItems.Columns[8].DefaultCellStyle.Format = "N2";
+            dgvListaItems.Columns[9].DefaultCellStyle.Format = "N2";
+            dgvListaItems.Columns[17].DefaultCellStyle.Format =  "N2"; // "#,0.00###";
+            dgvListaItems.Columns[28].DefaultCellStyle.Format =  "N2"; // "#,0.00###";
+
+            dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
+            dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
 
         }
 
@@ -712,7 +747,7 @@ namespace PresentationLayer.Forms
                         dgvActual.Columns[12].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                         dgvActual.Columns[13].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-                        dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
+                        dgvActual.Columns[9].DefaultCellStyle.Format = "N0";
                         dgvActual.Columns[10].DefaultCellStyle.Format = "N2";
                         dgvActual.Columns[11].DefaultCellStyle.Format = "N2";
                         dgvActual.Columns[12].DefaultCellStyle.Format = "N2";
@@ -726,6 +761,14 @@ namespace PresentationLayer.Forms
                         dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgvActual.Columns[12].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                         dgvActual.Columns[13].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                        dgvActual.Columns[10].HeaderText = "Costo Unitario S/F";
+                        dgvActual.Columns[11].HeaderText = "Costo Unitario C/F";
+                        dgvActual.Columns[12].HeaderText = "Tota Sin Factor";
+                        dgvActual.Columns[13].HeaderText = "Tota Con Factor";
+
+                        dgvActual.Columns[11].DisplayIndex = 12;
+                        dgvActual.Columns[12].DisplayIndex = 11;
 
                         if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                     }
@@ -879,8 +922,14 @@ namespace PresentationLayer.Forms
             pictureBox10.BackgroundImage = null;
         }
 
-        private void CargarEntidadItem()
+        private void CargarEntidadItem(int Autorizado)
         {
+            Double CostoPiezasSinFactor = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario");
+            Double CostoTotalSinFactor = (CostoPiezasSinFactor + Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text));
+
+            Double CostoPiezasFactor = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor");
+            Double CostoTotalFactor = (CostoPiezasFactor + Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text));
+
             ItemEntidad.Codigo = txtCodigo.Text.Trim();
             ItemEntidad.Descripcion = txtDescrpcion.Text;
             ItemEntidad.Nombre = txtNombre.Text;
@@ -896,11 +945,14 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosPiezas.Text);
             ItemEntidad.CostoPR = Convert.ToDecimal(txtTotCosPro.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
-            ItemEntidad.CostoTotal = Convert.ToDecimal(txtTotalCostos.Text);
+            ItemEntidad.CostoTotal = Convert.ToDecimal(CostoTotalSinFactor);
+            ItemEntidad.CostoTotalFactor = Convert.ToDecimal(CostoTotalFactor);
             ItemEntidad.CostoAC = 0;
+
             if (pictureBox1.BackgroundImage != null) ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
-            ItemEntidad.Autorizado = 0;
+            ItemEntidad.Autorizado = Autorizado;
+
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
         }
@@ -948,6 +1000,8 @@ namespace PresentationLayer.Forms
                 ItemDetalleEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
                 ItemDetalleEntidad.CostoUnitario = Convert.ToDecimal(row["CostoUnitario"]);
                 ItemDetalleEntidad.Total = Convert.ToDecimal(row["Total"]);
+                ItemDetalleEntidad.CostoUnitFactor = Convert.ToDecimal(row["CostoUnitFactor"]);
+                ItemDetalleEntidad.TotalFactor = Convert.ToDecimal(row["TotalFactor"]);
                 ItemDetalleEntidad.Id = Convert.ToInt32(row["Id"] is DBNull ? 0 : row["Id"]);
                 ListItemDetalleEntidad.Add(ItemDetalleEntidad);
                 Linea += 1;
@@ -966,6 +1020,8 @@ namespace PresentationLayer.Forms
                 ItemDetalleEntidad.Cantidad = Convert.ToDecimal(Row.Cells["Cantidad"].Value);
                 ItemDetalleEntidad.CostoUnitario = Convert.ToDecimal(Row.Cells["CostoUnitario"].Value);
                 ItemDetalleEntidad.Total = Convert.ToDecimal(Row.Cells["Total"].Value);
+                ItemDetalleEntidad.CostoUnitFactor = Convert.ToDecimal(Row.Cells["CostoUnitFactor"].Value);
+                ItemDetalleEntidad.TotalFactor = Convert.ToDecimal(Row.Cells["TotalFactor"].Value);
                 ItemDetalleEntidad.Id = Convert.ToInt32(Row.Cells["Id"].Value);
                 ListItemDetalleDelete.Add(ItemDetalleEntidad);
             }
@@ -1028,6 +1084,15 @@ namespace PresentationLayer.Forms
 
             bAgregandoRow = true;
             Item ItemDet = ItemsBL.GetItemId(IdDetalle).FirstOrDefault();
+            //double dFactor = Convert.ToDouble(CostosBL.GetCostos()
+            //      .Where(x => x.Id == Convert.ToDouble(ItemDet.FactorInd))
+            //      .FirstOrDefault()
+            //      .Valor);
+
+            Costos dFactor = CostosBL.GetCostos()
+                                          .Where(x => x.Id == Convert.ToDouble(ItemDet.FactorInd))
+                                          .FirstOrDefault();
+
             DataTable dt = (DataTable)dgvDetalleItemAmp.DataSource;
             DataRow row = dt.NewRow();
             row[4] = IdDetalle;
@@ -1036,9 +1101,15 @@ namespace PresentationLayer.Forms
             row[7] = dgvDetalleItemAmp.Rows.Count + 1;
             row[8] = ItemDet.TipoPieza == "K" ? ItemDet.TipoItem : ItemDet.TipoItem + ItemDet.TipoPieza;
             row[9] = 0;
-            row[10] = Convert.ToDouble(ItemDet.CostoTotal ?? 0) * (ItemDet.TipoItem.Trim() == "P" ? (ItemDet.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
-            row[11] = 0;
-            row[12] = ItemDet.Imagen;
+            row[10] = Convert.ToDouble(ItemDet.CostoTotal ?? 0);
+            row[11] = Convert.ToDouble(ItemDet.CostoTotal ?? 0) * (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
+            row[12] = 0;
+            row[13] = 0;
+            row[14] = ItemDet.Imagen;
+            row[15] = (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
+            row[16] = (dFactor == null ? "" : dFactor.Tipo ?? "");
+            row[17] = ItemDet.FactorInd ?? 0;
+
             dt.Rows.Add(row);
             errorDetalle.SetErrorWithCount(dgvDetalleItemAmp, "");
             CargarCamposItemDetalle(ItemDet);
@@ -1282,7 +1353,7 @@ namespace PresentationLayer.Forms
             else
             {
                 contextMenuStrip1.Items[0].Enabled = true;
-                contextMenuStrip1.Items[1].Enabled = true;
+                contextMenuStrip1.Items[1].Enabled = TipoAcceso == "LECTURA" ? false : true;
                 contextMenuStrip1.Items[2].Enabled = true;
             }
         }
@@ -1335,7 +1406,7 @@ namespace PresentationLayer.Forms
 
         private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Clipboard.SetText(dgvListaItems[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+            Clipboard.SetText(dgvListaItems[currentMouseOverCol, currentMouseOverRow].Value.ToString());       
         }
 
         private void dgvListaItems_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -1550,10 +1621,13 @@ namespace PresentationLayer.Forms
             {
                 switch (metroTab1.SelectedIndex)
                 {
+                    case 1:
+                        bAgregandoRow = false;
+                        break;
                     case 3:
                         if (ItemEntidadInicial.Codigo.Trim().Length > 0)
                         {
-                            CargarEntidadItem();
+                            CargarEntidadItem(ItemEntidad.Autorizado ?? 0);
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
                             ItemEntidadInicial.CostoTotal = ItemEntidad.CostoTotal;
@@ -1652,6 +1726,11 @@ namespace PresentationLayer.Forms
             textBox1.Text = txtTotCosPiezas.Text;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+        }
+
+        private void formHeader1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

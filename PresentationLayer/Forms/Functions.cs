@@ -85,8 +85,8 @@ namespace PresentationLayer
                     {
                         if (IsNumeric(Object1Value.Trim()))
                         {
-                            if (Math.Round(Convert.ToDouble(Object1Value),3) != Math.Round(Convert.ToDouble(Object2Value),3))
-                            return false;
+                            if (Math.Round(Convert.ToDouble(Object1Value), 2) != Math.Round(Convert.ToDouble(Object2Value), 2))
+                                return false;
                         }
                         else
                             return false;

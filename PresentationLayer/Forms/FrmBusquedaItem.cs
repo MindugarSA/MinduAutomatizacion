@@ -72,6 +72,7 @@ namespace PresentationLayer.Forms
                 txtDiametroC.Text = ItemConsulta.Diametro.ToString();
                 txtVolumenC.Text = ItemConsulta.Volumen.ToString();
                 txtPesoC.Text = ItemConsulta.Peso.ToString();
+                //txtPesoC.Text = ItemConsulta.cos.ToString();
                 pictureBox10.BackgroundImage = null;
                 if (ItemConsulta.Imagen != null)
                     pictureBox10.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);

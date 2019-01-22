@@ -307,7 +307,7 @@
             this.panel12.Controls.Add(this.panel16);
             this.panel12.Controls.Add(this.button12);
             this.BunifuTransition1.SetDecoration(this.panel12, BunifuAnimatorNS.DecorationType.None);
-            this.panel12.Location = new System.Drawing.Point(12, 411);
+            this.panel12.Location = new System.Drawing.Point(6, 411);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(197, 95);
             this.panel12.TabIndex = 13;
