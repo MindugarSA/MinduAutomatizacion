@@ -430,6 +430,7 @@
     <Content Include="Logo.ico" />
     <Content Include="MinduAuto.ico" />
     <Content Include="Resources\ajax-loader %283%29.gif" />
+    <None Include="Resources\search.png" />
     <None Include="Resources\settings %282%29.png" />
     <None Include="Resources\white-ms-excel-32.png" />
     <None Include="Resources\network-diagram.png" />
