@@ -75,6 +75,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel17 = new System.Windows.Forms.Panel();
+            this.btnGlosario = new System.Windows.Forms.Button();
             this.pnlMenu.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -91,6 +93,8 @@
             this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMenu.BackColor = System.Drawing.Color.DimGray;
+            this.pnlMenu.Controls.Add(this.panel17);
+            this.pnlMenu.Controls.Add(this.btnGlosario);
             this.pnlMenu.Controls.Add(this.panel4);
             this.pnlMenu.Controls.Add(this.panel12);
             this.pnlMenu.Controls.Add(this.button6);
@@ -692,6 +696,33 @@
             this.formHeader1.Size = new System.Drawing.Size(1174, 30);
             this.formHeader1.TabIndex = 5;
             // 
+            // panel17
+            // 
+            this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel17, BunifuAnimatorNS.DecorationType.None);
+            this.panel17.Location = new System.Drawing.Point(1, 382);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(9, 35);
+            this.panel17.TabIndex = 18;
+            // 
+            // btnGlosario
+            // 
+            this.btnGlosario.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.btnGlosario, BunifuAnimatorNS.DecorationType.None);
+            this.btnGlosario.FlatAppearance.BorderSize = 0;
+            this.btnGlosario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.btnGlosario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGlosario.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGlosario.ForeColor = System.Drawing.Color.White;
+            this.btnGlosario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGlosario.Location = new System.Drawing.Point(12, 382);
+            this.btnGlosario.Name = "btnGlosario";
+            this.btnGlosario.Size = new System.Drawing.Size(189, 35);
+            this.btnGlosario.TabIndex = 19;
+            this.btnGlosario.Text = "Glosario";
+            this.btnGlosario.UseVisualStyleBackColor = false;
+            this.btnGlosario.Click += new System.EventHandler(this.btnGlosario_Click);
+            // 
             // FrmPrincipalPanel
             // 
             this.AllowDrop = true;
@@ -775,5 +806,7 @@
         private System.Windows.Forms.Button button10;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.Button btnGlosario;
     }
 }
