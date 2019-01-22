@@ -444,6 +444,9 @@ namespace PresentationLayer
             AbrirFormulario(FrmAutorizacion, 0, 0);
         }
 
+        private void btnGlosario_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
