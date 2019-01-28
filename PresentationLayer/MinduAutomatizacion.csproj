@@ -199,6 +199,11 @@
     <Compile Include="Controls\WinApi.cs" />
     <Compile Include="Controls\Positioning.cs" />
     <Compile Include="Controls\TimerAnimation.cs" />
+    <Compile Include="DB_AUTOMATIZACIONDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DataGridViewExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ErrorProviderExtensions.cs" />
@@ -211,11 +216,19 @@
     <Compile Include="Extensions\ManipulateObject.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\Visuales.cs" />
+    <Compile Include="Forms\Conexion.cs" />
+    <Compile Include="Forms\Datos.cs" />
     <Compile Include="Forms\FrmAprobacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmAprobacion.Designer.cs">
       <DependentUpon>FrmAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmGlosario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGlosario.Designer.cs">
+      <DependentUpon>FrmGlosario.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmReportesGrid.cs">
       <SubType>Form</SubType>
@@ -340,6 +353,9 @@
     <EmbeddedResource Include="Forms\FrmFamilia.resx">
       <DependentUpon>FrmFamilia.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGlosario.resx">
+      <DependentUpon>FrmGlosario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmKit.resx">
       <DependentUpon>FrmKit.cs</DependentUpon>
     </EmbeddedResource>
@@ -393,6 +409,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RecetaKit.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="DB_AUTOMATIZACIONDataSet.xsc">
+      <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_AUTOMATIZACIONDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_AUTOMATIZACIONDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_AUTOMATIZACIONDataSet.xss">
+      <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
+    </None>
     <None Include="MinduAutomatizacion_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

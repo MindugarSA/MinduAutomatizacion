@@ -14,13 +14,14 @@ using BusinessLayer;
 using System.IO;
 using PresentationLayer.Reports;
 
+
 namespace PresentationLayer.Forms
 {
     public partial class FrmProducto : Form
     {
         private const int cGrip = 16;
         private const int cCaption = 32;
-
+           
         public string TipoAcceso { get; set; }
 
         Item ItemEntidad = new Item();
@@ -37,6 +38,19 @@ namespace PresentationLayer.Forms
         bool bControlActive = false;
         bool bAgregandoRow = false;
         private FrmPrincipalPanel formPrincipal;
+        //Referencia obj de botones nuevos para ostrar detalle
+        private String codigo = ""; // ref a obj buscador item codi
+        private String descripcion = "";
+        private String nombre = "";
+        private int espesor = 0;
+        private int ancho = 0;
+        private int largo = 0;
+        private int diametro = 0;
+        private int peso = 0;
+        private int volumen = 0;
+        private int costoTotal = 0;
+        private String imagen = "";
+
 
 
         public FrmProducto(FrmPrincipalPanel FormP = null)
@@ -1494,6 +1508,10 @@ namespace PresentationLayer.Forms
         {
             if (txtBuscarProd.Text.Trim().Length > 0)
             {
+
+                //string c= "select @TipoItem = @TipoPieza == 'K' and TipoItem : TipoItem + TipoPieza ";
+
+
                 var result = ItemsBL.GetItemsTipo("T")
                             .Select(c =>
                             {
@@ -1505,6 +1523,25 @@ namespace PresentationLayer.Forms
 
                 if (result != null)
                     dgvListaItems.DataSource = result;
+
+
+
+
+
+
+                //var query = from t in TipoItem
+                //            where t.Id == @id 
+                //            select new
+                //            {
+                //                t.TipoItem,t.TipoPieza,
+                //                Categories = from c in t.Categories select c.Name
+                //            };
+                //ProductDto dto = new ProductDto();
+                //foreach (var categoryName in query.Single().Categories)
+                //// Executes SELECT p.Id, c.Name FROM Products as p, Categories as c WHERE p.Id = 10 AND p.Id = c.ProductId 
+                //{
+                //    dto.Categories.Add(new CategoryDto { Name = categoryName });
+                //}
             }
             else
             {
@@ -1621,10 +1658,10 @@ namespace PresentationLayer.Forms
             {
                 switch (metroTab1.SelectedIndex)
                 {
-                    case 1:
+                    case 0:// antes salía case 1
                         bAgregandoRow = false;
                         break;
-                    case 3:
+                    case 1:// antes salía case 3
                         if (ItemEntidadInicial.Codigo.Trim().Length > 0)
                         {
                             CargarEntidadItem(ItemEntidad.Autorizado ?? 0);
@@ -1731,6 +1768,67 @@ namespace PresentationLayer.Forms
         private void formHeader1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void pbListar_Click(object sender, EventArgs e)
+        {
+            DataTable dt = Datos.listar();
+            this.dgvListaItems.DataSource = dt;
+        }
+
+        private void pbBuscar_Click(object sender, EventArgs e)
+        {            
+            codigo = txtBuscarProd.Text;
+            if (codigo == "")
+            {
+                MessageBox.Show("Debe Ingresar el código del producto.", "Error", MessageBoxButtons.OK);
+            }
+            else
+            {
+                Item item = new Item(codigo, "x", "x", 0, 0, 0, 0, 0, 0, 0, "");
+
+                DataTable dt = Datos.buscarItemId(item);
+
+                try
+                {
+                    txtCodigoK.Text = dt.Rows[0][0].ToString();
+                    txtDescripcionK.Text = dt.Rows[0][1].ToString();
+                    txtNombreK.Text = dt.Rows[0][2].ToString();
+                    txtEspesorK.Text = dt.Rows[0][3].ToString();
+                    txtAnchoK.Text = dt.Rows[0][4].ToString();
+                    txtLargoK.Text = dt.Rows[0][5].ToString();
+                    txtDiametroK.Text = dt.Rows[0][6].ToString();
+                    txtPesoK.Text = dt.Rows[0][7].ToString();
+                    txtVolumenK.Text = dt.Rows[0][8].ToString();
+                    txtCostoTotalK.Text = dt.Rows[0][9].ToString();
+
+                    this.dgvListaItems.DataSource = dt;
+                }
+                //Item item = new Item(codigo, "x", "x", 0, 0, 0, 0, 0, 0, 0,"");
+
+                //DataTable dt = Datos.buscarItemId(item);
+
+                //try
+                //{
+                //    txtCodigoK.Text = dt.Rows[0][0].ToString();
+                //    txtDescripcionK.Text = dt.Rows[0][1].ToString();
+                //    txtNombreK.Text = dt.Rows[0][2].ToString();
+                //    txtEspesorK.Text = dt.Rows[0][3].ToString();
+                //    txtAnchoK.Text = dt.Rows[0][4].ToString();
+                //    txtLargoK.Text = dt.Rows[0][5].ToString();
+                //    txtDiametroK.Text = dt.Rows[0][6].ToString();
+                //    txtPesoK.Text = dt.Rows[0][7].ToString();
+                //    txtVolumenK.Text = dt.Rows[0][8].ToString();
+                //    txtCostoTotalK.Text = dt.Rows[0][9].ToString();
+
+                //    this.dgvListaItems.DataSource = dt;
+                //}
+                catch (IndexOutOfRangeException)
+                {
+                    MessageBox.Show("No existe un producto con el código ingresado.\r\nInténtelo denuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    LimpiarCamposItem();
+                }
+            }
         }
     }
 }

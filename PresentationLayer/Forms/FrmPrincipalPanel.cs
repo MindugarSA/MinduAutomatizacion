@@ -21,6 +21,8 @@ namespace PresentationLayer
         public string AccesoActual { get; set; }
         public string AccesoBloqueo { get; set; }
 
+        
+
         public FrmPrincipalPanel()
         {
             InitializeComponent();
@@ -250,6 +252,7 @@ namespace PresentationLayer
             panel7.Visible = false;
             panel3.Visible = false;
             button6.Location = new Point(11, 115);
+            //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
             panel11.Location = new Point(0, 115);
 
         }
@@ -265,6 +268,7 @@ namespace PresentationLayer
             panel7.Visible = true;
             panel3.Visible = true;
             button6.Location = new Point(12, 331);
+           // btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
             panel11.Location = new Point(2, 331);
 
         }
@@ -310,6 +314,9 @@ namespace PresentationLayer
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
+                        //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
+                        btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AL APRETAR DESPLEGAR BOTON 1
+
                         panel11.Top = button6.Top;
                         panel4.Visible = true;
                         Opt1Open = true;
@@ -324,6 +331,7 @@ namespace PresentationLayer
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
+                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AL APRETAR DESPLEGAR BOTON 1
                         panel11.Top = button6.Top;
                         Opt1Open = false;
                     }
@@ -446,7 +454,8 @@ namespace PresentationLayer
 
         private void btnGlosario_Click(object sender, EventArgs e)
         {
-
+            FrmGlosario FrmGlo = new FrmGlosario(this);
+            AbrirFormulario(FrmGlo, 0, 0);
         }
     }
 }

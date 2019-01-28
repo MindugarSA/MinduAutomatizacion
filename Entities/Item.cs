@@ -15,6 +15,39 @@ namespace Entities
     [Serializable]
     public partial class Item
     {
+        private String codigo;// ref a obj buscador item codi
+        private String descripcion;
+        private String nombre;
+        private int espesor;
+        private int ancho;
+        private int largo;
+        private int diametro;
+        private int peso;
+        private int volumen;
+        private int costoTotal;
+        private String imagen;
+
+        public Item()
+        {
+
+        }
+
+        public Item(String codigo, String descripcion, String nombre, int espesor, int ancho, int largo, int diametro, int peso, int volumen, int costoTotal, String imagen)
+        {
+            codigo = codigo;
+            descripcion = descripcion;
+            nombre = nombre;
+            espesor = espesor;
+            ancho = ancho;
+            largo = largo;
+            diametro = diametro;
+            peso = peso;
+            volumen = volumen;
+            costoTotal = costoTotal;
+            imagen = imagen;
+        }
+
+
         public int Id { get; set; }
         public string Codigo { get; set; }
         public string Descripcion { get; set; }
@@ -44,5 +77,10 @@ namespace Entities
         public Nullable<decimal> CostoUSD { get; set; }
         public Nullable<int> FactorInd { get; set; }
         public Nullable<decimal> CostoTotalFactor { get; set; }
+
+        public override string ToString()
+        {
+            return codigo + ", " + descripcion + ", " + nombre + ", " + espesor + ", " + ancho + ", " + largo + ", " + diametro + ", " + peso + ", " + volumen + ", " + costoTotal + ", " + imagen;
+        }
     }
 }

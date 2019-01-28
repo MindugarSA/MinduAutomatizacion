@@ -171,6 +171,7 @@
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pbListar = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -217,6 +218,7 @@
             this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.formHeader1 = new PresentationLayer.FormHeader();
+            this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -251,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
@@ -260,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -1430,7 +1434,7 @@
             this.metroTab1.Controls.Add(this.metroTabPage4);
             this.metroTab1.Location = new System.Drawing.Point(21, 36);
             this.metroTab1.Name = "metroTab1";
-            this.metroTab1.SelectedIndex = 0;
+            this.metroTab1.SelectedIndex = 3;
             this.metroTab1.Size = new System.Drawing.Size(927, 678);
             this.metroTab1.TabIndex = 0;
             this.metroTab1.UseSelectable = true;
@@ -2564,6 +2568,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox6.Controls.Add(this.pbBuscar);
+            this.groupBox6.Controls.Add(this.pbListar);
             this.groupBox6.Controls.Add(this.pictureBox17);
             this.groupBox6.Controls.Add(this.metroComboBox1);
             this.groupBox6.Controls.Add(this.label1);
@@ -2599,6 +2605,18 @@
             this.groupBox6.Size = new System.Drawing.Size(910, 629);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
+            // 
+            // pbListar
+            // 
+            this.pbListar.BackColor = System.Drawing.Color.Transparent;
+            this.pbListar.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pbListar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbListar.Location = new System.Drawing.Point(805, 19);
+            this.pbListar.Name = "pbListar";
+            this.pbListar.Size = new System.Drawing.Size(27, 27);
+            this.pbListar.TabIndex = 151;
+            this.pbListar.TabStop = false;
+            this.pbListar.Click += new System.EventHandler(this.pbListar_Click);
             // 
             // pictureBox17
             // 
@@ -3331,6 +3349,18 @@
             this.formHeader1.TabIndex = 0;
             this.formHeader1.Load += new System.EventHandler(this.formHeader1_Load);
             // 
+            // pbBuscar
+            // 
+            this.pbBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.pbBuscar.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pbBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbBuscar.Location = new System.Drawing.Point(362, 50);
+            this.pbBuscar.Name = "pbBuscar";
+            this.pbBuscar.Size = new System.Drawing.Size(27, 27);
+            this.pbBuscar.TabIndex = 152;
+            this.pbBuscar.TabStop = false;
+            this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
+            // 
             // FrmProducto
             // 
             this.AllowDrop = true;
@@ -3395,6 +3425,7 @@
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbListar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
@@ -3405,6 +3436,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3579,5 +3611,7 @@
         private System.Windows.Forms.Label label49;
         private MaterialSkin.Controls.MaterialCheckBox materialCheckBox3;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.PictureBox pbListar;
+        private System.Windows.Forms.PictureBox pbBuscar;
     }
 }
