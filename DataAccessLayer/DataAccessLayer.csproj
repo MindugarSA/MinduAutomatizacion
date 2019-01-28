@@ -85,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="CostosDALC.cs" />
     <Compile Include="DataTableExtensions.cs" />
     <Compile Include="EntityExceptionError.cs" />
@@ -92,6 +93,11 @@
     <Compile Include="ItemCostoDALC.cs" />
     <Compile Include="ItemDetalleDALC.cs" />
     <Compile Include="ItemsDALC.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="PropiedadesDALC.cs" />
     <Compile Include="ReglasFamiliaDALC.cs" />
     <Compile Include="Model1.Context.cs">
@@ -128,6 +134,10 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model1.Context.tt">

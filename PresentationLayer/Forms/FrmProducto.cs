@@ -1772,13 +1772,13 @@ namespace PresentationLayer.Forms
 
         private void pbListar_Click(object sender, EventArgs e)
         {
-            DataTable dt = Datos.listar();
-            this.dgvListaItems.DataSource = dt;
+           // DataTable dt = Datos.listar();
+           // this.dgvListaItems.DataSource = dt;
         }
 
         private void pbBuscar_Click(object sender, EventArgs e)
         {            
-            codigo = txtBuscarProd.Text;
+            /*codigo = txtBuscarProd.Text;
             if (codigo == "")
             {
                 MessageBox.Show("Debe Ingresar el código del producto.", "Error", MessageBoxButtons.OK);
@@ -1828,7 +1828,7 @@ namespace PresentationLayer.Forms
                     MessageBox.Show("No existe un producto con el código ingresado.\r\nInténtelo denuevo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     LimpiarCamposItem();
                 }
-            }
+            }*/
         }
     }
 }

@@ -51,10 +51,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton3 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton2 = new MaterialSkin.Controls.MaterialFlatButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton1 = new MaterialSkin.Controls.MaterialFlatButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -171,6 +174,7 @@
             this.dgvCostoProc = new MetroFramework.Controls.MetroGrid();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.pbListar = new System.Windows.Forms.PictureBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
@@ -199,6 +203,7 @@
             this.txtCodigoK = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.label39 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -213,12 +218,7 @@
             this.label47 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse3 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
-            this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.formHeader1 = new PresentationLayer.FormHeader();
-            this.pbBuscar = new System.Windows.Forms.PictureBox();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -253,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCostoProc)).BeginInit();
             this.metroTabPage4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbListar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
@@ -263,7 +264,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // panel4
@@ -277,6 +277,17 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
             this.panel4.TabIndex = 43;
+            // 
+            // labelNoMouse3
+            // 
+            this.labelNoMouse3.AutoSize = true;
+            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse3.Name = "labelNoMouse3";
+            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
+            this.labelNoMouse3.TabIndex = 1;
+            this.labelNoMouse3.Text = "Cerrar";
             // 
             // materialFlatButton3
             // 
@@ -311,6 +322,17 @@
             this.panel3.Size = new System.Drawing.Size(111, 34);
             this.panel3.TabIndex = 42;
             // 
+            // labelNoMouse2
+            // 
+            this.labelNoMouse2.AutoSize = true;
+            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
+            this.labelNoMouse2.Name = "labelNoMouse2";
+            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
+            this.labelNoMouse2.TabIndex = 1;
+            this.labelNoMouse2.Text = "Nuevo";
+            // 
             // materialFlatButton2
             // 
             this.materialFlatButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -343,6 +365,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
             this.panel2.TabIndex = 41;
+            // 
+            // labelNoMouse1
+            // 
+            this.labelNoMouse1.AutoSize = true;
+            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
+            this.labelNoMouse1.Name = "labelNoMouse1";
+            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
+            this.labelNoMouse1.TabIndex = 1;
+            this.labelNoMouse1.Text = "Agregar";
             // 
             // materialFlatButton1
             // 
@@ -472,7 +505,7 @@
             this.materialCheckBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCheckBox3.AutoSize = true;
             this.materialCheckBox3.Depth = 0;
-            this.materialCheckBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox3.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox3.Location = new System.Drawing.Point(607, 594);
             this.materialCheckBox3.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox3.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1344,7 +1377,7 @@
             // 
             this.materialCheckBox1.AutoSize = true;
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(563, 16);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -1525,7 +1558,7 @@
             this.materialCheckBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.materialCheckBox2.AutoSize = true;
             this.materialCheckBox2.Depth = 0;
-            this.materialCheckBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox2.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox2.Location = new System.Drawing.Point(548, 430);
             this.materialCheckBox2.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox2.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -2606,6 +2639,18 @@
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
             // 
+            // pbBuscar
+            // 
+            this.pbBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.pbBuscar.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
+            this.pbBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbBuscar.Location = new System.Drawing.Point(838, 19);
+            this.pbBuscar.Name = "pbBuscar";
+            this.pbBuscar.Size = new System.Drawing.Size(27, 27);
+            this.pbBuscar.TabIndex = 152;
+            this.pbBuscar.TabStop = false;
+            this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
+            // 
             // pbListar
             // 
             this.pbListar.BackColor = System.Drawing.Color.Transparent;
@@ -3110,6 +3155,17 @@
             this.panel1.Size = new System.Drawing.Size(107, 30);
             this.panel1.TabIndex = 59;
             // 
+            // labelNoMouse4
+            // 
+            this.labelNoMouse4.AutoSize = true;
+            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
+            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
+            this.labelNoMouse4.Name = "labelNoMouse4";
+            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
+            this.labelNoMouse4.TabIndex = 1;
+            this.labelNoMouse4.Text = "Seleccionar";
+            // 
             // materialFlatButton4
             // 
             this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -3291,50 +3347,6 @@
             this.timer1.Interval = 4000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // labelNoMouse4
-            // 
-            this.labelNoMouse4.AutoSize = true;
-            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse4.Location = new System.Drawing.Point(11, 5);
-            this.labelNoMouse4.Name = "labelNoMouse4";
-            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
-            this.labelNoMouse4.TabIndex = 1;
-            this.labelNoMouse4.Text = "Seleccionar";
-            // 
-            // labelNoMouse3
-            // 
-            this.labelNoMouse3.AutoSize = true;
-            this.labelNoMouse3.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse3.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse3.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse3.Name = "labelNoMouse3";
-            this.labelNoMouse3.Size = new System.Drawing.Size(52, 20);
-            this.labelNoMouse3.TabIndex = 1;
-            this.labelNoMouse3.Text = "Cerrar";
-            // 
-            // labelNoMouse2
-            // 
-            this.labelNoMouse2.AutoSize = true;
-            this.labelNoMouse2.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse2.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse2.Location = new System.Drawing.Point(28, 7);
-            this.labelNoMouse2.Name = "labelNoMouse2";
-            this.labelNoMouse2.Size = new System.Drawing.Size(55, 20);
-            this.labelNoMouse2.TabIndex = 1;
-            this.labelNoMouse2.Text = "Nuevo";
-            // 
-            // labelNoMouse1
-            // 
-            this.labelNoMouse1.AutoSize = true;
-            this.labelNoMouse1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse1.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse1.Location = new System.Drawing.Point(22, 7);
-            this.labelNoMouse1.Name = "labelNoMouse1";
-            this.labelNoMouse1.Size = new System.Drawing.Size(65, 20);
-            this.labelNoMouse1.TabIndex = 1;
-            this.labelNoMouse1.Text = "Agregar";
-            // 
             // formHeader1
             // 
             this.formHeader1.BackColor = System.Drawing.Color.Transparent;
@@ -3348,18 +3360,6 @@
             this.formHeader1.Size = new System.Drawing.Size(960, 44);
             this.formHeader1.TabIndex = 0;
             this.formHeader1.Load += new System.EventHandler(this.formHeader1_Load);
-            // 
-            // pbBuscar
-            // 
-            this.pbBuscar.BackColor = System.Drawing.Color.Transparent;
-            this.pbBuscar.BackgroundImage = global::PresentationLayer.Properties.Resources.magnifying_glass;
-            this.pbBuscar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbBuscar.Location = new System.Drawing.Point(362, 50);
-            this.pbBuscar.Name = "pbBuscar";
-            this.pbBuscar.Size = new System.Drawing.Size(27, 27);
-            this.pbBuscar.TabIndex = 152;
-            this.pbBuscar.TabStop = false;
-            this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
             // 
             // FrmProducto
             // 
@@ -3425,6 +3425,7 @@
             this.metroTabPage4.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbListar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
@@ -3436,7 +3437,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorCodigo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDescr)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorDetalle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbBuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

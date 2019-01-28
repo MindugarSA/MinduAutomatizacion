@@ -15,42 +15,145 @@ namespace DataAccessLayer
     {
         public List<Item> GetItems()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
-            {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
 
-                return (List<Item>)db.Item.ToList()
-                                          .OrderBy(c => c.Codigo)
-                                          .ToList();
+            //    return (List<Item>)db.Item.ToList()
+            //                              .OrderBy(c => c.Codigo)
+            //                              .ToList();
+            //}
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            List<Item> lItem = new List<Item>(); //Lista vacia
+
+            try
+            {
+                string sp = "[SP_GetItems]";
+
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+                if (DtResultado.Rows.Count > 0)
+                {
+                    lItem = (List<Item>)DtResultado.ToList<Item>();
+                }
+
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return lItem;
         }
 
         public List<Item> GetItemsTipo(string sItemTipo)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
-            {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
 
-                return (List<Item>)db.Item.ToList()
-                                          .Where(c => c.TipoItem == sItemTipo)
-                                          .OrderBy(c => c.Codigo)
-                                          .ToList();
+            //    return (List<Item>)db.Item.ToList()
+            //                              .Where(c => c.TipoItem == sItemTipo)
+            //                              .OrderBy(c => c.Codigo)
+            //                              .ToList();
+            //}
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            List<Item> lItem = new List<Item>(); //Lista vacia
+
+            try
+            {
+                string sp = "[SP_GetItemsTipo]";
+
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@sItemTipo", sItemTipo));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+                if(DtResultado.Rows.Count >0)
+                {
+                    lItem = (List<Item>)DtResultado.ToList<Item>();
+                }
+
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return lItem;
         }
 
         public List<Item> GetItemId(int idItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
-            {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
 
-                return (List<Item>)db.Item.ToList()
-                                          .Where(c => c.Id == idItem)
-                                          .ToList();
+            //    return (List<Item>)db.Item.ToList()
+            //                              .Where(c => c.Id == idItem)
+            //                              .ToList();
+            //}
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            List<Item> lItem = new List<Item>(); //Lista vacia
+
+            try
+            {
+                string sp = "[GetItemId]";
+
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@ID", idItem));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+                if (DtResultado.Rows.Count > 0)
+                {
+                    lItem = (List<Item>)DtResultado.ToList<Item>();
+                }
+
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return lItem;
         }
 
         public DataTable GetItemsBusqueda(int? idItem)
@@ -64,6 +167,43 @@ namespace DataAccessLayer
 
                 return new DataTable().ListToDataTable(result);
             }
+
+            //DataTable DtResultado = new DataTable();
+            //SqlConnection SlqCon = new SqlConnection();
+
+            //List<Item> lItem = new List<Item>(); //Lista vacia
+
+            //try
+            //{
+            //    string sp = "[SP_GetItemBusqueda]";
+
+            //    SlqCon.ConnectionString = Conexion.Cn;
+            //    SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+
+            //    SlqCon.Open();
+            //    SqlCmd.CommandType = CommandType.StoredProcedure;
+            //    SqlCmd.Parameters.Add(new SqlParameter("@id_Item", idItem));
+
+            //    SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+            //    SqlDat.Fill(DtResultado);
+
+            //    if (DtResultado.Rows.Count > 0)
+            //    {
+            //        lItem = (List<Item>)DtResultado.ToList<Item>();
+            //    }
+
+            //}
+            //catch
+            //{
+            //    DtResultado = null;
+            //}
+            //finally
+            //{
+            //    if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            //}
+            //return DtResultado;
+
+
         }
 
         public DataTable GetItemsDespendencias(int? idItem)
