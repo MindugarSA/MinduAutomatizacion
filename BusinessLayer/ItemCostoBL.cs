@@ -18,12 +18,17 @@ namespace BusinessLayer
             return obj.GetItemCostos();
         }
 
-        public static DataTable GetItemCostosId(int IdItem)
+        public static DataTable GetItemCostoId(int IdItem)
         {
             ItemCostoDALC obj = new ItemCostoDALC();
-            return obj.GetItemCostosId(IdItem);
+            return obj.GetItemCostoId(IdItem);
         }
 
+        //public static List<Item> GetItemsTipo(string sTipo)
+        //{
+        //    ItemsDALC obj = new ItemsDALC();
+        //    return obj.GetItemsTipo(sTipo);
+        //}
         public static void InsertItemCostos(List<ItemCosto> ListaIC)
         {
             ItemCostoDALC obj = new ItemCostoDALC();

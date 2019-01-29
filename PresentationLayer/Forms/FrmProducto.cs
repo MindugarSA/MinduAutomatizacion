@@ -679,7 +679,8 @@ namespace PresentationLayer.Forms
         private void CargarGridsCostos()
         {
 
-            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(ItemEntidad.Id);
+            DataTable dtItemCostos = ItemCostoBL.GetItemCostoId(ItemEntidad.Id);
+           // DataTable dtItemCostos = ItemCostoBL.GetItemCostoId();
             //Costos RRHH
             DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
                             .Where(r => r.Field<string>("Categoria") == "HH")
