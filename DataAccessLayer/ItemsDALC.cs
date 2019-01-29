@@ -158,147 +158,324 @@ namespace DataAccessLayer
 
         public DataTable GetItemsBusqueda(int? idItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
-            {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
 
-                List<SP_GetItemBusqueda_Result> result = db.SP_GetItemBusqueda(idItem).ToList();
+            //    List<SP_GetItemBusqueda_Result> result = db.SP_GetItemBusqueda(idItem).ToList();
 
-                return new DataTable().ListToDataTable(result);
-            }
+            //    return new DataTable().ListToDataTable(result);
+            //}
 
-            //DataTable DtResultado = new DataTable();
-            //SqlConnection SlqCon = new SqlConnection();
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
 
             //List<Item> lItem = new List<Item>(); //Lista vacia
 
-            //try
-            //{
-            //    string sp = "[SP_GetItemBusqueda]";
+            try
+            {
+                string sp = "[SP_GetItemBusqueda]";
 
-            //    SlqCon.ConnectionString = Conexion.Cn;
-            //    SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-            //    SlqCon.Open();
-            //    SqlCmd.CommandType = CommandType.StoredProcedure;
-            //    SqlCmd.Parameters.Add(new SqlParameter("@id_Item", idItem));
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@id_Item", idItem ?? 0));
 
-            //    SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
-            //    SqlDat.Fill(DtResultado);
-
-            //    if (DtResultado.Rows.Count > 0)
-            //    {
-            //        lItem = (List<Item>)DtResultado.ToList<Item>();
-            //    }
-
-            //}
-            //catch
-            //{
-            //    DtResultado = null;
-            //}
-            //finally
-            //{
-            //    if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
-            //}
-            //return DtResultado;
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+            }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
 
 
         }
 
         public DataTable GetItemsDespendencias(int? idItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_GetItemDependeceID_Result> result = db.SP_GetItemDependeceID(idItem).ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_GetItemDependeceID]";
 
-                List<SP_GetItemDependeceID_Result> result = db.SP_GetItemDependeceID(idItem).ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@id_Item", idItem ?? 0));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsResumen()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_ListadoItemsResumen_Result> result = db.SP_ListadoItemsResumen().ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_ListadoItemsResumen]";
 
-                List<SP_ListadoItemsResumen_Result> result = db.SP_ListadoItemsResumen().ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsCostoResumen()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_ListadoItemsCostosResumen_Result> result = db.SP_ListadoItemsCostosResumen().ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_ListadoItemsCostosResumen]";
 
-                List<SP_ListadoItemsCostosResumen_Result> result = db.SP_ListadoItemsCostosResumen().ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsCostoDetallado()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    DataTable dt = new DataTable();
+
+            //    var cmd = db.Database.Connection.CreateCommand();
+            //    cmd.CommandText = "[dbo].[SP_ListadoItemsCostosDetallado]";
+            //    cmd.CommandType = CommandType.StoredProcedure;
+
+            //    if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
+            //    dt.Load(cmd.ExecuteReader());
+
+            //    return dt;
+            //}
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                DataTable dt = new DataTable();
+                string sp = "[SP_ListadoItemsCostosDetallado]";
 
-                var cmd = db.Database.Connection.CreateCommand();
-                cmd.CommandText = "[dbo].[SP_ListadoItemsCostosDetallado]";
-                cmd.CommandType = CommandType.StoredProcedure;
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
-                dt.Load(cmd.ExecuteReader());
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
 
-                return dt;
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsTipoCostoFactor(string TipoItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+        //    using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+        //    {
+        //        if (db.Database.Connection.State == ConnectionState.Closed)
+        //            db.Database.Connection.Open();
+
+        //        List<SP_ListadoItemTipoCostoFactor_Result> result = db.SP_ListadoItemTipoCostoFactor(TipoItem).ToList();
+
+        //        return new DataTable().ListToDataTable(result);
+        //    }
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_ListadoItemTipoCostoFactor]";
 
-                List<SP_ListadoItemTipoCostoFactor_Result> result = db.SP_ListadoItemTipoCostoFactor(TipoItem).ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@TipoItem", TipoItem));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsTipoCostoFactorRES(string TipoItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_ListadoItemTipoCostoFactorRES_Result> result = db.SP_ListadoItemTipoCostoFactorRES(TipoItem).ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_ListadoItemTipoCostoFactorRES]";
 
-                List<SP_ListadoItemTipoCostoFactorRES_Result> result = db.SP_ListadoItemTipoCostoFactorRES(TipoItem).ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@TipoItem", TipoItem ));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public DataTable ListadoItemsAutorizacion()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_ListadoItemAutorizaciones_Result> result = db.SP_ListadoItemAutorizaciones().ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_ListadoItemAutorizaciones]";
 
-                List<SP_ListadoItemAutorizaciones_Result> result = db.SP_ListadoItemAutorizaciones().ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public Item InsertItem(Item Obj)
