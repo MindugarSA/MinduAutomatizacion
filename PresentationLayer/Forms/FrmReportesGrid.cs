@@ -70,6 +70,9 @@ namespace PresentationLayer
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
 
+            dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dgvListado.AllowUserToResizeRows = false;
+
             switch (metroComboBox1.SelectedIndex)
             {
                 case 0:
@@ -105,7 +108,7 @@ namespace PresentationLayer
                     break;
             }
 
-            dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
             DTListado = dt.Copy();
 

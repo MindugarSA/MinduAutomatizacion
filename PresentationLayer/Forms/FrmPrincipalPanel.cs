@@ -314,10 +314,10 @@ namespace PresentationLayer
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
+                        panel11.Top = button6.Top;
                         //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
                         btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AL APRETAR DESPLEGAR BOTON 1
-
-                        panel11.Top = button6.Top;
+                        panel17.Top = btnGlosario.Top;
                         panel4.Visible = true;
                         Opt1Open = true;
                     }
@@ -331,8 +331,10 @@ namespace PresentationLayer
                         button5.Top = button3.Top + Level1Separation;
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
-                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AL APRETAR DESPLEGAR BOTON 1
                         panel11.Top = button6.Top;
+                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AL APRETAR DESPLEGAR BOTON 1
+                        panel17.Top = btnGlosario.Top;
+
                         Opt1Open = false;
                     }
                     break;

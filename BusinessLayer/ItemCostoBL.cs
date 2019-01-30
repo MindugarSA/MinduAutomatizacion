@@ -21,7 +21,7 @@ namespace BusinessLayer
         public static DataTable GetItemCostoId(int IdItem)
         {
             ItemCostoDALC obj = new ItemCostoDALC();
-            return obj.GetItemCostoId(IdItem);
+            return obj.GetItemCostosId(IdItem);
         }
 
         //public static List<Item> GetItemsTipo(string sTipo)
