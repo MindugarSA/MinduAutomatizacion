@@ -158,6 +158,7 @@ namespace PresentationLayer
                     break;
             }
 
+
             //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
             DTListado = dt.Copy();
