@@ -524,6 +524,7 @@ namespace PresentationLayer.Forms
                 DataGridViewRow dRow = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex];
                 CargarItemDetalleDelete(dRow);
                 dgvDetalleItemAmp.Rows.RemoveAt(dgvDetalleItemAmp.CurrentCell.RowIndex);
+                ((DataTable)dgvDetalleItemAmp.DataSource).AcceptChanges();
                 if (dgvDetalleItemAmp.Rows.Count > 0)
                     foreach (DataGridViewRow row in dgvDetalleItemAmp.Rows)
                     {
@@ -651,7 +652,7 @@ namespace PresentationLayer.Forms
         {
 
             DataTable dtItemCostos = ItemCostoBL.GetItemCostoId(ItemEntidad.Id);
-            
+
             //Costos RRHH
             DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
                             .Where(r => r.Field<string>("Categoria") == "HH")
@@ -677,7 +678,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 ,28};
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -916,7 +917,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosPiezas.Text);
             ItemEntidad.CostoAC = Convert.ToDecimal(txtTotCosPro.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
-            ItemEntidad.CostoTotal = Convert.ToDecimal(CostoTotalSinFactor) ;
+            ItemEntidad.CostoTotal = Convert.ToDecimal(CostoTotalSinFactor);
             ItemEntidad.CostoTotalFactor = Convert.ToDecimal(CostoTotalFactor);
             ItemEntidad.CostoAC = 0;
 
@@ -1548,12 +1549,14 @@ namespace PresentationLayer.Forms
                 contextMenuStrip1.Items[0].Enabled = false;
                 contextMenuStrip1.Items[1].Enabled = false;
                 contextMenuStrip1.Items[2].Enabled = false;
+                contextMenuStrip1.Items[6].Enabled = false;
             }
             else
             {
                 contextMenuStrip1.Items[0].Enabled = true;
                 contextMenuStrip1.Items[1].Enabled = TipoAcceso == "LECTURA" ? false : true;
                 contextMenuStrip1.Items[2].Enabled = true;
+                contextMenuStrip1.Items[6].Enabled = true;
             }
         }
 
@@ -1715,6 +1718,47 @@ namespace PresentationLayer.Forms
             textBox1.Text = txtTotCosPiezas.Text;
             txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
                                    Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text)).ToString();
+        }
+
+        private void pasarKitAProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+            if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir el Kit '" + ItemEntidad.Codigo + "', En un Producto.",
+                                           "Covertir Kit a Producto",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+            {
+
+                CargarEntidadItem();
+                ItemEntidad.TipoItem = "T";
+
+                ItemsBL.UpdateItem(ItemEntidad);
+                ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+                CargarEntidadItemDetalle(ItemEntidad);
+                List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+                ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+                ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+                CargarEntidadCosto(ItemEntidad);
+                List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                ItemCostoBL.InsertItemCostos(CostosInsert);
+                ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
+                ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+                CargarGridsCostos();
+                FormatearGridsCostos();
+                CargarGridsDetalleItem(ItemEntidad.Id);
+                CargarGridListadoItem();
+
+                materialFlatButton2.PerformClick();
+            }
+
+            
         }
     }
 }

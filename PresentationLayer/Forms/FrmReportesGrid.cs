@@ -23,48 +23,32 @@ namespace PresentationLayer
         private DataTable DTListado;
 
         public string TipoAcceso { get; set; }
-      
+
 
 
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
-           
-
             InitializeComponent();
             SetearControles();
             panel2.Visible = false;
             label1.Visible = false;
-            
-            
+
             this.InitializeClickHandlers();
-           
-
-
-
         }
 
 
         private void FrmReportesGrid_Load(object sender, EventArgs e)
         {
-            
+
             if (TipoAcceso != "ADMIN")
             {
-                //    panel2.Visible = true;
-                //    label1.Visible = true;
-                //CargarGridGistado();
-                //    panel2.Visible = false;
-                //    label1.Visible = false;
-
-                // metroComboBox1.Visible = false;
-                metroComboBox1.Visible = false;
-                label42.Visible = false;
-                //CargarGridGistado();
                 metroComboBox2.Visible = true;
                 label2.Visible = true;
                 label3.Visible = false;
                 txtBuscarItem.Visible = false;
                 label4.Visible = false;
                 metroComboBox3.Visible = false;
+                CargaComboReportes(TipoAcceso);
             }
             else
             {
@@ -76,6 +60,7 @@ namespace PresentationLayer
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
                 metroComboBox3.Visible = true;
+                CargaComboReportes(TipoAcceso);
             }
         }
 
@@ -105,6 +90,33 @@ namespace PresentationLayer
             metroComboBox2.SelectedIndex = 0;
         }
 
+        private void CargaComboReportes(string TipoAcceso)
+        {
+            metroComboBox1.DisplayMember = "Text";
+            metroComboBox1.ValueMember = "Value";
+
+            switch (TipoAcceso)
+            {
+                case "ADMIN":
+                    var items = new[] {
+                                new { Text = "Listado de Items", Value = "0" },  
+                                new { Text = "Listado de Items con Costos Resumido", Value = "1" },
+                                new { Text = "Listado de Items con Costos Detallados", Value = "2" },
+                                new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                       };
+                    metroComboBox1.DataSource = items;
+                    break;
+                default:
+                    var items2 = new[] {
+                                new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                       };
+                    metroComboBox1.DataSource = items2;
+                    break;
+            }
+        }
+
         private void metroComboBox1_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
 
@@ -123,35 +135,35 @@ namespace PresentationLayer
             dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvListado.AllowUserToResizeRows = false;
 
-            switch (metroComboBox1.SelectedIndex)
+            switch (metroComboBox1.SelectedValue)
             {
-                case 0:
+                case "0":
                     dt = ItemsBL.ListadoItemsResumen();
                     for (int i = 6; i <= dt.Columns.Count; i++)
                     {
                         NumericColumns.Add(i);
                     }
                     break;
-                case 1:
+                case "1":
                     dt = ItemsBL.ListadoItemsCostoResumen();
                     for (int i = 6; i <= dt.Columns.Count - 2; i++)
                     {
                         NumericColumns.Add(i);
                     }
                     break;
-                case 2:
+                case "2":
                     dt = ItemsBL.ListadoItemsCostoDetallado();
                     for (int i = 6; i <= dt.Columns.Count - 2; i++)
                     {
                         NumericColumns.Add(i);
                     }
                     break;
-                case 3:
+                case "3":
                     dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
                     NumericColumns.Add(3);
                     NumericColumns.Add(4);
                     break;
-                case 4:
+                case "4":
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(4);
                     NumericColumns.Add(5);
@@ -258,7 +270,7 @@ namespace PresentationLayer
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
-            
+
             BuscarItemPorCodigoDescripcion();
         }
 
@@ -301,7 +313,7 @@ namespace PresentationLayer
                     dgvListado.DataSource = dt;
                 }
                 else
-                    ((DataTable)dgvListado.DataSource).Clear(); 
+                    ((DataTable)dgvListado.DataSource).Clear();
             }
         }
 
@@ -315,7 +327,7 @@ namespace PresentationLayer
 
         //private void MostrarListaCostos()
         //{
-           
+
         //    metroComboBox1.Visible = false;
         //    label42.Visible = false;
         //    metroComboBox2.Visible = true;
@@ -355,7 +367,7 @@ namespace PresentationLayer
         //{
         //    labelUsser.Equals(Visible = true);
         //    labelUsser.Equals(UserName);     
-            
+
 
 
         //}
@@ -387,6 +399,6 @@ namespace PresentationLayer
 
         }
 
-       
+
     }
 }
