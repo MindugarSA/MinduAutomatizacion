@@ -58,7 +58,7 @@ namespace DataAccessLayer
             return lItemCosto;
         }
 
-        public DataTable GetItemCostosId(int IdItem)
+        public DataTable GetItemCostoId(int IdItem)
         {
             //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
             //{

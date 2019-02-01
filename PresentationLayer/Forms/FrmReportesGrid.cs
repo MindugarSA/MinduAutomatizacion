@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Entities;
 using BusinessLayer;
 
+
+
 namespace PresentationLayer
 {
     public partial class FrmReportesGrid : Form
@@ -19,14 +21,62 @@ namespace PresentationLayer
         private const int cGrip = 16;
         private const int cCaption = 32;
         private DataTable DTListado;
+
+        public string TipoAcceso { get; set; }
+      
+
+
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
+           
+
             InitializeComponent();
             SetearControles();
             panel2.Visible = false;
             label1.Visible = false;
-
+            
+            
             this.InitializeClickHandlers();
+           
+
+
+
+        }
+
+
+        private void FrmReportesGrid_Load(object sender, EventArgs e)
+        {
+            
+            if (TipoAcceso != "ADMIN")
+            {
+                //    panel2.Visible = true;
+                //    label1.Visible = true;
+                //CargarGridGistado();
+                //    panel2.Visible = false;
+                //    label1.Visible = false;
+
+                // metroComboBox1.Visible = false;
+                metroComboBox1.Visible = false;
+                label42.Visible = false;
+                //CargarGridGistado();
+                metroComboBox2.Visible = true;
+                label2.Visible = true;
+                label3.Visible = false;
+                txtBuscarItem.Visible = false;
+                label4.Visible = false;
+                metroComboBox3.Visible = false;
+            }
+            else
+            {
+                metroComboBox1.Visible = true;
+                label42.Visible = true;
+                metroComboBox2.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                txtBuscarItem.Visible = true;
+                label4.Visible = true;
+                metroComboBox3.Visible = true;
+            }
         }
 
         private void FrmReportesGrid_Shown(object sender, EventArgs e)
@@ -57,7 +107,7 @@ namespace PresentationLayer
 
         private void metroComboBox1_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
-            panel2.BringToFront();
+
             panel2.Visible = true;
             label1.Visible = true;
             CargarGridGistado();
@@ -208,6 +258,7 @@ namespace PresentationLayer
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
+            
             BuscarItemPorCodigoDescripcion();
         }
 
@@ -262,9 +313,80 @@ namespace PresentationLayer
             }
         }
 
+        //private void MostrarListaCostos()
+        //{
+           
+        //    metroComboBox1.Visible = false;
+        //    label42.Visible = false;
+        //    metroComboBox2.Visible = true;
+        //    label3.Visible = false;
+        //    txtBuscarItem.Visible = false;
+        //    label4.Visible = false;
+        //    metroComboBox3.Visible = false;
+
+        //}
+        //private void AbrirSubMenu(int iNivel)
+        //{
+        //    switch (iNivel)
+        //    {
+        //        case 1:
+        //            if (!Opt1Open)
+        //            {
+        //                metroComboBox2.Visible = true;
+        //                metroComboBox2.Location = new Point(30, 157);
+
+
+        //             }
+
+        //            else
+        //            {
+        //                metroComboBox1.Visible = false;
+        //                label42.Visible = false;
+        //                metroComboBox2.Visible = true;
+        //                label3.Visible = false;
+        //                txtBuscarItem.Visible = false;
+        //                label4.Visible = false;
+        //                metroComboBox3.Visible = false;
+        //            }
+        //            break;
+        //    }
+        //}
+        //public void AsignarNombreUsuario(string UserName)
+        //{
+        //    labelUsser.Equals(Visible = true);
+        //    labelUsser.Equals(UserName);     
+            
+
+
+        //}
+
+
+        //public static class Extension
+        //{
+        //    public static IEnumerable<T> FilterByNullProporty<T>(this IEnumerable<T> source, string IdUsuario)
+        //    {
+        //        foreach (var item in source)
+        //        {
+        //            var propertyInfo = item.GetType().GetProperty(IdUsuario);
+        //            if (propertyInfo == null)
+        //            {
+        //                throw new ArgumentOutOfRangeException
+        //                    ($"El elemento del tipo{item.GetType().Name} no tiene una propiedad con el nombre { IdUsuario }");
+        //            }
+        //            if (propertyInfo.GetValue(item) == null)
+        //            {
+        //                yield return item;
+        //            }
+        //        }
+        //    }
+        //}
+
+
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
+       
     }
 }

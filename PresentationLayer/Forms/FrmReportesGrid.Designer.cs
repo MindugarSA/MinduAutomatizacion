@@ -340,6 +340,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmReportesGrid";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.FrmReportesGrid_Load);
             this.Shown += new System.EventHandler(this.FrmReportesGrid_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.panel1.ResumeLayout(false);

@@ -20,9 +20,17 @@ namespace PresentationLayer
         public string TipoAcceso { get; set; }
         public string AccesoActual { get; set; }
         public string AccesoBloqueo { get; set; }
+        public string labelUsser;
+        //public string comboBox1;
+        //public string comboBox2;
+        //public string comboBox3;
+        //public string txbuscarItem;
+        //public string l49;
+        //public string l4;
 
+        //FrmReportesGrid gr = new FrmReportesGrid();
         
-
+        
         public FrmPrincipalPanel()
         {
             InitializeComponent();
@@ -31,9 +39,18 @@ namespace PresentationLayer
             //MenuWidthMin = 74;
 
             formHeader1.ParentContainer = this;
-
+            
             panel4.Visible = false;
             panel12.Visible = false;
+         
+
+            //label3.Equals(labelUsser);
+            
+            //metroComboBox1 = metroComboBox1.ToString();
+            //metroComboBox2 = metroComboBox2.ToString();
+            //metroComboBox3 = metroComboBox3.ToString();
+            //txtBuscarItem = txtBuscarItem.ToString();          
+            
         }
 
         int MenuWidthMax;
@@ -252,8 +269,22 @@ namespace PresentationLayer
             panel7.Visible = false;
             panel3.Visible = false;
             button6.Location = new Point(11, 115);
-            //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
+           
+            btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMATICA
+            panel17.Top = btnGlosario.Top;
             panel11.Location = new Point(0, 115);
+
+            //MOSTRAR LISTA COSTOS
+
+
+            //metroComboBox1.Visible = false;
+            //label42.Visible = false;
+            //metroComboBox2.Visible = true;
+            //label3.Visible = false;
+            //txtBuscarItem.Visible = false;
+            //label4.Visible = false;
+            //metroComboBox3.Visible = false;
+
 
         }
 
@@ -316,11 +347,12 @@ namespace PresentationLayer
                         button6.Top = button5.Top + Level1Separation;
                         panel11.Top = button6.Top;
                         //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
-                        btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AL APRETAR DESPLEGAR BOTON 1
+                        btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMÁTICA
                         panel17.Top = btnGlosario.Top;
                         panel4.Visible = true;
                         Opt1Open = true;
                     }
+
                     else
                     {
                         panel4.Visible = false;
@@ -332,7 +364,7 @@ namespace PresentationLayer
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
                         panel11.Top = button6.Top;
-                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AL APRETAR DESPLEGAR BOTON 1
+                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AUTOMÁTICA
                         panel17.Top = btnGlosario.Top;
 
                         Opt1Open = false;
@@ -445,6 +477,7 @@ namespace PresentationLayer
         private void button6_Click_1(object sender, EventArgs e)
         {
             FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
+            FrmReportes.TipoAcceso = TipoAcceso;
             AbrirFormulario(FrmReportes, 0, 0);
         }
 
