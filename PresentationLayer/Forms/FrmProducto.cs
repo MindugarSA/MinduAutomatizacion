@@ -553,6 +553,7 @@ namespace PresentationLayer.Forms
                 DataGridViewRow dRow = dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.CurrentCell.RowIndex];
                 CargarItemDetalleDelete(dRow);
                 dgvDetalleItemAmp.Rows.RemoveAt(dgvDetalleItemAmp.CurrentCell.RowIndex);
+                ((DataTable)dgvDetalleItemAmp.DataSource).AcceptChanges();
                 if (dgvDetalleItemAmp.Rows.Count > 0)
                     foreach (DataGridViewRow row in dgvDetalleItemAmp.Rows)
                     {
