@@ -44,10 +44,10 @@ namespace PresentationLayer
             {
                 metroComboBox2.Visible = true;
                 label2.Visible = true;
-                label3.Visible = false;
-                txtBuscarItem.Visible = false;
-                label4.Visible = false;
                 metroComboBox3.Visible = false;
+                label3.Visible = false;
+                txtBuscarItem.Visible = true;
+                label4.Visible = true;
                 CargaComboReportes(TipoAcceso);
             }
             else
@@ -56,10 +56,11 @@ namespace PresentationLayer
                 label42.Visible = true;
                 metroComboBox2.Visible = true;
                 label2.Visible = true;
-                label3.Visible = true;
+                metroComboBox3.Visible = false;
+                label3.Visible = false;
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
-                metroComboBox3.Visible = true;
+                
                 CargaComboReportes(TipoAcceso);
             }
         }
@@ -169,6 +170,7 @@ namespace PresentationLayer
                     NumericColumns.Add(5);
                     break;
             }
+
 
             //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
