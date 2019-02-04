@@ -536,6 +536,7 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+            dgvListaItems.SuspendLayout();
             //Listado de Items
             dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P").Select(c =>
                                                                 {
@@ -592,6 +593,8 @@ namespace PresentationLayer.Forms
             dgvListaItems.AllowUserToResizeColumns = true;
             dgvListaItems.Columns[28].Width = dgvListaItems.Columns[17].Width;
 
+            dgvListaItems.ResumeLayout();
+
         }
 
         private void FormatearGridsCostos()
@@ -600,6 +603,8 @@ namespace PresentationLayer.Forms
 
             foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
             {
+                dgvActual.SuspendLayout();
+
                 dgvActual.Columns[0].Visible = false;
                 dgvActual.Columns[1].Visible = false;
                 dgvActual.Columns[2].Visible = false;
@@ -619,6 +624,8 @@ namespace PresentationLayer.Forms
                 dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgvActual.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dgvActual.ResumeLayout();
 
             }
 

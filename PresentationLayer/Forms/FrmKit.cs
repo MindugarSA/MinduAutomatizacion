@@ -669,6 +669,7 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+            dgvListaItems.SuspendLayout();
             //Listado de Items
             dgvListaItems.DataSource = ItemsBL.GetItemsTipo("K").Select(c =>
                                                                 {
@@ -702,6 +703,8 @@ namespace PresentationLayer.Forms
 
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
+
+            dgvListaItems.ResumeLayout();
         }
 
         private void CargarGridsDetalleItem(int itemId)
@@ -717,6 +720,8 @@ namespace PresentationLayer.Forms
 
                 foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
                 {
+                    dgvActual.SuspendLayout();
+
                     List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11, 12, 13 };
                     foreach (DataGridViewColumn col in dgvActual.Columns)
                     {
@@ -754,6 +759,8 @@ namespace PresentationLayer.Forms
                     dgvActual.Columns[11].DisplayIndex = 12;
                     dgvActual.Columns[12].DisplayIndex = 11;
 
+                    dgvActual.ResumeLayout();
+
                     if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                 }
 
@@ -776,6 +783,8 @@ namespace PresentationLayer.Forms
 
             foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
             {
+                dgvActual.SuspendLayout();
+
                 dgvActual.Columns[0].Visible = false;
                 dgvActual.Columns[1].Visible = false;
                 dgvActual.Columns[2].Visible = false;
@@ -795,6 +804,8 @@ namespace PresentationLayer.Forms
                 dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgvActual.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dgvActual.ResumeLayout();
             }
         }
 
