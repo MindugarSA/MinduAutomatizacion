@@ -21,6 +21,29 @@ namespace PresentationLayer.Forms
             SetearControles();
             this.InitializeClickHandlers();
             formPrincipal = FormP;
+
+            //Label Label1 = new Label();
+            //Label1.Text = "This is a label with a tooltip";
+            //Label1.Width = 200;
+            //Label1.Left = 15;
+            //Label1.Top = 15;
+            ToolTip tooltip = new ToolTip();
+            
+            tooltip.SetToolTip(label1, "Módulo en el cuál se pueden realizar cambios a nivel administrativos como agregar y actualizar familia, tipo, propiedades,costos,tasas/factores,autorizaciones.");
+            tooltip.SetToolTip(label2, "Submódulo para agregar y actualizar familia");
+            tooltip.SetToolTip(label3, "Submódulo para agregar tipos de items como parte o kit");
+            tooltip.SetToolTip(label4, "Submódulo de especificación de características de los productos");
+            tooltip.SetToolTip(label5, "Submódulo en el cuál se pueden modificar los costos de procesos, aceros y RR.HH");
+            tooltip.SetToolTip(label6, "Submódulo que se usa para agregar tipos de costos(tasa/factores) y su valor base");
+            tooltip.SetToolTip(label7, "Submódulo para autorizar productos terminados");
+
+            tooltip.SetToolTip(label8, "En este módulo se crean las partes y piezas que componen un producto con todos sus detalles, magnitudes y costos");
+            tooltip.SetToolTip(label9, "En este módulo se crean los kit agregando las partes y piezas que componen el KIT");
+            tooltip.SetToolTip(label10, "En este módulo se crean los productos añadiendo sus partes, piezas o KIT que los componen");
+            tooltip.SetToolTip(label11, "Aquí se puede acceder al detalle de los costos de los productos finalizados con la posibilidad de descargar el detalle en PDF");
+
+            //label1.Visible = true;
+            //this.Controls.Add(Label1);
         }
 
         private void FrmGlosario_Load(object sender, EventArgs e)
@@ -131,5 +154,12 @@ namespace PresentationLayer.Forms
             Obj.Width = Obj.Width - 6;
         }
         #endregion
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            
+         
+
+        }
     }
 }
