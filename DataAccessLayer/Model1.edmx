@@ -26,6 +26,14 @@
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
           <Property Name="Estado" Type="int" />
         </EntityType>
+        <EntityType Name="Glosario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="50" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="2000" />
+        </EntityType>
         <EntityType Name="Item">
           <Key>
             <PropertyRef Name="Id" />
@@ -165,6 +173,7 @@
         <EntityContainer Name="DB_AUTOMATIZACIONModelStoreContainer">
           <EntitySet Name="Costos" EntityType="Self.Costos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Familia" EntityType="Self.Familia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Glosario" EntityType="Self.Glosario" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Item" EntityType="Self.Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemCosto" EntityType="Self.ItemCosto" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ItemDetalle" EntityType="Self.ItemDetalle" Schema="dbo" store:Type="Tables" />
@@ -239,6 +248,7 @@
           <EntitySet Name="Costos" EntityType="DB_AUTOMATIZACIONModel.Costos" />
           <EntitySet Name="ItemDetalle" EntityType="DB_AUTOMATIZACIONModel.ItemDetalle" />
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
+          <EntitySet Name="Glosario" EntityType="DB_AUTOMATIZACIONModel.Glosario" />
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -479,6 +489,14 @@
           <Property Name="CostoUSD" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="FactorInd" Type="Int32" />
           <Property Name="CostoTotalFactor" Type="Decimal" Precision="18" Scale="4" />
+        </EntityType>
+        <EntityType Name="Glosario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Descripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -794,6 +812,15 @@
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Glosario">
+            <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Glosario">
+              <MappingFragment StoreEntitySet="Glosario">
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -14,6 +14,15 @@ namespace PresentationLayer.Forms
     public partial class FrmGlosario : Form
     {
         private FrmPrincipalPanel formPrincipal;
+        BindingList<TipoItem> TipoItemDataSource = new BindingList<TipoItem>();
+        public FrmGlosario()
+        {
+            Functions.ConfigurarMaterialSkinManager();
+            InitializeComponent();
+            SetearControles();
+            ListarTipos();
+            this.InitializeClickHandlers();
+        }
 
         public FrmGlosario(FrmPrincipalPanel FormP = null)
         {
@@ -27,6 +36,12 @@ namespace PresentationLayer.Forms
         {
             formPrincipal.VisualizarLabel(false);
             this.BringToFront();
+        }
+
+        private void ListarTipos()
+        {
+            TipoItemDataSource = new BindingList<TipoItem>(TipoItemBL.GetTipoItems());
+            dataGridView1.DataSource = TipoItemDataSource;
         }
 
         #region Aplicar Modificaciones Visuales a Form

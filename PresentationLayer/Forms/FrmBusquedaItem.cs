@@ -104,6 +104,7 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+            dgvListaItems.SuspendLayout();
             //Listado de Items
             dtItems = ItemsBL.GetItemsBusqueda(null);
             dgvListaItems.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
@@ -129,7 +130,9 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
 
-           // ((DataGridViewImageColumn)dgvListaItems.Columns[10]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvListaItems.ResumeLayout();
+
+            // ((DataGridViewImageColumn)dgvListaItems.Columns[10]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
         }
 

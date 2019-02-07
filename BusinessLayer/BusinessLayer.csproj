@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="CostosBL.cs" />
     <Compile Include="FamiliaBL.cs" />
+    <Compile Include="GlosarioBL.cs" />
     <Compile Include="ItemCostoBL.cs" />
     <Compile Include="ItemDetalleBL.cs" />
     <Compile Include="ItemsBL.cs" />
