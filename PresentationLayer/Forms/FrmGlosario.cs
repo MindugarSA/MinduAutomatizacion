@@ -15,6 +15,45 @@ namespace PresentationLayer.Forms
     {
         private FrmPrincipalPanel formPrincipal;
 
+        BindingList<TipoItem> TipoItemDataSource = new BindingList<TipoItem>();
+
+        public FrmGlosario()
+        {
+            Functions.ConfigurarMaterialSkinManager();
+            InitializeComponent();
+            SetearControles();
+            ListarTipos();
+            this.InitializeClickHandlers();
+        }
+        private void FrmGlosario_Load(object sender, EventArgs e)
+        {
+            FormatearGrid();//
+            // TODO: esta línea de código carga datos en la tabla 'dB_AUTOMATIZACIONDataSet1.Glosario' Puede moverla o quitarla según sea necesario.
+            this.glosarioTableAdapter.Fill(this.dB_AUTOMATIZACIONDataSet1.Glosario);
+            formPrincipal.VisualizarLabel(false);
+            this.BringToFront();
+            BringToFront();
+        }
+
+        private void ListarTipos()
+        {
+            TipoItemDataSource = new BindingList<Glosario>(GlosarioBL.GetGlosario());
+            dataGridView1.DataSource = TipoItemDataSource;
+        }
+
+        private void FormatearGrid()
+        {
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.Columns[1].Visible = false;
+            dataGridView1.Columns[2].Visible = false;
+            dataGridView1.AjustColumnsWidthForGridWidth();
+            foreach (DataGridViewRow Fila in dataGridView1.Rows)
+            {
+                Fila.Cells["RowType"].Value = "N";
+            }
+        }
+
+
         public FrmGlosario(FrmPrincipalPanel FormP = null)
         {
             InitializeComponent();
@@ -46,11 +85,7 @@ namespace PresentationLayer.Forms
             //this.Controls.Add(Label1);
         }
 
-        private void FrmGlosario_Load(object sender, EventArgs e)
-        {
-            formPrincipal.VisualizarLabel(false);
-            this.BringToFront();
-        }
+        
 
         #region Aplicar Modificaciones Visuales a Form
         protected override void OnPaintBackground(PaintEventArgs e)

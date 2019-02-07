@@ -204,6 +204,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DB_AUTOMATIZACIONDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DB_AUTOMATIZACIONDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Extensions\DataGridViewExtensions.cs" />
     <Compile Include="Extensions\DataTableExtensions.cs" />
     <Compile Include="Extensions\ErrorProviderExtensions.cs" />
@@ -419,6 +424,17 @@
     </None>
     <None Include="DB_AUTOMATIZACIONDataSet.xss">
       <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DB_AUTOMATIZACIONDataSet1.xsc">
+      <DependentUpon>DB_AUTOMATIZACIONDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DB_AUTOMATIZACIONDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DB_AUTOMATIZACIONDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DB_AUTOMATIZACIONDataSet1.xss">
+      <DependentUpon>DB_AUTOMATIZACIONDataSet1.xsd</DependentUpon>
     </None>
     <None Include="MinduAutomatizacion_TemporaryKey.pfx" />
     <None Include="packages.config" />

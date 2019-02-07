@@ -90,6 +90,7 @@
     <Compile Include="DataTableExtensions.cs" />
     <Compile Include="EntityExceptionError.cs" />
     <Compile Include="FamiliaDALC.cs" />
+    <Compile Include="GlosarioDALC.cs" />
     <Compile Include="ItemCostoDALC.cs" />
     <Compile Include="ItemDetalleDALC.cs" />
     <Compile Include="ItemsDALC.cs" />
