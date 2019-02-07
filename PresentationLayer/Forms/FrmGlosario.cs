@@ -15,7 +15,7 @@ namespace PresentationLayer.Forms
     {
         private FrmPrincipalPanel formPrincipal;
 
-        BindingList<TipoItem> TipoItemDataSource = new BindingList<TipoItem>();
+        BindingList<Glosario> TipoItemDataSource = new BindingList<Glosario>();
 
         public FrmGlosario()
         {
