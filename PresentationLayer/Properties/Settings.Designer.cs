@@ -33,5 +33,16 @@ namespace PresentationLayer.Properties {
                 return ((string)(this["DB_AUTOMATIZACIONConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=eveliz-hp280\\sqlexpress;Initial Catalog=DB_AUTOMATIZACION;Integrated " +
+            "Security=True")]
+        public string DB_AUTOMATIZACIONConnectionString1 {
+            get {
+                return ((string)(this["DB_AUTOMATIZACIONConnectionString1"]));
+            }
+        }
     }
 }
