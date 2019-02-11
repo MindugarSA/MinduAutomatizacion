@@ -1707,7 +1707,7 @@ namespace PresentationLayer.Forms
             if (e.Button == MouseButtons.Right)
             {
                 currentMouseOverRow = e.RowIndex;
-                currentMouseOverCol = e.ColumnIndex;
+                currentMouseOverCol = e.ColumnIndex ;
                 if (currentMouseOverCol > -1)
                     try
                     {
