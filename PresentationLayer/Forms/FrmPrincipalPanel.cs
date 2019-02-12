@@ -492,5 +492,11 @@ namespace PresentationLayer
             FrmGlosario FrmGlo = new FrmGlosario(this);
             AbrirFormulario(FrmGlo, 0, 0);
         }
+
+        private void button14_Click(object sender, EventArgs e)
+        {
+            FrmGlosarioGest FrmGlo = new FrmGlosarioGest(this);
+            AbrirFormulario(FrmGlo, 0, 0);
+        }
     }
 }

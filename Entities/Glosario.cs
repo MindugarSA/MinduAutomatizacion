@@ -12,15 +12,10 @@ namespace Entities
     using System;
     using System.Collections.Generic;
     
-    [Serializable]
-    public partial class ItemCosto
+    public partial class Glosario
     {
-        public int Id { get; set; }
-        public Nullable<int> IdItem { get; set; }
-        public Nullable<int> IdCosto { get; set; }
-        public string Unidad { get; set; }
-        public Nullable<decimal> Valor { get; set; }
-        public Nullable<decimal> Cantidad { get; set; }
-        public Nullable<decimal> Total { get; set; }
+        public int id { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
     }
 }

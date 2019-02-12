@@ -8,25 +8,56 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entities;
+using BusinessLayer;
 
 namespace PresentationLayer.Forms
 {
     public partial class FrmGlosario : Form
     {
         private FrmPrincipalPanel formPrincipal;
+        BindingList<Glosario> GloDataSource = new BindingList<Glosario>();
 
-        public FrmGlosario(FrmPrincipalPanel FormP = null)
+        public FrmGlosario()
         {
+            Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
+            ListarTipos();
+            this.InitializeClickHandlers();
+        }
+        public FrmGlosario(FrmPrincipalPanel FormP = null)
+        {
+            Functions.ConfigurarMaterialSkinManager();
+            InitializeComponent();
+            SetearControles();
+            
+            ListarTipos();
             this.InitializeClickHandlers();
             formPrincipal = FormP;
         }
 
         private void FrmGlosario_Load(object sender, EventArgs e)
         {
-            formPrincipal.VisualizarLabel(false);
+            //formPrincipal.VisualizarLabel(false);
+            FormatearGrid();
             this.BringToFront();
+        }
+
+        private void ListarTipos()
+        {
+            GloDataSource = new BindingList<Glosario>(GlosarioBL.GetGlosario());
+            dataGridView1.DataSource = GloDataSource;
+        }
+
+        private void FormatearGrid()
+        {
+            dataGridView1.Columns[0].Visible = false;
+            dataGridView1.AjustColumnsWidthForGridWidth();
+            //foreach (DataGridViewRow Fila in dataGridView1.Rows)
+            //{
+            //    Fila.Cells["RowType"].Value = "Nombre";
+            //}
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -131,5 +162,13 @@ namespace PresentationLayer.Forms
             Obj.Width = Obj.Width - 6;
         }
         #endregion
+
+        private void dataGridView1_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                dataGridView1.Rows[e.RowIndex].Cells["RowStatus"].Value = "E";
+            }
+        }
     }
 }

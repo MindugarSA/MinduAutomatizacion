@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>48</ApplicationRevision>
+    <ApplicationRevision>49</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -230,6 +230,12 @@
     <Compile Include="Forms\FrmGlosario.Designer.cs">
       <DependentUpon>FrmGlosario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmGlosarioGest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmGlosarioGest.Designer.cs">
+      <DependentUpon>FrmGlosarioGest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmReportesGrid.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmGlosario.resx">
       <DependentUpon>FrmGlosario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmGlosarioGest.resx">
+      <DependentUpon>FrmGlosarioGest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmKit.resx">
       <DependentUpon>FrmKit.cs</DependentUpon>

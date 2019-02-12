@@ -11,7 +11,6 @@ namespace Entities
 {
     using System;
     using System.Collections.Generic;
-    
     [Serializable]
     public partial class Item
     {
