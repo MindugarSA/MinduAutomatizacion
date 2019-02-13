@@ -224,6 +224,12 @@
     <Compile Include="Forms\FrmAprobacion.Designer.cs">
       <DependentUpon>FrmAprobacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAyuda.Designer.cs">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmGlosario.cs">
       <SubType>Form</SubType>
     </Compile>

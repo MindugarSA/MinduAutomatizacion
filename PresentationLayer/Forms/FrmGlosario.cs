@@ -31,10 +31,15 @@ namespace PresentationLayer.Forms
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
-            
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ListarTipos();
             this.InitializeClickHandlers();
             formPrincipal = FormP;
+           
         }
 
         private void FrmGlosario_Load(object sender, EventArgs e)
@@ -42,6 +47,7 @@ namespace PresentationLayer.Forms
             //formPrincipal.VisualizarLabel(false);
             FormatearGrid();
             this.BringToFront();
+            
         }
 
         private void ListarTipos()
@@ -168,6 +174,33 @@ namespace PresentationLayer.Forms
             if (e.RowIndex >= 0)
             {
                 dataGridView1.Rows[e.RowIndex].Cells["RowStatus"].Value = "E";
+            }
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DataGridViewCell _cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Font font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+                    _cell.Style.Font = font;
+                }
+            }
+        }
+
+        private void dataGridView1_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1 && e.ColumnIndex != -1)
+            {
+                if (dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+                {
+                    DataGridViewCell _cell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                    Font font = new Font("Microsoft Sans Serif", 9, FontStyle.Regular);
+                    _cell.Style.Font = font;
+                }
             }
         }
     }

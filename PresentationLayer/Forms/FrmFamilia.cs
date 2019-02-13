@@ -30,6 +30,8 @@ namespace PresentationLayer
             CargarComboReglaFamilia();
             CargarGridFamilia();
             this.InitializeClickHandlers();
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(label1, "Módulo en el cuál se pueden realizar cambios a nivel administrativos como agregar y actualizar familia, tipo, propiedades,costos,tasas/factores,autorizaciones.");
         }
 
         private void CargarGridFamilia()
