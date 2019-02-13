@@ -33,5 +33,13 @@ namespace BusinessLayer
                 obj.UpdateGlosario(glo);
             }
         }
+        public static void DeleteGlosario(List<Glosario> ListaGlosario)
+        {
+            GlosarioDALC obj = new GlosarioDALC();
+            foreach (Glosario glo in ListaGlosario)//---
+            {
+                obj.DeleteGlosario(glo);
+            }
+        }
     }
 }

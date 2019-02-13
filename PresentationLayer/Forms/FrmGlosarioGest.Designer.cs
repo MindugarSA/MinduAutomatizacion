@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.formHeader1 = new PresentationLayer.FormHeader();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,23 +40,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.Glosario = new System.Windows.Forms.GroupBox();
+            this.formHeader1 = new PresentationLayer.FormHeader();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.Glosario.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // formHeader1
-            // 
-            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
-            this.formHeader1.HeaderText = "Gestión Glosario";
-            this.formHeader1.Location = new System.Drawing.Point(0, 0);
-            this.formHeader1.Name = "formHeader1";
-            this.formHeader1.ParentContainer = this;
-            this.formHeader1.Size = new System.Drawing.Size(902, 49);
-            this.formHeader1.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -65,20 +52,20 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(6, 19);
             this.dataGridView1.MultiSelect = false;
@@ -97,7 +84,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(19, 236);
+            this.button1.Location = new System.Drawing.Point(29, 236);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(107, 32);
             this.button1.TabIndex = 45;
@@ -163,7 +150,7 @@
             this.txtDescripción.Location = new System.Drawing.Point(19, 93);
             this.txtDescripción.Multiline = true;
             this.txtDescripción.Name = "txtDescripción";
-            this.txtDescripción.Size = new System.Drawing.Size(247, 94);
+            this.txtDescripción.Size = new System.Drawing.Size(267, 94);
             this.txtDescripción.TabIndex = 50;
             // 
             // button2
@@ -173,7 +160,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(159, 236);
+            this.button2.Location = new System.Drawing.Point(169, 236);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 32);
             this.button2.TabIndex = 51;
@@ -188,12 +175,13 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button3.Location = new System.Drawing.Point(19, 298);
+            this.button3.Location = new System.Drawing.Point(29, 298);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(107, 32);
             this.button3.TabIndex = 52;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox1
             // 
@@ -220,6 +208,19 @@
             this.Glosario.TabIndex = 54;
             this.Glosario.TabStop = false;
             this.Glosario.Text = "Lista glosario";
+            // 
+            // formHeader1
+            // 
+            this.formHeader1.BackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.ControlBoxBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formHeader1.HeaderBackColor = System.Drawing.Color.Transparent;
+            this.formHeader1.HeaderText = "Gestión Glosario";
+            this.formHeader1.Location = new System.Drawing.Point(0, 0);
+            this.formHeader1.Name = "formHeader1";
+            this.formHeader1.ParentContainer = this;
+            this.formHeader1.Size = new System.Drawing.Size(902, 49);
+            this.formHeader1.TabIndex = 0;
             // 
             // FrmGlosarioGest
             // 

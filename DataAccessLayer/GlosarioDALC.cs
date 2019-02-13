@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Entities;
 using System.Data;
 using System.Data.Entity.Validation;
+using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
@@ -50,8 +51,39 @@ namespace DataAccessLayer
 
                     Glosario Entidad = (from n in db.Glosario
                                         where n.Nombre == Obj.Nombre
-                                        select n).FirstOrDefault();
-                    db.Entry(Entidad).CurrentValues.SetValues(Obj);
+                                        select n).SingleOrDefault();
+                    //db.Entry(Entidad).CurrentValues.SetValues(Obj);
+
+                    Console.WriteLine(default(Glosario));
+                    if (Entidad != default(Glosario))
+                    {
+                        Entidad.Descripcion = Obj.Descripcion;
+                        
+                    }
+                    db.SaveChanges();
+                    
+                    
+                }
+                catch (DbEntityValidationException ex)
+                {
+                    EntityExceptionError.CatchError(ex);
+                }
+            }
+        }
+
+        public void DeleteGlosario(Glosario Obj)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                try
+                {
+                    if (db.Database.Connection.State == ConnectionState.Closed)
+                        db.Database.Connection.Open();
+
+                    Glosario Entidad = (from n in db.Glosario
+                                         where n.Nombre == Obj.Nombre
+                                         select n).FirstOrDefault();
+                    db.Glosario.Remove(Entidad);
                     db.SaveChanges();
                 }
                 catch (DbEntityValidationException ex)

@@ -240,7 +240,9 @@ namespace PresentationLayer.Forms
             Glosario glo = new Glosario();
             string Categ = "";
 
-            glo.Nombre = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
+            //glo.Nombre = dataGridView1[1, dataGridView1.CurrentRow.Index].Value.ToString();
+            glo.Nombre = txtNombre.Text;
+            glo.Descripcion = txtDescripción.Text;
             Palabra.Add(glo);
             GlosarioBL.UpdateGlosario(Palabra);
 
@@ -248,7 +250,8 @@ namespace PresentationLayer.Forms
             int nRow = dataGridView1.CurrentRow.Index;
             ListarTipos();
 
-            dataGridView1.Rows[nRow].Selected = true;
+            dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
+            //dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
             dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[2];
         }
 
@@ -268,6 +271,23 @@ namespace PresentationLayer.Forms
                 int indice = dataGridView1.SelectedRows[0].Index;
                 CargarCampos(indice);
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            List<Glosario> Palabra = new List<Glosario>();
+            Glosario glo = new Glosario();
+            string Categ = "";
+
+            glo.Nombre = txtNombre.Text;
+            Palabra.Add(glo);
+            GlosarioBL.DeleteGlosario(Palabra);
+
+            ListarTipos();
+            // LimpiarCampos();
+            dataGridView1.Rows[(dataGridView1.RowCount - 1)].Selected = true;
+            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.RowCount - 1;
+            dataGridView1.CurrentCell = dataGridView1.Rows[dataGridView1.SelectedRows[0].Index].Cells[2];
         }
     }
 }
