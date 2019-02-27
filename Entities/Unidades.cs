@@ -7,16 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class Unidades
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Unidades
-    {
-        public int Id { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public string Tipo { get; set; }
-    }
+    public int Id { get; set; }
+    public string Codigo { get; set; }
+    public string Descripcion { get; set; }
+    public string Tipo { get; set; }
 }

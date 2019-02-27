@@ -41,6 +41,7 @@
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.RowType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtResponsable = new System.Windows.Forms.TextBox();
             this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
@@ -56,20 +57,19 @@
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
             this.formHeader2 = new PresentationLayer.FormHeader();
-            this.dragControl1 = new PresentationLayer.DragControl();
-            this.dragControl2 = new PresentationLayer.DragControl();
-            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnNuevo = new MaterialSkin.Controls.MaterialFlatButton();
             this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.dragControl1 = new PresentationLayer.DragControl();
+            this.dragControl2 = new PresentationLayer.DragControl();
+            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -188,6 +188,21 @@
             this.RowStatus.Name = "RowStatus";
             this.RowStatus.ReadOnly = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition1.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox1.Location = new System.Drawing.Point(511, 402);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // txtResponsable
             // 
             this.txtResponsable.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -210,7 +225,7 @@
             this.materialCheckBox1.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.materialCheckBox1, BunifuAnimatorNS.DecorationType.None);
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(607, 399);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -439,33 +454,6 @@
             this.formHeader2.Size = new System.Drawing.Size(685, 47);
             this.formHeader2.TabIndex = 9;
             // 
-            // dragControl1
-            // 
-            this.dragControl1.SelectControl = this.formHeader2;
-            // 
-            // dragControl2
-            // 
-            this.dragControl2.SelectControl = this;
-            // 
-            // errorIcono
-            // 
-            this.errorIcono.ContainerControl = this;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuTransition1.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
-            this.pictureBox1.Location = new System.Drawing.Point(511, 402);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox1.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
             // btnNuevo
             // 
             this.btnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -513,6 +501,18 @@
             this.panel3.Size = new System.Drawing.Size(111, 34);
             this.panel3.TabIndex = 39;
             // 
+            // dragControl1
+            // 
+            this.dragControl1.SelectControl = this.formHeader2;
+            // 
+            // dragControl2
+            // 
+            this.dragControl2.SelectControl = this;
+            // 
+            // errorIcono
+            // 
+            this.errorIcono.ContainerControl = this;
+            // 
             // FrmFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +527,7 @@
             this.bunifuTransition1.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFamilia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -536,14 +537,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.ResumeLayout(false);
 
         }

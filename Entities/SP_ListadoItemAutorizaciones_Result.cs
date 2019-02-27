@@ -7,19 +7,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_ListadoItemAutorizaciones_Result
 {
-    using System;
-    
-    public partial class SP_ListadoItemAutorizaciones_Result
-    {
-        public string Codigo { get; set; }
-        public string Familia { get; set; }
-        public string Nombre { get; set; }
-        public Nullable<decimal> Costo_Mano_Obra { get; set; }
-        public decimal Costo_Partes_Kit { get; set; }
-        public Nullable<decimal> Costo_Directo { get; set; }
-        public Nullable<int> Autorizado { get; set; }
-        public int Id { get; set; }
-    }
+    public string Codigo { get; set; }
+    public string Familia { get; set; }
+    public string Nombre { get; set; }
+    public Nullable<decimal> Costo_Mano_Obra { get; set; }
+    public decimal Costo_Partes_Kit { get; set; }
+    public Nullable<decimal> Costo_Directo { get; set; }
+    public Nullable<int> Autorizado { get; set; }
+    public int Id { get; set; }
 }

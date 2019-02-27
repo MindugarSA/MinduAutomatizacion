@@ -1388,7 +1388,44 @@ namespace PresentationLayer.Forms
             catch (Exception) { }
         }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            //FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
+            //if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un Producto.",
+            //                               "Covertir parte a Producto",
+            //                               MessageBoxButtons.OKCancel,
+            //                               MessageBoxIcon.Question,
+            //                               370) == DialogResult.OK)
+            //{
+
+            //    CargarEntidadItem();
+            //    ItemEntidad.TipoItem = "P";
+
+            //    ItemsBL.UpdateItem(ItemEntidad);
+            //    ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+            //    CargarEntidadItemDetalle(ItemEntidad);
+            //    List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+            //    List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+            //    ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+            //    ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+            //    ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+            //    CargarEntidadCosto(ItemEntidad);
+            //    List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+            //    List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+            //    ItemCostoBL.InsertItemCostos(CostosInsert);
+            //    ItemCostoBL.UpdateItemCostos(CostosUpdate);
+            //    MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
+            //    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+            //    CargarGridsCostos();
+            //    FormatearGridsCostos();
+            //    CargarGridsDetalleItem(ItemEntidad.Id);
+            //    CargarGridListadoItem();
+
+            //    materialFlatButton2.PerformClick();
+            //}
+        }
     }
 
 }

@@ -7,19 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class Costos
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Costos
-    {
-        public int Id { get; set; }
-        public string Categoria { get; set; }
-        public string Tipo { get; set; }
-        public string Unidad { get; set; }
-        public Nullable<decimal> Valor { get; set; }
-        public Nullable<int> Estado { get; set; }
-        public Nullable<decimal> Valor2 { get; set; }
-    }
+    public int Id { get; set; }
+    public string Categoria { get; set; }
+    public string Tipo { get; set; }
+    public string Unidad { get; set; }
+    public Nullable<decimal> Valor { get; set; }
+    public Nullable<int> Estado { get; set; }
+    public Nullable<decimal> Valor2 { get; set; }
 }

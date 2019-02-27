@@ -33,6 +33,11 @@ namespace PresentationLayer
             panel2.Visible = false;
             label1.Visible = false;
 
+            //dgvListado.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvListado.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvListado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvListado.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.InitializeClickHandlers();
         }
 
@@ -60,7 +65,7 @@ namespace PresentationLayer
                 label3.Visible = false;
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
-                
+
                 CargaComboReportes(TipoAcceso);
             }
         }
@@ -100,18 +105,24 @@ namespace PresentationLayer
             {
                 case "ADMIN":
                     var items = new[] {
-                                new { Text = "Listado de Items", Value = "0" },  
+                                new { Text = "Listado de Items", Value = "0" },
                                 new { Text = "Listado de Items con Costos Resumido", Value = "1" },
                                 new { Text = "Listado de Items con Costos Detallados", Value = "2" },
                                 new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
-                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                //new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Productos por Partes", Value = "5" },
+                                new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
                                        };
                     metroComboBox1.DataSource = items;
                     break;
                 default:
                     var items2 = new[] {
-                                new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
-                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                //new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Productos por Partes", Value = "5" },
+                                new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
+                              //  new { Text = "Listado de Productos Terminados", Value = "4" }
                                        };
                     metroComboBox1.DataSource = items2;
                     break;
@@ -135,7 +146,12 @@ namespace PresentationLayer
 
             dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvListado.AllowUserToResizeRows = false;
-
+            //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
+            dt = null;
+            dgvListado.DataSource = null;
+            dgvListado.Rows.Clear();
+            dgvListado.Columns.Clear();
+            dgvListado.Refresh();
             switch (metroComboBox1.SelectedValue)
             {
                 case "0":
@@ -167,16 +183,25 @@ namespace PresentationLayer
                 case "4":
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(4);
-                    NumericColumns.Add(5);
+                    break;
+                case "5":
+                    dt = ItemsBL.GetItemsProductosParte("P");
+                    NumericColumns.Add(4);
+                    break;
+                case "6":
+                    dt = ItemsBL.EstadoProductosTerminados("T");
+                    NumericColumns.Add(3);
                     break;
             }
-
-
-            //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
             DTListado = dt.Copy();
 
-            if (metroComboBox1.SelectedIndex == 2) dgvListado.Columns[5].Visible = false;
+            //if (metroComboBox1.SelectedIndex == 6) dgvListado.Columns[5].Visible = false;
+            try
+            {
+                if (metroComboBox1.SelectedIndex == 2) dgvListado.Columns[5].Visible = false;
+            }
+            catch { }
 
             foreach (DataGridViewColumn col in dgvListado.Columns)
             {
@@ -401,6 +426,17 @@ namespace PresentationLayer
 
         }
 
+        //private void dgvListado_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (e.RowIndex != -1 && e.ColumnIndex != -1)
+        //    {
+        //        if (dgvListado.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+        //        {
+        //            DataGridViewCell _cell = dgvListado.Rows[e.RowIndex].Cells[e.ColumnIndex];
+        //            dgvListado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
+        //        }
+        //    }
+        //}
     }
 }
