@@ -22,7 +22,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>49</ApplicationRevision>
+    <ApplicationRevision>53</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -223,6 +223,12 @@
     </Compile>
     <Compile Include="Forms\FrmAprobacion.Designer.cs">
       <DependentUpon>FrmAprobacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmAyuda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmAyuda.Designer.cs">
+      <DependentUpon>FrmAyuda.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmGlosario.cs">
       <SubType>Form</SubType>
@@ -516,6 +522,10 @@
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
       <Project>{ebda9d2d-3810-46a0-bdc1-947f2f3ba73f}</Project>
       <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{4087B44D-E9A5-41D5-9922-9475C34E78C9}</Project>
+      <Name>DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Entities\Entities.csproj">
       <Project>{4d59940d-360f-4580-aea6-6d79b89c4f19}</Project>

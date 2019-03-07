@@ -70,10 +70,12 @@ namespace PresentationLayer.Forms
                     dgvActual.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgvActual.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgvActual.Columns[11].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    
 
-                    dgvActual.Columns[9].DefaultCellStyle.Format = "#,0.00###";
-                    dgvActual.Columns[10].DefaultCellStyle.Format = "#,0.00###";
-                    dgvActual.Columns[11].DefaultCellStyle.Format = "#,0.00###";
+                    dgvActual.Columns[9].DefaultCellStyle.Format = "N2";
+                    dgvActual.Columns[10].DefaultCellStyle.Format = "N2";
+                    dgvActual.Columns[11].DefaultCellStyle.Format = "N2";
+                    
 
                     dgvActual.Columns[9].ReadOnly = false;
 
@@ -81,6 +83,8 @@ namespace PresentationLayer.Forms
                     dgvActual.Columns[9].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dgvActual.Columns[10].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                     dgvActual.Columns[11].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+               
+
 
                     if (dgvDetalleItemAmp.Rows.Count > 0) dgvDetalleItemAmp.CurrentCell = dgvDetalleItemAmp.Rows[0].Cells[9];
                 }

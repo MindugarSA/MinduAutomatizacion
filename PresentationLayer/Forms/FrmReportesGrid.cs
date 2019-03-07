@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Linq;
@@ -11,8 +12,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entities;
 using BusinessLayer;
-
-
+using System.IO;
+using System.Data.Sql;
+using PresentationLayer.Forms;
+using DataAccessLayer;
 
 namespace PresentationLayer
 {
@@ -23,8 +26,8 @@ namespace PresentationLayer
         private DataTable DTListado;
 
         public string TipoAcceso { get; set; }
-
-
+        public PictureBox Pic = new PictureBox();
+        private Rectangle sizeGripRectangle;
 
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
@@ -33,13 +36,23 @@ namespace PresentationLayer
             panel2.Visible = false;
             label1.Visible = false;
 
+            
+            //dgvListado.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvListado.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dgvListado.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //dgvListado.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             this.InitializeClickHandlers();
         }
 
 
         private void FrmReportesGrid_Load(object sender, EventArgs e)
         {
-
+            //origendatos();
+            //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
+            //btnclm.Name = "Ver Foto";
+            //dgvListado.Columns.Add(btnclm);
+            /*Lineas de código para agregar boton en datagrid*/
             if (TipoAcceso != "ADMIN")
             {
                 metroComboBox2.Visible = true;
@@ -49,6 +62,12 @@ namespace PresentationLayer
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
                 CargaComboReportes(TipoAcceso);
+                
+                
+                //origendatos();
+                //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
+                //btnclm.Name = "Imagen";
+                //dgvListado.Columns.Add(btnclm);
             }
             else
             {
@@ -60,8 +79,12 @@ namespace PresentationLayer
                 label3.Visible = false;
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
-                
                 CargaComboReportes(TipoAcceso);
+                //origendatos();
+                //DataGridViewButtonColumn btnclm = new DataGridViewButtonColumn();
+                //btnclm.Name = "Imagen";
+                //dgvListado.Columns.Add(btnclm);
+                
             }
         }
 
@@ -71,6 +94,7 @@ namespace PresentationLayer
             this.BringToFront();
             CargarCombos();
             DTListado = new DataTable();
+           
         }
 
         private void CargarCombos()
@@ -89,6 +113,23 @@ namespace PresentationLayer
 
             metroComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             metroComboBox2.SelectedIndex = 0;
+
+            //dgvListaItems.AllowUserToResizeColumns = true;
+            //dgvListaItems.Columns[28].Width = dgvListaItems.Columns[17].Width;
+
+            //dgvListaItems.ResumeLayout();
+
+            //dgvListado.Columns["Imagen"].Visible = true; //ocultar celda imagen
+            //Rectangle rec = dgvListado.GetCellDisplayRectangle(i, dgvListado.CurrentRow.Index, true);
+            //try
+            //{
+            //    dgvListado.Columns[5].Visible = true;
+            //    ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            //}
+            //catch
+            //{
+
+            //}
         }
 
         private void CargaComboReportes(string TipoAcceso)
@@ -100,32 +141,48 @@ namespace PresentationLayer
             {
                 case "ADMIN":
                     var items = new[] {
-                                new { Text = "Listado de Items", Value = "0" },  
-                                new { Text = "Listado de Items con Costos Resumido", Value = "1" },
-                                new { Text = "Listado de Items con Costos Detallados", Value = "2" },
-                                new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
-                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                new { Text = "Costos, Dimensiones y estado de ITEMS (Partes,Kits,Productos)", Value = "0" },
+                                new { Text = "ITEMS con Costos de étapas/Procesos (Resumido)", Value = "1" },
+                                new { Text = "ITEMS con Todos los Costos Involucrados (Detallado)", Value = "2" },
+                                new { Text = "Productos Terminados con Costo Directo + Factor", Value = "3" },
+                                //new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Repuestos", Value = "5" },
+                                new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
                                        };
                     metroComboBox1.DataSource = items;
                     break;
                 default:
                     var items2 = new[] {
-                                new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
-                                new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                //new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Repuestos", Value = "5" },
+                                new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
+                              //  new { Text = "Listado de Productos Terminados", Value = "4" }
                                        };
                     metroComboBox1.DataSource = items2;
+                    
                     break;
             }
+            //dgvListado.Columns["Imagen"].Visible = true;
+            //((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            //foreach (DataGridViewRow row in dgvListado.Rows)
+            //{
+            //    row.Height = 22;
+            //    dgvListado.Columns["Imagen"].Width = 50;
+            //}
+            
         }
 
         private void metroComboBox1_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
-
+            
             panel2.Visible = true;
             label1.Visible = true;
             CargarGridGistado();
             panel2.Visible = false;
             label1.Visible = false;
+           
         }
 
         private void CargarGridGistado()
@@ -135,7 +192,12 @@ namespace PresentationLayer
 
             dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
             dgvListado.AllowUserToResizeRows = false;
-
+            //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
+            dt = null;
+            dgvListado.DataSource = null;
+            dgvListado.Rows.Clear();
+            dgvListado.Columns.Clear();
+            dgvListado.Refresh();
             switch (metroComboBox1.SelectedValue)
             {
                 case "0":
@@ -161,22 +223,38 @@ namespace PresentationLayer
                     break;
                 case "3":
                     dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
-                    NumericColumns.Add(3);
+
+                    //NumericColumns.Add(3);
                     NumericColumns.Add(4);
+                    NumericColumns.Add(5);
+                    NumericColumns.Add(6);
                     break;
                 case "4":
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
+                    NumericColumns.Add(5);
+                    NumericColumns.Add(6);
+                    break;
+                case "5":
+                    dt = ItemsBL.GetItemsProductosParte("P");
+                    NumericColumns.Add(5);
+                    NumericColumns.Add(6);
+                    break;
+                case "6":
+                    dt = ItemsBL.EstadoProductosTerminados("T");
+                    
                     NumericColumns.Add(4);
                     NumericColumns.Add(5);
                     break;
             }
-
-
-            //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListado.DataSource = dt;
             DTListado = dt.Copy();
 
-            if (metroComboBox1.SelectedIndex == 2) dgvListado.Columns[5].Visible = false;
+            //if (metroComboBox1.SelectedIndex == 6) dgvListado.Columns[5].Visible = false;
+            try
+            {
+                if (metroComboBox1.SelectedIndex == 2) dgvListado.Columns[5].Visible = false;
+            }
+            catch { }
 
             foreach (DataGridViewColumn col in dgvListado.Columns)
             {
@@ -327,80 +405,226 @@ namespace PresentationLayer
             }
         }
 
-        //private void MostrarListaCostos()
-        //{
-
-        //    metroComboBox1.Visible = false;
-        //    label42.Visible = false;
-        //    metroComboBox2.Visible = true;
-        //    label3.Visible = false;
-        //    txtBuscarItem.Visible = false;
-        //    label4.Visible = false;
-        //    metroComboBox3.Visible = false;
-
-        //}
-        //private void AbrirSubMenu(int iNivel)
-        //{
-        //    switch (iNivel)
-        //    {
-        //        case 1:
-        //            if (!Opt1Open)
-        //            {
-        //                metroComboBox2.Visible = true;
-        //                metroComboBox2.Location = new Point(30, 157);
-
-
-        //             }
-
-        //            else
-        //            {
-        //                metroComboBox1.Visible = false;
-        //                label42.Visible = false;
-        //                metroComboBox2.Visible = true;
-        //                label3.Visible = false;
-        //                txtBuscarItem.Visible = false;
-        //                label4.Visible = false;
-        //                metroComboBox3.Visible = false;
-        //            }
-        //            break;
-        //    }
-        //}
-        //public void AsignarNombreUsuario(string UserName)
-        //{
-        //    labelUsser.Equals(Visible = true);
-        //    labelUsser.Equals(UserName);     
-
-
-
-        //}
-
-
-        //public static class Extension
-        //{
-        //    public static IEnumerable<T> FilterByNullProporty<T>(this IEnumerable<T> source, string IdUsuario)
-        //    {
-        //        foreach (var item in source)
-        //        {
-        //            var propertyInfo = item.GetType().GetProperty(IdUsuario);
-        //            if (propertyInfo == null)
-        //            {
-        //                throw new ArgumentOutOfRangeException
-        //                    ($"El elemento del tipo{item.GetType().Name} no tiene una propiedad con el nombre { IdUsuario }");
-        //            }
-        //            if (propertyInfo.GetValue(item) == null)
-        //            {
-        //                yield return item;
-        //            }
-        //        }
-        //    }
-        //}
-
+       
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
+        private void dgvListado_SelectionChanged(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                int i = dgvListado.CurrentCell.ColumnIndex;
 
+                Pic.Name = "pictureBox1";
+                try
+                {
+                    
+                    dgvListado.Columns["Imagen"].Visible = true;
+                    ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+                }
+                catch
+                {
+
+                }
+                //dgvListado.Columns["Imagen"].Visible = true; //ocultar celda imagen
+                Rectangle rec = dgvListado.GetCellDisplayRectangle(i, dgvListado.CurrentRow.Index, true);
+                //Pic.Location = new Point(dgvListado.Location.X + dgvListado.Width, dgvListado.Location.X + rec.Location.X - 0);
+                
+
+
+                DataGridViewImageCell Ima = dgvListado.CurrentRow.Cells["Imagen"] as DataGridViewImageCell;
+                
+                if (Ima == null)
+                {
+                    return;
+                }
+
+                Byte[] ImaByt = (Byte[])Ima.Value;
+                MemoryStream Mry = new MemoryStream(ImaByt);
+                Pic.Width = 500;
+                Pic.Height = 500;
+                
+                Pic.Image = Image.FromStream(Mry);
+                Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+                this.Controls.Add(Pic);
+                Pic.BringToFront();
+                
+
+
+            }
+            catch
+            {
+
+            }
+        }
+        //public void mostrarImagen()
+        //{
+        //    string imagen= dgvListado.CurrentRow.Cells["Imagen"]
+        //    Conexion c = new Conexion();
+        //    String Cnn = c.conectar();
+        //    String listar = "SELECT imagen from item where codigo= '"+selec+"';
+        //    DataTable dt = new DataTable();
+        //    SqlDataAdapter da = new SqlDataAdapter(listar, Cnn);
+        //    da.Fill(dt);
+
+        //    return dt;
+        //}
+        private void dgvListado_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.Controls.Contains(Pic))
+            {
+                this.Controls.Remove(Pic);
+            }
+        }
+        private void CargarCamposItemDetalle(Item ItemConsulta)
+        {
+            // double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
+            //               (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
+            
+            
+
+            pictureBox1.BackgroundImage = null;
+            if (ItemConsulta.Imagen != null)
+                pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
+
+            //dgvListado.Columns[5].Visible = true;
+            //((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+
+        }
+        //private void cargarImagenpequeña(string tipoItem)
+        //{
+        //    dgvListado.Columns[5].Visible = true;
+        //    ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+        //}
+        private void OpenImegeForm(Image Img)
+        {
+           // FrmReportesGrid frmParentForm = (FrmReportesGrid)Application.OpenForms["FrmPrincipalPanel"];
+            FrmViewPicture form = new FrmViewPicture();
+            form.Imagen = Img;
+            form.AutoSize = true;
+           // frmParentForm.AbrirFormulario(form, 0, 0, true);
+        }
+        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        {
+           // OpenImegeForm(pictureBox1.BackgroundImage);
+        }
+
+        private void dgvListado_DoubleClick(object sender, EventArgs e)
+        {
+            //origendatos();
+            pictureBox1.Visible = false;
+            OpenImegeForm(pictureBox1.BackgroundImage);
+          
+           // CargarImagen();
+        }
+
+        /*MODIFICAR ACÁ PARA PONER BOTON INDEPENDIENTE CON CONSULTA IMAGEN PRODUCTO*/
+
+        void origendatos()
+        {
+            dgvListado.DataSource = ItemsBL.MostrarImagen();//Llamar a procedure nuevo
+            
+            dgvListado.Columns["Imagen"].Visible = false;
+        }
+
+        private void dgvListado_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            if(e.ColumnIndex <=0 && this.dgvListado.Columns[e.ColumnIndex].Name=="Imagen" && e.RowIndex >= 0)
+            {
+                e.Paint(e.CellBounds, DataGridViewPaintParts.All);
+                DataGridViewButtonCell celBoton = this.dgvListado.Rows[e.RowIndex].Cells["Ver Imagen"] as DataGridViewButtonCell;
+                Icon icoAtomico = new Icon(Environment.CurrentDirectory + @"\\ojo.ico");
+                e.Graphics.DrawIcon(icoAtomico, e.CellBounds.Left + 3, e.CellBounds.Top + 3);
+
+                this.dgvListado.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
+                this.dgvListado.Columns[e.ColumnIndex].Width = icoAtomico.Height + 8;
+                e.Handled = true;
+                
+            }
+            
+        }
+
+        private void dgvListado_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (this.dgvListado.Columns[e.ColumnIndex].Name == "Ver Imagen")
+            {
+
+            }
+        }
+        /*
+public void CargarImagen() //PENDIENTE INVESTIGAR
+{
+try
+{
+
+// DataGridViewImageCell codigo = dgvListado.CurrentRow.Cells["Codigo"] as DataGridViewImageCell;
+// string codigo = dgvListado.Rows[dgvListado.CurrentCell.RowIndex].Cells["Codigo"].Value.ToString();
+// int codigo = Convert.ToInt32(dgvListado.CurrentRow.Cells["Codigo"].Value);
+string codigo = Convert.ToString(dgvListado.DataKeys[row.RowIndex].Values["Codigo"]);
+Conexion c = new Conexion();
+String Cnn = c.conectar();
+String query = "select imagen from item where Codigo= '"+codigo+"'";
+DataTable dt = new DataTable();
+SqlDataAdapter da = new SqlDataAdapter(query, Cnn);
+da.Fill(dt);
+pictureBox1.Equals(dt);
+//conectar.Open();
+//DataGridViewImageCell codigo = dgvListado.CurrentRow.Cells["Codigo"] as DataGridViewImageCell;
+//int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells["Id"].Value);
+//Item ItemConsulta = ItemsBL.GetItemId(ItemId).FirstOrDefault();
+// String query = "select imagen from item where codigo= '"+codigo+"'";
+
+if(dt!=null)
+{
+   return;
+}
+else
+{
+
+   pictureBox1.Equals(dt);
+
+
+   int i = dgvListado.CurrentCell.ColumnIndex;
+   Rectangle rec = dgvListado.GetCellDisplayRectangle(i, dgvListado.CurrentRow.Index, true);
+   DataGridViewImageCell Ima = dgvListado.CurrentRow.Cells["Imagen"] as DataGridViewImageCell;
+
+   if (Ima == null)
+   {
+       return;
+   }
+
+   Byte[] ImaByt = (Byte[])Ima.Value;
+   MemoryStream Mry = new MemoryStream(ImaByt);
+   Pic.Width = 500;
+   Pic.Height = 500;
+
+   Pic.Image = Image.FromStream(Mry);
+   Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+   this.Controls.Add(Pic);
+   Pic.BringToFront();
+}
+
+
+////---------------------------------------------------------------
+//pictureBox1 = query.ToString();
+//pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(query);
+
+//SqlCommand consulta = new SqlCommand(query, conectar);
+//consulta.Parameters.AddWithValue("@inventario", inventario);
+//SqlDataAdapter adaptador = new SqlDataAdapter(consulta);
+//DataTable datos = new DataTable();
+
+
+//pictureBox1.BackgroundImage = null;
+//if (ItemConsulta.Imagen != null)
+//    pictureBox1.BackgroundImage = ImageExtensions.byteArrayToImage(ItemConsulta.Imagen);
+}
+catch { }
+}
+*/
     }
 }

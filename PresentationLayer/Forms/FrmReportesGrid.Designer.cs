@@ -49,12 +49,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnExportarExcelPermiso = new System.Windows.Forms.Button();
-            this.formHeader1 = new PresentationLayer.FormHeader();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.formHeader1 = new PresentationLayer.FormHeader();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // metroComboBox1
@@ -92,12 +94,10 @@
             // 
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToDeleteRows = false;
-            this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -139,9 +139,14 @@
             this.dgvListado.RowHeadersVisible = false;
             this.dgvListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(1147, 486);
+            this.dgvListado.Size = new System.Drawing.Size(1149, 486);
             this.dgvListado.TabIndex = 148;
+            this.dgvListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellClick);
+            this.dgvListado.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellMouseLeave);
+            this.dgvListado.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListado_CellPainting);
+            this.dgvListado.SelectionChanged += new System.EventHandler(this.dgvListado_SelectionChanged);
             this.dgvListado.BindingContextChanged += new System.EventHandler(this.dgvListado_BindingContextChanged);
+            this.dgvListado.DoubleClick += new System.EventHandler(this.dgvListado_DoubleClick);
             // 
             // panel1
             // 
@@ -315,6 +320,16 @@
             this.btnExportarExcelPermiso.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
             this.btnExportarExcelPermiso.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(1032, 174);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(154, 139);
+            this.pictureBox1.TabIndex = 153;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Visible = false;
+            this.pictureBox1.DoubleClick += new System.EventHandler(this.pictureBox1_DoubleClick);
+            // 
             // formHeader1
             // 
             this.formHeader1.BackColor = System.Drawing.Color.Transparent;
@@ -334,6 +349,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1186, 660);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvListado);
             this.Controls.Add(this.formHeader1);
             this.Controls.Add(this.panel1);
@@ -347,6 +363,7 @@
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -370,5 +387,6 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.TextBox txtBuscarItem;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -17,7 +17,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItems();
         }
-
+        //public static List<Item> GetItemsProductosParte() // productos parte
+        //{
+        //    ItemsDALC obj = new ItemsDALC();
+        //    return obj.GetItemsProductosParte();//modificar
+        //}
         public static List<Item> GetItemsTipo(string sTipo)
         {
             ItemsDALC obj = new ItemsDALC();
@@ -69,11 +73,21 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.ListadoItemsTipoCostoFactorRES(TipoItem);
         }
+        public static DataTable GetItemsProductosParte(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsProductosParte(TipoItem);
+        }
 
         public static DataTable ListadoItemsAutorizacion()
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.ListadoItemsAutorizacion();
+        }
+        public static DataTable EstadoProductosTerminados(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsEstadoProductosTerminados(TipoItem);
         }
 
         public static Item InsertItem(Item ObjItem)
@@ -98,6 +112,11 @@ namespace BusinessLayer
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.DeleteItem(ObjItem);
+        }
+        public static List<Item> MostrarImagen()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.MostrarImagen();
         }
     }
 }

@@ -7,15 +7,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class Glosario
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Glosario
-    {
-        public int id { get; set; }
-        public string Nombre { get; set; }
-        public string Descripcion { get; set; }
-    }
+    public int id { get; set; }
+    public string Nombre { get; set; }
+    public string Descripcion { get; set; }
 }

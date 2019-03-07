@@ -244,8 +244,8 @@ namespace PresentationLayer.Forms
                     dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[13].Value = Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value) *
                                                                                     Convert.ToDecimal(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[11].Value);
 
-                    txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitFactor").ToString()
-                                                                     : SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitario").ToString();
+                    txtTotCosPiezas.Text = materialCheckBox2.Checked ? SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitFactor").ToString("N2")
+                                                                     : SumaColumnaDoubleDT((DataTable)dgvActual.DataSource, "Cantidad", "CostoUnitario").ToString("N2");
                     txtCostPiezasD.Text = txtTotCosPiezas.Text;
                     textBox1.Text = txtTotCosPiezas.Text;
                     txtTotalCostos.Text = (Convert.ToDouble(txtTotCosPiezas.Text) +
@@ -784,11 +784,12 @@ namespace PresentationLayer.Forms
 
                         dgvActual.Columns[10].HeaderText = "Costo Unitario S/F";
                         dgvActual.Columns[11].HeaderText = "Costo Unitario C/F";
-                        dgvActual.Columns[12].HeaderText = "Tota Sin Factor";
-                        dgvActual.Columns[13].HeaderText = "Tota Con Factor";
+                        dgvActual.Columns[12].HeaderText = "Total Sin Factor";
+                        dgvActual.Columns[13].HeaderText = "Total Con Factor";
 
                         dgvActual.Columns[11].DisplayIndex = 12;
                         dgvActual.Columns[12].DisplayIndex = 11;
+                        //dgvActual.Columns[13].DisplayIndex = 12;
 
                         dgvActual.ResumeLayout();
 
@@ -1486,7 +1487,7 @@ namespace PresentationLayer.Forms
         {
             Clipboard.SetImage(pictureBox1.BackgroundImage);
         }
-
+        /*CAMBIAR A DOS DECIMALES ACÁ*/
         private void MostrarDetalleKitProducto(object sender, DataGridViewCellMouseEventArgs e)
         {
             try

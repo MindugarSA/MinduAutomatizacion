@@ -7,21 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_GetItemCostoID_Result
 {
-    using System;
-    
-    public partial class SP_GetItemCostoID_Result
-    {
-        public int IdItem { get; set; }
-        public string Descripcion { get; set; }
-        public int IdCosto { get; set; }
-        public string Categoria { get; set; }
-        public string Tipo { get; set; }
-        public string Unidad { get; set; }
-        public Nullable<decimal> Valor { get; set; }
-        public decimal Cantidad { get; set; }
-        public decimal Total { get; set; }
-        public int Id { get; set; }
-    }
+    public int IdItem { get; set; }
+    public string Descripcion { get; set; }
+    public int IdCosto { get; set; }
+    public string Categoria { get; set; }
+    public string Tipo { get; set; }
+    public string Unidad { get; set; }
+    public Nullable<decimal> Valor { get; set; }
+    public decimal Cantidad { get; set; }
+    public decimal Total { get; set; }
+    public int Id { get; set; }
 }

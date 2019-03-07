@@ -10,12 +10,11 @@
 using System;
 using System.Collections.Generic;
 
-public partial class SP_ListadoItemTipoCostoFactor_Result
+public partial class SP_ListadoItemProductosParte_Result
 {
     public string Codigo { get; set; }
     public string Descripcion { get; set; }
     public string Nombre { get; set; }
     public string Familia { get; set; }
-    public Nullable<decimal> Directo___Factor { get; set; }
-    public decimal Factor { get; set; }
+    public Nullable<decimal> Precio { get; set; }
 }

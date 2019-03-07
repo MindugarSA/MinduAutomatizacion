@@ -7,20 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_VerifyUserPass_Result
 {
-    using System;
-    
-    public partial class SP_VerifyUserPass_Result
-    {
-        public int IdUsuario { get; set; }
-        public string Nombre { get; set; }
-        public string rut { get; set; }
-        public int id_rut { get; set; }
-        public System.DateTime FechaConexion { get; set; }
-        public int IdPerfilPred { get; set; }
-        public string RutEmp { get; set; }
-        public int IdAtributo { get; set; }
-        public string Acceso { get; set; }
-    }
+    public int IdUsuario { get; set; }
+    public string Nombre { get; set; }
+    public string rut { get; set; }
+    public int id_rut { get; set; }
+    public System.DateTime FechaConexion { get; set; }
+    public int IdPerfilPred { get; set; }
+    public string RutEmp { get; set; }
+    public int IdAtributo { get; set; }
+    public string Acceso { get; set; }
 }

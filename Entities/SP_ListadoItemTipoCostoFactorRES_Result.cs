@@ -7,16 +7,14 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_ListadoItemTipoCostoFactorRES_Result
 {
-    using System;
-    
-    public partial class SP_ListadoItemTipoCostoFactorRES_Result
-    {
-        public string Codigo { get; set; }
-        public string Familia { get; set; }
-        public string Nombre { get; set; }
-        public Nullable<decimal> Directo___Factor { get; set; }
-        public decimal Factor { get; set; }
-    }
+    public string Codigo { get; set; }
+    public string Familia { get; set; }
+    public string Nombre { get; set; }
+    public Nullable<decimal> Directo___Factor { get; set; }
+    public decimal Factor { get; set; }
 }

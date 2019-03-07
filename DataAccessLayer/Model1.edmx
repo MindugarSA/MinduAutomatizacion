@@ -157,6 +157,9 @@
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
         <Function Name="SP_ListadoItemAutorizaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SP_ListadoItemProductosParte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="TipoItem" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SP_ListadoItemsCostosDetallado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemsCostosResumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemsResumen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
@@ -249,6 +252,9 @@
           <EntitySet Name="ItemDetalle" EntityType="DB_AUTOMATIZACIONModel.ItemDetalle" />
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
           <EntitySet Name="Glosario" EntityType="DB_AUTOMATIZACIONModel.Glosario" />
+          <FunctionImport Name="SP_ListadoItemProductosParte" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_ListadoItemProductosParte_Result)">
+            <Parameter Name="TipoItem" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
           <Key>
@@ -498,6 +504,13 @@
           <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" />
         </EntityType>
+        <ComplexType Name="SP_ListadoItemProductosParte_Result">
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Familia" Nullable="true" MaxLength="250" />
+          <Property Type="Decimal" Name="Precio" Nullable="true" Precision="38" Scale="8" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -824,6 +837,17 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ListadoItemProductosParte" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_ListadoItemProductosParte">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_ListadoItemProductosParte_Result">
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
