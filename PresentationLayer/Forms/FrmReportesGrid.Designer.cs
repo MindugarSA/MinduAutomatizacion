@@ -97,7 +97,8 @@
             this.dgvListado.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -142,6 +143,7 @@
             this.dgvListado.Size = new System.Drawing.Size(1149, 486);
             this.dgvListado.TabIndex = 148;
             this.dgvListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellClick);
+            this.dgvListado.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellMouseEnter);
             this.dgvListado.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellMouseLeave);
             this.dgvListado.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListado_CellPainting);
             this.dgvListado.SelectionChanged += new System.EventHandler(this.dgvListado_SelectionChanged);
