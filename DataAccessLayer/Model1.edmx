@@ -156,6 +156,9 @@
         <Function Name="SP_GetItemDetalleID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="id_Item" Type="int" Mode="In" />
         </Function>
+        <Function Name="SP_GetItemsTipo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="sItemTipo" Type="nvarchar" Mode="In" />
+        </Function>
         <Function Name="SP_ListadoItemAutorizaciones" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="SP_ListadoItemProductosParte" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="TipoItem" Type="nvarchar" Mode="In" />
@@ -253,7 +256,10 @@
           <EntitySet Name="Item" EntityType="DB_AUTOMATIZACIONModel.Item" />
           <EntitySet Name="Glosario" EntityType="DB_AUTOMATIZACIONModel.Glosario" />
           <FunctionImport Name="SP_ListadoItemProductosParte" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_ListadoItemProductosParte_Result)">
-            <Parameter Name="TipoItem" Mode="In" Type="String" />
+          <Parameter Name="TipoItem" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_GetItemsTipo" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemsTipo_Result)">
+            <Parameter Name="sItemTipo" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
@@ -510,6 +516,38 @@
           <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="Familia" Nullable="true" MaxLength="250" />
           <Property Type="Decimal" Name="Precio" Nullable="true" Precision="38" Scale="8" />
+        </ComplexType>
+        <ComplexType Name="SP_GetItemsTipo_Result">
+          <Property Type="Int64" Name="Item" Nullable="true" />
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="String" Name="Codigo" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="250" />
+          <Property Type="Int32" Name="Familia" Nullable="true" />
+          <Property Type="String" Name="TipoItem" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="Espesor" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Ancho" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Largo" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Diametro" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Volumen" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="Peso" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="String" Name="TipoAcero" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="CostoCM" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoRH" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoPR" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoAC" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Decimal" Name="CostoTotal" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Binary" Name="Imagen" Nullable="true" />
+          <Property Type="DateTime" Name="FechaCreacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioCrea" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="FechaModificacion" Nullable="true" Precision="23" />
+          <Property Type="String" Name="UsuarioMod" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="TipoPieza" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="Estatus" Nullable="true" />
+          <Property Type="Int32" Name="Autorizado" Nullable="true" />
+          <Property Type="Decimal" Name="CostoUSD" Nullable="true" Precision="18" Scale="4" />
+          <Property Type="Int32" Name="FactorInd" Nullable="true" />
+          <Property Type="Decimal" Name="CostoTotalFactor" Nullable="true" Precision="18" Scale="4" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -845,6 +883,42 @@
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Familia" ColumnName="Familia" />
                 <ScalarProperty Name="Precio" ColumnName="Precio" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SP_GetItemsTipo" FunctionName="DB_AUTOMATIZACIONModel.Store.SP_GetItemsTipo">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB_AUTOMATIZACIONModel.SP_GetItemsTipo_Result">
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="TipoItem" ColumnName="TipoItem" />
+                <ScalarProperty Name="Espesor" ColumnName="Espesor" />
+                <ScalarProperty Name="Ancho" ColumnName="Ancho" />
+                <ScalarProperty Name="Largo" ColumnName="Largo" />
+                <ScalarProperty Name="Diametro" ColumnName="Diametro" />
+                <ScalarProperty Name="Volumen" ColumnName="Volumen" />
+                <ScalarProperty Name="Peso" ColumnName="Peso" />
+                <ScalarProperty Name="TipoAcero" ColumnName="TipoAcero" />
+                <ScalarProperty Name="CostoCM" ColumnName="CostoCM" />
+                <ScalarProperty Name="CostoRH" ColumnName="CostoRH" />
+                <ScalarProperty Name="CostoPR" ColumnName="CostoPR" />
+                <ScalarProperty Name="CostoAC" ColumnName="CostoAC" />
+                <ScalarProperty Name="CostoTotal" ColumnName="CostoTotal" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="UsuarioCrea" ColumnName="UsuarioCrea" />
+                <ScalarProperty Name="FechaModificacion" ColumnName="FechaModificacion" />
+                <ScalarProperty Name="UsuarioMod" ColumnName="UsuarioMod" />
+                <ScalarProperty Name="TipoPieza" ColumnName="TipoPieza" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Autorizado" ColumnName="Autorizado" />
+                <ScalarProperty Name="CostoUSD" ColumnName="CostoUSD" />
+                <ScalarProperty Name="FactorInd" ColumnName="FactorInd" />
+                <ScalarProperty Name="CostoTotalFactor" ColumnName="CostoTotalFactor" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

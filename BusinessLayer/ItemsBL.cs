@@ -43,7 +43,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemsDespendencias(ItemId);
         }
-
+        public static DataTable GetKitDependencia(int? ItemId)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetKitDependencia(ItemId);
+        }
         public static DataTable ListadoItemsResumen()
         {
             ItemsDALC obj = new ItemsDALC();

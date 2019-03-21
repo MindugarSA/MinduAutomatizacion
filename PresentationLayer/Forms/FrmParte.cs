@@ -547,7 +547,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28 };
+            List<int> visibleColumns = new List<int> { 0,1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28 };
             if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 ,28};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {

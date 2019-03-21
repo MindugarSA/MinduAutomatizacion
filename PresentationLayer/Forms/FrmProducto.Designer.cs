@@ -2649,6 +2649,7 @@
             this.pbBuscar.Size = new System.Drawing.Size(27, 27);
             this.pbBuscar.TabIndex = 152;
             this.pbBuscar.TabStop = false;
+            this.pbBuscar.Visible = false;
             this.pbBuscar.Click += new System.EventHandler(this.pbBuscar_Click);
             // 
             // pbListar
@@ -2661,6 +2662,7 @@
             this.pbListar.Size = new System.Drawing.Size(27, 27);
             this.pbListar.TabIndex = 151;
             this.pbListar.TabStop = false;
+            this.pbListar.Visible = false;
             this.pbListar.Click += new System.EventHandler(this.pbListar_Click);
             // 
             // pictureBox17

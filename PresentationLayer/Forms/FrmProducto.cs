@@ -13,7 +13,7 @@ using Entities;
 using BusinessLayer;
 using System.IO;
 using PresentationLayer.Reports;
-
+using System.Globalization;
 
 namespace PresentationLayer.Forms
 {
@@ -51,7 +51,7 @@ namespace PresentationLayer.Forms
         private int costoTotal = 0;
         private String imagen = "";
 
-
+        private DataTable DTListado;
 
         public FrmProducto(FrmPrincipalPanel FormP = null)
         {
@@ -698,21 +698,31 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+
             dgvListaItems.SuspendLayout();
             //Listado de Items
-            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("T").Select(c =>
-                                                                {
-                                                                    c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
-                                                                    return c;
-                                                                }).ToList();
-            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+
+            dgvListaItems.DataSource = ItemsBL.GetItemsTipo("T").Select(c =>  
+                                                               {                                                                   
+                                                                   c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
+                                                                   
+                                                                   return c;
+                                                               }).ToList();
+            //dgvListaItems.DataSource = ItemsBL.GetItemsTipo("T");
+            
+
+
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17 ,28 };
+
+
+            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
                     col.Visible = false;
+
+
             }
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
@@ -727,14 +737,16 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[9].DefaultCellStyle.Format = "N2";
-            dgvListaItems.Columns[17].DefaultCellStyle.Format =  "N2"; // "#,0.00###";
-            dgvListaItems.Columns[28].DefaultCellStyle.Format =  "N2"; // "#,0.00###";
+            dgvListaItems.Columns[17].DefaultCellStyle.Format = "N2"; // "#,0.00###";
+            dgvListaItems.Columns[28].DefaultCellStyle.Format = "N2"; // "#,0.00###";
 
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
 
             dgvListaItems.ResumeLayout();
         }
+
+        
 
         private void CargarGridsDetalleItem(int itemId)
         {
@@ -753,7 +765,7 @@ namespace PresentationLayer.Forms
                     {
                         dgvActual.SuspendLayout();
 
-                        List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11, 12, 13 };
+                        List<int> visibleColumns = new List<int> {0, 5, 6, 8, 9, 10, 11, 12, 13 };
                         foreach (DataGridViewColumn col in dgvActual.Columns)
                         {
                             if (!visibleColumns.Contains(col.Index))
@@ -789,7 +801,7 @@ namespace PresentationLayer.Forms
 
                         dgvActual.Columns[11].DisplayIndex = 12;
                         dgvActual.Columns[12].DisplayIndex = 11;
-                        //dgvActual.Columns[13].DisplayIndex = 12;
+                        //dgvActual.Columns[13].DisplayIndex = 11;
 
                         dgvActual.ResumeLayout();
 

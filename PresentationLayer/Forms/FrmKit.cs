@@ -27,6 +27,7 @@ namespace PresentationLayer.Forms
 
         Item ItemEntidad = new Item();
         Item ItemEntidadInicial = new Item();
+        Item ItemEntidadProd = new Item();//nueva entidad para mantener kit
         ItemCosto CostoEntidad = new ItemCosto();
         List<ItemCosto> ListCostoEntidad = new List<ItemCosto>();
         ItemDetalle ItemDetalleEntidad = new ItemDetalle();
@@ -679,7 +680,7 @@ namespace PresentationLayer.Forms
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
+            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -722,7 +723,7 @@ namespace PresentationLayer.Forms
                 {
                     dgvActual.SuspendLayout();
 
-                    List<int> visibleColumns = new List<int> { 5, 6, 8, 9, 10, 11, 12, 13 };
+                    List<int> visibleColumns = new List<int> { 0,5, 6, 8, 9, 10, 11, 12, 13 };
                     foreach (DataGridViewColumn col in dgvActual.Columns)
                     {
                         if (!visibleColumns.Contains(col.Index))
@@ -1736,40 +1737,66 @@ namespace PresentationLayer.Forms
             FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
             if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir el Kit '" + ItemEntidad.Codigo + "', En un Producto.",
-                                           "Covertir Kit a Producto",
+                                           "Convertir Kit a Producto",
                                            MessageBoxButtons.OKCancel,
                                            MessageBoxIcon.Question,
                                            370) == DialogResult.OK)
             {
 
-                CargarEntidadItem();
-                ItemEntidad.TipoItem = "T";
+                CargarEntidadItem(); // Este metodo carga el Objeto ItemEntidad con todos los datos de la pantalla
+                ItemEntidad.TipoItem = "T"; // Aqui se cambia la clasificacion desde Ki a Producto por medio de la propirdad TipoItem
 
-                ItemsBL.UpdateItem(ItemEntidad);
-                ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
-                CargarEntidadItemDetalle(ItemEntidad);
-                List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                ItemsBL.InsertItem(ItemEntidad); // Este es el metodo que actualiza el Kit en la BD
+                ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // Aqui se actulizan los costos relacionados
+                CargarEntidadItemDetalle(ItemEntidad); 
+                //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                /**/
+                List<ItemDetalle> DetalleInsert = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
                 List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
                 ItemDetalleBL.InsertItemDetalle(DetallesInsert);
-                ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                ItemDetalleBL.InsertItemDetalle(DetalleInsert);
+                //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
                 ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
                 CargarEntidadCosto(ItemEntidad);
-                List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                 List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                 ItemCostoBL.InsertItemCostos(CostosInsert);
-                ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                //ItemCostoBL.UpdateItemCostos(CostosUpdate); // Todo esto es para refrescar la pantalla en vacio
                 MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
                 ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+               
 
                 CargarGridsCostos();
                 FormatearGridsCostos();
                 CargarGridsDetalleItem(ItemEntidad.Id);
                 CargarGridListadoItem();
 
-                materialFlatButton2.PerformClick();
+                materialFlatButton2.PerformClick(); // Aca inicializamos la pantalla , porque ya el Kit al convertirse en Producto NO DEBE verse en este form
             }
 
             
+        }
+
+        private void verRelacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataTable dt = ItemsBL.GetKitDependencia(ItemEntidad.Id);
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+            if (dt.Rows.Count > 0)
+            {
+                FrmDetalleKit FrmDetalle = new FrmDetalleKit();
+                FrmDetalle.Origen = "Dependencia";
+                FrmDetalle.itemIdDet = Convert.ToInt32(ItemEntidad.Id);
+                FrmDetalle.Show();
+            }
+            else
+            {
+                MetroFramework.MetroMessageBox.Show(frmParentForm, "El Kit '" + ItemEntidad.Codigo + "' , No Está Relacionado a Ningun Registro",
+                                           "Relación de Dependencia",
+                                           MessageBoxButtons.OK,
+                                           MessageBoxIcon.Warning,
+                                           370);
+            }
         }
     }
 }

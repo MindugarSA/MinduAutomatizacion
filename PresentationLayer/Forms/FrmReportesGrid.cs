@@ -16,6 +16,7 @@ using System.IO;
 using System.Data.Sql;
 using PresentationLayer.Forms;
 using DataAccessLayer;
+using System.Drawing.Imaging;
 
 namespace PresentationLayer
 {
@@ -29,14 +30,15 @@ namespace PresentationLayer
         public PictureBox Pic = new PictureBox();
         private Rectangle sizeGripRectangle;
 
+        
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
             InitializeComponent();
             SetearControles();
             panel2.Visible = false;
             label1.Visible = false;
+            pictureBox1.Visible = false;
 
-            
             //dgvListado.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgvListado.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgvListado.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
@@ -370,21 +372,25 @@ namespace PresentationLayer
             if (txtBuscarItem.Text.Trim().Length > 0)
             {
                 DataTable dt = null;
+                
+                    var rows = ((DataTable)dgvListado.DataSource).AsEnumerable()
+                          .Where(r => r.Field<string>("Codigo").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
+                                   || r.Field<string>("Descripcion").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()));
 
-                var rows = ((DataTable)dgvListado.DataSource).AsEnumerable()
-                           .Where(r => r.Field<string>("Codigo").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
-                                    || r.Field<string>("Nombre").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()));
+
+                    if (rows.Any())
+                    {
+                        dt = rows.CopyToDataTable();
+                        dgvListado.DataSource = dt;
+                    }
+
                 //.CopyToDataTable();
-
-                if (rows.Any())
-                {
-                    dt = rows.CopyToDataTable();
-                    dgvListado.DataSource = dt;
-                }
+               
+                
             }
             else
             {
-                dgvListado.DataSource = DTListado;
+                //dgvListado.DataSource = DTListado;
             }
         }
 
@@ -485,10 +491,7 @@ namespace PresentationLayer
         //}
         private void dgvListado_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.Controls.Contains(Pic))
-            {
-                this.Controls.Remove(Pic);
-            }
+
         }
         private void CargarCamposItemDetalle(Item ItemConsulta)
         {
@@ -518,18 +521,14 @@ namespace PresentationLayer
             form.AutoSize = true;
            // frmParentForm.AbrirFormulario(form, 0, 0, true);
         }
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
-        {
-           // OpenImegeForm(pictureBox1.BackgroundImage);
-        }
+        //private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        //{
+        //  // OpenImegeForm(pictureBox1.BackgroundImage);
+        //}
 
         private void dgvListado_DoubleClick(object sender, EventArgs e)
         {
-            //origendatos();
-            pictureBox1.Visible = false;
-            OpenImegeForm(pictureBox1.BackgroundImage);
-          
-           // CargarImagen();
+            
         }
 
         /*MODIFICAR ACÁ PARA PONER BOTON INDEPENDIENTE CON CONSULTA IMAGEN PRODUCTO*/
@@ -557,93 +556,190 @@ namespace PresentationLayer
             }
             
         }
+        public class ImageHelper
+        {
+            public static Image ByteArrayToImage(byte[] byteArrayIn)
+            {
+                MemoryStream ms = new MemoryStream(byteArrayIn);
+                return Image.FromStream(ms);
+            }
 
+            public static byte[] ImageToByteArray(Image imageIn)
+            {
+                MemoryStream ms = new MemoryStream();
+                imageIn.Save(ms, ImageFormat.Jpeg);
+                return ms.ToArray();
+            }
+
+        }
         private void dgvListado_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (this.dgvListado.Columns[e.ColumnIndex].Name == "Ver Imagen")
-            //{
+            DataGridViewImageCell Ima = dgvListado.CurrentRow.Cells["Imagen"] as DataGridViewImageCell;
 
-            //}
-            try
-            {
-                int i = dgvListado.CurrentCell.ColumnIndex;
-
-                Pic.Name = "pictureBox1";
-                try
-                {
-
-                    dgvListado.Columns["Imagen"].Visible = true;
-                    ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
-                }
-                catch
-                {
-
-                }
-                //dgvListado.Columns["Imagen"].Visible = true; //ocultar celda imagen
-                Rectangle rec = dgvListado.GetCellDisplayRectangle(i, dgvListado.CurrentRow.Index, true);
-                //Pic.Location = new Point(dgvListado.Location.X + dgvListado.Width, dgvListado.Location.X + rec.Location.X - 0);
-                Pic.Location = new Point(450, 150);
-                Pic.BorderStyle = BorderStyle.FixedSingle;
-
-
-               DataGridViewImageCell Ima = dgvListado.CurrentRow.Cells["Imagen"] as DataGridViewImageCell;
-
-                if (Ima == null)
-                {
-                    return;
-                }
-
-                Byte[] ImaByt = (Byte[])Ima.Value;
-                MemoryStream Mry = new MemoryStream(ImaByt);
-                Pic.Width = 500;
-                Pic.Height = 500;
-
-                Pic.Image = Image.FromStream(Mry);
-                Pic.SizeMode = PictureBoxSizeMode.StretchImage;
-                this.Controls.Add(Pic);
-                Pic.BringToFront();
-
-
-
-            }
-            catch
-            {
-
-            }
-        }
-
-        private void dgvListado_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            //Evito las cabeceras
-            if (e.RowIndex < 0)
-                return;
-
-            //Dimensiones del PictureBox
-            Pic.Width = 100;
-            Pic.Height = 100;
-
-            //Obtiene el raton
-            Point Posicion = Cursor.Position;
-
-            //Corrijo la cooredenada respecto al formulario
-            //Lo que hace es calcular el centro del datagridview en Y y restarle la mitad de la Y del PictureBox, de modo que el centro del PictureBox quede centrado en el centro del datagrid
-            Point posCorregida = new Point(Posicion.X - this.Location.X, (dgvListado.Location.Y + (dgvListado.Height / 2) - (Pic.Height / 2)));
-
-            //Aplico la nueva posicion al PictureBox
-            Pic.Location = posCorregida;
-
-            DataGridViewImageCell Ima = dgvListado.Rows[e.RowIndex].Cells[2] as DataGridViewImageCell;
+            pictureBox1.Visible = true;
+            //FrmViewPicture form = new FrmViewPicture();
+            //form.Imagen = e;
+            //OpenImegeForm(pictureBox1.BackgroundImage);
             if (Ima == null)
             {
                 return;
             }
 
+            Byte[] ImaByt = (Byte[])Ima.Value;
+            MemoryStream Mry = new MemoryStream(ImaByt);
+            pictureBox1.Width = 500;
+            pictureBox1.Height = 500;
+
+            pictureBox1.Image = Image.FromStream(Mry);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            this.Controls.Add(pictureBox1);
+            pictureBox1.BringToFront();
+            pictureBox1.Location = new Point(1180, 200);
+            pictureBox1.BorderStyle = BorderStyle.FixedSingle;
 
 
-            Pic.Image = (Bitmap)Ima.Value;
-            Pic.SizeMode = PictureBoxSizeMode.StretchImage;
-            this.Controls.Add(Pic);
-            Pic.BringToFront();
+            /*-------------------MUESTRA IMAGEN SIN PICTUREBOX------------------------*/
+            //try
+            //{
+            //    int i = dgvListado.CurrentCell.ColumnIndex;
+
+            //    Pic.Name = "picture";
+            //    try
+            //    {
+
+            //        dgvListado.Columns["Imagen"].Visible = true;
+            //        ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            //    }
+            //    catch
+            //    {
+
+            //    }
+            //    //dgvListado.Columns["Imagen"].Visible = true; //ocultar celda imagen
+            //    Rectangle rec = dgvListado.GetCellDisplayRectangle(i, dgvListado.CurrentRow.Index, true);
+            //    //Pic.Location = new Point(dgvListado.Location.X + dgvListado.Width, dgvListado.Location.X + rec.Location.X - 0);
+            //    Pic.Location = new Point(450, 150);
+            //    Pic.BorderStyle = BorderStyle.FixedSingle;
+
+
+            //DataGridViewImageCell Ima = dgvListado.CurrentRow.Cells["Imagen"] as DataGridViewImageCell;
+
+
+            //    if (Ima == null)
+            //    {
+            //        return;
+            //    }
+
+            //    Byte[] ImaByt = (Byte[])Ima.Value;
+            //    MemoryStream Mry = new MemoryStream(ImaByt);
+            //    Pic.Width = 500;
+            //    Pic.Height = 500;
+
+            //    Pic.Image = Image.FromStream(Mry);
+            //    Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            //    this.Controls.Add(Pic);
+            //    Pic.BringToFront();
+            //    /*------------------------------------------------------*/
+
+
+
+
+
+        }
+
+        private void dgvListado_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            ////Evito las cabeceras
+            //if (e.RowIndex < 0)
+            //    return;
+
+            ////Dimensiones del PictureBox
+            //Pic.Width = 100;
+            //Pic.Height = 100;
+
+            ////Obtiene el raton
+            //Point Posicion = Cursor.Position;
+
+            ////Corrijo la cooredenada respecto al formulario
+            ////Lo que hace es calcular el centro del datagridview en Y y restarle la mitad de la Y del PictureBox, de modo que el centro del PictureBox quede centrado en el centro del datagrid
+            //Point posCorregida = new Point(Posicion.X - this.Location.X, (dgvListado.Location.Y + (dgvListado.Height / 2) - (Pic.Height / 2)));
+
+            ////Aplico la nueva posicion al PictureBox
+            //Pic.Location = posCorregida;
+
+            //DataGridViewImageCell Ima = dgvListado.Rows[e.RowIndex].Cells[2] as DataGridViewImageCell;
+            //if (Ima == null)
+            //{
+            //    return;
+            //}
+
+
+
+            //Pic.Image = (Bitmap)Ima.Value;
+            //Pic.SizeMode = PictureBoxSizeMode.StretchImage;
+            //this.Controls.Add(Pic);
+            //Pic.BringToFront();
+        }
+
+        private void FrmReportesGrid_DragDrop(object sender, DragEventArgs e)
+        {
+            //TAKE DROPPED ITEMS AND STORE IN ARRAY
+            string[] droppedfiles = (string[])e.Data.GetData(DataFormats.FileDrop);
+            //LOOP THRU ALL DROPPED ITEMS AND DISPLAY THEM
+            foreach (string file in droppedfiles)
+            {
+                //GET FILENAME
+                string filename = Path.GetFileNameWithoutExtension(file);
+                // SET IMAGE
+                pictureBox1.BackgroundImage = Image.FromFile(file);
+            }
+            // GET FILENAME
+        }
+
+        private void FrmReportesGrid_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop, false) == true)
+            {
+                e.Effect = DragDropEffects.All;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            pictureBox1.Visible = false;
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+                //if (e.Button == MouseButtons.Left)
+                //{
+                //    Location = new Point(e.X, e.Y);
+
+                //}
+           
+            
+        }
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            
+                //if (Location != Point.Empty)
+                //{
+                //    Point newlocation = this.pictureBox1.Location;
+                //    newlocation.X += e.X - Location.X;
+                //    newlocation.Y += e.Y - Location.Y;
+                    
+                //    this.pictureBox1.Location = newlocation;
+                //}
+            
+        }
+
+        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            
+            //Location = Point.Empty;
+            
+          
+
         }
         /*
 public void CargarImagen() //PENDIENTE INVESTIGAR
