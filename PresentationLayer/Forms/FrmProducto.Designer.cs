@@ -206,12 +206,12 @@
             this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
             this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvListaItems = new MetroFramework.Controls.MetroGrid();
+            this.txtDescripcionK = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.label46 = new System.Windows.Forms.Label();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recetaDetalladaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtDescripcionK = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.label46 = new System.Windows.Forms.Label();
             this.errorCodigo = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDescr = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorDetalle = new System.Windows.Forms.ErrorProvider(this.components);
@@ -3214,6 +3214,7 @@
             dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListaItems.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvListaItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaItems.ContextMenuStrip = this.contextMenuStrip2;
             dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3247,39 +3248,6 @@
             this.dgvListaItems.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvListaItems_DataError);
             this.dgvListaItems.SelectionChanged += new System.EventHandler(this.dgvListaItems_SelectionChanged);
             this.dgvListaItems.DoubleClick += new System.EventHandler(this.dgvListaItems_DoubleClick);
-            // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copiarToolStripMenuItem,
-            this.copiarTablaToolStripMenuItem,
-            this.recetaDetalladaToolStripMenuItem1});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(162, 70);
-            // 
-            // copiarToolStripMenuItem
-            // 
-            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
-            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.copiarToolStripMenuItem.Text = "Copiar";
-            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
-            // 
-            // copiarTablaToolStripMenuItem
-            // 
-            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
-            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
-            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
-            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
-            // 
-            // recetaDetalladaToolStripMenuItem1
-            // 
-            this.recetaDetalladaToolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.document;
-            this.recetaDetalladaToolStripMenuItem1.Name = "recetaDetalladaToolStripMenuItem1";
-            this.recetaDetalladaToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
-            this.recetaDetalladaToolStripMenuItem1.Text = "Receta Detallada";
-            this.recetaDetalladaToolStripMenuItem1.Click += new System.EventHandler(this.recetaDetalladaToolStripMenuItem1_Click);
             // 
             // txtDescripcionK
             // 
@@ -3319,6 +3287,39 @@
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(236, 158);
             this.label46.TabIndex = 149;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copiarToolStripMenuItem,
+            this.copiarTablaToolStripMenuItem,
+            this.recetaDetalladaToolStripMenuItem1});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(162, 70);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
+            // 
+            // copiarTablaToolStripMenuItem
+            // 
+            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
+            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
+            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
+            // 
+            // recetaDetalladaToolStripMenuItem1
+            // 
+            this.recetaDetalladaToolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.document;
+            this.recetaDetalladaToolStripMenuItem1.Name = "recetaDetalladaToolStripMenuItem1";
+            this.recetaDetalladaToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.recetaDetalladaToolStripMenuItem1.Text = "Receta Detallada";
+            this.recetaDetalladaToolStripMenuItem1.Click += new System.EventHandler(this.recetaDetalladaToolStripMenuItem1_Click);
             // 
             // errorCodigo
             // 

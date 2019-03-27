@@ -29,8 +29,9 @@ namespace PresentationLayer
         public string TipoAcceso { get; set; }
         public PictureBox Pic = new PictureBox();
         private Rectangle sizeGripRectangle;
+        private int currentMouseOverCol;
+        private int currentMouseOverRow;
 
-        
         public FrmReportesGrid(FrmPrincipalPanel FormP = null)
         {
             InitializeComponent();
@@ -354,6 +355,7 @@ namespace PresentationLayer
 
         private void dgvListado_BindingContextChanged(object sender, EventArgs e)
         {
+
         }
 
         private void pictureBox17_Click(object sender, EventArgs e)
@@ -740,6 +742,36 @@ namespace PresentationLayer
             
           
 
+        }
+
+        private void copiarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvListado[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void copiarTablaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            dgvListado.CopyContentToClipboard();
+        }
+
+        private void dgvListado_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    currentMouseOverRow = e.RowIndex;
+                    currentMouseOverCol = e.ColumnIndex;
+                    if (currentMouseOverCol > -1)
+                        try
+                        {
+                            dgvListado.CurrentCell = dgvListado[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                            dgvListado.Rows[(currentMouseOverRow)].Selected = true;
+                        }
+                        catch { }
+                }
+            }
+            catch { }
         }
         /*
 public void CargarImagen() //PENDIENTE INVESTIGAR

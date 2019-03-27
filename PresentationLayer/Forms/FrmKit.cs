@@ -1804,5 +1804,10 @@ namespace PresentationLayer.Forms
                                            370);
             }
         }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
