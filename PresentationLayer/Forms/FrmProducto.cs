@@ -335,9 +335,13 @@ namespace PresentationLayer.Forms
         {
             try
             {
-                int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
-                CargarDatosItem(ItemId);
-                CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
+                var cr = dgvListaItems.CurrentRow;
+                if (cr != null)
+                {
+                    int ItemId = Convert.ToInt32(dgvListaItems.Rows[dgvListaItems.CurrentCell.RowIndex].Cells[0].Value);
+                    CargarDatosItem(ItemId);
+                    CargarCamposItemDetalle(ItemsBL.GetItemId(Convert.ToInt32(dgvDetalleItemAmp.Rows[0].Cells[4].Value)).FirstOrDefault());
+                }
             }
             catch { }
         }
@@ -720,12 +724,15 @@ namespace PresentationLayer.Forms
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
+                {
+                    col.SortMode = DataGridViewColumnSortMode.Automatic;
                     col.Visible = false;
-
+                }
 
             }
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
+            
             dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -740,10 +747,12 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[17].DefaultCellStyle.Format = "N2"; // "#,0.00###";
             dgvListaItems.Columns[28].DefaultCellStyle.Format = "N2"; // "#,0.00###";
 
+            
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
 
             dgvListaItems.ResumeLayout();
+
         }
 
         

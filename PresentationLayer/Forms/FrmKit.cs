@@ -884,6 +884,9 @@ namespace PresentationLayer.Forms
             txtCostoProc.Text = "0,00";
             txtCostoRRHH.Text = "0,00";
             txtDirectFact.Text = "0,00";
+            textBox1.Text = "";//SIGUIENTES CAJAS DE TEXTO SIN LIMPIAR EN PRODUCTO Y KIT AL CONVERTIR O CREAR
+            txtCostoDC.Text = "";
+            txtCostPiezasD.Text = "";
             pictureBox1.BackgroundImage = Properties.Resources.ImagenBlank;
             metroComboBox2.SelectedIndex = -1;
             metroComboBox4.SelectedIndex = -1;
@@ -935,7 +938,7 @@ namespace PresentationLayer.Forms
 
             if (pictureBox1.BackgroundImage != null) ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
             ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
-            ItemEntidad.Autorizado = 1;
+            ItemEntidad.Autorizado = 0;
 
             if (labelNoMouse1.Text.Trim() == "Agregar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
 
@@ -1759,7 +1762,7 @@ namespace PresentationLayer.Forms
                 ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
                 CargarEntidadCosto(ItemEntidad);
                 //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
-                List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                 ItemCostoBL.InsertItemCostos(CostosInsert);
                 //ItemCostoBL.UpdateItemCostos(CostosUpdate); // Todo esto es para refrescar la pantalla en vacio
                 MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
@@ -1772,6 +1775,9 @@ namespace PresentationLayer.Forms
                 CargarGridListadoItem();
 
                 materialFlatButton2.PerformClick(); // Aca inicializamos la pantalla , porque ya el Kit al convertirse en Producto NO DEBE verse en este form
+
+                
+                
             }
 
             
