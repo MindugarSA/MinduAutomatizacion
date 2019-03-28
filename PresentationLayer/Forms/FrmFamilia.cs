@@ -73,6 +73,7 @@ namespace PresentationLayer
                     case "Agregar":
                         Fami.Codigo = txtCodigo.Text.Trim();
                         Fami.Descripcion = txtDescrpcion.Text.Trim();
+                        Fami.Clasificacion = metroComboBox1.Text.Trim();
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
                         lFami.Add(Fami);
                         FamiliaBL.InsertFamilias(lFami);
@@ -90,6 +91,7 @@ namespace PresentationLayer
                         Fami.id = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentRow.Index].Value);
                         Fami.Codigo = txtCodigo.Text.Trim();
                         Fami.Descripcion = txtDescrpcion.Text.Trim();
+                        Fami.Clasificacion = metroComboBox1.Text.Trim();
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
                         lFami.Add(Fami);
                         FamiliaBL.UpdateFamilias(lFami);

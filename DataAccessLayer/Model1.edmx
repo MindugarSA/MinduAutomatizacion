@@ -25,6 +25,7 @@
           <Property Name="Codigo" Type="nvarchar" MaxLength="50" />
           <Property Name="Descripcion" Type="nvarchar" MaxLength="250" />
           <Property Name="Estado" Type="int" />
+          <Property Name="Clasificacion" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Glosario">
           <Key>
@@ -201,6 +202,7 @@
           <Property Name="Codigo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Estado" Type="Int32" />
+          <Property Name="Clasificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Propiedades">
           <Key>
@@ -259,7 +261,7 @@
           <Parameter Name="TipoItem" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="SP_GetItemsTipo" ReturnType="Collection(DB_AUTOMATIZACIONModel.SP_GetItemsTipo_Result)">
-            <Parameter Name="sItemTipo" Mode="In" Type="String" />
+          <Parameter Name="sItemTipo" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="TipoItem">
@@ -558,6 +560,7 @@
           <EntitySetMapping Name="Familia">
             <EntityTypeMapping TypeName="DB_AUTOMATIZACIONModel.Familia">
               <MappingFragment StoreEntitySet="Familia">
+                <ScalarProperty Name="Clasificacion" ColumnName="Clasificacion" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Codigo" ColumnName="Codigo" />
                 <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />

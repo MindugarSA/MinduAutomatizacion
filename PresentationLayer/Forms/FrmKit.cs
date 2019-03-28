@@ -1744,42 +1744,57 @@ namespace PresentationLayer.Forms
                                            MessageBoxButtons.OKCancel,
                                            MessageBoxIcon.Question,
                                            370) == DialogResult.OK)
-            {
+                //if (ItemEntidad.Codigo == ItemEntidad.Codigo)
+                //{
+                //    //MetroFramework.MetroMessageBox.Show(frmParentForm, "El Kit '" + ItemEntidad.Codigo + "', Ya fue convertido en un Producto.",
+                //    //                        "Convertir Kit a Producto de todas formas?",
+                //    //                        MessageBoxButtons.OKCancel,
+                //    //                       MessageBoxIcon.Question,
+                //    //                       370) == DialogResult.OK))
 
-                CargarEntidadItem(); // Este metodo carga el Objeto ItemEntidad con todos los datos de la pantalla
-                ItemEntidad.TipoItem = "T"; // Aqui se cambia la clasificacion desde Ki a Producto por medio de la propirdad TipoItem
+                //    throw new System.ArgumentException("El kit'" + ItemEntidad.Codigo + "' ya fue convertido a producto");
+                //}
+                //else
+                //{
 
-                ItemsBL.InsertItem(ItemEntidad); // Este es el metodo que actualiza el Kit en la BD
-                ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // Aqui se actulizan los costos relacionados
-                CargarEntidadItemDetalle(ItemEntidad); 
-                //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
-                /**/
-                List<ItemDetalle> DetalleInsert = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
-                List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
-                ItemDetalleBL.InsertItemDetalle(DetallesInsert);
-                ItemDetalleBL.InsertItemDetalle(DetalleInsert);
-                //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
-                ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
-                CargarEntidadCosto(ItemEntidad);
-                //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
-                List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id != 0).ToList();
-                ItemCostoBL.InsertItemCostos(CostosInsert);
-                //ItemCostoBL.UpdateItemCostos(CostosUpdate); // Todo esto es para refrescar la pantalla en vacio
-                MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
-                ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
-               
 
-                CargarGridsCostos();
-                FormatearGridsCostos();
-                CargarGridsDetalleItem(ItemEntidad.Id);
-                CargarGridListadoItem();
 
-                materialFlatButton2.PerformClick(); // Aca inicializamos la pantalla , porque ya el Kit al convertirse en Producto NO DEBE verse en este form
+                    {
 
-                
-                
-            }
+                        CargarEntidadItem(); // Este metodo carga el Objeto ItemEntidad con todos los datos de la pantalla
+                        ItemEntidad.TipoItem = "T"; // Aqui se cambia la clasificacion desde Ki a Producto por medio de la propirdad TipoItem
 
+                        ItemsBL.InsertItem(ItemEntidad); // Este es el metodo que actualiza el Kit en la BD
+                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // Aqui se actulizan los costos relacionados
+                        CargarEntidadItemDetalle(ItemEntidad);
+                        //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                        /**/
+                        List<ItemDetalle> DetalleInsert = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                        List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+                        ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+                        ItemDetalleBL.InsertItemDetalle(DetalleInsert);
+                        //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                        ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+                        CargarEntidadCosto(ItemEntidad);
+                        //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                        List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                        ItemCostoBL.InsertItemCostos(CostosInsert);
+                        //ItemCostoBL.UpdateItemCostos(CostosUpdate); // Todo esto es para refrescar la pantalla en vacio
+                        MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
+                        ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+
+                        CargarGridsCostos();
+                        FormatearGridsCostos();
+                        CargarGridsDetalleItem(ItemEntidad.Id);
+                        CargarGridListadoItem();
+
+                        materialFlatButton2.PerformClick(); // Aca inicializamos la pantalla , porque ya el Kit al convertirse en Producto NO DEBE verse en este form
+
+
+
+                    }
+                //}
             
         }
 

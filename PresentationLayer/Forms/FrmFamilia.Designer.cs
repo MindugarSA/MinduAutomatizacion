@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFamilia));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -63,6 +63,8 @@
             this.dragControl1 = new PresentationLayer.DragControl();
             this.dragControl2 = new PresentationLayer.DragControl();
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -83,25 +85,27 @@
             // 
             this.bunifuTransition1.AnimationType = BunifuAnimatorNS.AnimationType.VertSlide;
             this.bunifuTransition1.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 0F;
-            this.bunifuTransition1.DefaultAnimation = animation1;
+            animation2.AnimateOnlyDifferences = true;
+            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
+            animation2.LeafCoeff = 0F;
+            animation2.MaxTime = 1F;
+            animation2.MinTime = 0F;
+            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
+            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
+            animation2.MosaicSize = 0;
+            animation2.Padding = new System.Windows.Forms.Padding(0);
+            animation2.RotateCoeff = 0F;
+            animation2.RotateLimit = 0F;
+            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
+            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
+            animation2.TimeCoeff = 0F;
+            animation2.TransparencyCoeff = 0F;
+            this.bunifuTransition1.DefaultAnimation = animation2;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.metroComboBox1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtResponsable);
@@ -115,7 +119,7 @@
             this.bunifuTransition1.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(650, 490);
+            this.groupBox1.Size = new System.Drawing.Size(650, 531);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
             // 
@@ -126,33 +130,33 @@
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeColumns = false;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RowType,
             this.RowStatus});
             this.bunifuTransition1.SetDecoration(this.dataGridView1, BunifuAnimatorNS.DecorationType.None);
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gold;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gold;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
@@ -161,14 +165,14 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -211,7 +215,7 @@
             this.bunifuTransition1.SetDecoration(this.txtResponsable, BunifuAnimatorNS.DecorationType.None);
             this.txtResponsable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResponsable.ForeColor = System.Drawing.Color.White;
-            this.txtResponsable.Location = new System.Drawing.Point(13, 363);
+            this.txtResponsable.Location = new System.Drawing.Point(13, 351);
             this.txtResponsable.Margin = new System.Windows.Forms.Padding(0);
             this.txtResponsable.Name = "txtResponsable";
             this.txtResponsable.ReadOnly = true;
@@ -255,7 +259,7 @@
             this.label2.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 440);
+            this.label2.Location = new System.Drawing.Point(10, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 33;
@@ -267,7 +271,7 @@
             this.label1.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 405);
+            this.label1.Location = new System.Drawing.Point(10, 404);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 31;
@@ -286,7 +290,7 @@
             this.txtDescrpcion.Depth = 0;
             this.txtDescrpcion.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescrpcion.Hint = "";
-            this.txtDescrpcion.Location = new System.Drawing.Point(107, 438);
+            this.txtDescrpcion.Location = new System.Drawing.Point(95, 449);
             this.txtDescrpcion.MaxLength = 32767;
             this.txtDescrpcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescrpcion.Multiline = false;
@@ -317,7 +321,7 @@
             this.txtCodigo.Depth = 0;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Hint = "";
-            this.txtCodigo.Location = new System.Drawing.Point(112, 403);
+            this.txtCodigo.Location = new System.Drawing.Point(108, 402);
             this.txtCodigo.MaxLength = 32767;
             this.txtCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigo.Multiline = false;
@@ -341,7 +345,7 @@
             this.label3.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(568, 406);
+            this.label3.Location = new System.Drawing.Point(562, 404);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 37;
@@ -354,7 +358,7 @@
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.btnCerrar);
             this.bunifuTransition1.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
-            this.panel4.Location = new System.Drawing.Point(557, 541);
+            this.panel4.Location = new System.Drawing.Point(557, 581);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -400,7 +404,7 @@
             this.panel2.Controls.Add(this.labelNoMouse1);
             this.panel2.Controls.Add(this.btnAgregar);
             this.bunifuTransition1.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
-            this.panel2.Location = new System.Drawing.Point(17, 541);
+            this.panel2.Location = new System.Drawing.Point(75, 580);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
@@ -495,7 +499,7 @@
             this.panel3.Controls.Add(this.labelNoMouse2);
             this.panel3.Controls.Add(this.btnNuevo);
             this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(138, 541);
+            this.panel3.Location = new System.Drawing.Point(196, 580);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(111, 34);
@@ -513,12 +517,40 @@
             // 
             this.errorIcono.ContainerControl = this;
             // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label4, BunifuAnimatorNS.DecorationType.None);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 497);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Clasificación";
+            // 
+            // metroComboBox1
+            // 
+            this.bunifuTransition1.SetDecoration(this.metroComboBox1, BunifuAnimatorNS.DecorationType.None);
+            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "SIMPLE",
+            "MODERADO",
+            "COMPLEJO"});
+            this.metroComboBox1.Location = new System.Drawing.Point(95, 492);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(156, 29);
+            this.metroComboBox1.TabIndex = 47;
+            this.metroComboBox1.UseSelectable = true;
+            // 
             // FrmFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(685, 583);
+            this.ClientSize = new System.Drawing.Size(685, 623);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -578,5 +610,7 @@
         private System.Windows.Forms.Panel panel3;
         private Controls.LabelNoMouse labelNoMouse2;
         private MaterialSkin.Controls.MaterialFlatButton btnNuevo;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private System.Windows.Forms.Label label4;
     }
 }
