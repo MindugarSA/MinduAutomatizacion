@@ -31,7 +31,11 @@ namespace PresentationLayer.Forms
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
-            
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView1.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.Columns[10].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            //dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             ListarTipos();
             this.InitializeClickHandlers();
             formPrincipal = FormP;
