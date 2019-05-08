@@ -17,4 +17,5 @@ public partial class Familia
     public string Descripcion { get; set; }
     public Nullable<int> Estado { get; set; }
     public string Clasificacion { get; set; }
+    public string NumFamilia { get; set; }
 }

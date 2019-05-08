@@ -447,7 +447,7 @@ namespace PresentationLayer.Forms
                     case "Agregar":
                         ItemsBL.InsertItem(ItemEntidad);
                         CargarEntidadItemDetalle(ItemEntidad);
-                        ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);
+                        ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);//COSTOS 
                         CargarEntidadCosto(ItemEntidad);
                         ItemCostoBL.InsertItemCostos(ListCostoEntidad);
                         labelNoMouse1.Text = "Actualizar";
@@ -466,11 +466,24 @@ namespace PresentationLayer.Forms
                         ItemDetalleBL.InsertItemDetalle(DetallesInsert);
                         ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
                         ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+
+                        //ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);//COSTOS //VONTINUAR ACÁ
+                        //CargarEntidadCosto(ItemEntidad);
+
+
                         CargarEntidadCosto(ItemEntidad);
                         List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                        //--------------------------------------------------------------------------------------------------------------
+                        //CargarEntidadItem(); // Este metodo carga el Objeto ItemEntidad con todos los datos de la pantalla
+                        //ItemEntidad.TipoItem = "T"; // Aqui se cambia la clasificacion desde Ki a Producto por medio de la propirdad TipoItem
+
+                        //ItemsBL.InsertItem(ItemEntidad); // Este es el metodo que actualiza el Kit en la BD
+                        //ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // Aqui se actulizan los costos relacionados
+                        //CargarEntidadItemDetalle(ItemEntidad);
+                        //--------------------------------------------------------------------------------------------------------------------
                         MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
                         ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
@@ -718,9 +731,10 @@ namespace PresentationLayer.Forms
 
 
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvListaItems.Columns["NumFamilia"].DisplayIndex = 0;//Posiciona columna de las primeras
+            dgvListaItems.AllowUserToOrderColumns = true;
 
-
-            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 28, 29 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -732,13 +746,14 @@ namespace PresentationLayer.Forms
             }
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            
+            //dgvListaItems.Columns[29].DefaultCellStyle.order
             dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[17].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[28].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[29].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
 
             dgvListaItems.Columns[6].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "N2";
@@ -750,6 +765,7 @@ namespace PresentationLayer.Forms
             
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
+            dgvListaItems.Columns[29].HeaderText = "N° Familia";
 
             dgvListaItems.ResumeLayout();
 
@@ -761,6 +777,8 @@ namespace PresentationLayer.Forms
         {
             try
             {
+                //FormatearGridsCostos();
+
                 dtItemDetalle = ItemDetalleBL.GetItemDetalleId(itemId);
                 bAgregandoRow = true;
                 if (dtItemDetalle.Rows.Count >= 0)
@@ -969,7 +987,41 @@ namespace PresentationLayer.Forms
             txtTotalCostoC.Text = "0,00";
             pictureBox10.BackgroundImage = null;
         }
+        //private void CargarEntidadItem()
+        //{
 
+        //    Double CostoPiezasSinFactor = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario");
+        //    Double CostoTotalSinFactor = (CostoPiezasSinFactor + Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text));
+
+        //    Double CostoPiezasFactor = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitFactor");
+        //    Double CostoTotalFactor = (CostoPiezasFactor + Convert.ToDouble(txtCostoProc.Text) + Convert.ToDouble(txtCostoRRHH.Text));
+
+        //    ItemEntidad.Codigo = txtCodigo.Text.Trim();
+        //    ItemEntidad.Descripcion = txtDescrpcion.Text;
+        //    ItemEntidad.Nombre = txtNombre.Text;
+        //    ItemEntidad.TipoPieza = "";
+        //    ItemEntidad.Familia = metroComboBox2.SelectedItem == null ? 0 : Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
+        //    ItemEntidad.TipoItem = "T";
+        //    ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
+        //    ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
+        //    ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
+        //    ItemEntidad.Diametro = Convert.ToDecimal(txtDiametro.Text);
+        //    ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
+        //    ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
+        //    ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosPiezas.Text);
+        //    ItemEntidad.CostoAC = Convert.ToDecimal(txtTotCosPro.Text);
+        //    ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
+        //    ItemEntidad.CostoTotal = Convert.ToDecimal(CostoTotalSinFactor);
+        //    ItemEntidad.CostoTotalFactor = Convert.ToDecimal(CostoTotalFactor);
+        //    ItemEntidad.CostoAC = 0;
+
+        //    if (pictureBox1.BackgroundImage != null) ItemEntidad.Imagen = ImageExtensions.imageToByteArray(pictureBox1.BackgroundImage);
+        //    ItemEntidad.Estatus = materialCheckBox1.Checked ? 1 : 0;
+        //    ItemEntidad.Autorizado = 0;
+
+        //    if (labelNoMouse1.Text.Trim() == "Actualizar") ItemEntidad.FechaCreacion = DateTime.Now; else ItemEntidad.FechaModificacion = DateTime.Now;
+
+        //}
         private void CargarEntidadItem(int Autorizado)
         {
             Double CostoPiezasSinFactor = SumaColumnaDoubleDT((DataTable)dgvDetalleItem.DataSource, "Cantidad", "CostoUnitario");
@@ -1386,9 +1438,18 @@ namespace PresentationLayer.Forms
 
         private void duplicarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CodigoInicial = "";
-            panel3.Visible = false;
-            labelNoMouse1.Text = "Agregar";
+            if(CodigoInicial != null)
+            {
+                CodigoInicial = "";
+                panel3.Visible = false;
+                labelNoMouse1.Text = "Agregar";
+                MessageBox.Show("No olvide modificar código de Producto duplicado");
+            }
+            else
+            {
+
+            }
+            
         }
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
@@ -1457,26 +1518,6 @@ namespace PresentationLayer.Forms
             Clipboard.SetText(dgvListaItems[currentMouseOverCol, currentMouseOverRow].Value.ToString());       
         }
 
-        private void dgvListaItems_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            try
-            {
-                if (e.Button == MouseButtons.Right)
-                {
-                    currentMouseOverRow = e.RowIndex;
-                    currentMouseOverCol = e.ColumnIndex;
-                    if (currentMouseOverCol > -1)
-                        try
-                        {
-                            dgvListaItems.CurrentCell = dgvListaItems[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
-                            dgvListaItems.Rows[(currentMouseOverRow)].Selected = true;
-                        }
-                        catch { }
-                }
-            }
-            catch { }
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             IDataObject data = Clipboard.GetDataObject();
@@ -1511,20 +1552,6 @@ namespace PresentationLayer.Forms
         /*CAMBIAR A DOS DECIMALES ACÁ*/
         private void MostrarDetalleKitProducto(object sender, DataGridViewCellMouseEventArgs e)
         {
-            try
-            {
-                MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
-
-                FrmDetalleKit FrmDetalle = new FrmDetalleKit();
-                var cellRectangle = dgvActual.GetCellDisplayRectangle(5, e.RowIndex, false);
-                FrmDetalle.StartPosition = FormStartPosition.Manual;
-                FrmDetalle.Location = dgvActual.PointToScreen(dgvActual.GetCellDisplayRectangle(6, e.RowIndex, false).Location);
-                FrmDetalle.Location = new Point(FrmDetalle.Location.X, FrmDetalle.Location.Y + cellRectangle.Height);
-                FrmDetalle.Origen = "Detalle";
-                FrmDetalle.itemIdDet = Convert.ToInt32(dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[4].Value);
-                FrmDetalle.Show();
-            }
-            catch { }
 
         }
 
@@ -1702,7 +1729,7 @@ namespace PresentationLayer.Forms
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
                             ItemEntidadInicial.CostoTotal = ItemEntidad.CostoTotal;
-                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial) && (labelNoMouse1.Text.Trim() != "Agregar"))
                             {
                                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 

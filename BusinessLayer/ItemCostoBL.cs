@@ -37,6 +37,12 @@ namespace BusinessLayer
                 obj.InsertItemCosto(ItenC);
             }
         }
+        //public static ItemCosto UpdateItemCostos(ItemCosto ListaIC)
+        //{
+        //    ItemCostoDALC obj = new ItemCostoDALC();
+
+        //    return obj.UpdateItemCosto(ListaIC);
+        //}
 
         public static void UpdateItemCostos(List<ItemCosto> ListaIC)
         {

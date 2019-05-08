@@ -96,7 +96,7 @@ namespace DataAccessLayer
         //    }
         //    return lItem;
         //}
-
+      
         public List<Item> GetItemsTipo(string sItemTipo)
         {
             //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())

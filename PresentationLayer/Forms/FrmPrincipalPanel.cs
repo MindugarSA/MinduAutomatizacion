@@ -498,5 +498,10 @@ namespace PresentationLayer
             FrmGlosarioGest FrmGlo = new FrmGlosarioGest(this);
             AbrirFormulario(FrmGlo, 0, 0);
         }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

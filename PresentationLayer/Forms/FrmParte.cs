@@ -543,11 +543,11 @@ namespace PresentationLayer.Forms
                                                                     c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                                                     return c;
                                                                 }).ToList();
-            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            List<int> visibleColumns = new List<int> { 0,1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28 };
+            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvListaItems.Columns["NumFamilia"].DisplayIndex = 0;
+
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28,29 };
             if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 ,28};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
@@ -557,12 +557,14 @@ namespace PresentationLayer.Forms
                     col.Visible = true;
                 col.ReadOnly = true;
             }
+            dgvListaItems.Columns[29].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
             dgvListaItems.AjustColumnsWidthForGridWidth();
 
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvListaItems.Columns[13].HeaderText = "CostoEXT";
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
+            dgvListaItems.Columns[29].HeaderText = "N° Familia";
 
             dgvListaItems.Columns[18].DisplayIndex = 28;
             dgvListaItems.Columns[28].DisplayIndex = 18;
@@ -1060,9 +1062,19 @@ namespace PresentationLayer.Forms
 
         private void duplicarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CodigoInicial = "";
-            panel3.Visible = false;
-            labelNoMouse1.Text = "Agregar";
+            if(CodigoInicial != null)
+            {
+                CodigoInicial = "";
+                panel3.Visible = false;
+                labelNoMouse1.Text = "Agregar";
+                MessageBox.Show("No olvide modificar código de Parte duplicada");
+            }
+            else
+            {
+               
+
+            }
+            
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -1367,7 +1379,7 @@ namespace PresentationLayer.Forms
                             CargarEntidadItem();
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
-                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial) && (labelNoMouse1.Text.Trim() != "Agregar")) // SOLO VALIDA EN MODO UPDATE
                             {
                                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 

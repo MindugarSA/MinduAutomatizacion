@@ -140,6 +140,29 @@ namespace DataAccessLayer
                 }
             }
         }
+        //public ItemCosto UpdateItemCosto(ItemCosto Obj)
+        //{
+        //    using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+        //    {
+        //        try
+        //        {
+        //            if (db.Database.Connection.State == ConnectionState.Closed)
+        //                db.Database.Connection.Open();
+
+        //            ItemCosto Entidad = (from n in db.ItemCosto
+        //                                 where n.Id == Obj.Id
+        //                            select n).FirstOrDefault();
+        //            db.Entry(Entidad).CurrentValues.SetValues(Obj);
+        //            db.SaveChanges();
+        //        }
+        //        catch (DbEntityValidationException ex)
+        //        {
+        //            EntityExceptionError.CatchError(ex);
+        //        }
+        //        return Obj;
+        //    }
+        //}
+
 
         public void UpdateItemCostoID(int CostoID)
         {

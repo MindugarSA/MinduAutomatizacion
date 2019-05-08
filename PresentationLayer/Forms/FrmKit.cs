@@ -223,8 +223,8 @@ namespace PresentationLayer.Forms
             {
                 MetroFramework.Controls.MetroGrid dgvActual = (MetroFramework.Controls.MetroGrid)sender;
 
-                if (dgvActual.CurrentRow.Index == -1 || bAgregandoRow)
-                    return;
+                if (dgvActual.CurrentRow.Index != -1 || bAgregandoRow)
+                    //return;
 
                 if (dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value.ToString().Length == 0)
                     dgvActual.Rows[dgvActual.CurrentCell.RowIndex].Cells[9].Value = "0,00";
@@ -420,22 +420,116 @@ namespace PresentationLayer.Forms
                         ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
                         break;
                     case "Actualizar":
+                        #region Codigo Original
                         ItemsBL.UpdateItem(ItemEntidad);
-                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+                        ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // ESTO ES IMPORTANTE... ESTA FUNCION SE ENCARGA DE ACTUALIZAR LOS COSTOS EN CASCADAS DE TODOS LOS KIT Y PRODUTOS QUE CONTENGAN ESTE KIT EN SU COMPOSICION NO COMENTAR PORQUE SINO QUEDARA LA MANSACA CON LOS COSTOS
                         CargarEntidadItemDetalle(ItemEntidad);
                         List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
                         ItemDetalleBL.InsertItemDetalle(DetallesInsert);
                         ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
-                        ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+                        ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete); //CAMBIA VALORES EN PARTES, SEGURAMENTE ELIMINA LO QUE ESTABA Y REEEMPLAZA LOS VALORES
+
                         CargarEntidadCosto(ItemEntidad);
                         List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
                         ItemCostoBL.InsertItemCostos(CostosInsert);
                         ItemCostoBL.UpdateItemCostos(CostosUpdate);
-                        MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
+
+                        //Buscar Producto con mismo Codigo(Duplicado) y Modifica
+                        var result = ItemsBL.GetItems()
+                                    .Where(s => s.Codigo.ToUpper() == txtCodigo.Text.Trim().ToUpper() && s.TipoItem == "T") 
+                                    .FirstOrDefault();
+                        if (result != null)
+                        {
+                            //Convierto Kit a Producto con el id del producto existente
+                            Item ItemProducto = Functions.DeepCopy<Item>(ItemEntidad);
+                            ItemProducto.Id = result.Id;
+                            ItemProducto.TipoItem = "T";
+
+                            ItemsBL.UpdateItem(ItemProducto);
+
+                            List<ItemDetalle> ItemDetalleProd =  CargarEntidadItemDetalleBD(ItemProducto);
+                            ItemDetalleBL.DeleteItemDetalle(ItemDetalleProd);
+                           
+                            CargarEntidadItemDetalle(ItemProducto); // Aca se asiga el Id del Item Producto a cada ItemId del Detalle
+                            ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);
+                            CargarEntidadCosto(ItemProducto); // Cargo los costos del Kit
+                            CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                            ItemCostoBL.InsertItemCostos(CostosInsert);
+
+                            //CostosUpdate = ListCostoEntidad.Where(r => r.Id >= 0).ToList();//---v
+                            //ItemCostoBL.UpdateItemCostos(CostosUpdate);//ESTE INSERTA VALORES RRHH EN PRODUCTO PERO NO BORRA VALORES ANTERIORES Y BORRA LOS DE KIT.
+
+                            MostrarMensajeRegistro("Kit Y Producto '" + ItemEntidad.Codigo.Trim() + "' Modificados", Color.FromArgb(0, 174, 219));
+                           
+                            
+                        }
+                        else
+                        {
+                            MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
+                        }
+
+                        //ItemEntidad.Codigo
                         ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+                        #endregion
+
+                        #region Pruebas Creizys
+                        //ItemsBL.UpdateItem(ItemEntidad);//ACTUALIZA CAJAS DE TEXTO 
+                        //                                //if (ItemEntidad.TipoItem == "T")
+                        //                                //VerificarCodigoItem();
+
+                        ////ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // ??SE COMENTÓ YA QUE NO SE VISUALIZA FUNCION
+                        //CargarEntidadItemDetalle(ItemEntidad);
+                        //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                        //List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+                        //ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+                        //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                        //ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete); //CAMBIA VALORES EN PARTES, SEGURAMENTE ELIMINA LO QUE ESTABA Y REEEMPLAZA LOS VALORES
+                        //CargarEntidadCosto(ItemEntidad);
+                        //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+                        //List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                        //ItemCostoBL.InsertItemCostos(CostosInsert);
+                        //ItemCostoBL.UpdateItemCostos(CostosUpdate);
+                        ////Bueno acá tenemos una ensalada de cód comentado lo demás es el cód original :)
+
+                        //////if (ItemEntidad.TipoItem == "T")
+
+                        //////    //ItemsBL.DeleteItem(ItemEntidad);
+                        //////    //ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+                        //////    //CargarItemDetalleDelete(0);
+                        ////ItemCostoBL.UpdateItemCostos(CostosUpdate);
+
+
+                        ////// ItemsBL.InsertItem(ItemEntidad);
+                        ////ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+                        ////    CargarEntidadItemDetalle(ItemEntidad);
+                        ////    List<ItemDetalle> DetalleInsert = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+                        ////   ItemDetalleBL.InsertItemDetalle(DetalleInsert);
+                        //////    //ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+                        //////    ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+                        ////    CargarEntidadCosto(ItemEntidad);
+                        //////    //List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+
+                        ////ItemCostoBL.InsertItemCostos(CostosInsert);
+                        ////ItemCostoBL.UpdateItemCostos(CostosUpdate);
+
+                        ////// ItemsBL.DeleteItem(ItemEntidad);
+                        //CargarEntidadItem();
+                        //ItemEntidad.TipoItem = "T";
+                        //ItemCostoBL.UpdateItemCostos(CostosUpdate);
+
+
+                        //MostrarMensajeRegistro("Kit '" + ItemEntidad.Codigo.Trim() + "' Modificado", Color.FromArgb(0, 174, 219));
+                        //ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+                        //ItemEntidad = Functions.DeepCopy<Item>(ItemEntidad);
+                        //// if(ItemEntidadProd.Codigo == ItemEntidad.Codigo)
+                        ////ItemsBL.DeleteItem(ItemEntidadProd);
+                        #endregion
+
                         break;
+
                 }
                 CargarGridsCostos();
                 FormatearGridsCostos();
@@ -677,44 +771,65 @@ namespace PresentationLayer.Forms
                                                                     c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                                                     return c;
                                                                 }).ToList();
-            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 5, 6, 7, 8, 9, 17, 28 };
+            dgvListaItems.Columns["NumFamilia"].DisplayIndex = 0; //Posiciona columna de las primeras
+
+            List<int> visibleColumns = new List<int> {1, 2, 3, 5, 6, 7, 8, 9, 17,28,29};
+            
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
                     col.Visible = false;
+               
+                //int primero = visibleColumns.First();
+               
+
             }
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
+            //dgvListaItems.Columns[29].
             dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[9].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[17].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[28].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvListaItems.Columns[29].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
 
+            //dgvListaItems.Columns["NumFamilia"].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[6].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[9].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[17].DefaultCellStyle.Format = "N2";
             dgvListaItems.Columns[28].DefaultCellStyle.Format = "N2";
+            //dgvListaItems.Columns[29].DefaultCellStyle.Format = "N2";
 
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
+            //dgvListaItems.Columns[29].DisplayIndex = 0;
+            dgvListaItems.Columns[29].HeaderText = "N° Familia";
 
             dgvListaItems.ResumeLayout();
+
+            //if (dgvListaItems.Rows.Count >= 0) dgvListaItems.CurrentCell = dgvListaItems.Rows[0].Cells[29];
         }
 
         private void CargarGridsDetalleItem(int itemId)
         {
             dtItemDetalle = ItemDetalleBL.GetItemDetalleId(itemId);
             bAgregandoRow = true;
+          
             if (dtItemDetalle.Rows.Count >= 0)
             {
+                // ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);
+               // FormatearGridsCostos();
+                //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();//update de kit a conversion producto
+                //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);//update de kit a conversion producto
+
                 dgvDetalleItemAmp.DataSource = dtItemDetalle;
+               
                 dgvDetalleItem.DataSource = dtItemDetalle;
 
                 MetroFramework.Controls.MetroGrid[] ArrDgv = { dgvDetalleItem, dgvDetalleItemAmp };
@@ -819,6 +934,10 @@ namespace PresentationLayer.Forms
 
         private void CargarCampos(int itemId)
         {
+            // ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);
+            //FormatearGridsCostos();
+            //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();//update de kit a conversion producto
+            //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);//update de kit a conversion producto
 
             ItemEntidad = ItemsBL.GetItemId(itemId).FirstOrDefault();
             ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
@@ -968,6 +1087,44 @@ namespace PresentationLayer.Forms
 
         }
 
+        private void CargarEntidadCostoDB(Item ItemEnti)
+        {
+            DataTable dtCostosItem = new DataTable();
+
+            DataTable dtItemCostos = ItemCostoBL.GetItemCostoId(ItemEnti.Id);
+
+            //Costos RRHH y Procesos
+            DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
+                            .Where(r => r.Field<string>("Categoria") == "HH")
+                            .CopyToDataTable();
+            dgvCostoRRHH.DataSource = dtCostosRRHH;
+
+            //Costos Procesos
+            DataTable dtCostosPro = dtItemCostos.AsEnumerable()
+                            .Where(r => r.Field<string>("Categoria") == "PR")
+                            .CopyToDataTable();
+            dgvCostoProc.DataSource = dtCostosPro;
+
+            dtCostosItem.Merge(dtCostosRRHH);
+            dtCostosItem.Merge(dtCostosPro);
+
+            ListCostoEntidad = new List<ItemCosto>();
+
+            foreach (DataRow row in dtCostosItem.Rows)
+            {
+                CostoEntidad = new ItemCosto();
+                CostoEntidad.IdItem = ItemEnti.Id;
+                CostoEntidad.IdCosto = Convert.ToInt32(row["IdCosto"]);
+                CostoEntidad.Unidad = row["Unidad"].ToString();
+                CostoEntidad.Valor = Convert.ToDecimal(row["Valor"]);
+                CostoEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
+                CostoEntidad.Total = Convert.ToDecimal(row["Total"]);
+                CostoEntidad.Id = Convert.ToInt32(row["Id"]);
+                ListCostoEntidad.Add(CostoEntidad);
+            }
+
+        }
+
         private void CargarEntidadItemDetalle(Item ItemEnti)
         {
             DataTable dtItemDetalle = new DataTable();
@@ -994,6 +1151,35 @@ namespace PresentationLayer.Forms
                 Linea += 1;
             }
 
+        }
+
+        private List<ItemDetalle> CargarEntidadItemDetalleBD(Item ItemEnti) // Carga un List de Detalles en Base al ID de Item
+        {
+            DataTable dtItemDetalle = new DataTable();
+
+            dtItemDetalle = ItemDetalleBL.GetItemDetalleId(ItemEnti.Id);
+
+
+            List<ItemDetalle>  ListItemDetalleEntidadDB = new List<ItemDetalle>();
+            int Linea = 1;
+
+            foreach (DataRow row in dtItemDetalle.Rows)
+            {
+                ItemDetalleEntidad = new ItemDetalle();
+                ItemDetalleEntidad.IdItem = ItemEnti.Id;
+                ItemDetalleEntidad.IdDetalle = Convert.ToInt32(row["IdDetalle"]);
+                ItemDetalleEntidad.Linea = Linea;
+                ItemDetalleEntidad.Cantidad = Convert.ToDecimal(row["Cantidad"]);
+                ItemDetalleEntidad.CostoUnitario = Convert.ToDecimal(row["CostoUnitario"]);
+                ItemDetalleEntidad.Total = Convert.ToDecimal(row["Total"]);
+                ItemDetalleEntidad.CostoUnitFactor = Convert.ToDecimal(row["CostoUnitFactor"]);
+                ItemDetalleEntidad.TotalFactor = Convert.ToDecimal(row["TotalFactor"]);
+                ItemDetalleEntidad.Id = Convert.ToInt32(row["Id"] is DBNull ? 0 : row["Id"]);
+                ListItemDetalleEntidadDB.Add(ItemDetalleEntidad);
+                Linea += 1;
+            }
+
+            return ListItemDetalleEntidadDB;
         }
 
         private void CargarItemDetalleDelete(DataGridViewRow Row)
@@ -1519,9 +1705,18 @@ namespace PresentationLayer.Forms
 
         private void duplicarRegistroToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CodigoInicial = "";
-            panel3.Visible = false;
-            labelNoMouse1.Text = "Agregar";
+            if(CodigoInicial != null)
+            {
+                CodigoInicial = "";
+                panel3.Visible = false;
+                labelNoMouse1.Text = "Agregar";
+                MessageBox.Show("No olvide modificar código de Kit duplicado");
+            }
+            else
+            {
+
+            }
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -1638,7 +1833,7 @@ namespace PresentationLayer.Forms
                             CargarEntidadItem();
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
-                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial) && (labelNoMouse1.Text.Trim() != "Agregar"))
                             {
                                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
@@ -1744,26 +1939,12 @@ namespace PresentationLayer.Forms
                                            MessageBoxButtons.OKCancel,
                                            MessageBoxIcon.Question,
                                            370) == DialogResult.OK)
-                //if (ItemEntidad.Codigo == ItemEntidad.Codigo)
-                //{
-                //    //MetroFramework.MetroMessageBox.Show(frmParentForm, "El Kit '" + ItemEntidad.Codigo + "', Ya fue convertido en un Producto.",
-                //    //                        "Convertir Kit a Producto de todas formas?",
-                //    //                        MessageBoxButtons.OKCancel,
-                //    //                       MessageBoxIcon.Question,
-                //    //                       370) == DialogResult.OK))
-
-                //    throw new System.ArgumentException("El kit'" + ItemEntidad.Codigo + "' ya fue convertido a producto");
-                //}
-                //else
-                //{
-
-
-
+            
                     {
 
                         CargarEntidadItem(); // Este metodo carga el Objeto ItemEntidad con todos los datos de la pantalla
                         ItemEntidad.TipoItem = "T"; // Aqui se cambia la clasificacion desde Ki a Producto por medio de la propirdad TipoItem
-
+                        
                         ItemsBL.InsertItem(ItemEntidad); // Este es el metodo que actualiza el Kit en la BD
                         ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id); // Aqui se actulizan los costos relacionados
                         CargarEntidadItemDetalle(ItemEntidad);
@@ -1771,9 +1952,12 @@ namespace PresentationLayer.Forms
                         /**/
                         List<ItemDetalle> DetalleInsert = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
                         List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+
+                //List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();//update de kit a conversion producto
+                // ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);//update de kit a conversion producto
                         ItemDetalleBL.InsertItemDetalle(DetallesInsert);
                         ItemDetalleBL.InsertItemDetalle(DetalleInsert);
-                        //ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+                       // ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);//update de kit a conversion producto
                         ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
                         CargarEntidadCosto(ItemEntidad);
                         //List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();

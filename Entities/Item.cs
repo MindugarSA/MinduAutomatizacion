@@ -41,4 +41,5 @@ public partial class Item
     public Nullable<decimal> CostoUSD { get; set; }
     public Nullable<int> FactorInd { get; set; }
     public Nullable<decimal> CostoTotalFactor { get; set; }
+    public string NumFamilia { get; set; }
 }

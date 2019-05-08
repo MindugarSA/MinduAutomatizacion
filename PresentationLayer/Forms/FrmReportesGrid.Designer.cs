@@ -37,13 +37,15 @@
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label42 = new System.Windows.Forms.Label();
             this.dgvListado = new MetroFramework.Controls.MetroGrid();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAñadirCot = new System.Windows.Forms.Button();
             this.txtBuscarItem = new System.Windows.Forms.TextBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.metroComboBox3 = new MetroFramework.Controls.MetroComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,15 +54,12 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.formHeader1 = new PresentationLayer.FormHeader();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copiarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copiarTablaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroComboBox1
@@ -96,9 +95,9 @@
             // 
             // dgvListado
             // 
-            this.dgvListado.AllowDrop = true;
             this.dgvListado.AllowUserToAddRows = false;
             this.dgvListado.AllowUserToDeleteRows = false;
+            this.dgvListado.AllowUserToOrderColumns = true;
             this.dgvListado.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(241)))), ((int)(((byte)(251)))));
             this.dgvListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -157,17 +156,40 @@
             this.dgvListado.BindingContextChanged += new System.EventHandler(this.dgvListado_BindingContextChanged);
             this.dgvListado.DoubleClick += new System.EventHandler(this.dgvListado_DoubleClick);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copiarToolStripMenuItem,
+            this.copiarTablaToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
+            // 
+            // copiarToolStripMenuItem
+            // 
+            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
+            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarToolStripMenuItem.Text = "Copiar";
+            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
+            // 
+            // copiarTablaToolStripMenuItem
+            // 
+            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
+            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
+            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(123)))), ((int)(((byte)(158)))));
+            this.panel1.Controls.Add(this.btnAñadirCot);
             this.panel1.Controls.Add(this.txtBuscarItem);
             this.panel1.Controls.Add(this.pictureBox14);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.pictureBox17);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.metroComboBox3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.metroComboBox2);
             this.panel1.Controls.Add(this.label1);
@@ -179,6 +201,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1151, 111);
             this.panel1.TabIndex = 152;
+            // 
+            // btnAñadirCot
+            // 
+            this.btnAñadirCot.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAñadirCot.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.btnAñadirCot.FlatAppearance.BorderSize = 0;
+            this.btnAñadirCot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAñadirCot.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAñadirCot.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAñadirCot.Image = global::PresentationLayer.Properties.Resources.pencil_on_a_notes_paper;
+            this.btnAñadirCot.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAñadirCot.Location = new System.Drawing.Point(750, 10);
+            this.btnAñadirCot.Name = "btnAñadirCot";
+            this.btnAñadirCot.Size = new System.Drawing.Size(186, 44);
+            this.btnAñadirCot.TabIndex = 165;
+            this.btnAñadirCot.Text = "Añadir a Cotizador";
+            this.btnAñadirCot.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.toolTip1.SetToolTip(this.btnAñadirCot, "Enviar productos a cotizador");
+            this.btnAñadirCot.UseVisualStyleBackColor = false;
+            this.btnAñadirCot.Click += new System.EventHandler(this.btnAñadirCot_Click);
             // 
             // txtBuscarItem
             // 
@@ -232,33 +274,6 @@
             this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
             this.pictureBox17.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
             this.pictureBox17.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(613, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 21);
-            this.label3.TabIndex = 159;
-            this.label3.Text = "Tipo";
-            // 
-            // metroComboBox3
-            // 
-            this.metroComboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.metroComboBox3.FormattingEnabled = true;
-            this.metroComboBox3.ItemHeight = 23;
-            this.metroComboBox3.Items.AddRange(new object[] {
-            "Parte",
-            "Kit",
-            "Producto"});
-            this.metroComboBox3.Location = new System.Drawing.Point(667, 19);
-            this.metroComboBox3.Name = "metroComboBox3";
-            this.metroComboBox3.Size = new System.Drawing.Size(124, 29);
-            this.metroComboBox3.TabIndex = 158;
-            this.metroComboBox3.UseSelectable = true;
             // 
             // label2
             // 
@@ -357,30 +372,6 @@
             this.formHeader1.Size = new System.Drawing.Size(1186, 44);
             this.formHeader1.TabIndex = 1;
             // 
-            // contextMenuStrip2
-            // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copiarToolStripMenuItem,
-            this.copiarTablaToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
-            // 
-            // copiarToolStripMenuItem
-            // 
-            this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
-            this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.copiarToolStripMenuItem.Text = "Copiar";
-            this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
-            // 
-            // copiarTablaToolStripMenuItem
-            // 
-            this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
-            this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
-            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
-            this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
-            this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
-            // 
             // FrmReportesGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,12 +391,12 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.FrmReportesGrid_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmReportesGrid_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -421,8 +412,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroComboBox metroComboBox2;
-        private System.Windows.Forms.Label label3;
-        private MetroFramework.Controls.MetroComboBox metroComboBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox17;
@@ -433,5 +422,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem copiarTablaToolStripMenuItem;
+        private System.Windows.Forms.Button btnAñadirCot;
     }
 }
