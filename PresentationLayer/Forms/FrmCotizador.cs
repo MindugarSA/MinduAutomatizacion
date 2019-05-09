@@ -199,97 +199,18 @@ namespace PresentationLayer.Forms
 
         private void FormatearGrid()
         {
+            int i = 1;
+            foreach (DataGridViewRow row in dgvColaCot.Rows)
+            {
+                row.Cells["ItemC"].Value = i;
+                i++;
+            }
             //dataGridView1.Columns[0].Visible = false;
             //dataGridView1.AjustColumnsWidthForGridWidth();
 
         }
 
-        #region Aplicar Modificaciones Visuales a Form
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            base.OnPaintBackground(e);
-
-            Rectangle rect = new Rectangle(0, 0, this.ClientSize.Width - 1, this.ClientSize.Height - 1);
-
-            Brush aGradientBrush = new LinearGradientBrush(new Point(0, 0), new Point(50, 0), Color.Gray, Color.White); //USING DRAWING 2D
-            Pen pencil = new Pen(Color.LightGray, 5);
-            e.Graphics.DrawRectangle(pencil, rect);
-        }
-
-        private int tolerance = 15;
-        private const int WM_NCHITTEST = 132;
-        private const int HTBOTTOMRIGHT = 17;
-        private Rectangle sizeGripRectangle;
-        private int currentMouseOverRow;
-        private int currentMouseOverCol;
-        private bool CambioGrid;
-        //private string itemCosto;
-        //private string codigoC;
-        //private string detalleC;
-        //private string familiaC;
-        //private string precioUni;
-        //private string cant;
-        //private string total;
-
-        //private List<MainAssembly> _assemblyReport;
-
-        protected override void WndProc(ref Message m)
-        {
-            switch (m.Msg)
-            {
-                case WM_NCHITTEST:
-                    base.WndProc(ref m);
-                    var hitPoint = this.PointToClient(new Point(m.LParam.ToInt32() & 0xffff, m.LParam.ToInt32() >> 16));
-                    if (sizeGripRectangle.Contains(hitPoint))
-                        m.Result = new IntPtr(HTBOTTOMRIGHT);
-                    break;
-                default:
-                    base.WndProc(ref m);
-                    break;
-            }
-        }
-        //----------------DIBUJAR RECTANGULO / EXCLUIR ESQUINA PANEL 
-        protected override void OnSizeChanged(EventArgs e)
-        {
-            base.OnSizeChanged(e);
-            var region = new Region(new Rectangle(0, 0, this.ClientRectangle.Width, this.ClientRectangle.Height));
-
-            sizeGripRectangle = new Rectangle(this.ClientRectangle.Width - tolerance, this.ClientRectangle.Height - tolerance, tolerance, tolerance);
-
-            region.Exclude(sizeGripRectangle);
-            //this.panelPrincipal.Region = region;
-            this.Invalidate();
-        }
-        //----------------COLOR Y GRIP DE RECTANGULO INFERIOR
-        protected override void OnPaint(PaintEventArgs e)
-        {
-
-            SolidBrush blueBrush = new SolidBrush(Color.Transparent);
-            e.Graphics.FillRectangle(blueBrush, sizeGripRectangle);
-
-            base.OnPaint(e);
-            ControlPaint.DrawSizeGrip(e.Graphics, Color.Transparent, sizeGripRectangle);
-        }
-        //protected override void WndProc(ref Message m)
-        //{
-        //    if (m.Msg == 0x84)
-        //    {
-        //        Point pos = new Point(m.LParam.ToInt32());
-        //        pos = this.PointToClient(pos);
-        //        if (pos.Y < cCaption)
-        //        {
-        //            m.Result = (IntPtr)2;
-        //            return;
-        //        }
-        //        if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-        //        {
-        //            m.Result = (IntPtr)17;
-        //            return;
-        //        }
-        //    }
-        //    base.WndProc(ref m);
-        //}
-        #endregion
+       
 
         #region Aplicar Acciones Visuales a Controles
         private void SetearControles()
@@ -397,12 +318,11 @@ namespace PresentationLayer.Forms
         private void pictureBox11_Click(object sender, EventArgs e)
         {
             dgvColaCot.Rows.RemoveAt(dgvColaCot.CurrentRow.Index);
+            FormatearGrid();
             double TotalU = 0;
             decimal TotalNeto = 0;
             try
             {
-
-
                 if (dgvColaCot.CurrentRow.Index == -1 || bAgregandoRow)
                     return;
 
@@ -414,7 +334,7 @@ namespace PresentationLayer.Forms
                                                                                     Convert.ToDecimal(dgvColaCot.Rows[dgvColaCot.CurrentCell.RowIndex].Cells["CantC"].Value);
                     //txtNeto.Text= SumaColumnaDoubleDT([dgvColaCot.CurrentCell.RowIndex].Cells["TotalC"].Value]);
 
-                    foreach (DataGridViewRow row in dgvColaCot.Rows)
+                    foreach (DataGridViewRow row in dgvColaCot.Rows) 
                     {
                         TotalNeto += Convert.ToDecimal(row.Cells["TotalC"].Value);
                         // txtNeto.Text = TotalNeto;
@@ -422,7 +342,6 @@ namespace PresentationLayer.Forms
                     txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
                     //txtNeto.Text = SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "TotalC").ToString("N2");
                     //SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "CantC", "PrecioC").ToString("N2");
-
                 }
             }
             catch { }

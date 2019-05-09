@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="MinduAutomatizacion.exe" version="1.0.0.62" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="MinduAutomatizacion.exe" version="1.0.0.63" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="MinduAuto.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ICDfCcER/MzXbUzQz6Z5sbeRFc5fKxh+gNR0Grz9lss=</dsig:DigestValue>
+        <dsig:DigestValue>eHDakSdIYKlAkCLG1Pwrg19jzo2Man/M/2ynKChAAYM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -266,7 +266,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>dzv2dwLtmDh9U+W5g0TdB89tI/uPQ9uApr0oC2bGLyk=</dsig:DigestValue>
+        <dsig:DigestValue>uz9UzfpjMEK/yqCMoNpbIcn9NavOpMER/V7AWfFxVdk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -278,7 +278,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>NGp1bCqV7LwFYcMXyqROaSBZP3OHL0Bl9o+8QHY8wW4=</dsig:DigestValue>
+        <dsig:DigestValue>dzmSyoiwA+nJMdicCy9ghDAyCwe1QyqNzoifvxk+tDM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -415,14 +415,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MinduAutomatizacion.exe" size="2563584">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MinduAutomatizacion.exe" size="2563072">
       <assemblyIdentity name="MinduAutomatizacion" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>8gdEd/mNny+yU3tPCSiU+ChvTOmXDNjW58srDDex/rU=</dsig:DigestValue>
+        <dsig:DigestValue>lqwHmIX0839KfgR1fdZ1NS9/nU6BKQc5zTnbrLTvUt8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
