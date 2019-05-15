@@ -49,8 +49,6 @@
             this.lblCotizacion = new System.Windows.Forms.Label();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNeto = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblVendedor = new System.Windows.Forms.Label();
             this.dgvColaCot = new MetroFramework.Controls.MetroGrid();
             this.ItemC = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,18 +60,15 @@
             this.TotalC = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroTabPage4 = new MetroFramework.Controls.MetroTabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnTotal = new System.Windows.Forms.Label();
-            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label22 = new System.Windows.Forms.Label();
             this.txtBuscarItem = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.labelNoMouse4 = new PresentationLayer.Controls.LabelNoMouse();
-            this.materialFlatButton4 = new MaterialSkin.Controls.MaterialFlatButton();
             this.dgvNewCot = new MetroFramework.Controls.MetroGrid();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNeto = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.btnPdf = new System.Windows.Forms.Button();
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.metroTabControl1.SuspendLayout();
@@ -86,7 +81,6 @@
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewCot)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,8 +129,6 @@
             this.groupBox1.Controls.Add(this.lblCotizacion);
             this.groupBox1.Controls.Add(this.pictureBox11);
             this.groupBox1.Controls.Add(this.pictureBox9);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.txtNeto);
             this.groupBox1.Controls.Add(this.lblVendedor);
             this.groupBox1.Controls.Add(this.dgvColaCot);
             this.groupBox1.Location = new System.Drawing.Point(2, -1);
@@ -167,7 +159,7 @@
             this.txtNumCot.SelectedText = "";
             this.txtNumCot.SelectionLength = 0;
             this.txtNumCot.SelectionStart = 0;
-            this.txtNumCot.Size = new System.Drawing.Size(82, 23);
+            this.txtNumCot.Size = new System.Drawing.Size(150, 23);
             this.txtNumCot.TabIndex = 148;
             this.txtNumCot.TabStop = false;
             this.txtNumCot.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -224,7 +216,7 @@
             this.txtCorreo.Depth = 0;
             this.txtCorreo.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Hint = "";
-            this.txtCorreo.Location = new System.Drawing.Point(423, 63);
+            this.txtCorreo.Location = new System.Drawing.Point(445, 60);
             this.txtCorreo.MaxLength = 32767;
             this.txtCorreo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCorreo.Multiline = false;
@@ -256,7 +248,7 @@
             // 
             this.lblCorreo.AutoSize = true;
             this.lblCorreo.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.lblCorreo.Location = new System.Drawing.Point(362, 66);
+            this.lblCorreo.Location = new System.Drawing.Point(384, 63);
             this.lblCorreo.Name = "lblCorreo";
             this.lblCorreo.Size = new System.Drawing.Size(55, 20);
             this.lblCorreo.TabIndex = 130;
@@ -308,46 +300,6 @@
             this.pictureBox9.TabIndex = 124;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.label1.Location = new System.Drawing.Point(833, 479);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(40, 20);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "Neto";
-            // 
-            // txtNeto
-            // 
-            this.txtNeto.AcceptsReturn = false;
-            this.txtNeto.AcceptsTab = false;
-            this.txtNeto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtNeto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtNeto.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtNeto.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtNeto.Depth = 0;
-            this.txtNeto.Hint = "";
-            this.txtNeto.Location = new System.Drawing.Point(882, 479);
-            this.txtNeto.MaxLength = 32767;
-            this.txtNeto.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNeto.Multiline = false;
-            this.txtNeto.Name = "txtNeto";
-            this.txtNeto.PasswordChar = '\0';
-            this.txtNeto.ReadOnly = false;
-            this.txtNeto.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNeto.SelectedText = "";
-            this.txtNeto.SelectionLength = 0;
-            this.txtNeto.SelectionStart = 0;
-            this.txtNeto.Size = new System.Drawing.Size(156, 23);
-            this.txtNeto.TabIndex = 110;
-            this.txtNeto.TabStop = false;
-            this.txtNeto.Text = "0,00";
-            this.txtNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtNeto.UseSystemPasswordChar = false;
-            this.txtNeto.WordWrap = true;
             // 
             // lblVendedor
             // 
@@ -476,61 +428,18 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox6.Controls.Add(this.btnTotal);
-            this.groupBox6.Controls.Add(this.materialSingleLineTextField1);
             this.groupBox6.Controls.Add(this.pictureBox4);
             this.groupBox6.Controls.Add(this.metroComboBox1);
             this.groupBox6.Controls.Add(this.label6);
             this.groupBox6.Controls.Add(this.pictureBox8);
             this.groupBox6.Controls.Add(this.label22);
             this.groupBox6.Controls.Add(this.txtBuscarItem);
-            this.groupBox6.Controls.Add(this.panel1);
             this.groupBox6.Controls.Add(this.dgvNewCot);
             this.groupBox6.Location = new System.Drawing.Point(2, 2);
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.Size = new System.Drawing.Size(1092, 528);
             this.groupBox6.TabIndex = 48;
             this.groupBox6.TabStop = false;
-            // 
-            // btnTotal
-            // 
-            this.btnTotal.AutoSize = true;
-            this.btnTotal.BackColor = System.Drawing.Color.Transparent;
-            this.btnTotal.Font = new System.Drawing.Font("Segoe UI Light", 11F);
-            this.btnTotal.Location = new System.Drawing.Point(833, 479);
-            this.btnTotal.Name = "btnTotal";
-            this.btnTotal.Size = new System.Drawing.Size(40, 20);
-            this.btnTotal.TabIndex = 111;
-            this.btnTotal.Text = "Neto";
-            // 
-            // materialSingleLineTextField1
-            // 
-            this.materialSingleLineTextField1.AcceptsReturn = false;
-            this.materialSingleLineTextField1.AcceptsTab = false;
-            this.materialSingleLineTextField1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.materialSingleLineTextField1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.materialSingleLineTextField1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.materialSingleLineTextField1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.materialSingleLineTextField1.Depth = 0;
-            this.materialSingleLineTextField1.Hint = "";
-            this.materialSingleLineTextField1.Location = new System.Drawing.Point(882, 479);
-            this.materialSingleLineTextField1.MaxLength = 32767;
-            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialSingleLineTextField1.Multiline = false;
-            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
-            this.materialSingleLineTextField1.PasswordChar = '\0';
-            this.materialSingleLineTextField1.ReadOnly = false;
-            this.materialSingleLineTextField1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.materialSingleLineTextField1.SelectedText = "";
-            this.materialSingleLineTextField1.SelectionLength = 0;
-            this.materialSingleLineTextField1.SelectionStart = 0;
-            this.materialSingleLineTextField1.Size = new System.Drawing.Size(156, 23);
-            this.materialSingleLineTextField1.TabIndex = 110;
-            this.materialSingleLineTextField1.TabStop = false;
-            this.materialSingleLineTextField1.Text = "0,00";
-            this.materialSingleLineTextField1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
-            this.materialSingleLineTextField1.WordWrap = true;
             // 
             // pictureBox4
             // 
@@ -614,47 +523,6 @@
             this.txtBuscarItem.UseSystemPasswordChar = false;
             this.txtBuscarItem.WordWrap = true;
             // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.panel1.Controls.Add(this.labelNoMouse4);
-            this.panel1.Controls.Add(this.materialFlatButton4);
-            this.panel1.Location = new System.Drawing.Point(17, 484);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(111, 34);
-            this.panel1.TabIndex = 59;
-            // 
-            // labelNoMouse4
-            // 
-            this.labelNoMouse4.AutoSize = true;
-            this.labelNoMouse4.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoMouse4.ForeColor = System.Drawing.Color.White;
-            this.labelNoMouse4.Location = new System.Drawing.Point(12, 7);
-            this.labelNoMouse4.Name = "labelNoMouse4";
-            this.labelNoMouse4.Size = new System.Drawing.Size(87, 20);
-            this.labelNoMouse4.TabIndex = 1;
-            this.labelNoMouse4.Text = "Seleccionar";
-            // 
-            // materialFlatButton4
-            // 
-            this.materialFlatButton4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.materialFlatButton4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialFlatButton4.BackColor = System.Drawing.Color.Transparent;
-            this.materialFlatButton4.Depth = 0;
-            this.materialFlatButton4.ForeColor = System.Drawing.Color.White;
-            this.materialFlatButton4.Icon = null;
-            this.materialFlatButton4.Location = new System.Drawing.Point(0, 0);
-            this.materialFlatButton4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialFlatButton4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialFlatButton4.Name = "materialFlatButton4";
-            this.materialFlatButton4.Primary = false;
-            this.materialFlatButton4.Size = new System.Drawing.Size(111, 34);
-            this.materialFlatButton4.TabIndex = 0;
-            this.materialFlatButton4.UseCompatibleTextRendering = true;
-            this.materialFlatButton4.UseVisualStyleBackColor = false;
-            // 
             // dgvNewCot
             // 
             this.dgvNewCot.AllowUserToAddRows = false;
@@ -708,6 +576,46 @@
             this.dgvNewCot.Size = new System.Drawing.Size(1048, 413);
             this.dgvNewCot.TabIndex = 58;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Light", 11F);
+            this.label1.Location = new System.Drawing.Point(811, 721);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(40, 20);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Neto";
+            // 
+            // txtNeto
+            // 
+            this.txtNeto.AcceptsReturn = false;
+            this.txtNeto.AcceptsTab = false;
+            this.txtNeto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNeto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtNeto.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNeto.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtNeto.Depth = 0;
+            this.txtNeto.Hint = "";
+            this.txtNeto.Location = new System.Drawing.Point(857, 718);
+            this.txtNeto.MaxLength = 32767;
+            this.txtNeto.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNeto.Multiline = false;
+            this.txtNeto.Name = "txtNeto";
+            this.txtNeto.PasswordChar = '\0';
+            this.txtNeto.ReadOnly = false;
+            this.txtNeto.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNeto.SelectedText = "";
+            this.txtNeto.SelectionLength = 0;
+            this.txtNeto.SelectionStart = 0;
+            this.txtNeto.Size = new System.Drawing.Size(113, 23);
+            this.txtNeto.TabIndex = 110;
+            this.txtNeto.TabStop = false;
+            this.txtNeto.Text = "0,00";
+            this.txtNeto.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtNeto.UseSystemPasswordChar = false;
+            this.txtNeto.WordWrap = true;
+            // 
             // btnPdf
             // 
             this.btnPdf.BackColor = System.Drawing.Color.DarkOrange;
@@ -715,7 +623,7 @@
             this.btnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPdf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnPdf.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnPdf.Location = new System.Drawing.Point(106, 639);
+            this.btnPdf.Location = new System.Drawing.Point(370, 709);
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.Size = new System.Drawing.Size(107, 32);
             this.btnPdf.TabIndex = 112;
@@ -745,6 +653,8 @@
             this.Controls.Add(this.metroTabControl1);
             this.Controls.Add(this.formHeader1);
             this.Controls.Add(this.btnPdf);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNeto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCotizador";
             this.Text = "FrmCotizador";
@@ -762,10 +672,9 @@
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNewCot)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -781,17 +690,12 @@
         private MetroFramework.Controls.MetroGrid dgvColaCot;
         private MetroFramework.Controls.MetroTabPage metroTabPage4;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label btnTotal;
-        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
         private System.Windows.Forms.PictureBox pictureBox4;
         private MetroFramework.Controls.MetroComboBox metroComboBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label22;
         private MaterialSkin.Controls.MaterialSingleLineTextField txtBuscarItem;
-        private System.Windows.Forms.Panel panel1;
-        private Controls.LabelNoMouse labelNoMouse4;
-        private MaterialSkin.Controls.MaterialFlatButton materialFlatButton4;
         private MetroFramework.Controls.MetroGrid dgvNewCot;
         private System.Windows.Forms.Button btnPdf;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemC;

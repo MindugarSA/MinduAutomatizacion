@@ -795,7 +795,7 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorCodigo.HasErrors() || errorDescr.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorFamilia.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
@@ -807,7 +807,11 @@ namespace PresentationLayer.Forms
                 errorDescr.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
-
+            else if (metroComboBox2.Text == string.Empty)
+            {
+                errorFamilia.SetErrorWithCount(metroComboBox2, "Ingrese una Familia");
+                Valido = false;
+            }
             return Valido;
         }
         #endregion
@@ -1437,6 +1441,18 @@ namespace PresentationLayer.Forms
 
             //    materialFlatButton2.PerformClick();
             //}
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
+        }
+
+        private void metroComboBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(txtCodigo, "");
         }
     }
 

@@ -732,6 +732,7 @@ namespace PresentationLayer.Forms
 
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgvListaItems.Columns["NumFamilia"].DisplayIndex = 0;//Posiciona columna de las primeras
+            //dgvListaItems.Columns["NumFamilia"].SortMode = SortOrder.Ascending;
             dgvListaItems.AllowUserToOrderColumns = true;
 
             List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 28, 29 };
@@ -739,14 +740,14 @@ namespace PresentationLayer.Forms
             {
                 if (!visibleColumns.Contains(col.Index))
                 {
-                    col.SortMode = DataGridViewColumnSortMode.Automatic;
+                    //col.SortMode = DataGridViewColumnSortMode.Automatic;
                     col.Visible = false;
                 }
 
             }
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
-            //dgvListaItems.Columns[29].DefaultCellStyle.order
+
             dgvListaItems.Columns[6].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[7].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvListaItems.Columns[8].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -1131,7 +1132,7 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorDetalle.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorDetalle.HasErrors() || errorFamilia.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
@@ -1151,7 +1152,12 @@ namespace PresentationLayer.Forms
                 errorDetalle.SetErrorWithCount(dgvDetalleItemAmp, "Ingrese un Detalle");
                 Valido = false;
             }
-
+            else if (metroComboBox2.Text == string.Empty)
+            {
+                metroTab1.SelectedIndex = 0;
+                errorFamilia.SetErrorWithCount(metroComboBox2, "Ingrese una Familia");
+                Valido = false;
+            }
             return Valido;
         }
 
@@ -1719,16 +1725,17 @@ namespace PresentationLayer.Forms
             {
                 switch (metroTab1.SelectedIndex)
                 {
-                    case 0:// antes salía case 1
+                    case 1:// antes salía case 1
                         bAgregandoRow = false;
                         break;
-                    case 1:// antes salía case 3
+                    case 3:// antes salía case 3
                         if (ItemEntidadInicial.Codigo.Trim().Length > 0)
                         {
                             CargarEntidadItem(ItemEntidad.Autorizado ?? 0);
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
                             ItemEntidadInicial.CostoTotal = ItemEntidad.CostoTotal;
+                            ItemEntidad.CostoPR = ItemEntidadInicial.CostoPR;
                             if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial) && (labelNoMouse1.Text.Trim() != "Agregar"))
                             {
                                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
@@ -1890,6 +1897,20 @@ namespace PresentationLayer.Forms
                     LimpiarCamposItem();
                 }
             }*/
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
+        }
+
+        private void metroComboBox2_TextChanged(object sender, EventArgs e)
+        {
+            txtEncabezado.Text = (txtDescrpcion.Text + " : " + metroComboBox2.Text).Trim();
+            txtEncabezado2.Text = txtEncabezado.Text;
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
         }
     }
 }

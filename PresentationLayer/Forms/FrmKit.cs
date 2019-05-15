@@ -454,16 +454,16 @@ namespace PresentationLayer.Forms
                            
                             CargarEntidadItemDetalle(ItemProducto); // Aca se asiga el Id del Item Producto a cada ItemId del Detalle
                             ItemDetalleBL.InsertItemDetalle(ListItemDetalleEntidad);
+                            ItemCostoBL.DeleteItemCostoID(ItemProducto.Id); //Borra los Costos Actuales del Producto
                             CargarEntidadCosto(ItemProducto); // Cargo los costos del Kit
-                            CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+                            CostosInsert = ListCostoEntidad.Where(r => r.Id != 0).ToList();
                             ItemCostoBL.InsertItemCostos(CostosInsert);
 
                             //CostosUpdate = ListCostoEntidad.Where(r => r.Id >= 0).ToList();//---v
                             //ItemCostoBL.UpdateItemCostos(CostosUpdate);//ESTE INSERTA VALORES RRHH EN PRODUCTO PERO NO BORRA VALORES ANTERIORES Y BORRA LOS DE KIT.
 
                             MostrarMensajeRegistro("Kit Y Producto '" + ItemEntidad.Codigo.Trim() + "' Modificados", Color.FromArgb(0, 174, 219));
-                           
-                            
+
                         }
                         else
                         {
@@ -1204,7 +1204,7 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorDetalle.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorDetalle.HasErrors() || errorFamilia.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
@@ -1218,6 +1218,7 @@ namespace PresentationLayer.Forms
                 errorDescr.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
+            
             else if (dgvDetalleItemAmp.RowCount == 0)
             {
                 metroTab1.SelectedIndex = 1;
@@ -1225,6 +1226,12 @@ namespace PresentationLayer.Forms
                 Valido = false;
             }
 
+            else if (metroComboBox2.Text == string.Empty)
+            {
+                metroTab1.SelectedIndex = 0;
+                errorFamilia.SetErrorWithCount(metroComboBox2, "Ingrese una Familia");
+                Valido = false;
+            }
             return Valido;
         }
 
@@ -2007,6 +2014,20 @@ namespace PresentationLayer.Forms
         private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
         {
 
+        }
+
+        private void metroComboBox2_TextChanged(object sender, EventArgs e)//combo de familia
+        {
+            txtEncabezado.Text = (txtDescrpcion.Text + " : " + metroComboBox2.Text).Trim();
+            txtEncabezado2.Text = txtEncabezado.Text;
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
+        }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
         }
     }
 }

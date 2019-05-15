@@ -105,7 +105,7 @@ namespace PresentationLayer.Forms
         public void AddToGrid(List<Cotizacion> val)
         {
             //bAgregandoRow = true;
-            
+
             //DataRow row = dt.NewRow();
             //dt.Rows.Add(row);
             //dgvColaCot.CurrentCell = dgvColaCot.Rows[dgvColaCot.Rows.Count - 1].Cells[9];
@@ -113,11 +113,12 @@ namespace PresentationLayer.Forms
             //dgvColaCot.BeginEdit(true);
             //bAgregandoRow = false;
             //________________________________________________________//autoincremt
-            
+
 
             // dgvColaCot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-
+            dgvColaCot.Columns["PrecioC"].ReadOnly = true;
+            dgvColaCot.Columns["TotalC"].ReadOnly = true;
             dgvColaCot.Columns["ItemC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvColaCot.Columns["CodigoC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvColaCot.Columns["DetalleC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -299,7 +300,9 @@ namespace PresentationLayer.Forms
                         TotalNeto += Convert.ToDecimal(row.Cells["TotalC"].Value);
                        
                     }
-                    txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
+                    //txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
+                    txtNeto.Text = Convert.ToDouble(TotalNeto).ToString("N0");
+                       
 
                 }
             }
@@ -309,10 +312,14 @@ namespace PresentationLayer.Forms
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            FrmBusquedaItem FrmBuscar = new FrmBusquedaItem();
-            FrmBuscar.MdiParent = this.MdiParent;
+            //FrmBusquedaItem FrmBuscar = new FrmBusquedaItem();
+            FrmReportesGrid RptGrid = new FrmReportesGrid();
+            RptGrid.MdiParent = this.MdiParent;
+            //FrmBuscar.MdiParent = this.MdiParent;
             //FrmBuscar.EnviarEvento += new FrmReportesGrid.EnvEvent();
-            FrmBuscar.ShowDialog();
+            RptGrid.ShowDialog();
+            
+           // FrmBuscar.ShowDialog();
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
@@ -339,7 +346,7 @@ namespace PresentationLayer.Forms
                         TotalNeto += Convert.ToDecimal(row.Cells["TotalC"].Value);
                         // txtNeto.Text = TotalNeto;
                     }
-                    txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
+                    txtNeto.Text = Convert.ToDouble(TotalNeto).ToString("N0");
                     //txtNeto.Text = SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "TotalC").ToString("N2");
                     //SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "CantC", "PrecioC").ToString("N2");
                 }

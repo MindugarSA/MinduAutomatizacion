@@ -44,7 +44,7 @@ namespace PresentationLayer
         DataGridViewCheckBoxColumn CheckboxColumn = new DataGridViewCheckBoxColumn();
         //CheckBox chk1 = new CheckBox();
 
-       // DataGridViewCheckBoxCell CheckboxColumn =  new DataGridViewCheckBoxCell();
+        // DataGridViewCheckBoxCell CheckboxColumn =  new DataGridViewCheckBoxCell();
 
         //CheckBox chk1 = new CheckBox();
         private string message;
@@ -64,18 +64,18 @@ namespace PresentationLayer
 
         private void FrmReportesGrid_Load(object sender, EventArgs e)
         {
-           
-           
+
+
             if (TipoAcceso != "ADMIN")
             {
-               
+
                 metroComboBox2.Visible = true;
-                label2.Visible = true;               
+                label2.Visible = true;
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
-                
+
                 CargaComboReportes(TipoAcceso);
-            
+
 
             }
             else
@@ -86,10 +86,10 @@ namespace PresentationLayer
                 label2.Visible = true;
                 txtBuscarItem.Visible = true;
                 label4.Visible = true;
-                
+
                 CargaComboReportes(TipoAcceso);
-               
-              
+
+
             }
         }
 
@@ -99,7 +99,7 @@ namespace PresentationLayer
             this.BringToFront();
             CargarCombos();
             DTListado = new DataTable();
-           
+
         }
 
         private void CargarCombos()
@@ -141,7 +141,7 @@ namespace PresentationLayer
         {
             metroComboBox1.DisplayMember = "Text";
             metroComboBox1.ValueMember = "Value";
-           
+
             switch (TipoAcceso)
             {
                 case "ADMIN":
@@ -156,7 +156,7 @@ namespace PresentationLayer
                                 new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
                                        };
                     metroComboBox1.DataSource = items;
-                   
+
                     break;
                 default:
                     var items2 = new[] {
@@ -167,7 +167,7 @@ namespace PresentationLayer
                               //  new { Text = "Listado de Productos Terminados", Value = "4" }
                                        };
                     metroComboBox1.DataSource = items2;
-                    
+
 
                     break;
             }
@@ -178,18 +178,18 @@ namespace PresentationLayer
             //    row.Height = 22;
             //    dgvListado.Columns["Imagen"].Width = 50;
             //}
-            
+
         }
 
         private void metroComboBox1_SelectedIndexChangedAsync(object sender, EventArgs e)
         {
-           
+
             panel2.Visible = true;
             label1.Visible = true;
-            CargarGridGistado();            
+            CargarGridGistado();
             panel2.Visible = false;
             label1.Visible = false;
-           
+
         }
 
         private void CargarGridGistado()
@@ -197,19 +197,19 @@ namespace PresentationLayer
 
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
-           
+
             dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-           // dgvListado.AllowUserToResizeRows = false;
-            
+            // dgvListado.AllowUserToResizeRows = false;
+
             //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
             dt = null;
             dgvListado.DataSource = null;
             dgvListado.Rows.Clear();
             dgvListado.Columns.Clear();
             dgvListado.Refresh();
-         
-            dgvListado.ReadOnly = false; 
-           
+
+            dgvListado.ReadOnly = false;
+
             chk1.Width = 43;
 
 
@@ -250,7 +250,7 @@ namespace PresentationLayer
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
-
+                    dt.Columns["Precio"].ReadOnly = true;
                     //CheckboxColumn.Width = 20;
 
                     //dgvListado.Columns.Add(CheckboxColumn);
@@ -268,6 +268,7 @@ namespace PresentationLayer
                     //dgvListado.Columns["Precio"].ReadOnly = true;
                     //dgvListado.Columns["StockBAP"].ReadOnly = true;
                     dgvListado.Columns.Add(chk1);
+                    dt.Columns["Precio"].ReadOnly = true;
                     //chk1.ReadOnly = false;
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
@@ -280,23 +281,10 @@ namespace PresentationLayer
                     dt = ItemsBL.EstadoProductosTerminados("T");
                     NumericColumns.Add(4);
                     NumericColumns.Add(5);
-                    //chk1.ReadOnly = false;
                     chk1.Name = "Cotizar";
-                    //chk1.HeaderText = "Cotizar";
                     dgvListado.Columns.Add(chk1);
+                    dt.Columns["Precio"].ReadOnly = true;
 
-                    //CheckboxColumn.Width = 20;
-
-
-                    //dgvListado.Columns[0].Name = "Cotizar";
-                    //dgvListado.Rows.Add(CheckboxColumn);
-
-                    // dgvListado.Columns.Add(CheckboxColumn);
-                    //dgvListado.Columns["Precio"].ReadOnly = true;
-                    //dgvListado.Rows[4].Cells[0].ReadOnly = true;
-
-                    // dgvListado.Rows.Add(chk1);
-                    //dgvListado.Rows[].Cells[]
 
                     break;
             }
@@ -422,21 +410,21 @@ namespace PresentationLayer
             if (txtBuscarItem.Text.Trim().Length > 0)
             {
                 DataTable dt = null;
-                
-                    var rows = ((DataTable)dgvListado.DataSource).AsEnumerable()
-                          .Where(r => r.Field<string>("Codigo").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
-                                   || r.Field<string>("Descripcion").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()));
+
+                var rows = ((DataTable)dgvListado.DataSource).AsEnumerable()
+                      .Where(r => r.Field<string>("Codigo").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper())
+                               || r.Field<string>("Descripcion").ToUpper().Contains(txtBuscarItem.Text.Trim().ToUpper()));
 
 
-                    if (rows.Any())
-                    {
-                        dt = rows.CopyToDataTable();
-                        dgvListado.DataSource = dt;
-                    }
+                if (rows.Any())
+                {
+                    dt = rows.CopyToDataTable();
+                    dgvListado.DataSource = dt;
+                }
 
                 //.CopyToDataTable();
-               
-                
+
+
             }
             else
             {
@@ -458,7 +446,7 @@ namespace PresentationLayer
                 {
                     dt = rows.CopyToDataTable();
                     dgvListado.DataSource = dt;
-                    
+
                 }
                 else
                     ((DataTable)dgvListado.DataSource).Clear();
@@ -473,7 +461,7 @@ namespace PresentationLayer
             }
         }
 
-       
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -548,8 +536,8 @@ namespace PresentationLayer
         {
             // double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
             //               (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
-            
-            
+
+
 
             pictureBox1.BackgroundImage = null;
             if (ItemConsulta.Imagen != null)
@@ -566,11 +554,11 @@ namespace PresentationLayer
         //}
         private void OpenImegeForm(Image Img)
         {
-           // FrmReportesGrid frmParentForm = (FrmReportesGrid)Application.OpenForms["FrmPrincipalPanel"];
+            // FrmReportesGrid frmParentForm = (FrmReportesGrid)Application.OpenForms["FrmPrincipalPanel"];
             FrmViewPicture form = new FrmViewPicture();
             form.Imagen = Img;
             form.AutoSize = true;
-           // frmParentForm.AbrirFormulario(form, 0, 0, true);
+            // frmParentForm.AbrirFormulario(form, 0, 0, true);
         }
         //private void pictureBox1_DoubleClick(object sender, EventArgs e)
         //{
@@ -579,7 +567,7 @@ namespace PresentationLayer
 
         private void dgvListado_DoubleClick(object sender, EventArgs e)
         {
-            
+
         }
 
         /*MODIFICAR ACÁ PARA PONER BOTON INDEPENDIENTE CON CONSULTA IMAGEN PRODUCTO*/
@@ -587,13 +575,13 @@ namespace PresentationLayer
         void origendatos()
         {
             dgvListado.DataSource = ItemsBL.MostrarImagen();//Llamar a procedure nuevo
-            
+
             dgvListado.Columns["Imagen"].Visible = false;
         }
 
         private void dgvListado_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
-            if(e.ColumnIndex <=0 && this.dgvListado.Columns[e.ColumnIndex].Name=="Imagen" && e.RowIndex >= 0)
+            if (e.ColumnIndex <= 0 && this.dgvListado.Columns[e.ColumnIndex].Name == "Imagen" && e.RowIndex >= 0)
             {
                 e.Paint(e.CellBounds, DataGridViewPaintParts.All);
                 DataGridViewButtonCell celBoton = this.dgvListado.Rows[e.RowIndex].Cells["Ver Imagen"] as DataGridViewButtonCell;
@@ -603,9 +591,9 @@ namespace PresentationLayer
                 this.dgvListado.Rows[e.RowIndex].Height = icoAtomico.Height + 8;
                 this.dgvListado.Columns[e.ColumnIndex].Width = icoAtomico.Height + 8;
                 e.Handled = true;
-                
+
             }
-            
+
         }
         public class ImageHelper
         {
@@ -761,35 +749,35 @@ namespace PresentationLayer
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-                //if (e.Button == MouseButtons.Left)
-                //{
-                //    Location = new Point(e.X, e.Y);
+            //if (e.Button == MouseButtons.Left)
+            //{
+            //    Location = new Point(e.X, e.Y);
 
-                //}
-           
-            
+            //}
+
+
         }
 
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            
-                //if (Location != Point.Empty)
-                //{
-                //    Point newlocation = this.pictureBox1.Location;
-                //    newlocation.X += e.X - Location.X;
-                //    newlocation.Y += e.Y - Location.Y;
-                    
-                //    this.pictureBox1.Location = newlocation;
-                //}
-            
+
+            //if (Location != Point.Empty)
+            //{
+            //    Point newlocation = this.pictureBox1.Location;
+            //    newlocation.X += e.X - Location.X;
+            //    newlocation.Y += e.Y - Location.Y;
+
+            //    this.pictureBox1.Location = newlocation;
+            //}
+
         }
 
         private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
         {
-            
+
             //Location = Point.Empty;
-            
-          
+
+
 
         }
 
@@ -827,7 +815,7 @@ namespace PresentationLayer
         {
             oForm.StartPosition = FormStartPosition.Manual;
             FrmPrincipalPanel panel = new FrmPrincipalPanel();
-            
+
 
             if (X == 0 && Y == 0)
             {
@@ -853,14 +841,53 @@ namespace PresentationLayer
         }
         private void btnAñadirCot_Click(object sender, EventArgs e)
         {
-           
-            
-            List<Cotizacion> co = new List<Cotizacion>(); 
 
-            //Recorrer grid y cargar lista de items a cotizar
+            FrmCotizador coti = new FrmCotizador();
+            List<Cotizacion> co = new List<Cotizacion>();
+            #region pruebas
+
+            //if ( coti.Values==null)
+            //{
+            //    foreach (DataGridViewRow fila in dgvListado.Rows)
+            //    {
+            //        if (Convert.ToBoolean(fila.Cells[0].Value))
+            //        {
+            //            co.Add(new Cotizacion
+            //            {
+            //                //IdItem = Convert.ToInt16(fila.Cells[3].Value)
+            //                DetallePro = fila.Cells["Descripcion"].Value.ToString(),
+            //                CostoUni = Convert.ToInt64(fila.Cells["Precio"].Value),
+            //                CodigoPro = fila.Cells["Codigo"].Value.ToString(),
+            //                FamiliaPro = fila.Cells["Familia"].Value.ToString()
+
+            //            });
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (DataGridViewRow fila in dgvListado.Rows)
+            //    {
+            //        if (Convert.ToBoolean(fila.Cells[0].Value))
+            //        {
+
+
+            //            fila.Cells["Descripcion"].Value.ToString();
+            //            Convert.ToInt64(fila.Cells["Precio"].Value);
+            //            fila.Cells["Codigo"].Value.ToString();
+            //            fila.Cells["Familia"].Value.ToString();
+
+
+            //        }
+            //    }
+            //}
+            #endregion
+            #region CODIGO ORIGINAL
+
+            //if (co.Count > 0)
+            //{
             foreach (DataGridViewRow fila in dgvListado.Rows)
             {
-                
                 if (Convert.ToBoolean(fila.Cells[0].Value))
                 {
                     co.Add(new Cotizacion
@@ -872,56 +899,55 @@ namespace PresentationLayer
                         FamiliaPro = fila.Cells["Familia"].Value.ToString()
 
                     });
-                    
                 }
-                else
-                {
-                    // throw new Exception("Debe escoger items a cotizar");
-                    //MessageBox.Show("Debe escoger items a cotizar");
-                }
-               
-                //this.Close();
             }
-
-            if(co.Count > 0) //Abrir la pantalla cotizador con toda la lista cargada (Solo si existe items seleccionados)
-            {
-                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
-
-                FrmCotizador FrmCot = new FrmCotizador();
-                FrmCot.Values = co;
-                // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
-                frmParentForm.AbrirFormulario(FrmCot, 370, 230);
-            }
-            
-
-
-            
-        }
-
-        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
-
-            //if (ch1.Value == null)
-            //    ch1.Value = false;
-            //switch (ch1.Value.ToString())
-            //{
-            //    case "True":
-            //        ch1.Value = false;
-            //        break;
-            //    case "False":
-            //        ch1.Value = true;
-            //        break;
-
-
             //}
-            //MessageBox.Show(ch1.Value.ToString());
-        
+            //else
+            //{
+            //    throw new Exception("DEBE AÑADIR UN PRODUCTO A COTIZADOR");
+            //}
+
+            #endregion
+
+            if (co.Count > 0) //Abrir la pantalla cotizador con toda la lista cargada (Solo si existe items seleccionados)
+                {
+                    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                    FrmCotizador FrmCot = new FrmCotizador();
+                    FrmCot.Values = co;
+                    // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
+                    frmParentForm.AbrirFormulario(FrmCot, 370, 230);
+                }
+
+
+
+
+            }
+
+            private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            {
+                //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
+                //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
+
+                //if (ch1.Value == null)
+                //    ch1.Value = false;
+                //switch (ch1.Value.ToString())
+                //{
+                //    case "True":
+                //        ch1.Value = false;
+                //        break;
+                //    case "False":
+                //        ch1.Value = true;
+                //        break;
+
+
+                //}
+                //MessageBox.Show(ch1.Value.ToString());
+
+            }
+
+        }
     }
-        
-    }
-}
     
 
 

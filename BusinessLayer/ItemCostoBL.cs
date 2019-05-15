@@ -60,6 +60,13 @@ namespace BusinessLayer
             obj.UpdateItemCostoID(CostoID);
         }
 
+        public static void DeleteItemCostoID(int CostoID)
+        {
+            ItemCostoDALC obj = new ItemCostoDALC();
+
+            obj.DeleteItemCostoID(CostoID);
+        }
+
         public static void DeleteItemCostos(List<ItemCosto> ListaIC)
         {
             ItemCostoDALC obj = new ItemCostoDALC();

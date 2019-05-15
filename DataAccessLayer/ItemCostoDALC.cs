@@ -183,6 +183,25 @@ namespace DataAccessLayer
             }
         }
 
+        public void DeleteItemCostoID(int CostoID)
+        {
+            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            {
+                if (db.Database.Connection.State == ConnectionState.Closed)
+                    db.Database.Connection.Open();
+
+                var cmd = db.Database.Connection.CreateCommand();
+                cmd.CommandText = "[dbo].[SP_EliminarCostosItems]";
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Parameters.Add(new SqlParameter("@IdCosto", CostoID));
+
+                if (cmd.Connection.State == ConnectionState.Closed) cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+
         public void DeleteItemCosto(ItemCosto Obj)
         {
             using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
