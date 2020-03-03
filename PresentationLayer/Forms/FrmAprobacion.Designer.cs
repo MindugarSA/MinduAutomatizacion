@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -35,8 +36,12 @@
             this.formHeader1 = new PresentationLayer.FormHeader();
             this.dgvListado = new MetroFramework.Controls.MetroGrid();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.verParteKitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copiarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // formHeader1
@@ -77,6 +82,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvListado.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListado.ContextMenuStrip = this.contextMenuStrip1;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,6 +113,7 @@
             this.dgvListado.TabIndex = 58;
             this.dgvListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellClick);
             this.dgvListado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellContentClick);
+            this.dgvListado.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListado_CellMouseDown);
             // 
             // groupBox1
             // 
@@ -119,6 +126,30 @@
             this.groupBox1.Size = new System.Drawing.Size(1252, 605);
             this.groupBox1.TabIndex = 45;
             this.groupBox1.TabStop = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copiarToolStripMenuItem1,
+            this.verParteKitToolStripMenuItem1});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // verParteKitToolStripMenuItem1
+            // 
+            this.verParteKitToolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.settings__2_;
+            this.verParteKitToolStripMenuItem1.Name = "verParteKitToolStripMenuItem1";
+            this.verParteKitToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.verParteKitToolStripMenuItem1.Text = "Ver Producto";
+            this.verParteKitToolStripMenuItem1.Click += new System.EventHandler(this.verParteKitToolStripMenuItem1_Click);
+            // 
+            // copiarToolStripMenuItem1
+            // 
+            this.copiarToolStripMenuItem1.Image = global::PresentationLayer.Properties.Resources.copy;
+            this.copiarToolStripMenuItem1.Name = "copiarToolStripMenuItem1";
+            this.copiarToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.copiarToolStripMenuItem1.Text = "Copiar Celda";
+            this.copiarToolStripMenuItem1.Click += new System.EventHandler(this.copiarToolStripMenuItem1_Click);
             // 
             // FrmAprobacion
             // 
@@ -134,6 +165,7 @@
             this.Shown += new System.EventHandler(this.FrmAprobacion_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListado)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -143,5 +175,8 @@
         private FormHeader formHeader1;
         private MetroFramework.Controls.MetroGrid dgvListado;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem verParteKitToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem copiarToolStripMenuItem1;
     }
 }

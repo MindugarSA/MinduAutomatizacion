@@ -676,6 +676,7 @@ namespace PresentationLayer.Forms
             txtDiametro.DataBindings.Clear();
             txtVolumen.DataBindings.Clear();
             txtPeso.DataBindings.Clear();
+            txtCostoUSD.DataBindings.Clear();
             txtTotCosCom.DataBindings.Clear();
             txtTotCosPro.DataBindings.Clear();
             txtTotCosRRHH.DataBindings.Clear();
@@ -690,6 +691,7 @@ namespace PresentationLayer.Forms
             txtDiametro.DataBindings.Add("Text", ItemEntidad, "Diametro", true, DataSourceUpdateMode.OnPropertyChanged);
             txtVolumen.DataBindings.Add("Text", ItemEntidad, "Volumen", true, DataSourceUpdateMode.OnPropertyChanged);
             txtPeso.DataBindings.Add("Text", ItemEntidad, "Peso", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCostoUSD.DataBindings.Add("Text", ItemEntidad, "CostoUSD", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosCom.DataBindings.Add("Text", ItemEntidad, "CostoCM", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosPro.DataBindings.Add("Text", ItemEntidad, "CostoPR", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosRRHH.DataBindings.Add("Text", ItemEntidad, "CostoRH", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -736,14 +738,14 @@ namespace PresentationLayer.Forms
 
         }
 
-        private void CargarEntidadItem()
+        private void CargarEntidadItem(string TipoP = "P", String TipoI = "P")
         {
             ItemEntidad.Codigo = txtCodigo.Text.Trim();
             ItemEntidad.Descripcion = txtDescrpcion.Text;
             ItemEntidad.Nombre = txtNombre.Text;
-            ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
+            ItemEntidad.TipoPieza = (TipoP == "P" ? (metroComboBox3.SelectedIndex == 0 ? "I" : "E" ) : "" );
             ItemEntidad.Familia = metroComboBox2.SelectedItem == null ? 0 : Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
-            ItemEntidad.TipoItem = "P";
+            ItemEntidad.TipoItem = TipoI;
             ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
             ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
             ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
@@ -751,6 +753,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
             ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
             ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
+            ItemEntidad.CostoUSD = Convert.ToDecimal(txtCostoUSD.Text);
             ItemEntidad.CostoPR = Convert.ToDecimal(txtCostoProc.Text);
             ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
@@ -1406,42 +1409,71 @@ namespace PresentationLayer.Forms
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            //FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
-            //if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un Producto.",
-            //                               "Covertir parte a Producto",
-            //                               MessageBoxButtons.OKCancel,
-            //                               MessageBoxIcon.Question,
-            //                               370) == DialogResult.OK)
-            //{
+            if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un nuevo Producto. (Se creara un Producto nuevo con el mismo codigo)",
+                                           "Covertir parte a Producto",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+            {
 
-            //    CargarEntidadItem();
-            //    ItemEntidad.TipoItem = "P";
+                if (CodigoInicial != txtCodigo.Text.Trim() && txtCodigo.Text.Trim().Length > 0)
+                    VerificarCodigoItem();
 
-            //    ItemsBL.UpdateItem(ItemEntidad);
-            //    ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
-            //    CargarEntidadItemDetalle(ItemEntidad);
-            //    List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
-            //    List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
-            //    ItemDetalleBL.InsertItemDetalle(DetallesInsert);
-            //    ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
-            //    ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
-            //    CargarEntidadCosto(ItemEntidad);
-            //    List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
-            //    List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
-            //    ItemCostoBL.InsertItemCostos(CostosInsert);
-            //    ItemCostoBL.UpdateItemCostos(CostosUpdate);
-            //    MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
-            //    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+                if (ValidarCampos())
+                {
+                    CargarEntidadItem("","T");
 
-            //    CargarGridsCostos();
-            //    FormatearGridsCostos();
-            //    CargarGridsDetalleItem(ItemEntidad.Id);
-            //    CargarGridListadoItem();
+                    ItemsBL.InsertItem(ItemEntidad);
+                    CargarEntidadCosto(ItemEntidad);
+                    ItemCostoBL.InsertItemCostos(ListCostoEntidad);
+                    panel3.Visible = true;
+                    MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Registrado", Color.FromArgb(129, 152, 48));
 
-            //    materialFlatButton2.PerformClick();
-            //}
-        }
+                }
+            }
+        
+
+
+
+
+        //FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+        //if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un Producto.",
+        //                               "Covertir parte a Producto",
+        //                               MessageBoxButtons.OKCancel,
+        //                               MessageBoxIcon.Question,
+        //                               370) == DialogResult.OK)
+        //{
+
+        //    CargarEntidadItem();
+        //    ItemEntidad.TipoItem = "P";
+
+        //    ItemsBL.UpdateItem(ItemEntidad);
+        //    ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+        //    CargarEntidadItemDetalle(ItemEntidad);
+        //    List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+        //    List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+        //    ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+        //    ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+        //    ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+        //    CargarEntidadCosto(ItemEntidad);
+        //    List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+        //    List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+        //    ItemCostoBL.InsertItemCostos(CostosInsert);
+        //    ItemCostoBL.UpdateItemCostos(CostosUpdate);
+        //    MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
+        //    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+        //    CargarGridsCostos();
+        //    FormatearGridsCostos();
+        //    CargarGridsDetalleItem(ItemEntidad.Id);
+        //    CargarGridListadoItem();
+
+        //    materialFlatButton2.PerformClick();
+        //}
+    }
 
         private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {

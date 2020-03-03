@@ -116,7 +116,11 @@ namespace PresentationLayer.Forms
 
 
             // dgvColaCot.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-
+            //dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvColaCot.Columns["ItemC"].ReadOnly = true;
+            dgvColaCot.Columns["CodigoC"].ReadOnly = true;
+            dgvColaCot.Columns["DetalleC"].ReadOnly = true;
+            dgvColaCot.Columns["FamiliaC"].ReadOnly = true;
             dgvColaCot.Columns["PrecioC"].ReadOnly = true;
             dgvColaCot.Columns["TotalC"].ReadOnly = true;
             dgvColaCot.Columns["ItemC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -126,19 +130,20 @@ namespace PresentationLayer.Forms
             dgvColaCot.Columns["CantC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvColaCot.Columns["TotalC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
-            
+            dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
-            dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Format = "N2";
-            dgvColaCot.Columns["TotalC"].DefaultCellStyle.Format = "N2";
+            dgvColaCot.Columns["CantC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
+            //dgvColaCot.Columns["CantC"].HeaderText = "Cantu";
+            dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Format = "N0";
+            dgvColaCot.Columns["TotalC"].DefaultCellStyle.Format = "N0";
             if (val != null)
             {
                 foreach (Cotizacion item in val)
                 {
-                    //pruebas vergas
+                    //pruebas
                    
-                    //--------------------------------------------aqui termina la prueba verga
+                    //--------------------------------------------aqui termina la prueba 
                     int n = dgvColaCot.Rows.Add();
                     dgvColaCot.Rows[n].Cells["CodigoC"].Value = item.CodigoPro;
                     dgvColaCot.Rows[n].Cells["DetalleC"].Value = item.DetallePro;
@@ -182,9 +187,9 @@ namespace PresentationLayer.Forms
             //dgvColaCot.ColumnCount = 0;
             FormatearGrid();
             this.BringToFront();
-            //FrmPrincipalPanel fr = new FrmPrincipalPanel();
-            //fr.labelUsser.GetType();
-            //AsignarNombreUsuario(label5.Text);
+            txtNeto.Enabled = false;
+            txtIVA.Enabled = false;
+            txtNetoIva.Enabled = false;
       
             
         }
@@ -280,6 +285,9 @@ namespace PresentationLayer.Forms
         {
             double TotalU = 0;
             decimal TotalNeto = 0;
+            //decimal iva = 0.19;
+            double iva = Convert.ToDouble(lblIva.Text);
+
             try
             {
                
@@ -302,8 +310,15 @@ namespace PresentationLayer.Forms
                     }
                     //txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
                     txtNeto.Text = Convert.ToDouble(TotalNeto).ToString("N0");
-                       
 
+                    //txtIVA = txtNeto.Text * iva;
+                    double neto = Convert.ToDouble(txtNeto.Text);
+                    double ivaTotal = Convert.ToDouble(neto * iva);
+                    double total = Convert.ToDouble(ivaTotal + neto);
+                    txtIVA.Text = Convert.ToDouble(ivaTotal).ToString("N0");
+                    txtNetoIva.Text = Convert.ToDouble(total).ToString("N0");
+
+                    //txtNetoIva.Text = Convert.ToDouble(Convert.ToString(ivaTotal) + Convert.ToString(neto)).ToString("N0");
                 }
             }
             catch { }
@@ -328,6 +343,10 @@ namespace PresentationLayer.Forms
             FormatearGrid();
             double TotalU = 0;
             decimal TotalNeto = 0;
+            double iva= Convert.ToDouble(lblIva.Text);
+            
+            //dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             try
             {
                 if (dgvColaCot.CurrentRow.Index == -1 || bAgregandoRow)
@@ -341,7 +360,7 @@ namespace PresentationLayer.Forms
                                                                                     Convert.ToDecimal(dgvColaCot.Rows[dgvColaCot.CurrentCell.RowIndex].Cells["CantC"].Value);
                     //txtNeto.Text= SumaColumnaDoubleDT([dgvColaCot.CurrentCell.RowIndex].Cells["TotalC"].Value]);
 
-                    foreach (DataGridViewRow row in dgvColaCot.Rows) 
+                    foreach (DataGridViewRow row in dgvColaCot.Rows)
                     {
                         TotalNeto += Convert.ToDecimal(row.Cells["TotalC"].Value);
                         // txtNeto.Text = TotalNeto;
@@ -349,6 +368,14 @@ namespace PresentationLayer.Forms
                     txtNeto.Text = Convert.ToDouble(TotalNeto).ToString("N0");
                     //txtNeto.Text = SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "TotalC").ToString("N2");
                     //SumaColumnaDoubleDT((DataTable)dgvColaCot.DataSource, "CantC", "PrecioC").ToString("N2");
+                    double neto = Convert.ToDouble(txtNeto.Text);
+                    double ivaTotal = Convert.ToDouble(neto * iva);
+                    double total = Convert.ToDouble(ivaTotal + neto);
+                    txtIVA.Text = Convert.ToDouble(ivaTotal).ToString("N0");
+                    txtNetoIva.Text = Convert.ToDouble(total).ToString("N0");
+                    
+                   // txtNetoIva.Text = Convert.ToDouble(Convert.ToString(ivaTotal) + Convert.ToString(neto)).ToString("N0");
+
                 }
             }
             catch { }
@@ -373,19 +400,19 @@ namespace PresentationLayer.Forms
                 {
                     filename = saveFileDialog1.FileName;
                 }
-                if(filename.Trim()!="")
+                if (filename.Trim() != "")
                 {
                     FileStream file = new FileStream(filename,
                         FileMode.OpenOrCreate,
                         FileAccess.ReadWrite,
                         FileShare.ReadWrite);
                     //PdfWriter.GetInstance(pdfDoc, file);
-                    
+
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, file);
                     writer.PageEvent = new PDFFooter();
                     pdfDoc.Open();
 
-                    var imagepath = @"\\Fssapbo\d\pruebas\MinduAutomatizacion\\img\logo.png";
+                    var imagepath = @"\\Fssapbo\d\pruebas\MinduAutomatizacion\\img\ultimo.png";
                     using (FileStream fs = new FileStream(imagepath, FileMode.Open))
                     {
                         var png = Image.GetInstance(System.Drawing.Image.FromStream(fs), ImageFormat.Png);
@@ -398,101 +425,188 @@ namespace PresentationLayer.Forms
                     {
                         SpacingBefore = 10f,
                         SpacingAfter = 10f,
+                       
                     };
                     pdfDoc.Add(spacer);
+                    iTextSharp.text.Font fontTable = FontFactory.GetFont("Arial", 10, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-                    var headerTable = new PdfPTable(new[] { .75f, 2f })// 2f es ancho de celda y 4f es menos ancho
+                    var headerTable = new PdfPTable(new[] { /*.75f*/5f, 5f ,/*.75f*/5f, 6f})// 2f es ancho de celda y 4f es menos ancho
                     {
                         HorizontalAlignment = Left,
                         WidthPercentage = 75,
                         // DefaultCell = { MinimumHeight = 30f }//22f ancho de celda si sube es menos
                         //DefaultCell = { MinimumHeight = 0f }
-
+                        
                     };
                     headerTable.DefaultCell.Border = 0;
                     headerTable.AddCell("R.U.T:");
-                    headerTable.AddCell("96588890-k");
-                    headerTable.AddCell("Fecha Doc:");
-                    headerTable.AddCell(DateTime.Now.ToString());
+                    headerTable.AddCell(new Phrase("96.588.890-k",fontTable));
+                    headerTable.AddCell("Cliente:");
+                    headerTable.AddCell(new Phrase("Sres. " + txtECotizante.Text,fontTable));
                     headerTable.AddCell("Cotizacion N°:");
-                    headerTable.AddCell(txtNumCot.Text);
-                    headerTable.AddCell("Solicitado por:");
-                    headerTable.AddCell(txtECotizante.Text);
-                    headerTable.AddCell("Vendedor:");
-                    headerTable.AddCell(lblVendedor.Text);
-                    headerTable.AddCell("Correo:");
-                    headerTable.AddCell(txtCorreo.Text);
+                    headerTable.AddCell(new Phrase( txtNumCot.Text,fontTable));
+                    headerTable.AddCell("Fono Cliente:");
+                    headerTable.AddCell(new Phrase( txtFonoCliente.Text,fontTable));
+                    headerTable.AddCell("Fecha Cot.:");
+                    headerTable.AddCell(new Phrase( DateTime.Now.ToString("dd/MM/yyyy"),fontTable));
+                    headerTable.AddCell("E-mail Cliente:");
+                    headerTable.AddCell(new Phrase( txtEmail.Text, fontTable));
+                    headerTable.AddCell("Representante:");
+                    headerTable.AddCell(new Phrase( txtVendedor.Text, fontTable));
+                    //headerTable.DefaultCell = Font.Bold;
+                    //Font fontH1 = new iTextSharp.text.Font(Currier, 16, Font.NORMAL);
+
+                    //PdfPTable table = new PdfPTable(1);
+
+                    //headerTable.AddCell(new PdfPCell(new Phrase(yourDatabaseValue, fontH1)));
+                    //headerTable.AddCell("");
+                    //headerTable.AddCell("");
+
+
+
+                    //headerTable.AddCell("a");
+                    //headerTable.AddCell("b");
+                    //headerTable.AddCell("c");
+
 
 
                     pdfDoc.Add(headerTable);
                     pdfDoc.Add(spacer);
+                    
 
+
+
+                    //docTitle.Font = titleFont;
                     var columnCount = 7;
-                    var columnWidths = new[] { 0.3f, 1f, 3f, 0f, 1f, 0.8f, 1f };//0f es familia no lo muestra Acá se puede enanchar columna
-
+                    var columnWidths = new[] { /*0.3f*/0.4f, 1f, 3f, 0f, 0.5f, 1f, 1f};//0f es familia no lo muestra Acá se puede enanchar columna
+                   
                     var table = new PdfPTable(columnWidths)//columnWidths
                     {
-                        HorizontalAlignment = Left,
+                        
+                        HorizontalAlignment = 2,
                         WidthPercentage = 100,
                         DefaultCell = { MinimumHeight = 22f }
+                       
+                        
                     };
-
-                    var cell = new PdfPCell(new Phrase("COTIZACION"))
+                    
+                    table.HorizontalAlignment = Element.ALIGN_RIGHT; // NO DEJA LAS CELDAS EN EL COSTADO DERECHO
+                    var cell = new PdfPCell(new Phrase("COTIZACION N°" + txtNumCot.Text))
                     {
+                        
                         Colspan = columnCount,
                         HorizontalAlignment = 1,  //0=Left, 1=Centre, 2=Right
                         MinimumHeight = 30f
+                        
                     };
 
                     table.AddCell(cell);
+                   
 
-                    for (int j = 0; j < dgvColaCot.Columns.Count; j++)
+                    for (int j = 0; j < dgvColaCot.Columns.Count; j++) //MODIFICAR ACÁ ALINEAMIENTO
                     {
+                        //dgvColaCot.Columns[j].DefaultCellStyle.BackColor= Color.Red;
                         table.AddCell(new Phrase(dgvColaCot.Columns[j].HeaderText));
+
+                        //table.AddCell(new Phrase(dgvColaCot.Columns[j].HeaderText), PdfPCell.ALIGN_RIGHT);
+                        
 
                     }
 
-
+                    
                     var valores = new PdfPCell(new Phrase())
                     {
                         Colspan = columnCount,
-                        HorizontalAlignment = 1,  //0=Left, 1=Centre, 2=Right
+                        HorizontalAlignment = 2,  //0=Left, 1=Centre, 2=Right
                         MinimumHeight = 30f
 
                     };
+
+                    valores.HorizontalAlignment = Element.ALIGN_RIGHT; // verificar que se mueva a la derecha
 
                     foreach (DataGridViewRow fila in dgvColaCot.Rows)
                     {
-                        table.AddCell(fila.Cells["ItemC"].Value.ToString());//NO HAY QUE DEJAR VALORES EN BLANCO
-                        table.AddCell(fila.Cells["CodigoC"].Value.ToString());
-                        table.AddCell(fila.Cells["DetalleC"].Value.ToString());
-                        table.AddCell(fila.Cells["FamiliaC"].Value.ToString());
-                        table.AddCell("$ " + Convert.ToDouble(fila.Cells["PrecioC"].Value).ToString("N0"));
-                        table.AddCell(fila.Cells["CantC"].Value.ToString());
-                        table.AddCell("$ " + Convert.ToDouble(fila.Cells["TotalC"].Value).ToString("N0"));
                         
+                        //table.HorizontalAlignment = Right;
+                        table.AddCell(new Phrase(fila.Cells["ItemC"].Value.ToString(), fontTable));//NO HAY QUE DEJAR VALORES EN BLANCO
+                        table.AddCell(new Phrase(fila.Cells["CodigoC"].Value.ToString(), fontTable));
+                        table.AddCell(new Phrase(fila.Cells["DetalleC"].Value.ToString(), fontTable));
+                        table.AddCell(new Phrase(fila.Cells["FamiliaC"].Value.ToString(), fontTable));
+                        table.AddCell(new Phrase(fila.Cells["CantC"].Value.ToString(), fontTable));
+                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["PrecioC"].Value).ToString("N0"),fontTable));
+                        //table.AddCell(fila.Cells["CantC"].Value.ToString());
+                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["TotalC"].Value).ToString("N0"),fontTable));
+                        //dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
+                        //Total_dinero.HorizontalAlignment = Element.ALIGN_RIGHT
+                         
+                          
+                        //table.HorizontalAlignment = Right;
+
                     }
-                   
-                    var total = new PdfPCell(new Phrase(""/*TOTAL:     "+"$"+txtNeto.Text*/))
+
+                    //var total = new PdfPCell(new Phrase(""/*TOTAL:     "+"$"+txtNeto.Text*/))
+                    //{
+                    //    Colspan = columnCount,
+                    //    HorizontalAlignment = 2,  //0=Left, 1=Centre, 2=Right
+                    //    MinimumHeight = 30f
+
+
+                    //};
+                    //var montaje = new PdfPCell(new Phrase(""/*TOTAL:     "+"$"+txtNeto.Text*/))
+                    //{
+                    //    //Rowspan = 3,
+                    //    Colspan = columnCount,
+                    //    HorizontalAlignment = 2,  //0=Left, 1=Centre, 2=Right
+                    //    MinimumHeight = 30f
+
+
+                    //};
+
+                    ////table.AddCell(montaje);
+                    //var sumaTotal = new PdfPCell(new Phrase(""/*TOTAL:     "+"$"+txtNeto.Text*/))
+                    //{
+                    //    Colspan = columnCount,
+                    //    HorizontalAlignment = 2,  //0=Left, 1=Centre, 2=Right
+                    //    MinimumHeight = 30f
+
+
+                    //};
+                    
+                    //total.Padding = Padding.Right; //NO BORRAR CUANDO SE HABILITEN LAS OTRAS CAJAS 
+                    //table.DefaultCell.Border = 0;
+                    //PdfPCell tables = new PdfPCell(new Phrase("Total En Dinero"));
+                    //tables.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase("Neto"));
+                    table.AddCell(new Phrase("$ " + Convert.ToDouble(txtNeto.Text).ToString("N0"), fontTable));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase("Iva 19%"));
+                    table.AddCell(new Phrase("$ "+ Convert.ToDouble(txtIVA.Text).ToString("N0"), fontTable));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));                    
+                    table.AddCell(new Phrase("Neto+Iva"));
+                    table.AddCell(new Phrase("$ " + Convert.ToDouble(txtNetoIva.Text).ToString("N0"), fontTable));
+
+                    //table.HorizontalAlignment = Element.ALIGN_RIGHT; //no funciona //
+                    var coment = new PdfPCell(new Phrase("Comentarios: " + txtComent.Text,fontTable))
                     {
                         Colspan = columnCount,
-                        //HorizontalAlignment = 2,  //0=Left, 1=Centre, 2=Right
-                        MinimumHeight = 30f
-
-
-                    };
-
-                    total.Padding = Padding.Right;
-                    //table.DefaultCell.Border = 0;
-
-                    table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase("Total Neto:"));
-                    table.AddCell(new Phrase("$ " + Convert.ToDouble(txtNeto.Text).ToString("N0")));
-
+                        HorizontalAlignment = 0,  //0=Left, 1=Centre, 2=Right
+                        MinimumHeight = 30f,
+                        
+                };
+                    table.AddCell(coment);
 
                     pdfDoc.Add(table);
                     pdfDoc.Close();
@@ -515,10 +629,13 @@ namespace PresentationLayer.Forms
             {
                 base.OnStartPage(writer, document);
 
+                               
+
             }
             // write on top of document
             public override void OnOpenDocument(PdfWriter writer, Document document)
             {
+                
                 base.OnOpenDocument(writer, document);
                 PdfPTable tabFot = new PdfPTable(new float[] { 1F });
                 //tabFot.SpacingAfter = 200f;//10f
@@ -528,10 +645,11 @@ namespace PresentationLayer.Forms
                 tabFot.TotalWidth = 290F;//290f
                 tabFot.DefaultCell.Border = 0;
                 //tabFot.HorizontalAlignment = 2;
-                cell = new PdfPCell(new Phrase("MINDUGAR SPA (Transportadores y piezas)"));
+                cell = new PdfPCell(new Phrase("MINDUGAR SPA DIVISION AUTOMATIZACION"));
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.PaddingTop = -14;//ESPACIO VERTICAL DE CELDA 
                 cell.Colspan = 50;
+                
                 //tabFot.AddCell("MINDUGAR SPA");     
                 //tabFot.HorizontalAlignment = Element.ALIGN_LEFT;
                 tabFot.AddCell(cell);                
@@ -557,12 +675,13 @@ namespace PresentationLayer.Forms
                 PdfPCell cell;
                 tabFot.TotalWidth = 350F;//300f
                 tabFot.DefaultCell.Border = 0;
+                
                 //cell = new PdfPCell(new Phrase("Domingo Arteaga 270, Macul - Santiago F:(56-2) 28707400"));
                 cell = new PdfPCell(new Phrase(""));                
                 tabFot.AddCell(cell);
-                tabFot.AddCell("Domingo Arteaga 270, Macul - Santiago F: (56 - 2) 28707400");
-                tabFot.AddCell("Email: ventas@mindugar.com");
-                tabFot.AddCell("www.mindugar.com");
+                tabFot.AddCell("Domingo Arteaga 291, Macul - Santiago F: (56 - 2) 28707400");
+                tabFot.AddCell("Email: automatizacion@mindugar.com - www.mindugar.cl");
+                //tabFot.AddCell("www.mindugar.com");
 
 
                 tabFot.WriteSelectedRows(0, -1, 150, document.Bottom, writer.DirectContent);
@@ -582,8 +701,36 @@ namespace PresentationLayer.Forms
 
         private void btnPdf_Click(object sender, EventArgs e)
         {
-            
-            ExportToPdf();
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            int cont = 0;
+            foreach (DataGridViewRow rw in this.dgvColaCot.Rows)
+            {
+                for (int i = 0; i < rw.Cells.Count; i++)
+                {
+                    if (rw.Cells["CantC"].Value == null || rw.Cells["CantC"].Value == DBNull.Value || String.IsNullOrWhiteSpace(rw.Cells["CantC"].Value.ToString()))
+                    {
+                        cont++;
+                        
+                    }
+                }
+
+            }
+
+            if (cont == 0)
+            {
+                ExportToPdf();
+            }
+            else
+            {
+
+                //MessageBox.Show("Por favor Ingrese todas las cantidades correspondientes", "Mensaje importante");
+                MetroFramework.MetroMessageBox.Show(frmParentForm, "Por favor Ingrese todas las cantidades correspondientes",
+                                                        "Mensaje Importante",
+                                                        MessageBoxButtons.OK,
+                                                        MessageBoxIcon.Information,
+                                                        370);
+            }
+
         }
     }
 

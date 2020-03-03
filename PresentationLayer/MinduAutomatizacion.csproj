@@ -25,7 +25,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>\\Fssapbo\d\pruebas\MinduAutomatizacion\</InstallUrl>
-    <ApplicationRevision>65</ApplicationRevision>
+    <ApplicationRevision>80</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -89,10 +89,10 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>562819BDD229EBF43C17AF3FD075B933287592EB</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>587431E1451C49B1732D0E671C1F506F8B738369</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>MinduAutomatizacion_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>MinduAutomatizacion_2_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
@@ -116,6 +116,12 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Clave.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
@@ -170,42 +176,6 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="Tekla.Application.Library, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Application.Library.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Analysis, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Analysis.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Catalogs, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Catalogs.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Datatype, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Datatype.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Dialog, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Dialog.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Drawing, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Drawing.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Model, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Model.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Tekla.Structures.Plugins, Version=2019.0.0.0, Culture=neutral, PublicKeyToken=2f04dbe497b71114, processorArchitecture=MSIL">
-      <HintPath>..\packages\TeklaOpenAPI.2019.0.45003\lib\Tekla.Structures.Plugins.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controls\ClickEffect.cs">
@@ -237,6 +207,12 @@
     </Compile>
     <Compile Include="Controls\MetroShadowBase.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\PruebaControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\PruebaControl.Designer.cs">
+      <DependentUpon>PruebaControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Controls\WinApi.cs" />
     <Compile Include="Controls\Positioning.cs" />
@@ -290,6 +266,12 @@
     </Compile>
     <Compile Include="Forms\FrmGlosarioGest.Designer.cs">
       <DependentUpon>FrmGlosarioGest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmReportesGere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmReportesGere.Designer.cs">
+      <DependentUpon>FrmReportesGere.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmReportesGrid.cs">
       <SubType>Form</SubType>
@@ -408,6 +390,9 @@
     <EmbeddedResource Include="Controls\FormHeader.resx">
       <DependentUpon>FormHeader.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Controls\PruebaControl.resx">
+      <DependentUpon>PruebaControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmAprobacion.resx">
       <DependentUpon>FrmAprobacion.cs</DependentUpon>
     </EmbeddedResource>
@@ -453,6 +438,9 @@
     <EmbeddedResource Include="Forms\FrmReportes.resx">
       <DependentUpon>FrmReportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmReportesGere.resx">
+      <DependentUpon>FrmReportesGere.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmReportesGrid.resx">
       <DependentUpon>FrmReportesGrid.cs</DependentUpon>
     </EmbeddedResource>
@@ -486,6 +474,7 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RecetaKit.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Clave.pfx" />
     <None Include="DB_AUTOMATIZACIONDataSet.xsc">
       <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
     </None>
@@ -497,6 +486,8 @@
     <None Include="DB_AUTOMATIZACIONDataSet.xss">
       <DependentUpon>DB_AUTOMATIZACIONDataSet.xsd</DependentUpon>
     </None>
+    <None Include="MinduAutomatizacion_1_TemporaryKey.pfx" />
+    <None Include="MinduAutomatizacion_2_TemporaryKey.pfx" />
     <None Include="MinduAutomatizacion_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />

@@ -75,6 +75,10 @@ namespace PresentationLayer
                 label4.Visible = true;
 
                 CargaComboReportes(TipoAcceso);
+                if (TipoAcceso == "LECTURA") //dejar invisible el cotizador para usuarios de lectura
+                {
+                    btnAñadirCot.Visible = false;
+                }
 
 
             }
@@ -146,17 +150,27 @@ namespace PresentationLayer
             {
                 case "ADMIN":
                     var items = new[] {
-                                new { Text = "Costos, Dimensiones y estado de ITEMS (Partes,Kits,Productos)", Value = "0" },
-                                new { Text = "ITEMS con Costos de étapas/Procesos (Resumido)", Value = "1" },
-                                new { Text = "ITEMS con Todos los Costos Involucrados (Detallado)", Value = "2" },
-                                new { Text = "Productos Terminados con Costo Directo + Factor", Value = "3" },
-                                //new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                //new { Text = "Costos, Dimensiones y estado de ITEMS (Partes,Kits,Productos)", Value = "0" },
+                                //new { Text = "ITEMS con Costos de étapas/Procesos (Resumido)", Value = "1" },
+                                //new { Text = "ITEMS con Todos los Costos Involucrados (Detallado)", Value = "2" },
+                                //new { Text = "Productos Terminados con Costo Directo + Factor", Value = "3" },
+
                                 new { Text = "Productos Terminados Autorizados", Value = "4" },
                                 new { Text = "Listado de Repuestos", Value = "5" },
                                 new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
                                        };
                     metroComboBox1.DataSource = items;
 
+                    break;
+                case "VENTAS":
+                    var items1 = new[] {
+                                //new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Repuestos", Value = "5" },
+                                //new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
+                              //  new { Text = "Listado de Productos Terminados", Value = "4" }
+                                       };
+                    metroComboBox1.DataSource = items1;
                     break;
                 default:
                     var items2 = new[] {
@@ -198,7 +212,7 @@ namespace PresentationLayer
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
 
-            dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+           // dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None; //MODIFICAR ESTO
             // dgvListado.AllowUserToResizeRows = false;
 
             //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
@@ -223,6 +237,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "1":
                     dt = ItemsBL.ListadoItemsCostoResumen();
@@ -230,6 +246,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "2":
                     dt = ItemsBL.ListadoItemsCostoDetallado();
@@ -237,6 +255,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "3":
                     dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
@@ -245,20 +265,33 @@ namespace PresentationLayer
                     NumericColumns.Add(4);
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "4":
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
+                    chk1.Name = "Cotizar";
+                    dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Nombre"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;
+                    dt.Columns["Familia"].ReadOnly = true;
+
                     //CheckboxColumn.Width = 20;
 
                     //dgvListado.Columns.Add(CheckboxColumn);
 
-
                     //chk1.ReadOnly = false;
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
+                    dgvListado.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvListado.Columns["Precio"].DefaultCellStyle.Format = "N0";
+                    dgvListado.Columns["Precio"].HeaderText = "Precio CLP";
                     break;
                 case "5":
                     dt = ItemsBL.GetItemsProductosParte("P");
@@ -269,6 +302,13 @@ namespace PresentationLayer
                     //dgvListado.Columns["StockBAP"].ReadOnly = true;
                     dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
+                    dt.Columns["NumFamilia"].ReadOnly = true;
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Nombre"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;
+                    dt.Columns["Stock BAP"].ReadOnly = true;
+                    dt.Columns["Interno/Externo"].ReadOnly = true;
+                    dt.Columns["Familia"].ReadOnly = true;
                     //chk1.ReadOnly = false;
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
@@ -276,15 +316,32 @@ namespace PresentationLayer
                     //CheckboxColumn.Width = 20;
 
                     //dgvListado.Columns.Add(CheckboxColumn);
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "6":
                     dt = ItemsBL.EstadoProductosTerminados("T");
-                    NumericColumns.Add(4);
-                    NumericColumns.Add(5);
+                    for (int i = 6; i <= dt.Columns.Count; i++)
+                    {
+                        NumericColumns.Add(i);
+                    }
+                    //NumericColumns.Add(4);
+                    //NumericColumns.Add(5);
                     chk1.Name = "Cotizar";
                     dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
-
+                    dt.Columns["NumFamilia"].ReadOnly = true;
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;
+                    dt.Columns["Familia"].ReadOnly = true;
+                    dt.Columns["Estado"].ReadOnly = true;
+                    if (dt.Columns["Estado"].ColumnName == "No Autorizado")
+                    {
+                        dt.Columns["Precio"].DefaultValue = 0;
+                       
+                    }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
 
                     break;
             }
@@ -294,8 +351,7 @@ namespace PresentationLayer
             //   // chk2.ReadOnly = false;
             //    chk3.ReadOnly = false;
             //}
-            dgvListado.DataSource = dt;
-            DTListado = dt.Copy();
+            
             ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
 
@@ -311,7 +367,8 @@ namespace PresentationLayer
                 if (NumericColumns.Contains(col.Index))
                 {
                     col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    col.DefaultCellStyle.Format = "N2";
+                    //col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
+                    col.DefaultCellStyle.Format = "N0";
                 }
             }
         }
@@ -897,7 +954,6 @@ namespace PresentationLayer
                         CostoUni = Convert.ToInt64(fila.Cells["Precio"].Value),
                         CodigoPro = fila.Cells["Codigo"].Value.ToString(),
                         FamiliaPro = fila.Cells["Familia"].Value.ToString()
-
                     });
                 }
             }
@@ -946,7 +1002,11 @@ namespace PresentationLayer
 
             }
 
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
         }
+    }
     }
     
 

@@ -102,6 +102,7 @@
             this.dgvListado.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvListado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvListado.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvListado.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dgvListado.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvListado.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenVertical;
@@ -143,12 +144,10 @@
             this.dgvListado.RowHeadersVisible = false;
             this.dgvListado.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgvListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListado.Size = new System.Drawing.Size(1149, 486);
+            this.dgvListado.Size = new System.Drawing.Size(1149, 777);
             this.dgvListado.TabIndex = 148;
             this.dgvListado.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellClick);
             this.dgvListado.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvListado_CellMouseDown);
-            this.dgvListado.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellMouseEnter);
-            this.dgvListado.CellMouseLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListado_CellMouseLeave);
             this.dgvListado.CellPainting += new System.Windows.Forms.DataGridViewCellPaintingEventHandler(this.dgvListado_CellPainting);
             this.dgvListado.SelectionChanged += new System.EventHandler(this.dgvListado_SelectionChanged);
             this.dgvListado.BindingContextChanged += new System.EventHandler(this.dgvListado_BindingContextChanged);
@@ -160,13 +159,14 @@
             this.copiarToolStripMenuItem,
             this.copiarTablaToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(141, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(140, 48);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
             // 
             // copiarToolStripMenuItem
             // 
             this.copiarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copiarToolStripMenuItem.Image")));
             this.copiarToolStripMenuItem.Name = "copiarToolStripMenuItem";
-            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.copiarToolStripMenuItem.Text = "Copiar";
             this.copiarToolStripMenuItem.Click += new System.EventHandler(this.copiarToolStripMenuItem_Click);
             // 
@@ -174,7 +174,7 @@
             // 
             this.copiarTablaToolStripMenuItem.Image = global::PresentationLayer.Properties.Resources.window;
             this.copiarTablaToolStripMenuItem.Name = "copiarTablaToolStripMenuItem";
-            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.copiarTablaToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.copiarTablaToolStripMenuItem.Text = "Copiar Tabla";
             this.copiarTablaToolStripMenuItem.Click += new System.EventHandler(this.copiarTablaToolStripMenuItem_Click);
             // 
