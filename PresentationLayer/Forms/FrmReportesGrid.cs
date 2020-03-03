@@ -292,6 +292,8 @@ namespace PresentationLayer
                     dgvListado.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
                     dgvListado.Columns["Precio"].DefaultCellStyle.Format = "N0";
                     dgvListado.Columns["Precio"].HeaderText = "Precio CLP";
+                    dgvListado.Columns["Stock BAP"].HeaderText = "Stock SAP";
+
                     break;
                 case "5":
                     dt = ItemsBL.GetItemsProductosParte("P");
@@ -318,6 +320,8 @@ namespace PresentationLayer
                     //dgvListado.Columns.Add(CheckboxColumn);
                     dgvListado.DataSource = dt;
                     DTListado = dt.Copy();
+                    dgvListado.Columns["Precio"].HeaderText = "Precio CLP";
+                    dgvListado.Columns["Stock BAP"].HeaderText = "Stock SAP";
                     break;
                 case "6":
                     dt = ItemsBL.EstadoProductosTerminados("T");
