@@ -58,7 +58,7 @@ namespace PresentationLayer
                                 frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
                                 frmParentForm.TipoAcceso = "ADMIN";
                                 frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
-                                frmParentForm.ConfigurarMenuAcceso();
+                                frmParentForm.ConfigurarMenuAcceso(); 
 
 
                                 //frmReportesG.AsignarNombreUsuario(Usuario.Instance().UserName);
@@ -76,6 +76,7 @@ namespace PresentationLayer
                                 frmParentForm.TipoAcceso = "LECTURA";
                                 frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
                                 frmParentForm.ConfigurarMenuAcceso();
+                                
 
                                 //frmReportesG.AsignarNombreUsuario(Usuario.Instance().UserName);
                                 //frmReportesG.TipoAcceso = "LECTURA";

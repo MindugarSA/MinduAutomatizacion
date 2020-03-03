@@ -74,3 +74,392 @@ C:\Users\eveliz\Desktop\Cot\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion
 C:\Users\eveliz\Desktop\Cot\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete
 C:\Users\eveliz\Desktop\Cot\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
 C:\Users\eveliz\Desktop\Cot\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csprojAssemblyReference.cache
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.ResolveComReference.cache
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.ClickEffect.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FormHeader.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmAprobacion.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmBusquedaItem.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmCotizador.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmDetalleKit.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmFamilia.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosario.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosarioGest.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmKit.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmLogin.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmProducto.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmParte.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipal.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipalPanel.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPropiedades.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportes.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmReportesGrid.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportViewer.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmTipos.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmValoresCostos.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmViewPicture.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Properties.Resources.resources
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.GenerateResource.cache
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CoreCompileInputs.cache
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.TrustInfo.xml
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.config
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\FlashControlV71.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MaterialSkin.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Design.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\stdole.dll
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.pdb
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.xml
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.xml
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete
+C:\Users\eveliz\Desktop\AUTOMATIZACION MODIFICACIONES\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Controls.PruebaControl.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.config
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\FlashControlV71.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MaterialSkin.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Design.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\stdole.dll
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.pdb
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.xml
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.xml
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csprojAssemblyReference.cache
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.ResolveComReference.cache
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.ClickEffect.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FormHeader.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Controls.PruebaControl.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmAprobacion.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmBusquedaItem.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmCotizador.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmDetalleKit.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmFamilia.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosario.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosarioGest.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmKit.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmLogin.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmProducto.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmParte.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipal.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipalPanel.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPropiedades.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportes.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmReportesGrid.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportViewer.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmTipos.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmValoresCostos.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmViewPicture.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Properties.Resources.resources
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.GenerateResource.cache
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CoreCompileInputs.cache
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.TrustInfo.xml
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\17-05-2019(Detalles en cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportesGere.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.config
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\FlashControlV71.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MaterialSkin.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Design.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\stdole.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csprojAssemblyReference.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.ResolveComReference.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.ClickEffect.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FormHeader.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Controls.PruebaControl.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmAprobacion.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmBusquedaItem.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmCotizador.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmDetalleKit.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmFamilia.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosario.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosarioGest.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmKit.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmLogin.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmProducto.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmParte.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipal.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipalPanel.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPropiedades.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportes.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportesGere.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmReportesGrid.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportViewer.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmTipos.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmValoresCostos.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmViewPicture.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Properties.Resources.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.GenerateResource.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CoreCompileInputs.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.TrustInfo.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.config
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\FlashControlV71.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MaterialSkin.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Design.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\stdole.dll
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.pdb
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csprojAssemblyReference.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.ResolveComReference.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.ClickEffect.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FormHeader.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Controls.PruebaControl.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmAprobacion.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmBusquedaItem.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmCotizador.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmDetalleKit.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmFamilia.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosario.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosarioGest.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmKit.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmLogin.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmProducto.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmParte.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipal.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipalPanel.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPropiedades.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportes.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportesGere.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmReportesGrid.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportViewer.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmTipos.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmValoresCostos.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmViewPicture.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Properties.Resources.resources
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.GenerateResource.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CoreCompileInputs.cache
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.TrustInfo.xml
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.application
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
+C:\Users\eveliz\Desktop\05-09-2019(Cotizador)2\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csprojAssemblyReference.cache
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.ResolveComReference.cache
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.ClickEffect.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FormHeader.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Controls.PruebaControl.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmAprobacion.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmBusquedaItem.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmCotizador.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmDetalleKit.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmFamilia.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosario.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmGlosarioGest.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmKit.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmLogin.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmProducto.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmParte.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipal.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPrincipalPanel.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmPropiedades.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportes.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportesGere.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmReportesGrid.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Forms.FrmReportViewer.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmTipos.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmValoresCostos.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.FrmViewPicture.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\PresentationLayer.Properties.Resources.resources
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.GenerateResource.cache
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CoreCompileInputs.cache
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.TrustInfo.xml
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.config
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.application
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.exe
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MinduAutomatizacion.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\Bunifu_UI_v1.5.3.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportSource.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Shared.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.Windows.Forms.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\FlashControlV71.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\Kesoft.Windows.Forms.Win7StyleTreeView.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MaterialSkin.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Design.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataDefModel.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ClientDoc.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ReportDefModel.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Controllers.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommLayer.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.DataSetConversion.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.Prompting.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.XmlSerialize.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CubeDefModel.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonObjectModel.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\ShockwaveFlashObjects.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\stdole.dll
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\BusinessLayer.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\DataAccessLayer.dll.config
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\Entities.pdb
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.xml
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\PresentationLayer\bin\Debug\itextsharp.xml
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.exe.manifest
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.application
+C:\Users\eveliz\Documents\PROYECTOS MINDUGAR\MinduAutomatizacion2\ObjDir\2019\MinduAutomatizacion\MinduAutomatizacion.csproj.CopyComplete

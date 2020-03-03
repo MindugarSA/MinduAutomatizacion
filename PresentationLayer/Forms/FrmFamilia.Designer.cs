@@ -38,6 +38,8 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumFam = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblNumFam = new System.Windows.Forms.Label();
             this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
@@ -65,8 +67,6 @@
             this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.dragControl1 = new PresentationLayer.DragControl();
             this.dragControl2 = new PresentationLayer.DragControl();
-            this.lblNumFam = new System.Windows.Forms.Label();
-            this.txtNumFam = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -126,6 +126,49 @@
             this.groupBox1.Size = new System.Drawing.Size(650, 531);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
+            // 
+            // txtNumFam
+            // 
+            this.txtNumFam.AcceptsReturn = false;
+            this.txtNumFam.AcceptsTab = false;
+            this.txtNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNumFam.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNumFam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtNumFam.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNumFam.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifuTransition1.SetDecoration(this.txtNumFam, BunifuAnimatorNS.DecorationType.None);
+            this.txtNumFam.Depth = 0;
+            this.txtNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumFam.Hint = "";
+            this.txtNumFam.Location = new System.Drawing.Point(345, 492);
+            this.txtNumFam.MaxLength = 32767;
+            this.txtNumFam.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNumFam.Multiline = false;
+            this.txtNumFam.Name = "txtNumFam";
+            this.txtNumFam.PasswordChar = '\0';
+            this.txtNumFam.ReadOnly = false;
+            this.txtNumFam.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNumFam.SelectedText = "";
+            this.txtNumFam.SelectionLength = 0;
+            this.txtNumFam.SelectionStart = 0;
+            this.txtNumFam.Size = new System.Drawing.Size(54, 23);
+            this.txtNumFam.TabIndex = 49;
+            this.txtNumFam.TabStop = false;
+            this.txtNumFam.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtNumFam.UseSystemPasswordChar = false;
+            this.txtNumFam.WordWrap = true;
+            // 
+            // lblNumFam
+            // 
+            this.lblNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblNumFam.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.lblNumFam, BunifuAnimatorNS.DecorationType.None);
+            this.lblNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumFam.Location = new System.Drawing.Point(276, 497);
+            this.lblNumFam.Name = "lblNumFam";
+            this.lblNumFam.Size = new System.Drawing.Size(63, 17);
+            this.lblNumFam.TabIndex = 48;
+            this.lblNumFam.Text = "N° Familia";
             // 
             // metroComboBox1
             // 
@@ -436,7 +479,7 @@
             this.panel2.Controls.Add(this.labelNoMouse1);
             this.panel2.Controls.Add(this.btnAgregar);
             this.bunifuTransition1.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
-            this.panel2.Location = new System.Drawing.Point(75, 580);
+            this.panel2.Location = new System.Drawing.Point(25, 580);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
@@ -505,7 +548,7 @@
             this.panel3.Controls.Add(this.labelNoMouse2);
             this.panel3.Controls.Add(this.btnNuevo);
             this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(196, 580);
+            this.panel3.Location = new System.Drawing.Point(146, 580);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(111, 34);
@@ -548,49 +591,6 @@
             // dragControl2
             // 
             this.dragControl2.SelectControl = this;
-            // 
-            // lblNumFam
-            // 
-            this.lblNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblNumFam.AutoSize = true;
-            this.bunifuTransition1.SetDecoration(this.lblNumFam, BunifuAnimatorNS.DecorationType.None);
-            this.lblNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNumFam.Location = new System.Drawing.Point(276, 497);
-            this.lblNumFam.Name = "lblNumFam";
-            this.lblNumFam.Size = new System.Drawing.Size(63, 17);
-            this.lblNumFam.TabIndex = 48;
-            this.lblNumFam.Text = "N° Familia";
-            // 
-            // txtNumFam
-            // 
-            this.txtNumFam.AcceptsReturn = false;
-            this.txtNumFam.AcceptsTab = false;
-            this.txtNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNumFam.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtNumFam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtNumFam.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.txtNumFam.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.bunifuTransition1.SetDecoration(this.txtNumFam, BunifuAnimatorNS.DecorationType.None);
-            this.txtNumFam.Depth = 0;
-            this.txtNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumFam.Hint = "";
-            this.txtNumFam.Location = new System.Drawing.Point(345, 492);
-            this.txtNumFam.MaxLength = 32767;
-            this.txtNumFam.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtNumFam.Multiline = false;
-            this.txtNumFam.Name = "txtNumFam";
-            this.txtNumFam.PasswordChar = '\0';
-            this.txtNumFam.ReadOnly = false;
-            this.txtNumFam.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtNumFam.SelectedText = "";
-            this.txtNumFam.SelectionLength = 0;
-            this.txtNumFam.SelectionStart = 0;
-            this.txtNumFam.Size = new System.Drawing.Size(54, 23);
-            this.txtNumFam.TabIndex = 49;
-            this.txtNumFam.TabStop = false;
-            this.txtNumFam.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtNumFam.UseSystemPasswordChar = false;
-            this.txtNumFam.WordWrap = true;
             // 
             // FrmFamilia
             // 

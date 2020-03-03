@@ -82,6 +82,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemsProductosParte(TipoItem);
         }
+        public static DataTable GetItemsProductosParteGerencia(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsProductosParteGerencia(TipoItem);
+        }
 
         public static DataTable ListadoItemsAutorizacion()
         {
@@ -92,6 +97,11 @@ namespace BusinessLayer
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemsEstadoProductosTerminados(TipoItem);
+        }
+        public static DataTable EstadoProductosTerminadosGerencia(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsEstadoProductosTerminadosGerencia(TipoItem);
         }
 
         public static Item InsertItem(Item ObjItem)

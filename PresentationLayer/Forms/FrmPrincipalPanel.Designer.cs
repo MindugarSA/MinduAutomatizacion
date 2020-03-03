@@ -32,6 +32,11 @@
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipalPanel));
             this.pnlMenu = new System.Windows.Forms.Panel();
+            this.pnlReportes = new System.Windows.Forms.Panel();
+            this.btnGerencia = new System.Windows.Forms.Button();
+            this.btnVentas = new System.Windows.Forms.Button();
+            this.panel20 = new System.Windows.Forms.Panel();
+            this.panel19 = new System.Windows.Forms.Panel();
             this.panel17 = new System.Windows.Forms.Panel();
             this.btnGlosario = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -77,9 +82,10 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.BunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.formHeader1 = new PresentationLayer.FormHeader();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.pnlMenu.SuspendLayout();
+            this.pnlReportes.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -95,6 +101,7 @@
             this.pnlMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pnlMenu.BackColor = System.Drawing.Color.DimGray;
+            this.pnlMenu.Controls.Add(this.pnlReportes);
             this.pnlMenu.Controls.Add(this.panel17);
             this.pnlMenu.Controls.Add(this.btnGlosario);
             this.pnlMenu.Controls.Add(this.panel4);
@@ -113,16 +120,82 @@
             this.pnlMenu.Controls.Add(this.pictureBox1);
             this.pnlMenu.Controls.Add(this.button1);
             this.BunifuTransition1.SetDecoration(this.pnlMenu, BunifuAnimatorNS.DecorationType.None);
-            this.pnlMenu.Location = new System.Drawing.Point(2, 31);
+            this.pnlMenu.Location = new System.Drawing.Point(0, 31);
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Size = new System.Drawing.Size(203, 673);
             this.pnlMenu.TabIndex = 1;
+            // 
+            // pnlReportes
+            // 
+            this.pnlReportes.Controls.Add(this.btnGerencia);
+            this.pnlReportes.Controls.Add(this.btnVentas);
+            this.pnlReportes.Controls.Add(this.panel20);
+            this.pnlReportes.Controls.Add(this.panel19);
+            this.BunifuTransition1.SetDecoration(this.pnlReportes, BunifuAnimatorNS.DecorationType.None);
+            this.pnlReportes.Location = new System.Drawing.Point(61, 552);
+            this.pnlReportes.Name = "pnlReportes";
+            this.pnlReportes.Size = new System.Drawing.Size(94, 110);
+            this.pnlReportes.TabIndex = 27;
+            // 
+            // btnGerencia
+            // 
+            this.btnGerencia.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.btnGerencia, BunifuAnimatorNS.DecorationType.None);
+            this.btnGerencia.FlatAppearance.BorderSize = 0;
+            this.btnGerencia.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.btnGerencia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGerencia.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGerencia.ForeColor = System.Drawing.Color.White;
+            this.btnGerencia.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGerencia.Location = new System.Drawing.Point(13, 57);
+            this.btnGerencia.Name = "btnGerencia";
+            this.btnGerencia.Size = new System.Drawing.Size(86, 35);
+            this.btnGerencia.TabIndex = 22;
+            this.btnGerencia.Text = "Gerencia";
+            this.btnGerencia.UseVisualStyleBackColor = false;
+            this.btnGerencia.Click += new System.EventHandler(this.btnGerencia_Click);
+            // 
+            // btnVentas
+            // 
+            this.btnVentas.BackColor = System.Drawing.Color.Transparent;
+            this.BunifuTransition1.SetDecoration(this.btnVentas, BunifuAnimatorNS.DecorationType.None);
+            this.btnVentas.FlatAppearance.BorderSize = 0;
+            this.btnVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            this.btnVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVentas.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVentas.ForeColor = System.Drawing.Color.White;
+            this.btnVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnVentas.Location = new System.Drawing.Point(13, 3);
+            this.btnVentas.Name = "btnVentas";
+            this.btnVentas.Size = new System.Drawing.Size(72, 35);
+            this.btnVentas.TabIndex = 20;
+            this.btnVentas.Text = "Ventas";
+            this.btnVentas.UseVisualStyleBackColor = false;
+            this.btnVentas.Click += new System.EventHandler(this.btnVentas_Click);
+            // 
+            // panel20
+            // 
+            this.panel20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel20, BunifuAnimatorNS.DecorationType.None);
+            this.panel20.Location = new System.Drawing.Point(3, 57);
+            this.panel20.Name = "panel20";
+            this.panel20.Size = new System.Drawing.Size(9, 35);
+            this.panel20.TabIndex = 23;
+            // 
+            // panel19
+            // 
+            this.panel19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.BunifuTransition1.SetDecoration(this.panel19, BunifuAnimatorNS.DecorationType.None);
+            this.panel19.Location = new System.Drawing.Point(3, 3);
+            this.panel19.Name = "panel19";
+            this.panel19.Size = new System.Drawing.Size(9, 35);
+            this.panel19.TabIndex = 21;
             // 
             // panel17
             // 
             this.panel17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
             this.BunifuTransition1.SetDecoration(this.panel17, BunifuAnimatorNS.DecorationType.None);
-            this.panel17.Location = new System.Drawing.Point(1, 381);
+            this.panel17.Location = new System.Drawing.Point(2, 381);
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(9, 35);
             this.panel17.TabIndex = 18;
@@ -138,7 +211,7 @@
             this.btnGlosario.ForeColor = System.Drawing.Color.White;
             this.btnGlosario.Image = global::PresentationLayer.Properties.Resources.search;
             this.btnGlosario.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGlosario.Location = new System.Drawing.Point(12, 381);
+            this.btnGlosario.Location = new System.Drawing.Point(13, 381);
             this.btnGlosario.Name = "btnGlosario";
             this.btnGlosario.Size = new System.Drawing.Size(189, 35);
             this.btnGlosario.TabIndex = 19;
@@ -781,6 +854,7 @@
             this.Shown += new System.EventHandler(this.FrmPrincipalPanel_Shown);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.FrmPrincipalPanel_DragEnter);
             this.pnlMenu.ResumeLayout(false);
+            this.pnlReportes.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -844,5 +918,10 @@
         private System.Windows.Forms.Button btnGlosario;
         private System.Windows.Forms.Panel panel18;
         private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button btnGerencia;
+        private System.Windows.Forms.Panel panel20;
+        private System.Windows.Forms.Button btnVentas;
+        private System.Windows.Forms.Panel panel19;
+        private System.Windows.Forms.Panel pnlReportes;
     }
 }

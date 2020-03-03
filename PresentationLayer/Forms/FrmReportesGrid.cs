@@ -41,12 +41,16 @@ namespace PresentationLayer
         DataTable dtItems;
         DataGridViewCheckBoxColumn chk1 = new DataGridViewCheckBoxColumn();
 
-        DataGridViewCheckBoxColumn CheckboxColumn = new DataGridViewCheckBoxColumn();
+        //fue comentado por no uso
+        // DataGridViewCheckBoxColumn CheckboxColumn = new DataGridViewCheckBoxColumn();
+
+
         //CheckBox chk1 = new CheckBox();
 
         // DataGridViewCheckBoxCell CheckboxColumn =  new DataGridViewCheckBoxCell();
 
         //CheckBox chk1 = new CheckBox();
+
         private string message;
         private object errorDetalle;
 
@@ -59,6 +63,7 @@ namespace PresentationLayer
             pictureBox1.Visible = false;
 
             this.InitializeClickHandlers();
+
         }
 
 
@@ -75,6 +80,10 @@ namespace PresentationLayer
                 label4.Visible = true;
 
                 CargaComboReportes(TipoAcceso);
+                if (TipoAcceso == "LECTURA") //dejar invisible el cotizador para usuarios de lectura
+                {
+                    btnAñadirCot.Visible = false;
+                }
 
 
             }
@@ -146,11 +155,11 @@ namespace PresentationLayer
             {
                 case "ADMIN":
                     var items = new[] {
-                                new { Text = "Costos, Dimensiones y estado de ITEMS (Partes,Kits,Productos)", Value = "0" },
-                                new { Text = "ITEMS con Costos de étapas/Procesos (Resumido)", Value = "1" },
-                                new { Text = "ITEMS con Todos los Costos Involucrados (Detallado)", Value = "2" },
-                                new { Text = "Productos Terminados con Costo Directo + Factor", Value = "3" },
-                                //new { Text = "Listado de Productos con Costo Directo +Factor(Extendido)", Value = "4" }
+                                //new { Text = "Costos, Dimensiones y estado de ITEMS (Partes,Kits,Productos)", Value = "0" },
+                                //new { Text = "ITEMS con Costos de étapas/Procesos (Resumido)", Value = "1" },
+                                //new { Text = "ITEMS con Todos los Costos Involucrados (Detallado)", Value = "2" },
+                                //new { Text = "Productos Terminados con Costo Directo + Factor", Value = "3" },
+
                                 new { Text = "Productos Terminados Autorizados", Value = "4" },
                                 new { Text = "Listado de Repuestos", Value = "5" },
                                 new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
@@ -198,7 +207,7 @@ namespace PresentationLayer
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
 
-            dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            // dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None; //MODIFICAR ESTO
             // dgvListado.AllowUserToResizeRows = false;
 
             //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
@@ -208,6 +217,8 @@ namespace PresentationLayer
             dgvListado.Columns.Clear();
             dgvListado.Refresh();
 
+            
+            //True=no se puede modificar, false= si se puede
             dgvListado.ReadOnly = false;
 
             chk1.Width = 43;
@@ -247,11 +258,21 @@ namespace PresentationLayer
                     NumericColumns.Add(6);
                     break;
                 case "4":
+                    //Este mmodificar
+                    chk1.Name = "Cotizar";
+                    dgvListado.Columns.Add(chk1);
+                    //////////////////
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
-                    dt.Columns["Precio"].ReadOnly = true;
+                    dt.Columns["Precio"].ReadOnly = true;                    
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Nombre"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;                                       
+                    dt.Columns["Familia"].ReadOnly = true;
                     //CheckboxColumn.Width = 20;
+                   
+
 
                     //dgvListado.Columns.Add(CheckboxColumn);
 
@@ -269,7 +290,16 @@ namespace PresentationLayer
                     //dgvListado.Columns["StockBAP"].ReadOnly = true;
                     dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
+                    dt.Columns["NumFamilia"].ReadOnly = true;
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Nombre"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;
+                    dt.Columns["Stock BAP"].ReadOnly = true;
+                    dt.Columns["Interno/Externo"].ReadOnly = true;
+                    dt.Columns["Familia"].ReadOnly = true;
+
                     //chk1.ReadOnly = false;
+
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
 
@@ -279,12 +309,26 @@ namespace PresentationLayer
                     break;
                 case "6":
                     dt = ItemsBL.EstadoProductosTerminados("T");
-                    NumericColumns.Add(4);
-                    NumericColumns.Add(5);
+                    for (int i = 6; i <= dt.Columns.Count; i++)
+                    {
+                        NumericColumns.Add(i);
+                    }
+                    //NumericColumns.Add(4);
+                    //NumericColumns.Add(5);
                     chk1.Name = "Cotizar";
                     dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
 
+                    dt.Columns["NumFamilia"].ReadOnly = true;
+                    dt.Columns["Codigo"].ReadOnly = true;
+                    dt.Columns["Descripcion"].ReadOnly = true;
+                    dt.Columns["Familia"].ReadOnly = true;
+                    dt.Columns["Estado"].ReadOnly = true;
+                    if (dt.Columns["Estado"].ColumnName == "No Autorizado")
+                    {
+                        dt.Columns["Precio"].DefaultValue = 0;
+
+                    }
 
                     break;
             }
@@ -311,9 +355,11 @@ namespace PresentationLayer
                 if (NumericColumns.Contains(col.Index))
                 {
                     col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                    col.DefaultCellStyle.Format = "N2";
+                    //col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopLeft;
+                    col.DefaultCellStyle.Format = "N0";
                 }
             }
+            // dt.Columns["Cotizar"].ReadOnly = true;
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -910,44 +956,48 @@ namespace PresentationLayer
             #endregion
 
             if (co.Count > 0) //Abrir la pantalla cotizador con toda la lista cargada (Solo si existe items seleccionados)
-                {
-                    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
-
-                    FrmCotizador FrmCot = new FrmCotizador();
-                    FrmCot.Values = co;
-                    // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
-                    frmParentForm.AbrirFormulario(FrmCot, 370, 230);
-                }
-
-
-
-
-            }
-
-            private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
             {
-                //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-                //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
-                //if (ch1.Value == null)
-                //    ch1.Value = false;
-                //switch (ch1.Value.ToString())
-                //{
-                //    case "True":
-                //        ch1.Value = false;
-                //        break;
-                //    case "False":
-                //        ch1.Value = true;
-                //        break;
-
-
-                //}
-                //MessageBox.Show(ch1.Value.ToString());
-
+                FrmCotizador FrmCot = new FrmCotizador();
+                FrmCot.Values = co;
+                // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
+                frmParentForm.AbrirFormulario(FrmCot, 370, 230);
             }
+
+
+
+
+        }
+
+        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
+            //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
+
+            //if (ch1.Value == null)
+            //    ch1.Value = false;
+            //switch (ch1.Value.ToString())
+            //{
+            //    case "True":
+            //        ch1.Value = false;
+            //        break;
+            //    case "False":
+            //        ch1.Value = true;
+            //        break;
+
+
+            //}
+            //MessageBox.Show(ch1.Value.ToString());
+
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
 
         }
     }
-    
+}
+
 
 

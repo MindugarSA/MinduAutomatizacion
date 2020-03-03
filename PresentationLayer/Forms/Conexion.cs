@@ -10,7 +10,7 @@ namespace PresentationLayer.Forms
     {
         public String conectar()
         {
-            return "Data Source = FSSAPBO; Initial Catalog = DB_AUTOMATIZACION; User ID = SA; password = Sqladmin281;";
+            return "Data Source = FSSAPBO; Initial Catalog = XXX_DB_AUTOMATIZACION; User ID = SA; password = Sqladmin281;";
         }
     }
 }

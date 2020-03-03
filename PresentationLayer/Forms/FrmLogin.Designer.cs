@@ -32,14 +32,10 @@
             BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.Panel2 = new System.Windows.Forms.Panel();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.PictureBox4 = new System.Windows.Forms.PictureBox();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.Label13 = new System.Windows.Forms.Label();
             this.TxtBx_Password = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Bttn_Login = new MetroFramework.Controls.MetroButton();
             this.UsernameLabel = new System.Windows.Forms.Label();
             this.TxtBx_UserID = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -48,13 +44,17 @@
             this.BunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuElipse3 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PictureBox4 = new System.Windows.Forms.PictureBox();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
             this.Panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.Panel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
-            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // Panel2
@@ -66,20 +66,6 @@
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(201, 201);
             this.Panel2.TabIndex = 21;
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BunifuTransition1.SetDecoration(this.PictureBox1, BunifuAnimatorNS.DecorationType.None);
-            this.PictureBox1.Image = global::PresentationLayer.Properties.Resources.LogoAjust;
-            this.PictureBox1.InitialImage = null;
-            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(200, 200);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PictureBox1.TabIndex = 9;
-            this.PictureBox1.TabStop = false;
             // 
             // Panel1
             // 
@@ -110,28 +96,6 @@
             this.metroButton1.Text = "Salir";
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
-            // 
-            // PictureBox4
-            // 
-            this.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BunifuTransition1.SetDecoration(this.PictureBox4, BunifuAnimatorNS.DecorationType.None);
-            this.PictureBox4.Image = global::PresentationLayer.Properties.Resources.lock__2_;
-            this.PictureBox4.Location = new System.Drawing.Point(272, 227);
-            this.PictureBox4.Name = "PictureBox4";
-            this.PictureBox4.Size = new System.Drawing.Size(24, 24);
-            this.PictureBox4.TabIndex = 17;
-            this.PictureBox4.TabStop = false;
-            // 
-            // PictureBox2
-            // 
-            this.BunifuTransition1.SetDecoration(this.PictureBox2, BunifuAnimatorNS.DecorationType.None);
-            this.PictureBox2.Image = global::PresentationLayer.Properties.Resources.plus;
-            this.PictureBox2.Location = new System.Drawing.Point(157, 109);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox2.TabIndex = 15;
-            this.PictureBox2.TabStop = false;
             // 
             // Label13
             // 
@@ -174,17 +138,6 @@
             this.TxtBx_Password.UseSystemPasswordChar = false;
             this.TxtBx_Password.WordWrap = true;
             this.TxtBx_Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBx_Password_KeyDown);
-            // 
-            // PictureBox3
-            // 
-            this.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.BunifuTransition1.SetDecoration(this.PictureBox3, BunifuAnimatorNS.DecorationType.None);
-            this.PictureBox3.Image = global::PresentationLayer.Properties.Resources.user__2_;
-            this.PictureBox3.Location = new System.Drawing.Point(272, 175);
-            this.PictureBox3.Name = "PictureBox3";
-            this.PictureBox3.Size = new System.Drawing.Size(24, 24);
-            this.PictureBox3.TabIndex = 16;
-            this.PictureBox3.TabStop = false;
             // 
             // Bttn_Login
             // 
@@ -294,6 +247,53 @@
             this.bunifuElipse3.ElipseRadius = 30;
             this.bunifuElipse3.TargetControl = this.panel3;
             // 
+            // PictureBox1
+            // 
+            this.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BunifuTransition1.SetDecoration(this.PictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.PictureBox1.Image = global::PresentationLayer.Properties.Resources.LogoAjust;
+            this.PictureBox1.InitialImage = null;
+            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(200, 200);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBox1.TabIndex = 9;
+            this.PictureBox1.TabStop = false;
+            // 
+            // PictureBox4
+            // 
+            this.PictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BunifuTransition1.SetDecoration(this.PictureBox4, BunifuAnimatorNS.DecorationType.None);
+            this.PictureBox4.Image = global::PresentationLayer.Properties.Resources.lock__2_;
+            this.PictureBox4.Location = new System.Drawing.Point(272, 227);
+            this.PictureBox4.Name = "PictureBox4";
+            this.PictureBox4.Size = new System.Drawing.Size(24, 24);
+            this.PictureBox4.TabIndex = 17;
+            this.PictureBox4.TabStop = false;
+            // 
+            // PictureBox2
+            // 
+            this.BunifuTransition1.SetDecoration(this.PictureBox2, BunifuAnimatorNS.DecorationType.None);
+            this.PictureBox2.Image = global::PresentationLayer.Properties.Resources.plus;
+            this.PictureBox2.Location = new System.Drawing.Point(157, 109);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox2.TabIndex = 15;
+            this.PictureBox2.TabStop = false;
+            // 
+            // PictureBox3
+            // 
+            this.PictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.BunifuTransition1.SetDecoration(this.PictureBox3, BunifuAnimatorNS.DecorationType.None);
+            this.PictureBox3.Image = global::PresentationLayer.Properties.Resources.user__2_;
+            this.PictureBox3.Location = new System.Drawing.Point(272, 175);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(24, 24);
+            this.PictureBox3.TabIndex = 16;
+            this.PictureBox3.TabStop = false;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,13 +309,13 @@
             this.Load += new System.EventHandler(this.FrmLogin_Load);
             this.Shown += new System.EventHandler(this.FrmLogin_Shown);
             this.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
-            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
