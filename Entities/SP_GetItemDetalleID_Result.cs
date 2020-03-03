@@ -7,29 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_GetItemDetalleID_Result
 {
-    using System;
-    
-    public partial class SP_GetItemDetalleID_Result
-    {
-        public int Id { get; set; }
-        public Nullable<int> IdC { get; set; }
-        public string CodigoC { get; set; }
-        public string DescripcionC { get; set; }
-        public Nullable<int> IdDetalle { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public Nullable<int> Linea { get; set; }
-        public string TipoPieza { get; set; }
-        public Nullable<decimal> Cantidad { get; set; }
-        public Nullable<decimal> CostoUnitario { get; set; }
-        public Nullable<decimal> CostoUnitFactor { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public Nullable<decimal> TotalFactor { get; set; }
-        public byte[] Imagen { get; set; }
-        public Nullable<decimal> Factor { get; set; }
-        public string TipoFactor { get; set; }
-        public Nullable<int> FactorID { get; set; }
-    }
+    public int Id { get; set; }
+    public Nullable<int> IdC { get; set; }
+    public string CodigoC { get; set; }
+    public string DescripcionC { get; set; }
+    public Nullable<int> IdDetalle { get; set; }
+    public string Codigo { get; set; }
+    public string Descripcion { get; set; }
+    public Nullable<int> Linea { get; set; }
+    public string TipoPieza { get; set; }
+    public Nullable<decimal> Cantidad { get; set; }
+    public Nullable<decimal> CostoUnitario { get; set; }
+    public Nullable<decimal> CostoUnitFactor { get; set; }
+    public Nullable<decimal> Total { get; set; }
+    public Nullable<decimal> TotalFactor { get; set; }
+    public byte[] Imagen { get; set; }
+    public Nullable<decimal> Factor { get; set; }
+    public string TipoFactor { get; set; }
+    public Nullable<int> FactorID { get; set; }
 }

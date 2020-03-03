@@ -7,16 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+[Serializable]
+public partial class Familia
 {
-    using System;
-    using System.Collections.Generic;
-    
-    public partial class Familia
-    {
-        public int id { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public Nullable<int> Estado { get; set; }
-    }
+    public int id { get; set; }
+    public string Codigo { get; set; }
+    public string Descripcion { get; set; }
+    public Nullable<int> Estado { get; set; }
+    public string Clasificacion { get; set; }
+    public string NumFamilia { get; set; }
 }

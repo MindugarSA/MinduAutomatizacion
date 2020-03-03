@@ -104,13 +104,16 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+            dgvListaItems.SuspendLayout();
             //Listado de Items
-            dtItems = ItemsBL.GetItemsBusqueda(null); 
+            dtItems = ItemsBL.GetItemsBusqueda(null);
+            dgvListaItems.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+            dgvListaItems.AllowUserToResizeRows = false;
             dgvListaItems.DataSource = dtItems; 
             //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 4, 5, 6, 7, 10 };
+            List<int> visibleColumns = new List<int> {0, 1, 2, 3, 4, 5, 6, 7 };
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
                 if (!visibleColumns.Contains(col.Index))
@@ -127,7 +130,9 @@ namespace PresentationLayer.Forms
             dgvListaItems.Columns[7].DefaultCellStyle.Format = "#,0.00###";
             dgvListaItems.Columns[8].DefaultCellStyle.Format = "#,0.00###";
 
-            ((DataGridViewImageColumn)dgvListaItems.Columns[10]).ImageLayout = DataGridViewImageCellLayout.Zoom;
+            dgvListaItems.ResumeLayout();
+
+            // ((DataGridViewImageColumn)dgvListaItems.Columns[10]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
         }
 

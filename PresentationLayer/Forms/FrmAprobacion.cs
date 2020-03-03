@@ -59,6 +59,15 @@ namespace PresentationLayer.Forms
             chk.ReadOnly = false;
             dgvListado.Columns.Add(chk);
 
+            //////////////////////////Add Boton en nueva columna
+            // DataGridViewButtonColumn btnActualiza = new DataGridViewButtonColumn();
+            //btnActualiza.HeaderText = "Actualizar";
+            //btnActualiza.Name = "AutorizaProducto";
+            //btnActualiza.Text = "Actualizar";
+            //btnActualiza.UseColumnTextForButtonValue = true;
+            //dgvListado.Columns.Add(btnActualiza);
+
+
             List<int> numericColumns = new List<int> { 3, 4, 5 };
             dgvListado.Columns[6].Visible = false;
             dgvListado.Columns[7].Visible = false;
@@ -92,6 +101,12 @@ namespace PresentationLayer.Forms
         {
             ItemEntidad = ItemsBL.GetItemId(Convert.ToInt32(dgvListado.Rows[dgvListado.CurrentCell.RowIndex].Cells[7].Value)).FirstOrDefault();
             ItemEntidad.Autorizado = (bool)dgvListado.Rows[dgvListado.CurrentCell.RowIndex].Cells[8].Value ? 1 : 0;
+        }
+
+        private void CargarEntidadItemRow(int nRow)
+        {
+            ItemEntidad = ItemsBL.GetItemId(Convert.ToInt32(dgvListado.Rows[nRow].Cells[7].Value)).FirstOrDefault();
+            ItemEntidad.Autorizado = (bool)dgvListado.Rows[nRow].Cells[8].Value ? 1 : 0;
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -224,6 +239,7 @@ namespace PresentationLayer.Forms
                 }
                 catch { }
             }
+
         }
 
         private void Button_MouseLeave(object sender, EventArgs e)
@@ -259,13 +275,13 @@ namespace PresentationLayer.Forms
             if (cell != null && !cell.ReadOnly)
             {
                 cell.Value = cell.Value == null || !((bool)cell.Value);
-                if((bool)cell.Value)
-                    row.DefaultCellStyle.ForeColor = Color.Green;
-                else
-                    row.DefaultCellStyle.ForeColor = Color.Red;
+                //if ((bool)cell.Value)
+                //    row.DefaultCellStyle.ForeColor = Color.Green;
+                //else
+                //    row.DefaultCellStyle.ForeColor = Color.Red;
 
-                CargarEntidadItem();
-                ItemsBL.UpdateItem(ItemEntidad);
+                //CargarEntidadItem();
+                //ItemsBL.UpdateItem(ItemEntidad);
 
                 dgvListado.RefreshEdit();
                 dgvListado.NotifyCurrentCellDirty(true);
@@ -275,6 +291,157 @@ namespace PresentationLayer.Forms
         private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dgvListado.RefreshEdit();
+            // if (e.ColumnIndex == 9)
+            // {
+            //   FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            // MetroFramework.MetroMessageBox.Show(frmParentForm, "BOTON PRESIONADO CORRECT",
+            //                                      "Mensaje Importante",
+            //                                    MessageBoxButtons.OK,
+            //                                  MessageBoxIcon.Information,
+            //                                370);
+            //}
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            //DataGridViewCheckBoxCell cell = dgvListado.CurrentCell as DataGridViewCheckBoxCell;
+            //DataGridViewRow row = dgvListado.CurrentRow as DataGridViewRow;
+            foreach (DataGridViewRow rowd in dgvListado.Rows)
+            {
+                CargarEntidadItemRow(rowd.Index);
+                ItemsBL.UpdateItem(ItemEntidad);
+
+                if (Convert.ToInt32(rowd.Cells["Autor"].Value) == 1)
+                {
+                    rowd.Cells[8].Value = true;
+                    rowd.DefaultCellStyle.ForeColor = Color.Green;
+                }
+                else
+                {
+                    rowd.Cells[8].Value = false;
+                    rowd.DefaultCellStyle.ForeColor = Color.Red;
+                }
+            }
+
+            //for (int i = 0; i < dgvListado.RowCount; i++)
+            //{
+            //    DataGridViewCheckBoxCell ck = dgvListado.Rows[i].Cells["Autor"] as DataGridViewCheckBoxCell;
+
+            //    //if (Convert.ToBoolean(ck.Value) && dgvListado.Rows[i].DefaultCellStyle.ForeColor==Color.Red)
+            //    //{
+            //    //    CargarEntidadItem();
+            //    //    ItemsBL.UpdateItem(ItemEntidad);
+            //    //    dgvListado.RefreshEdit();
+            //    //    dgvListado.NotifyCurrentCellDirty(true);
+            //    //    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            //    //    MetroFramework.MetroMessageBox.Show(frmParentForm, "Registro Autorizado Correctamente",
+            //    //                               "MENSAJE IMPORTANTE",
+            //    //                               MessageBoxButtons.OK,
+            //    //                               MessageBoxIcon.Information,
+            //    //                               370);
+
+
+            //    //}
+            //}
+
+
+            //foreach (DataGridViewRow r in dgvListado.Rows)
+            //{
+            //    DataGridViewCheckBoxCell ck = r.Cells["Autor"] as DataGridViewCheckBoxCell;
+            //    if (ck.IsCurrentCellDirty && dgvListado.DefaultCellStyle.ForeColor == Color.Red)
+            //    {
+            //        //cell.Value = cell.Value == null || !((bool)cell.Value);
+            //        //if ((bool)cell.Value)
+            //        //    r.DefaultCellStyle.ForeColor = Color.Green;
+            //        //else
+            //        //    r.DefaultCellStyle.ForeColor = Color.Red;
+
+            //        //CargarEntidadItem();
+            //        //ItemsBL.UpdateItem(ItemEntidad);
+
+            //        //dgvListado.RefreshEdit();
+            //        //dgvListado.NotifyCurrentCellDirty(true);
+            //        //FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            //        //MetroFramework.MetroMessageBox.Show(frmParentForm, "Registro Autorizado Correctamente",
+            //        //                           "MENSAJE IMPORTANTE",
+            //        //                           MessageBoxButtons.OK,
+            //        //                           MessageBoxIcon.Information,
+            //        //                           370);
+
+
+            //    }
+            //    else
+            //    {
+
+            //    }
+
+            //}
+
+
+
+            //foreach (DataGridViewRow r in dgvListado.Rows)
+            //{
+            //    bool isChecked = Convert.ToBoolean(r.Cells[7].Value);
+            //    if (isChecked && r.DefaultCellStyle.ForeColor == Color.Red)
+            //    {
+            //        cell.Value = cell.Value == null || !((bool)cell.Value);
+            //        if ((bool)cell.Value)
+            //            r.DefaultCellStyle.ForeColor = Color.Green;
+            //        else
+            //            r.DefaultCellStyle.ForeColor = Color.Red;
+
+            //        CargarEntidadItem();
+            //        ItemsBL.UpdateItem(ItemEntidad);
+
+            //        dgvListado.RefreshEdit();
+            //        dgvListado.NotifyCurrentCellDirty(true);
+            //        FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+            //        MetroFramework.MetroMessageBox.Show(frmParentForm, "Registro Autorizado Correctamente",
+            //                                   "MENSAJE IMPORTANTE",
+            //                                   MessageBoxButtons.OK,
+            //                                   MessageBoxIcon.Information,
+            //                                   370);
+            //    }
+            //}
+
+        }
+
+        private void dgvListado_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvListado.CurrentCell = dgvListado[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvListado.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void copiarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvListado[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void verParteKitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dgvListado.Rows.Count > 0)
+            {
+                int IdDetalle = Convert.ToInt32(dgvListado.Rows[dgvListado.CurrentCell.RowIndex].Cells[7].Value);
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                if (IdDetalle > 0)
+                {
+                    FrmProducto FrmProd = new FrmProducto();
+                    FrmProd.IdIetmSearch = IdDetalle;
+                    frmParentForm.AbrirFormulario(FrmProd, 370, 230);
+                }
+            }
         }
     }
 }
+

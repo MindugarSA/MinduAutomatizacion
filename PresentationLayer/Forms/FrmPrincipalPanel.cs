@@ -20,6 +20,16 @@ namespace PresentationLayer
         public string TipoAcceso { get; set; }
         public string AccesoActual { get; set; }
         public string AccesoBloqueo { get; set; }
+        public string labelUsser;
+        //public string comboBox1;
+        //public string comboBox2;
+        //public string comboBox3;
+        //public string txbuscarItem;
+        //public string l49;
+        //public string l4;
+
+        //FrmReportesGrid gr = new FrmReportesGrid();
+
 
         public FrmPrincipalPanel()
         {
@@ -32,6 +42,16 @@ namespace PresentationLayer
 
             panel4.Visible = false;
             panel12.Visible = false;
+            pnlReportes.Visible = false;
+           
+
+            //label3.Equals(labelUsser);
+
+            //metroComboBox1 = metroComboBox1.ToString();
+            //metroComboBox2 = metroComboBox2.ToString();
+            //metroComboBox3 = metroComboBox3.ToString();
+            //txtBuscarItem = txtBuscarItem.ToString();          
+
         }
 
         int MenuWidthMax;
@@ -76,6 +96,7 @@ namespace PresentationLayer
             label3.Visible = false;
             panel10.BackgroundImage = PresentationLayer.Properties.Resources.FondoAutoM2;
 
+            
             Functions.ConfigurarMaterialSkinManagerInicio();
             FrmLogin Login = new FrmLogin();
             Login.ShowDialog();
@@ -208,7 +229,8 @@ namespace PresentationLayer
             {
                 case "VENTAS":
                     Opt1Open = true;
-                    AbrirSubMenu(1);
+                    //AbrirSubMenu(1);
+                    AbrirSubMenuVentas(1);
                     MenuAccesoVentas();
                     break;
                 case "ADMIN":
@@ -249,8 +271,25 @@ namespace PresentationLayer
             panel6.Visible = false;
             panel7.Visible = false;
             panel3.Visible = false;
-            button6.Location = new Point(11, 115);
+            button6.Location = new Point(11, 115);           
             panel11.Location = new Point(0, 115);
+            btnGlosario.Top = button6.Top + Level1Separation;
+            panel17.Top = btnGlosario.Top;
+            btnGerencia.Enabled = false;
+            
+
+            //agregar el módulo de venta acá y agregar 
+            //MOSTRAR LISTA COSTOS
+
+
+            //metroComboBox1.Visible = false;
+            //label42.Visible = false;
+            //metroComboBox2.Visible = true;
+            //label3.Visible = false;
+            //txtBuscarItem.Visible = false;
+            //label4.Visible = false;
+            //metroComboBox3.Visible = false;
+
 
         }
 
@@ -259,14 +298,17 @@ namespace PresentationLayer
             button1.Visible = true;
             button2.Visible = true;
             button3.Visible = true;
-            button5.Visible = true;
+            button5.Visible = true;            
             panel5.Visible = true;
             panel6.Visible = true;
             panel7.Visible = true;
             panel3.Visible = true;
             button6.Location = new Point(12, 331);
+            //btnGlosario.Location = new Point(20, 215); //PRUEBA BOTON GLOSARIO
             panel11.Location = new Point(2, 331);
-
+            //pnlReportes.Visible = true;
+            //pnlReportes.Visible = false;
+            button6.Visible = true;
         }
 
         public void AbrirFormulario(Form oForm, int X, int Y, bool Modal = false)
@@ -293,28 +335,99 @@ namespace PresentationLayer
                 oForm.Show();
             }
         }
+        private void AbrirSubMenuVentas(int caso)
+        {
+            switch(caso)
+            {
+                case 1:
+                    if(!Opt1Open)
+                    {
+                        button6.Location = new Point(11, 115);
+                        panel11.Location = new Point(0, 115);
+
+                        pnlReportes.Top = button6.Top + Level1Separation;
+                        btnGlosario.Top = pnlReportes.Top + pnlReportes.Height;
+                        panel17.Top = btnGlosario.Top;
+
+                        pnlReportes.Visible = true;
+                        Opt1Open = true;
+                    }
+                    else
+                    {
+                        pnlReportes.Visible = false;
+                        btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMÁTICA
+                        panel17.Top = btnGlosario.Top;
+
+
+                        Opt1Open = false;
+
+                    }
+                    break;
+            }
+        }
 
         private void AbrirSubMenu(int iNivel)
         {
+
             switch (iNivel)
             {
                 case 1:
                     if (!Opt1Open)
                     {
-                        tmrMostrarMenu.Enabled = true;
-                        panel4.Location = new Point(30, 157);
-                        button2.Top = panel4.Top + panel4.Height;
-                        panel6.Top = button2.Top;
-                        button3.Top = button2.Top + Level1Separation;
-                        panel7.Top = button3.Top;
-                        button5.Top = button3.Top + Level1Separation;
-                        panel3.Top = button5.Top;
-                        button6.Top = button5.Top + Level1Separation;
-                        panel11.Top = button6.Top;
-                        panel4.Visible = true;
-                        Opt1Open = true;
+                        if (iNivel == 2)//Si está abierto reportes que haga esto -- Nunca deberia entrar aca si lo llamas desde el menu GESTION ya que iNivel sera siempre 1 cuando se ejecuta desde esta opcion..sip pasa al else que esta debajo de 
+                        {
+                            
+                            panel4.Visible = true;
+                            tmrMostrarMenu.Enabled = false;
+                            panel4.Location = new Point(30, 157);
+                            button2.Top = panel4.Top + panel4.Height;
+                            panel6.Top = button2.Top;
+                            button3.Top = button2.Top + Level1Separation;
+                            panel7.Top = button3.Top;
+                            button5.Top = button3.Top + Level1Separation;
+                            panel3.Top = button5.Top;
+                            button6.Top = button5.Top + Level1Separation;
+                            panel11.Top = button6.Top;
+                            pnlReportes.Visible = false;
+                            
+                            btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMÁTICA
+                            
+                           
+                            pnlReportes.Visible = false;
+                            panel17.Top = btnGlosario.Top;
+
+                            Opt1Open = true;
+                        }
+                        else
+                        {
+                            
+                            panel4.Visible = true;
+                            panel4.Location = new Point(30, 157);
+                            tmrMostrarMenu.Enabled = true;
+                            
+
+                            button2.Top = panel4.Top + panel4.Height;
+                            //button2.Top = panel4.Top + Level1Separation;
+                            panel6.Top = button2.Top;
+                            button3.Top = button2.Top + Level1Separation;
+                            panel7.Top = button3.Top;
+                            button5.Top = button3.Top + Level1Separation;
+                            panel3.Top = button5.Top;
+                            button6.Top = button5.Top + Level1Separation;
+                            panel11.Top = button6.Top;
+                            pnlReportes.Visible = false;
+                            btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMÁTICA
+                            
+                            panel17.Top = btnGlosario.Top;
+                            
+
+                            Opt1Open = true;
+
+                        }
                     }
-                    else
+
+
+                    else// CUANDO REPORTES NO ESTÁ ABIERTO GESTION REALIZA ESTA ACCION QUE OCULTARÁ REPORTES
                     {
                         panel4.Visible = false;
                         button2.Top = button1.Top + Level1Separation;
@@ -325,12 +438,66 @@ namespace PresentationLayer
                         panel3.Top = button5.Top;
                         button6.Top = button5.Top + Level1Separation;
                         panel11.Top = button6.Top;
+                        btnGlosario.Top = button6.Top + Level1Separation;//SEPARACION AUTOMÁTICA
+                        panel17.Top = btnGlosario.Top;
+
+                        Opt1Open = false;
+                        pnlReportes.Visible = false;
+
+                    }
+                    break;
+
+
+
+
+                case 2:
+                    if (!Opt1Open)
+                    {
+
+                        tmrMostrarMenu.Enabled = true;
+                        //panel4.Location = new Point(30, 157);
+                        button2.Top = button1.Top + Level1Separation;
+                        panel6.Top = button2.Top;
+                        button3.Top = button2.Top + Level1Separation;
+                        panel7.Top = button3.Top;
+                        button5.Top = button3.Top + Level1Separation;
+                        panel3.Top = button5.Top;
+                        button6.Top = button5.Top + Level1Separation;
+                        panel11.Top = button6.Top;
+
+                        pnlReportes.Top = button6.Top + Level1Separation;
+                        btnGlosario.Top = pnlReportes.Top + pnlReportes.Height;
+                        panel17.Top = btnGlosario.Top;
+
+                        pnlReportes.Visible = true;
+                        Opt1Open = true;
+                    }
+                    else
+                    {
+                        panel4.Visible = false;
+                        pnlReportes.Visible = false;
+                        button2.Top = button1.Top + Level1Separation;
+                        panel6.Top = button2.Top;
+                        button3.Top = button2.Top + Level1Separation;
+                        panel7.Top = button3.Top;
+                        button5.Top = button3.Top + Level1Separation;
+                        panel3.Top = button5.Top;
+                        button6.Top = button5.Top + Level1Separation;
+                        panel11.Top = button6.Top;
+
+                        btnGlosario.Top = button6.Top + Level1Separation; //SEPARACION AUTOMÁTICA
+                        panel17.Top = btnGlosario.Top;
+                        // pnlReportes.Visible = false;
+
+
                         Opt1Open = false;
                     }
                     break;
-            }
 
-        }
+            }
+           
+
+        } 
 
         private void PopUp_MouseEnter(object sender, EventArgs e)
         {
@@ -434,8 +601,21 @@ namespace PresentationLayer
 
         private void button6_Click_1(object sender, EventArgs e)
         {
-            FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
-            AbrirFormulario(FrmReportes, 0, 0);
+            //if (TipoAcceso != "LECTURA")
+            //    AbrirSubMenu(2);
+            if (TipoAcceso == "ADMIN")
+                AbrirSubMenu(2);
+            if (TipoAcceso == "VENTAS")
+                AbrirSubMenuVentas(1);
+            if (TipoAcceso == "LECTURA")
+            {
+                AbrirSubMenu(2);
+                btnGerencia.Enabled = false;
+            }
+            
+            //FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
+            //FrmReportes.TipoAcceso = TipoAcceso;
+            //AbrirFormulario(FrmReportes, 0, 0);
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -446,7 +626,33 @@ namespace PresentationLayer
 
         private void btnGlosario_Click(object sender, EventArgs e)
         {
+            FrmGlosario FrmGlo = new FrmGlosario(this);
+            AbrirFormulario(FrmGlo, 0, 0);
+        }
 
+        private void button14_Click(object sender, EventArgs e)
+        {
+            FrmGlosarioGest FrmGlo = new FrmGlosarioGest(this);
+            AbrirFormulario(FrmGlo, 0, 0);
+        }
+
+        private void panel10_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            FrmReportesGrid FrmReportes = new FrmReportesGrid(this);
+            FrmReportes.TipoAcceso = TipoAcceso;
+            AbrirFormulario(FrmReportes, 0, 0);
+        }
+
+        private void btnGerencia_Click(object sender, EventArgs e)
+        {
+            FrmReportesGere FrmReportesG = new FrmReportesGere(this);
+            FrmReportesG.TipoAcceso = TipoAcceso;
+            AbrirFormulario(FrmReportesG, 0, 0);
         }
     }
 }

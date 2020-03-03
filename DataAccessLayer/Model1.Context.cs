@@ -27,7 +27,6 @@ namespace Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Familia> Familia { get; set; }
         public virtual DbSet<Propiedades> Propiedades { get; set; }
         public virtual DbSet<TipoItem> TipoItem { get; set; }
         public virtual DbSet<ReglasFamilia> ReglasFamilia { get; set; }
@@ -36,6 +35,8 @@ namespace Entities
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Costos> Costos { get; set; }
         public virtual DbSet<ItemDetalle> ItemDetalle { get; set; }
+        public virtual DbSet<Glosario> Glosario { get; set; }
+        public virtual DbSet<Familia> Familia { get; set; }
         public virtual DbSet<Item> Item { get; set; }
     
         public virtual ObjectResult<SP_GetItemCostoID_Result> SP_GetItemCostoID(Nullable<int> id_Item)
@@ -141,6 +142,24 @@ namespace Entities
                 new ObjectParameter("id_Item", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemDetalleID_Result>("SP_GetItemDetalleID", id_ItemParameter);
+        }
+    
+        public virtual ObjectResult<SP_ListadoItemProductosParte_Result> SP_ListadoItemProductosParte(string tipoItem)
+        {
+            var tipoItemParameter = tipoItem != null ?
+                new ObjectParameter("TipoItem", tipoItem) :
+                new ObjectParameter("TipoItem", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_ListadoItemProductosParte_Result>("SP_ListadoItemProductosParte", tipoItemParameter);
+        }
+    
+        public virtual ObjectResult<SP_GetItemsTipo_Result> SP_GetItemsTipo(string sItemTipo)
+        {
+            var sItemTipoParameter = sItemTipo != null ?
+                new ObjectParameter("sItemTipo", sItemTipo) :
+                new ObjectParameter("sItemTipo", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SP_GetItemsTipo_Result>("SP_GetItemsTipo", sItemTipoParameter);
         }
     }
 }

@@ -514,7 +514,7 @@ namespace PresentationLayer.Forms
 
         private void CargarGridsCostos()
         {
-            DataTable dtItemCostos = ItemCostoBL.GetItemCostosId(ItemEntidad.Id);
+            DataTable dtItemCostos = ItemCostoBL.GetItemCostoId(ItemEntidad.Id);
             //Costos RRHH
             DataTable dtCostosRRHH = dtItemCostos.AsEnumerable()
                             .Where(r => r.Field<string>("Categoria") == "HH")
@@ -536,17 +536,18 @@ namespace PresentationLayer.Forms
 
         private void CargarGridListadoItem()
         {
+            dgvListaItems.SuspendLayout();
             //Listado de Items
             dgvListaItems.DataSource = ItemsBL.GetItemsTipo("P").Select(c =>
                                                                 {
                                                                     c.TipoItem = c.TipoPieza == "K" ? c.TipoItem : c.TipoItem + c.TipoPieza ?? "";
                                                                     return c;
                                                                 }).ToList();
-            //dgvListaItems.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            //dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28 };
+            dgvListaItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dgvListaItems.Columns["NumFamilia"].DisplayIndex = 0;
+
+            List<int> visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 17, 18, 28,29 };
             if (materialCheckBox3.Checked) visibleColumns = new List<int> { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 13, 14, 15, 17, 18 ,28};
             foreach (DataGridViewColumn col in dgvListaItems.Columns)
             {
@@ -556,12 +557,14 @@ namespace PresentationLayer.Forms
                     col.Visible = true;
                 col.ReadOnly = true;
             }
+            dgvListaItems.Columns[29].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
             dgvListaItems.AjustColumnsWidthForGridWidth();
 
             ((DataGridViewImageColumn)dgvListaItems.Columns[18]).ImageLayout = DataGridViewImageCellLayout.Zoom;
             dgvListaItems.Columns[13].HeaderText = "CostoEXT";
             dgvListaItems.Columns[17].HeaderText = "Costo Total Sin Factor";
             dgvListaItems.Columns[28].HeaderText = "Costo Total Con Factor";
+            dgvListaItems.Columns[29].HeaderText = "N° Familia";
 
             dgvListaItems.Columns[18].DisplayIndex = 28;
             dgvListaItems.Columns[28].DisplayIndex = 18;
@@ -592,6 +595,8 @@ namespace PresentationLayer.Forms
             dgvListaItems.AllowUserToResizeColumns = true;
             dgvListaItems.Columns[28].Width = dgvListaItems.Columns[17].Width;
 
+            dgvListaItems.ResumeLayout();
+
         }
 
         private void FormatearGridsCostos()
@@ -600,6 +605,8 @@ namespace PresentationLayer.Forms
 
             foreach (MetroFramework.Controls.MetroGrid dgvActual in ArrDgv)
             {
+                dgvActual.SuspendLayout();
+
                 dgvActual.Columns[0].Visible = false;
                 dgvActual.Columns[1].Visible = false;
                 dgvActual.Columns[2].Visible = false;
@@ -619,6 +626,8 @@ namespace PresentationLayer.Forms
                 dgvActual.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
                 dgvActual.Columns[6].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 dgvActual.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+                dgvActual.ResumeLayout();
 
             }
 
@@ -667,6 +676,7 @@ namespace PresentationLayer.Forms
             txtDiametro.DataBindings.Clear();
             txtVolumen.DataBindings.Clear();
             txtPeso.DataBindings.Clear();
+            txtCostoUSD.DataBindings.Clear();
             txtTotCosCom.DataBindings.Clear();
             txtTotCosPro.DataBindings.Clear();
             txtTotCosRRHH.DataBindings.Clear();
@@ -681,6 +691,7 @@ namespace PresentationLayer.Forms
             txtDiametro.DataBindings.Add("Text", ItemEntidad, "Diametro", true, DataSourceUpdateMode.OnPropertyChanged);
             txtVolumen.DataBindings.Add("Text", ItemEntidad, "Volumen", true, DataSourceUpdateMode.OnPropertyChanged);
             txtPeso.DataBindings.Add("Text", ItemEntidad, "Peso", true, DataSourceUpdateMode.OnPropertyChanged);
+            txtCostoUSD.DataBindings.Add("Text", ItemEntidad, "CostoUSD", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosCom.DataBindings.Add("Text", ItemEntidad, "CostoCM", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosPro.DataBindings.Add("Text", ItemEntidad, "CostoPR", true, DataSourceUpdateMode.OnPropertyChanged);
             txtTotCosRRHH.DataBindings.Add("Text", ItemEntidad, "CostoRH", true, DataSourceUpdateMode.OnPropertyChanged);
@@ -727,14 +738,14 @@ namespace PresentationLayer.Forms
 
         }
 
-        private void CargarEntidadItem()
+        private void CargarEntidadItem(string TipoP = "P", String TipoI = "P")
         {
             ItemEntidad.Codigo = txtCodigo.Text.Trim();
             ItemEntidad.Descripcion = txtDescrpcion.Text;
             ItemEntidad.Nombre = txtNombre.Text;
-            ItemEntidad.TipoPieza = metroComboBox3.SelectedIndex == 0 ? "I" : "E";
+            ItemEntidad.TipoPieza = (TipoP == "P" ? (metroComboBox3.SelectedIndex == 0 ? "I" : "E" ) : "" );
             ItemEntidad.Familia = metroComboBox2.SelectedItem == null ? 0 : Convert.ToInt32(((DataRowView)metroComboBox2.SelectedItem)[0].ToString());
-            ItemEntidad.TipoItem = "P";
+            ItemEntidad.TipoItem = TipoI;
             ItemEntidad.Espesor = Convert.ToDecimal(txtEspesor.Text);
             ItemEntidad.Ancho = Convert.ToDecimal(txtAncho.Text);
             ItemEntidad.Largo = Convert.ToDecimal(txtLargo.Text);
@@ -742,6 +753,7 @@ namespace PresentationLayer.Forms
             ItemEntidad.Volumen = Convert.ToDecimal(txtVolumen.Text);
             ItemEntidad.Peso = Convert.ToDecimal(txtPeso.Text);
             ItemEntidad.CostoCM = Convert.ToDecimal(txtTotCosCom.Text);
+            ItemEntidad.CostoUSD = Convert.ToDecimal(txtCostoUSD.Text);
             ItemEntidad.CostoPR = Convert.ToDecimal(txtCostoProc.Text);
             ItemEntidad.CostoAC = Convert.ToDecimal(txtCostoAcero.Text);
             ItemEntidad.CostoRH = Convert.ToDecimal(txtTotCosRRHH.Text);
@@ -786,7 +798,7 @@ namespace PresentationLayer.Forms
         {
             bool Valido = true;
 
-            if (errorCodigo.HasErrors() || errorDescr.HasErrors())
+            if (errorCodigo.HasErrors() || errorDescr.HasErrors() || errorFamilia.HasErrors())
                 Valido = false;
             else if (txtCodigo.Text == string.Empty)
             {
@@ -798,7 +810,11 @@ namespace PresentationLayer.Forms
                 errorDescr.SetErrorWithCount(txtDescrpcion, "Ingrese una Descripción");
                 Valido = false;
             }
-
+            else if (metroComboBox2.Text == string.Empty)
+            {
+                errorFamilia.SetErrorWithCount(metroComboBox2, "Ingrese una Familia");
+                Valido = false;
+            }
             return Valido;
         }
         #endregion
@@ -1053,9 +1069,19 @@ namespace PresentationLayer.Forms
 
         private void duplicarRegistroToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CodigoInicial = "";
-            panel3.Visible = false;
-            labelNoMouse1.Text = "Agregar";
+            if(CodigoInicial != null)
+            {
+                CodigoInicial = "";
+                panel3.Visible = false;
+                labelNoMouse1.Text = "Agregar";
+                MessageBox.Show("No olvide modificar código de Parte duplicada");
+            }
+            else
+            {
+               
+
+            }
+            
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -1360,7 +1386,7 @@ namespace PresentationLayer.Forms
                             CargarEntidadItem();
                             ItemEntidadInicial.CostoCM = ItemEntidad.CostoCM;
                             ItemEntidadInicial.FechaModificacion = ItemEntidad.FechaModificacion;
-                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial))
+                            if (!Functions.Compare<Item>(ItemEntidad, ItemEntidadInicial) && (labelNoMouse1.Text.Trim() != "Agregar")) // SOLO VALIDA EN MODO UPDATE
                             {
                                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
@@ -1381,7 +1407,85 @@ namespace PresentationLayer.Forms
             catch (Exception) { }
         }
 
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
+            if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un nuevo Producto. (Se creara un Producto nuevo con el mismo codigo)",
+                                           "Covertir parte a Producto",
+                                           MessageBoxButtons.OKCancel,
+                                           MessageBoxIcon.Question,
+                                           370) == DialogResult.OK)
+            {
+
+                if (CodigoInicial != txtCodigo.Text.Trim() && txtCodigo.Text.Trim().Length > 0)
+                    VerificarCodigoItem();
+
+                if (ValidarCampos())
+                {
+                    CargarEntidadItem("","T");
+
+                    ItemsBL.InsertItem(ItemEntidad);
+                    CargarEntidadCosto(ItemEntidad);
+                    ItemCostoBL.InsertItemCostos(ListCostoEntidad);
+                    panel3.Visible = true;
+                    MostrarMensajeRegistro("Producto '" + ItemEntidad.Codigo.Trim() + "' Registrado", Color.FromArgb(129, 152, 48));
+
+                }
+            }
+        
+
+
+
+
+        //FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+        //if (MetroFramework.MetroMessageBox.Show(frmParentForm, "Confirmar Convertir parte '" + ItemEntidad.Codigo + "', En un Producto.",
+        //                               "Covertir parte a Producto",
+        //                               MessageBoxButtons.OKCancel,
+        //                               MessageBoxIcon.Question,
+        //                               370) == DialogResult.OK)
+        //{
+
+        //    CargarEntidadItem();
+        //    ItemEntidad.TipoItem = "P";
+
+        //    ItemsBL.UpdateItem(ItemEntidad);
+        //    ItemsBL.UpdateItemCostoTotalRelacionados(ItemEntidad.Id);
+        //    CargarEntidadItemDetalle(ItemEntidad);
+        //    List<ItemDetalle> DetalleUpdate = ListItemDetalleEntidad.Where(r => r.Id != 0).ToList();
+        //    List<ItemDetalle> DetallesInsert = ListItemDetalleEntidad.Where(r => r.Id == 0).ToList();
+        //    ItemDetalleBL.InsertItemDetalle(DetallesInsert);
+        //    ItemDetalleBL.UpdateItemDetalle(DetalleUpdate);
+        //    ItemDetalleBL.DeleteItemDetalle(ListItemDetalleDelete);
+        //    CargarEntidadCosto(ItemEntidad);
+        //    List<ItemCosto> CostosUpdate = ListCostoEntidad.Where(r => r.Id != 0).ToList();
+        //    List<ItemCosto> CostosInsert = ListCostoEntidad.Where(r => r.Id == 0).ToList();
+        //    ItemCostoBL.InsertItemCostos(CostosInsert);
+        //    ItemCostoBL.UpdateItemCostos(CostosUpdate);
+        //    MostrarMensajeRegistro("El Kit '" + ItemEntidad.Codigo.Trim() + "' Fue Convertido a Producto", Color.FromArgb(0, 174, 219));
+        //    ItemEntidadInicial = Functions.DeepCopy<Item>(ItemEntidad);
+
+        //    CargarGridsCostos();
+        //    FormatearGridsCostos();
+        //    CargarGridsDetalleItem(ItemEntidad.Id);
+        //    CargarGridListadoItem();
+
+        //    materialFlatButton2.PerformClick();
+        //}
+    }
+
+        private void metroComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(metroComboBox2, "");
+        }
+
+        private void metroComboBox2_TextChanged(object sender, EventArgs e)
+        {
+            if (metroComboBox2.Text.Trim().Length > 0 && errorFamilia.HasErrors())
+                errorFamilia.SetErrorWithCount(txtCodigo, "");
+        }
     }
 
 }

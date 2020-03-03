@@ -35,7 +35,7 @@ namespace PresentationLayer
 
         public static T DeepCopy<T>(T obj)
         {
-            if (!typeof(T).IsSerializable)
+            if (!typeof(T).IsSerializable)//RECORDATORIO: CUANDO HAY ERROR AQUI HAY QUE AGREGAR la propiedad [Serializable] EN ITEM, ITEM DETALLE, ITEMCOSTO 
             {
                 throw new Exception("The source object must be serializable");
             }

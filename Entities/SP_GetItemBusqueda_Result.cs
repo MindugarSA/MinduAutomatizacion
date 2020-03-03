@@ -7,22 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_GetItemBusqueda_Result
 {
-    using System;
-    
-    public partial class SP_GetItemBusqueda_Result
-    {
-        public int Id { get; set; }
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public string Nombre { get; set; }
-        public string TipoPieza { get; set; }
-        public Nullable<decimal> Espesor { get; set; }
-        public Nullable<decimal> Ancho { get; set; }
-        public Nullable<decimal> Largo { get; set; }
-        public Nullable<decimal> Diametro { get; set; }
-        public int OI { get; set; }
-        public byte[] Imagen { get; set; }
-    }
+    public int Id { get; set; }
+    public string Codigo { get; set; }
+    public string Descripcion { get; set; }
+    public string Nombre { get; set; }
+    public string TipoPieza { get; set; }
+    public Nullable<decimal> Espesor { get; set; }
+    public Nullable<decimal> Ancho { get; set; }
+    public Nullable<decimal> Largo { get; set; }
+    public Nullable<decimal> Diametro { get; set; }
+    public int OI { get; set; }
+    public byte[] Imagen { get; set; }
 }

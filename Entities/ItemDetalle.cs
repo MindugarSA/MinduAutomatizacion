@@ -7,22 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+[Serializable]
+public partial class ItemDetalle
 {
-    using System;
-    using System.Collections.Generic;
-    [Serializable]
-
-    public partial class ItemDetalle
-    {
-        public int Id { get; set; }
-        public Nullable<int> IdItem { get; set; }
-        public Nullable<int> IdDetalle { get; set; }
-        public Nullable<int> Linea { get; set; }
-        public Nullable<decimal> Cantidad { get; set; }
-        public Nullable<decimal> CostoUnitario { get; set; }
-        public Nullable<decimal> Total { get; set; }
-        public Nullable<decimal> CostoUnitFactor { get; set; }
-        public Nullable<decimal> TotalFactor { get; set; }
-    }
+    public int Id { get; set; }
+    public Nullable<int> IdItem { get; set; }
+    public Nullable<int> IdDetalle { get; set; }
+    public Nullable<int> Linea { get; set; }
+    public Nullable<decimal> Cantidad { get; set; }
+    public Nullable<decimal> CostoUnitario { get; set; }
+    public Nullable<decimal> Total { get; set; }
+    public Nullable<decimal> CostoUnitFactor { get; set; }
+    public Nullable<decimal> TotalFactor { get; set; }
 }

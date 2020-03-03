@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 using Entities;
 using DataAccessLayer;
+using System.Data;
+
 
 namespace BusinessLayer
 {
-    public class FamiliaBL
+    public class FamiliaBL 
     {
         public static List<Familia> GetFamilias()
         {
@@ -34,5 +36,10 @@ namespace BusinessLayer
                 obj.UpdateFamilia(Fami);
             }
         }
+
+        //public static DataTable VerificarNumFamilia(string NumFamilia)
+        //{
+        //    return FamiliaDALC.Instance().VerificarNumFamilia(NumFamilia);
+        //}
     }
 }

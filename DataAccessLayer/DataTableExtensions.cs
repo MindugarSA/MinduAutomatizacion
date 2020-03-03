@@ -40,10 +40,15 @@ namespace DataAccessLayer
         private static T CreateItemFromRow<T>(DataRow row, IList<PropertyInfo> properties) where T : new()
         {
             T item = new T();
-            foreach (var property in properties)
+            try
             {
-                property.SetValue(item, row[property.Name], null);
+                foreach (var property in properties)
+                {
+                   if (row[property.Name] != DBNull.Value) property.SetValue(item, row[property.Name], null);
+                }
             }
+            catch (Exception){}
+            
             return item;
         }
 

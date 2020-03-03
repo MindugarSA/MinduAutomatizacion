@@ -38,9 +38,14 @@
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.bunifuTransition1 = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNumFam = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblNumFam = new System.Windows.Forms.Label();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.dataGridView1 = new MetroFramework.Controls.MetroGrid();
             this.RowType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RowStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtResponsable = new System.Windows.Forms.TextBox();
             this.materialCheckBox1 = new MaterialSkin.Controls.MaterialCheckBox();
             this.metroComboBox2 = new MetroFramework.Controls.MetroComboBox();
@@ -55,21 +60,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelNoMouse1 = new PresentationLayer.Controls.LabelNoMouse();
             this.btnAgregar = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnNuevo = new MaterialSkin.Controls.MaterialFlatButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
             this.formHeader2 = new PresentationLayer.FormHeader();
+            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
             this.dragControl1 = new PresentationLayer.DragControl();
             this.dragControl2 = new PresentationLayer.DragControl();
-            this.errorIcono = new System.Windows.Forms.ErrorProvider(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnNuevo = new MaterialSkin.Controls.MaterialFlatButton();
-            this.labelNoMouse2 = new PresentationLayer.Controls.LabelNoMouse();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).BeginInit();
             this.SuspendLayout();
             // 
             // bunifuDragControl1
@@ -102,6 +106,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNumFam);
+            this.groupBox1.Controls.Add(this.lblNumFam);
+            this.groupBox1.Controls.Add(this.metroComboBox1);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.dataGridView1);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.txtResponsable);
@@ -115,9 +123,80 @@
             this.bunifuTransition1.SetDecoration(this.groupBox1, BunifuAnimatorNS.DecorationType.None);
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(650, 490);
+            this.groupBox1.Size = new System.Drawing.Size(650, 531);
             this.groupBox1.TabIndex = 43;
             this.groupBox1.TabStop = false;
+            // 
+            // txtNumFam
+            // 
+            this.txtNumFam.AcceptsReturn = false;
+            this.txtNumFam.AcceptsTab = false;
+            this.txtNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNumFam.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtNumFam.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtNumFam.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.txtNumFam.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.bunifuTransition1.SetDecoration(this.txtNumFam, BunifuAnimatorNS.DecorationType.None);
+            this.txtNumFam.Depth = 0;
+            this.txtNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumFam.Hint = "";
+            this.txtNumFam.Location = new System.Drawing.Point(345, 492);
+            this.txtNumFam.MaxLength = 32767;
+            this.txtNumFam.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtNumFam.Multiline = false;
+            this.txtNumFam.Name = "txtNumFam";
+            this.txtNumFam.PasswordChar = '\0';
+            this.txtNumFam.ReadOnly = false;
+            this.txtNumFam.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtNumFam.SelectedText = "";
+            this.txtNumFam.SelectionLength = 0;
+            this.txtNumFam.SelectionStart = 0;
+            this.txtNumFam.Size = new System.Drawing.Size(54, 23);
+            this.txtNumFam.TabIndex = 49;
+            this.txtNumFam.TabStop = false;
+            this.txtNumFam.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtNumFam.UseSystemPasswordChar = false;
+            this.txtNumFam.WordWrap = true;
+            // 
+            // lblNumFam
+            // 
+            this.lblNumFam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblNumFam.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.lblNumFam, BunifuAnimatorNS.DecorationType.None);
+            this.lblNumFam.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumFam.Location = new System.Drawing.Point(276, 497);
+            this.lblNumFam.Name = "lblNumFam";
+            this.lblNumFam.Size = new System.Drawing.Size(63, 17);
+            this.lblNumFam.TabIndex = 48;
+            this.lblNumFam.Text = "N° Familia";
+            // 
+            // metroComboBox1
+            // 
+            this.bunifuTransition1.SetDecoration(this.metroComboBox1, BunifuAnimatorNS.DecorationType.None);
+            this.metroComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "SIMPLE",
+            "MODERADO",
+            "COMPLEJO"});
+            this.metroComboBox1.Location = new System.Drawing.Point(95, 492);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(156, 29);
+            this.metroComboBox1.TabIndex = 47;
+            this.metroComboBox1.UseSelectable = true;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label4.AutoSize = true;
+            this.bunifuTransition1.SetDecoration(this.label4, BunifuAnimatorNS.DecorationType.None);
+            this.label4.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(10, 497);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 17);
+            this.label4.TabIndex = 46;
+            this.label4.Text = "Clasificación";
             // 
             // dataGridView1
             // 
@@ -188,6 +267,21 @@
             this.RowStatus.Name = "RowStatus";
             this.RowStatus.ReadOnly = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bunifuTransition1.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox1.Location = new System.Drawing.Point(511, 402);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.TabIndex = 42;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
+            // 
             // txtResponsable
             // 
             this.txtResponsable.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -196,7 +290,7 @@
             this.bunifuTransition1.SetDecoration(this.txtResponsable, BunifuAnimatorNS.DecorationType.None);
             this.txtResponsable.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtResponsable.ForeColor = System.Drawing.Color.White;
-            this.txtResponsable.Location = new System.Drawing.Point(13, 363);
+            this.txtResponsable.Location = new System.Drawing.Point(13, 351);
             this.txtResponsable.Margin = new System.Windows.Forms.Padding(0);
             this.txtResponsable.Name = "txtResponsable";
             this.txtResponsable.ReadOnly = true;
@@ -210,7 +304,7 @@
             this.materialCheckBox1.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.materialCheckBox1, BunifuAnimatorNS.DecorationType.None);
             this.materialCheckBox1.Depth = 0;
-            this.materialCheckBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.materialCheckBox1.Font = new System.Drawing.Font("Roboto", 10F);
             this.materialCheckBox1.Location = new System.Drawing.Point(607, 399);
             this.materialCheckBox1.Margin = new System.Windows.Forms.Padding(0);
             this.materialCheckBox1.MouseLocation = new System.Drawing.Point(-1, -1);
@@ -240,7 +334,7 @@
             this.label2.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
             this.label2.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(30, 440);
+            this.label2.Location = new System.Drawing.Point(10, 449);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 33;
@@ -252,7 +346,7 @@
             this.label1.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
             this.label1.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 405);
+            this.label1.Location = new System.Drawing.Point(10, 404);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 17);
             this.label1.TabIndex = 31;
@@ -271,7 +365,7 @@
             this.txtDescrpcion.Depth = 0;
             this.txtDescrpcion.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescrpcion.Hint = "";
-            this.txtDescrpcion.Location = new System.Drawing.Point(107, 438);
+            this.txtDescrpcion.Location = new System.Drawing.Point(95, 449);
             this.txtDescrpcion.MaxLength = 32767;
             this.txtDescrpcion.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtDescrpcion.Multiline = false;
@@ -302,7 +396,7 @@
             this.txtCodigo.Depth = 0;
             this.txtCodigo.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Hint = "";
-            this.txtCodigo.Location = new System.Drawing.Point(112, 403);
+            this.txtCodigo.Location = new System.Drawing.Point(108, 402);
             this.txtCodigo.MaxLength = 32767;
             this.txtCodigo.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCodigo.Multiline = false;
@@ -326,7 +420,7 @@
             this.label3.AutoSize = true;
             this.bunifuTransition1.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
             this.label3.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(568, 406);
+            this.label3.Location = new System.Drawing.Point(562, 404);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 17);
             this.label3.TabIndex = 37;
@@ -339,7 +433,7 @@
             this.panel4.Controls.Add(this.labelNoMouse3);
             this.panel4.Controls.Add(this.btnCerrar);
             this.bunifuTransition1.SetDecoration(this.panel4, BunifuAnimatorNS.DecorationType.None);
-            this.panel4.Location = new System.Drawing.Point(557, 541);
+            this.panel4.Location = new System.Drawing.Point(557, 581);
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(111, 34);
@@ -385,7 +479,7 @@
             this.panel2.Controls.Add(this.labelNoMouse1);
             this.panel2.Controls.Add(this.btnAgregar);
             this.bunifuTransition1.SetDecoration(this.panel2, BunifuAnimatorNS.DecorationType.None);
-            this.panel2.Location = new System.Drawing.Point(17, 541);
+            this.panel2.Location = new System.Drawing.Point(25, 580);
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(111, 34);
@@ -425,47 +519,6 @@
             this.btnAgregar.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.btnAgregar.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
-            // formHeader2
-            // 
-            this.formHeader2.BackColor = System.Drawing.Color.Transparent;
-            this.formHeader2.ControlBoxBackColor = System.Drawing.Color.Transparent;
-            this.bunifuTransition1.SetDecoration(this.formHeader2, BunifuAnimatorNS.DecorationType.None);
-            this.formHeader2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.formHeader2.HeaderBackColor = System.Drawing.Color.Transparent;
-            this.formHeader2.HeaderText = "Familia";
-            this.formHeader2.Location = new System.Drawing.Point(0, 0);
-            this.formHeader2.Name = "formHeader2";
-            this.formHeader2.ParentContainer = null;
-            this.formHeader2.Size = new System.Drawing.Size(685, 47);
-            this.formHeader2.TabIndex = 9;
-            // 
-            // dragControl1
-            // 
-            this.dragControl1.SelectControl = this.formHeader2;
-            // 
-            // dragControl2
-            // 
-            this.dragControl2.SelectControl = this;
-            // 
-            // errorIcono
-            // 
-            this.errorIcono.ContainerControl = this;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = global::PresentationLayer.Properties.Resources.plus_sign_in_a_black_circle;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuTransition1.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
-            this.pictureBox1.Location = new System.Drawing.Point(511, 402);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
-            this.pictureBox1.TabIndex = 42;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.pictureBox1.MouseEnter += new System.EventHandler(this.PopUp_MouseEnter);
-            this.pictureBox1.MouseLeave += new System.EventHandler(this.PopUp_MouseLeave);
-            // 
             // btnNuevo
             // 
             this.btnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -489,6 +542,18 @@
             this.btnNuevo.MouseEnter += new System.EventHandler(this.Button_MouseEnter);
             this.btnNuevo.MouseLeave += new System.EventHandler(this.Button_MouseLeave);
             // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
+            this.panel3.Controls.Add(this.labelNoMouse2);
+            this.panel3.Controls.Add(this.btnNuevo);
+            this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
+            this.panel3.Location = new System.Drawing.Point(146, 580);
+            this.panel3.Margin = new System.Windows.Forms.Padding(0);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(111, 34);
+            this.panel3.TabIndex = 39;
+            // 
             // labelNoMouse2
             // 
             this.labelNoMouse2.AutoSize = true;
@@ -501,24 +566,38 @@
             this.labelNoMouse2.TabIndex = 1;
             this.labelNoMouse2.Text = "Nuevo";
             // 
-            // panel3
+            // formHeader2
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(152)))), ((int)(((byte)(0)))));
-            this.panel3.Controls.Add(this.labelNoMouse2);
-            this.panel3.Controls.Add(this.btnNuevo);
-            this.bunifuTransition1.SetDecoration(this.panel3, BunifuAnimatorNS.DecorationType.None);
-            this.panel3.Location = new System.Drawing.Point(138, 541);
-            this.panel3.Margin = new System.Windows.Forms.Padding(0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(111, 34);
-            this.panel3.TabIndex = 39;
+            this.formHeader2.BackColor = System.Drawing.Color.Transparent;
+            this.formHeader2.ControlBoxBackColor = System.Drawing.Color.Transparent;
+            this.bunifuTransition1.SetDecoration(this.formHeader2, BunifuAnimatorNS.DecorationType.None);
+            this.formHeader2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.formHeader2.HeaderBackColor = System.Drawing.Color.Transparent;
+            this.formHeader2.HeaderText = "Familia";
+            this.formHeader2.Location = new System.Drawing.Point(0, 0);
+            this.formHeader2.Name = "formHeader2";
+            this.formHeader2.ParentContainer = null;
+            this.formHeader2.Size = new System.Drawing.Size(685, 47);
+            this.formHeader2.TabIndex = 9;
+            // 
+            // errorIcono
+            // 
+            this.errorIcono.ContainerControl = this;
+            // 
+            // dragControl1
+            // 
+            this.dragControl1.SelectControl = this.formHeader2;
+            // 
+            // dragControl2
+            // 
+            this.dragControl2.SelectControl = this;
             // 
             // FrmFamilia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(685, 583);
+            this.ClientSize = new System.Drawing.Size(685, 623);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -527,6 +606,7 @@
             this.bunifuTransition1.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmFamilia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -536,14 +616,14 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIcono)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -577,5 +657,9 @@
         private System.Windows.Forms.Panel panel3;
         private Controls.LabelNoMouse labelNoMouse2;
         private MaterialSkin.Controls.MaterialFlatButton btnNuevo;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
+        private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtNumFam;
+        private System.Windows.Forms.Label lblNumFam;
     }
 }

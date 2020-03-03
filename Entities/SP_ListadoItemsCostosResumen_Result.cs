@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Entities
+using System;
+using System.Collections.Generic;
+
+public partial class SP_ListadoItemsCostosResumen_Result
 {
-    using System;
-    
-    public partial class SP_ListadoItemsCostosResumen_Result
-    {
-        public string Codigo { get; set; }
-        public string Descripcion { get; set; }
-        public string Nombre { get; set; }
-        public string Familia { get; set; }
-        public string Tipo { get; set; }
-        public string TipoPieza { get; set; }
-        public Nullable<decimal> Costo_Externo { get; set; }
-        public Nullable<decimal> Costo_Mano_Obra { get; set; }
-        public Nullable<decimal> Costo_Procesos { get; set; }
-        public Nullable<decimal> Costo_Acero { get; set; }
-        public Nullable<decimal> Costo_Directo { get; set; }
-        public Nullable<decimal> Directo___Factor { get; set; }
-        public string Estado { get; set; }
-        public decimal Factor { get; set; }
-    }
+    public string Codigo { get; set; }
+    public string Descripcion { get; set; }
+    public string Nombre { get; set; }
+    public string Familia { get; set; }
+    public string Tipo { get; set; }
+    public string TipoPieza { get; set; }
+    public Nullable<decimal> Costo_Externo { get; set; }
+    public Nullable<decimal> Costo_Mano_Obra { get; set; }
+    public Nullable<decimal> Costo_Procesos { get; set; }
+    public Nullable<decimal> Costo_Acero { get; set; }
+    public Nullable<decimal> Costo_Directo { get; set; }
+    public Nullable<decimal> Directo___Factor { get; set; }
+    public string Estado { get; set; }
+    public decimal Factor { get; set; }
 }

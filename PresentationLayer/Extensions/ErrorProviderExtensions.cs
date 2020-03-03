@@ -27,6 +27,7 @@ namespace PresentationLayer
         public static bool HasErrors(this ErrorProvider ep)
         {
             return count != 0;
+           
         }
 
         public static int GetErrorCount(this ErrorProvider ep)

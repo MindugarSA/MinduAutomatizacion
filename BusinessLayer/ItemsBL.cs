@@ -17,7 +17,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItems();
         }
-
+        //public static List<Item> GetItemsProductosParte() // productos parte
+        //{
+        //    ItemsDALC obj = new ItemsDALC();
+        //    return obj.GetItemsProductosParte();//modificar
+        //}
         public static List<Item> GetItemsTipo(string sTipo)
         {
             ItemsDALC obj = new ItemsDALC();
@@ -39,7 +43,11 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.GetItemsDespendencias(ItemId);
         }
-
+        public static DataTable GetKitDependencia(int? ItemId)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetKitDependencia(ItemId);
+        }
         public static DataTable ListadoItemsResumen()
         {
             ItemsDALC obj = new ItemsDALC();
@@ -69,11 +77,31 @@ namespace BusinessLayer
             ItemsDALC obj = new ItemsDALC();
             return obj.ListadoItemsTipoCostoFactorRES(TipoItem);
         }
+        public static DataTable GetItemsProductosParte(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsProductosParte(TipoItem);
+        }
+        public static DataTable GetItemsProductosParteGerencia(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsProductosParteGerencia(TipoItem);
+        }
 
         public static DataTable ListadoItemsAutorizacion()
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.ListadoItemsAutorizacion();
+        }
+        public static DataTable EstadoProductosTerminados(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsEstadoProductosTerminados(TipoItem);
+        }
+        public static DataTable EstadoProductosTerminadosGerencia(string TipoItem)
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.GetItemsEstadoProductosTerminadosGerencia(TipoItem);
         }
 
         public static Item InsertItem(Item ObjItem)
@@ -98,6 +126,11 @@ namespace BusinessLayer
         {
             ItemsDALC obj = new ItemsDALC();
             return obj.DeleteItem(ObjItem);
+        }
+        public static List<Item> MostrarImagen()
+        {
+            ItemsDALC obj = new ItemsDALC();
+            return obj.MostrarImagen();
         }
     }
 }

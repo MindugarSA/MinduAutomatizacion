@@ -18,7 +18,7 @@ namespace PresentationLayer
     public partial class FrmLogin : Form
     {
         private int FocusedTxt;
-
+        public string TipoAcceso { get; set; }
         //private BunifuAnimatorNS.AnimationType AnimationTypeAct = (AnimationType)8;
         public FrmLogin()
         {
@@ -43,6 +43,8 @@ namespace PresentationLayer
                 DataTable dtUserInfo = UsuarioBL.VerificarRutPass(TxtBx_UserID.Text.Trim(), TxtBx_Password.Text.Trim());
                 FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
+                //FrmReportesGrid frmReportesG = (FrmReportesGrid)Application.OpenForms["FrmReportesGrid"];
+
                 if (dtUserInfo.Rows.Count > 0) // Verificacion de RUT
                 {
                     if (dtUserInfo.Rows[0].Field<string>("Acceso") == "Y") // Verificacion de Pass correcto
@@ -56,7 +58,13 @@ namespace PresentationLayer
                                 frmParentForm.AsignarNombreUsuario(Usuario.Instance().UserName);
                                 frmParentForm.TipoAcceso = "ADMIN";
                                 frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
-                                frmParentForm.ConfigurarMenuAcceso();
+                                frmParentForm.ConfigurarMenuAcceso(); 
+
+
+                                //frmReportesG.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                //frmReportesG.TipoAcceso = "ADMIN";
+                                //frmReportesG.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                //frmReportesG.ConfigurarListaAcceso();
                                 ClosedFadeOutAsync();
                                 break;
                             default:
@@ -68,6 +76,12 @@ namespace PresentationLayer
                                 frmParentForm.TipoAcceso = "LECTURA";
                                 frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
                                 frmParentForm.ConfigurarMenuAcceso();
+                                
+
+                                //frmReportesG.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                //frmReportesG.TipoAcceso = "LECTURA";
+                                //frmReportesG.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                //frmReportesG.ConfigurarListaAcceso();
                                 ClosedFadeOutAsync();
                                 break;
                             case 96002: // Verificacion del Acceso 9600 VENTAS
@@ -78,6 +92,11 @@ namespace PresentationLayer
                                 frmParentForm.TipoAcceso = "VENTAS";
                                 frmParentForm.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
                                 frmParentForm.ConfigurarMenuAcceso();
+
+                                //frmReportesG.AsignarNombreUsuario(Usuario.Instance().UserName);
+                                //frmReportesG.TipoAcceso = "VENTAS";
+                                //frmReportesG.AccesoActual = dtUserInfo.Rows[0].Field<int>("IdAtributo").ToString();
+                                //frmReportesG.ConfigurarListaAcceso();
                                 ClosedFadeOutAsync();
                                 break;
                                 MetroFramework.MetroMessageBox.Show(frmParentForm, "No Posee la Autorizacion en MinduMas para Acceder al Sistema",

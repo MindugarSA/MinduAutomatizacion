@@ -20,7 +20,9 @@ namespace PresentationLayer
         private const int cCaption = 32;
 
         BindingList<Familia> FamiliaDataSource = new BindingList<Familia>();
+        private IEnumerable<object> yourDbContext;
 
+        public object Helper { get; private set; }
 
         public FrmFamilia()
         {
@@ -30,16 +32,25 @@ namespace PresentationLayer
             CargarComboReglaFamilia();
             CargarGridFamilia();
             this.InitializeClickHandlers();
+            ToolTip tooltip = new ToolTip();
+            tooltip.SetToolTip(label1, "Módulo en el cuál se pueden realizar cambios a nivel administrativos como agregar y actualizar familia, tipo, propiedades,costos,tasas/factores,autorizaciones.");
         }
 
         private void CargarGridFamilia()
         {
             FamiliaDataSource = new BindingList<Familia>(FamiliaBL.GetFamilias());
             dataGridView1.DataSource = FamiliaDataSource;
+            dataGridView1.Columns["NumFamilia"].HeaderText = "N° Familia";
+            dataGridView1.Columns["NumFamilia"].DisplayIndex = 0; //Posiciona columna de las primeras
+            dataGridView1.Columns["NumFamilia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
+            
+            //dataGridView1.Sort(dataGridView1.Columns["NumFamilia"], ListSortDirection.Ascending);
             dataGridView1.Columns[0].Visible = false;
-            dataGridView1.Columns[1].Visible = false;
-            dataGridView1.Columns[2].Visible = false;
-            dataGridView1.Columns[5].Visible = false;
+            dataGridView1.Columns[1].Visible = false;//Rowstatus
+            dataGridView1.Columns[2].Visible = false;//id
+            dataGridView1.Columns[5].Visible = false;//Estado
+            //dataGridView1.Columns[6].Visible = true;
+            
             //dataGridView1.AjustColumnsWidthForGridWidth();
             dataGridView1.Columns[3].Width = 120;
             dataGridView1.Columns[4].Width = 500;
@@ -69,9 +80,13 @@ namespace PresentationLayer
                 switch (labelNoMouse1.Text.Trim())
                 {
                     case "Agregar":
+                       
                         Fami.Codigo = txtCodigo.Text.Trim();
                         Fami.Descripcion = txtDescrpcion.Text.Trim();
+                        Fami.Clasificacion = metroComboBox1.Text.Trim();                        
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
+                        //Fami.NumFamilia = int.Parse(txtNumFam.Text.Trim());//PARSEANDO DATO
+                        Fami.NumFamilia = txtNumFam.Text.Trim();
                         lFami.Add(Fami);
                         FamiliaBL.InsertFamilias(lFami);
 
@@ -88,7 +103,12 @@ namespace PresentationLayer
                         Fami.id = Convert.ToInt32(dataGridView1[2, dataGridView1.CurrentRow.Index].Value);
                         Fami.Codigo = txtCodigo.Text.Trim();
                         Fami.Descripcion = txtDescrpcion.Text.Trim();
+                        Fami.Clasificacion = metroComboBox1.Text.Trim();
                         Fami.Estado = materialCheckBox1.Checked ? 1 : 0;
+                        //Fami.NumFamilia = int.Parse(txtNumFam.Text.Trim());//PARSEANDO DATO
+                        Fami.NumFamilia = txtNumFam.Text.Trim();
+                       // Fami.NumFamilia = int.Parse(txtNumFam.Text);
+
                         lFami.Add(Fami);
                         FamiliaBL.UpdateFamilias(lFami);
 
@@ -122,6 +142,7 @@ namespace PresentationLayer
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+            
             labelNoMouse1.Text = "Agregar";
             btnNuevo.Enabled = false;
             LimpiarCampos();
@@ -147,8 +168,13 @@ namespace PresentationLayer
             metroComboBox2.DisplayMember = "Descripcion";
             metroComboBox2.ValueMember = "Codigo";
 
+            metroComboBox1.DisplayMember = "Clasificacion";
+
             metroComboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             metroComboBox2.SelectedIndex = 0;
+
+            metroComboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
+            metroComboBox1.SelectedIndex = 0;
         }
 
         private void CargarCampos(int nRow)
@@ -158,6 +184,8 @@ namespace PresentationLayer
 
             txtCodigo.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[3].Value);
             txtDescrpcion.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells[4].Value);
+            metroComboBox1.Text = Convert.ToString(dataGridView1.Rows[nRow].Cells["Clasificacion"].Value);
+            txtNumFam.Text = Convert.ToInt64(dataGridView1.Rows[nRow].Cells["NumFamilia"].Value).ToString();
             materialCheckBox1.Checked = dataGridView1.Rows[nRow].Cells[5].Value.ToString() == "1" ? true : false;
             // txtRango.Text = string.Format("{0:#,0.00###}", dataItems.Rows[nRow].Cells[3].Value);
         }
@@ -167,6 +195,8 @@ namespace PresentationLayer
             txtCodigo.Text = "";
             txtDescrpcion.Text = "";
             materialCheckBox1.Checked = true;
+            metroComboBox1.Text = "";
+            txtNumFam.Text = "";
         }
 
         private bool ValidarCampos()
@@ -300,9 +330,9 @@ namespace PresentationLayer
 
 
 
+
+
         #endregion
-
-
     }
 
 }

@@ -5,6 +5,7 @@ using System.Data.Entity.Validation;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 using Entities;
 
@@ -14,26 +15,86 @@ namespace DataAccessLayer
     {
         public List<ItemDetalle> GetItemDetalle()
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
-            {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
 
-                return db.ItemDetalle.ToList();
+            //    return db.ItemDetalle.ToList();
+            //}
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+            List<ItemDetalle> lItem = new List<ItemDetalle>(); //Lista vacia
+
+            try
+            {
+                string sp = "[SP_GetItemDetalle]";
+
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
+
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
+
+                if (DtResultado.Rows.Count > 0)
+                {
+                    lItem = (List<ItemDetalle>)DtResultado.ToList<ItemDetalle>();
+                }
+
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return lItem;
         }
 
         public DataTable GetItemDetalleId(int IdItem)
         {
-            using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //using (DB_AUTOMATIZACIONEntities db = new DB_AUTOMATIZACIONEntities())
+            //{
+            //    if (db.Database.Connection.State == ConnectionState.Closed)
+            //        db.Database.Connection.Open();
+
+            //    List<SP_GetItemDetalleID_Result> result = db.SP_GetItemDetalleID(IdItem).ToList();
+
+            //    return new DataTable().ListToDataTable(result);
+            //}
+            DataTable DtResultado = new DataTable();
+            SqlConnection SlqCon = new SqlConnection();
+
+
+            try
             {
-                if (db.Database.Connection.State == ConnectionState.Closed)
-                    db.Database.Connection.Open();
+                string sp = "[SP_GetItemDetalleId]";
 
-                List<SP_GetItemDetalleID_Result> result = db.SP_GetItemDetalleID(IdItem).ToList();
+                SlqCon.ConnectionString = Conexion.Cn;
+                SqlCommand SqlCmd = new SqlCommand(sp, SlqCon);
 
-                return new DataTable().ListToDataTable(result);
+                SlqCon.Open();
+                SqlCmd.CommandType = CommandType.StoredProcedure;
+                SqlCmd.Parameters.Add(new SqlParameter("@id_Item", IdItem));
+
+                SqlDataAdapter SqlDat = new SqlDataAdapter(SqlCmd);
+                SqlDat.Fill(DtResultado);
             }
+            catch
+            {
+                DtResultado = null;
+            }
+            finally
+            {
+                if (SlqCon.State == ConnectionState.Open) SlqCon.Close();
+            }
+            return DtResultado;
         }
 
         public void InsertItemDetalle(ItemDetalle Obj)
