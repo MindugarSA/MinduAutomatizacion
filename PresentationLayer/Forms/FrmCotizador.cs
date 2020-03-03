@@ -129,8 +129,10 @@ namespace PresentationLayer.Forms
             dgvColaCot.Columns["PrecioC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvColaCot.Columns["CantC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dgvColaCot.Columns["TotalC"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
             dgvColaCot.Columns["CantC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
             //dgvColaCot.Columns["CantC"].HeaderText = "Cantu";
             dgvColaCot.Columns["PrecioC"].DefaultCellStyle.Format = "N0";
@@ -140,17 +142,17 @@ namespace PresentationLayer.Forms
                 foreach (Cotizacion item in val)
                 {
                     //pruebas
-
+                   
                     //--------------------------------------------aqui termina la prueba 
                     int n = dgvColaCot.Rows.Add();
                     dgvColaCot.Rows[n].Cells["CodigoC"].Value = item.CodigoPro;
                     dgvColaCot.Rows[n].Cells["DetalleC"].Value = item.DetallePro;
                     dgvColaCot.Rows[n].Cells["PrecioC"].Value = item.CostoUni;
                     dgvColaCot.Rows[n].Cells["FamiliaC"].Value = item.FamiliaPro;
-
+                    
                 }
 
-            }
+            }           
 
         }
         public FrmCotizador()
@@ -158,11 +160,11 @@ namespace PresentationLayer.Forms
             Functions.ConfigurarMaterialSkinManager();
             InitializeComponent();
             SetearControles();
-
+            
             //lblVendedor.Text = _model.GetProjectInfo().Name;
             //lblRut.Text = _model.GetProjectInfo().ProjectNumber;
             //lblCorreo.Text = _model.GetProjectInfo().Builder;
-
+            
             this.InitializeClickHandlers();
         }
 
@@ -181,15 +183,15 @@ namespace PresentationLayer.Forms
         private void FrmCotizador_Load(object sender, EventArgs e)
         {
             AddToGrid(Values);
-            // Suma();
+           // Suma();
             //dgvColaCot.ColumnCount = 0;
             FormatearGrid();
             this.BringToFront();
             txtNeto.Enabled = false;
             txtIVA.Enabled = false;
             txtNetoIva.Enabled = false;
-
-
+      
+            
         }
 
         private void ListarTipos()
@@ -214,7 +216,7 @@ namespace PresentationLayer.Forms
 
         }
 
-
+       
 
         #region Aplicar Acciones Visuales a Controles
         private void SetearControles()
@@ -263,7 +265,7 @@ namespace PresentationLayer.Forms
         {
             double CostoC = Convert.ToDouble(ItemConsulta.CostoTotal ?? 0) *
                             (ItemConsulta.TipoItem.Trim() == "P" ? (ItemConsulta.TipoPieza.Trim() == "E" ? 1.857 : 1.409) : 1);
-
+           
         }
 
         private void FrmCotizador_Shown(object sender, EventArgs e)
@@ -288,8 +290,8 @@ namespace PresentationLayer.Forms
 
             try
             {
-
-
+               
+               
                 if (dgvColaCot.CurrentRow.Index == -1 || bAgregandoRow)
                     return;
 
@@ -299,12 +301,12 @@ namespace PresentationLayer.Forms
                 {
                     dgvColaCot.Rows[dgvColaCot.CurrentCell.RowIndex].Cells["TotalC"].Value = Convert.ToDecimal(dgvColaCot.Rows[dgvColaCot.CurrentCell.RowIndex].Cells["PrecioC"].Value) *
                                                                                     Convert.ToDecimal(dgvColaCot.Rows[dgvColaCot.CurrentCell.RowIndex].Cells["CantC"].Value);
-
+                    
 
                     foreach (DataGridViewRow row in dgvColaCot.Rows)
                     {
                         TotalNeto += Convert.ToDecimal(row.Cells["TotalC"].Value);
-
+                       
                     }
                     //txtNeto.Text = Convert.ToDecimal(TotalNeto).ToString();
                     txtNeto.Text = Convert.ToDouble(TotalNeto).ToString("N0");
@@ -320,7 +322,7 @@ namespace PresentationLayer.Forms
                 }
             }
             catch { }
-
+         
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -331,8 +333,8 @@ namespace PresentationLayer.Forms
             //FrmBuscar.MdiParent = this.MdiParent;
             //FrmBuscar.EnviarEvento += new FrmReportesGrid.EnvEvent();
             RptGrid.ShowDialog();
-
-            // FrmBuscar.ShowDialog();
+            
+           // FrmBuscar.ShowDialog();
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
@@ -341,8 +343,8 @@ namespace PresentationLayer.Forms
             FormatearGrid();
             double TotalU = 0;
             decimal TotalNeto = 0;
-            double iva = Convert.ToDouble(lblIva.Text);
-
+            double iva= Convert.ToDouble(lblIva.Text);
+            
             //dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
 
             try
@@ -371,8 +373,8 @@ namespace PresentationLayer.Forms
                     double total = Convert.ToDouble(ivaTotal + neto);
                     txtIVA.Text = Convert.ToDouble(ivaTotal).ToString("N0");
                     txtNetoIva.Text = Convert.ToDouble(total).ToString("N0");
-
-                    // txtNetoIva.Text = Convert.ToDouble(Convert.ToString(ivaTotal) + Convert.ToString(neto)).ToString("N0");
+                    
+                   // txtNetoIva.Text = Convert.ToDouble(Convert.ToString(ivaTotal) + Convert.ToString(neto)).ToString("N0");
 
                 }
             }
@@ -383,7 +385,7 @@ namespace PresentationLayer.Forms
         {
             try
             {
-
+                
                 //-----------------------------------------------------------------------------------------------------------------------------------
                 var pdfDoc = new Document(PageSize.LETTER, 40f, 40f, 60f, 60f);
                 SaveFileDialog saveFileDialog1 = new SaveFileDialog();
@@ -394,7 +396,7 @@ namespace PresentationLayer.Forms
                 saveFileDialog1.FilterIndex = 2;
                 saveFileDialog1.RestoreDirectory = true;
                 string filename = "";
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                if(saveFileDialog1.ShowDialog()==DialogResult.OK)
                 {
                     filename = saveFileDialog1.FileName;
                 }
@@ -423,34 +425,34 @@ namespace PresentationLayer.Forms
                     {
                         SpacingBefore = 10f,
                         SpacingAfter = 10f,
-
+                       
                     };
                     pdfDoc.Add(spacer);
                     iTextSharp.text.Font fontTable = FontFactory.GetFont("Arial", 10, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
 
-                    var headerTable = new PdfPTable(new[] { /*.75f*/5f, 5f,/*.75f*/5f, 6f })// 2f es ancho de celda y 4f es menos ancho
+                    var headerTable = new PdfPTable(new[] { /*.75f*/5f, 5f ,/*.75f*/5f, 6f})// 2f es ancho de celda y 4f es menos ancho
                     {
                         HorizontalAlignment = Left,
                         WidthPercentage = 75,
                         // DefaultCell = { MinimumHeight = 30f }//22f ancho de celda si sube es menos
                         //DefaultCell = { MinimumHeight = 0f }
-
+                        
                     };
                     headerTable.DefaultCell.Border = 0;
                     headerTable.AddCell("R.U.T:");
-                    headerTable.AddCell(new Phrase("96.588.890-k", fontTable));
+                    headerTable.AddCell(new Phrase("96.588.890-k",fontTable));
                     headerTable.AddCell("Cliente:");
-                    headerTable.AddCell(new Phrase("Sres. " + txtECotizante.Text, fontTable));
+                    headerTable.AddCell(new Phrase("Sres. " + txtECotizante.Text,fontTable));
                     headerTable.AddCell("Cotizacion N°:");
-                    headerTable.AddCell(new Phrase(txtNumCot.Text, fontTable));
+                    headerTable.AddCell(new Phrase( txtNumCot.Text,fontTable));
                     headerTable.AddCell("Fono Cliente:");
-                    headerTable.AddCell(new Phrase(txtFonoCliente.Text, fontTable));
+                    headerTable.AddCell(new Phrase( txtFonoCliente.Text,fontTable));
                     headerTable.AddCell("Fecha Cot.:");
-                    headerTable.AddCell(new Phrase(DateTime.Now.ToString("dd/MM/yyyy"), fontTable));
+                    headerTable.AddCell(new Phrase( DateTime.Now.ToString("dd/MM/yyyy"),fontTable));
                     headerTable.AddCell("E-mail Cliente:");
-                    headerTable.AddCell(new Phrase(txtEmail.Text, fontTable));
+                    headerTable.AddCell(new Phrase( txtEmail.Text, fontTable));
                     headerTable.AddCell("Representante:");
-                    headerTable.AddCell(new Phrase(txtVendedor.Text, fontTable));
+                    headerTable.AddCell(new Phrase( txtVendedor.Text, fontTable));
                     //headerTable.DefaultCell = Font.Bold;
                     //Font fontH1 = new iTextSharp.text.Font(Currier, 16, Font.NORMAL);
 
@@ -470,36 +472,36 @@ namespace PresentationLayer.Forms
 
                     pdfDoc.Add(headerTable);
                     pdfDoc.Add(spacer);
-
+                    
 
 
 
                     //docTitle.Font = titleFont;
                     var columnCount = 7;
-                    var columnWidths = new[] { /*0.3f*/0.4f, 1f, 3f, 0f, 0.5f, 1f, 1f };//0f es familia no lo muestra Acá se puede enanchar columna
-
+                    var columnWidths = new[] { /*0.3f*/0.4f, 1f, 3f, 0f, 0.5f, 1f, 1f};//0f es familia no lo muestra Acá se puede enanchar columna
+                   
                     var table = new PdfPTable(columnWidths)//columnWidths
                     {
-
+                        
                         HorizontalAlignment = 2,
                         WidthPercentage = 100,
                         DefaultCell = { MinimumHeight = 22f }
-
-
+                       
+                        
                     };
-
+                    
                     table.HorizontalAlignment = Element.ALIGN_RIGHT; // NO DEJA LAS CELDAS EN EL COSTADO DERECHO
                     var cell = new PdfPCell(new Phrase("COTIZACION N°" + txtNumCot.Text))
                     {
-
+                        
                         Colspan = columnCount,
                         HorizontalAlignment = 1,  //0=Left, 1=Centre, 2=Right
                         MinimumHeight = 30f
-
+                        
                     };
 
                     table.AddCell(cell);
-
+                   
 
                     for (int j = 0; j < dgvColaCot.Columns.Count; j++) //MODIFICAR ACÁ ALINEAMIENTO
                     {
@@ -507,11 +509,11 @@ namespace PresentationLayer.Forms
                         table.AddCell(new Phrase(dgvColaCot.Columns[j].HeaderText));
 
                         //table.AddCell(new Phrase(dgvColaCot.Columns[j].HeaderText), PdfPCell.ALIGN_RIGHT);
-
+                        
 
                     }
 
-
+                    
                     var valores = new PdfPCell(new Phrase())
                     {
                         Colspan = columnCount,
@@ -524,20 +526,20 @@ namespace PresentationLayer.Forms
 
                     foreach (DataGridViewRow fila in dgvColaCot.Rows)
                     {
-
+                        
                         //table.HorizontalAlignment = Right;
                         table.AddCell(new Phrase(fila.Cells["ItemC"].Value.ToString(), fontTable));//NO HAY QUE DEJAR VALORES EN BLANCO
                         table.AddCell(new Phrase(fila.Cells["CodigoC"].Value.ToString(), fontTable));
                         table.AddCell(new Phrase(fila.Cells["DetalleC"].Value.ToString(), fontTable));
                         table.AddCell(new Phrase(fila.Cells["FamiliaC"].Value.ToString(), fontTable));
                         table.AddCell(new Phrase(fila.Cells["CantC"].Value.ToString(), fontTable));
-                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["PrecioC"].Value).ToString("N0"), fontTable));
+                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["PrecioC"].Value).ToString("N0"),fontTable));
                         //table.AddCell(fila.Cells["CantC"].Value.ToString());
-                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["TotalC"].Value).ToString("N0"), fontTable));
+                        table.AddCell(new Phrase("$ " + Convert.ToDouble(fila.Cells["TotalC"].Value).ToString("N0"),fontTable));
                         //dgvColaCot.Columns["TotalC"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
                         //Total_dinero.HorizontalAlignment = Element.ALIGN_RIGHT
-
-
+                         
+                          
                         //table.HorizontalAlignment = Right;
 
                     }
@@ -569,7 +571,7 @@ namespace PresentationLayer.Forms
 
 
                     //};
-
+                    
                     //total.Padding = Padding.Right; //NO BORRAR CUANDO SE HABILITEN LAS OTRAS CAJAS 
                     //table.DefaultCell.Border = 0;
                     //PdfPCell tables = new PdfPCell(new Phrase("Total En Dinero"));
@@ -587,31 +589,31 @@ namespace PresentationLayer.Forms
                     table.AddCell(new Phrase(""));
                     table.AddCell(new Phrase(""));
                     table.AddCell(new Phrase("Iva 19%"));
-                    table.AddCell(new Phrase("$ " + Convert.ToDouble(txtIVA.Text).ToString("N0"), fontTable));
+                    table.AddCell(new Phrase("$ "+ Convert.ToDouble(txtIVA.Text).ToString("N0"), fontTable));
                     table.AddCell(new Phrase(""));
                     table.AddCell(new Phrase(""));
                     table.AddCell(new Phrase(""));
                     table.AddCell(new Phrase(""));
-                    table.AddCell(new Phrase(""));
+                    table.AddCell(new Phrase(""));                    
                     table.AddCell(new Phrase("Neto+Iva"));
                     table.AddCell(new Phrase("$ " + Convert.ToDouble(txtNetoIva.Text).ToString("N0"), fontTable));
 
                     //table.HorizontalAlignment = Element.ALIGN_RIGHT; //no funciona //
-                    var coment = new PdfPCell(new Phrase("Comentarios: " + txtComent.Text, fontTable))
+                    var coment = new PdfPCell(new Phrase("Comentarios: " + txtComent.Text,fontTable))
                     {
                         Colspan = columnCount,
                         HorizontalAlignment = 0,  //0=Left, 1=Centre, 2=Right
                         MinimumHeight = 30f,
-
-                    };
+                        
+                };
                     table.AddCell(coment);
 
                     pdfDoc.Add(table);
                     pdfDoc.Close();
                     Process.Start(filename);
                 }
-
-
+               
+                
 
             }
             catch (Exception ex)
@@ -627,19 +629,19 @@ namespace PresentationLayer.Forms
             {
                 base.OnStartPage(writer, document);
 
-
+                               
 
             }
             // write on top of document
             public override void OnOpenDocument(PdfWriter writer, Document document)
             {
-
+                
                 base.OnOpenDocument(writer, document);
                 PdfPTable tabFot = new PdfPTable(new float[] { 1F });
                 //tabFot.SpacingAfter = 200f;//10f
                 tabFot.SpacingBefore = 200f;
                 PdfPCell cell;
-
+                
                 tabFot.TotalWidth = 290F;//290f
                 tabFot.DefaultCell.Border = 0;
                 //tabFot.HorizontalAlignment = 2;
@@ -647,14 +649,14 @@ namespace PresentationLayer.Forms
                 cell.HorizontalAlignment = PdfPCell.ALIGN_CENTER;
                 cell.PaddingTop = -14;//ESPACIO VERTICAL DE CELDA 
                 cell.Colspan = 50;
-
+                
                 //tabFot.AddCell("MINDUGAR SPA");     
                 //tabFot.HorizontalAlignment = Element.ALIGN_LEFT;
-                tabFot.AddCell(cell);
+                tabFot.AddCell(cell);                
                 tabFot.WriteSelectedRows(0, -1, 150, document.Top, writer.DirectContent);
-
+                
             }
-
+            
 
             // write on end of each page
             public override void OnEndPage(PdfWriter writer, Document document)
@@ -673,9 +675,9 @@ namespace PresentationLayer.Forms
                 PdfPCell cell;
                 tabFot.TotalWidth = 350F;//300f
                 tabFot.DefaultCell.Border = 0;
-
+                
                 //cell = new PdfPCell(new Phrase("Domingo Arteaga 270, Macul - Santiago F:(56-2) 28707400"));
-                cell = new PdfPCell(new Phrase(""));
+                cell = new PdfPCell(new Phrase(""));                
                 tabFot.AddCell(cell);
                 tabFot.AddCell("Domingo Arteaga 291, Macul - Santiago F: (56 - 2) 28707400");
                 tabFot.AddCell("Email: automatizacion@mindugar.com - www.mindugar.cl");
@@ -691,7 +693,7 @@ namespace PresentationLayer.Forms
                 base.OnCloseDocument(writer, document);
             }
         }
-        public void AsignarNombreUsuario(string UserName)
+            public void AsignarNombreUsuario(string UserName)
         {
             lblVendedor.Visible = true;
             lblVendedor.Text = UserName;
@@ -708,10 +710,10 @@ namespace PresentationLayer.Forms
                     if (rw.Cells["CantC"].Value == null || rw.Cells["CantC"].Value == DBNull.Value || String.IsNullOrWhiteSpace(rw.Cells["CantC"].Value.ToString()))
                     {
                         cont++;
-                        // MessageBox.Show("Por favor Ingrese todas las cantidades correspondientes", "Mensaje importante");
+                        
                     }
                 }
-               
+
             }
 
             if (cont == 0)
@@ -732,57 +734,47 @@ namespace PresentationLayer.Forms
         }
     }
 
+        
+        //private void AgregarDetalleItem(int IdDetalle = 0)
+        //{
 
-    //MetroFramework.MetroMessageBox.Show(frmParentForm, "La Contraseña no Coincide",
-    //                                        "Contraseña Incorrecta",
-    //                                        MessageBoxButtons.OK,
-    //                                        MessageBoxIcon.Information,
-    //                                        370);
+        //    bAgregandoRow = true;
+        //    Item ItemDet = ItemsBL.GetItemId(IdDetalle).FirstOrDefault();
+        //    Costos dFactor = CostosBL.GetCostos()
+        //                      .Where(x => x.Id == Convert.ToDouble(ItemDet.FactorInd))
+        //                      .FirstOrDefault();
 
+        //    DataTable dt = (DataTable)dgvListado.DataSource;
+        //    DataRow row = dt.NewRow();
+        //    row[4] = IdDetalle;
+        //    row[5] = ItemDet.Codigo;
+        //    row[6] = ItemDet.Descripcion;
+        //    row[7] = dgvListado.Rows.Count + 1;
+        //    row[8] = ItemDet.TipoPieza == "T" ? ItemDet.TipoItem : ItemDet.TipoItem + ItemDet.TipoPieza;
+        //    row[9] = 0;
+        //    row[10] = Convert.ToDouble(ItemDet.CostoTotal ?? 0);
+        //    row[11] = Convert.ToDouble(ItemDet.CostoTotal ?? 0) * (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
+        //    row[12] = 0;
+        //    row[13] = 0;
+        //    row[14] = ItemDet.Imagen;
+        //    row[15] = (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
+        //    row[16] = (dFactor == null ? "" : dFactor.Tipo ?? "");
+        //    row[17] = ItemDet.FactorInd ?? 0;
 
+        //    dt.Rows.Add(row);
+        //    // errorDetalle.SetErrorWithCount(dgvListado, "");
+        //    CargarCamposItemDetalle(ItemDet);
+        //    //dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Selected = true;
+        //    dgvListado.CurrentCell = dgvListado.Rows[dgvListado.Rows.Count - 1].Cells[9];
+        //    dgvListado[9, dgvListado.Rows.Count - 1].Selected = true;
+        //    dgvListado.BeginEdit(true);
+        //    bAgregandoRow = false;
+        //}
 
+    }
 
-
-    //private void AgregarDetalleItem(int IdDetalle = 0)
-    //{
-
-    //    bAgregandoRow = true;
-    //    Item ItemDet = ItemsBL.GetItemId(IdDetalle).FirstOrDefault();
-    //    Costos dFactor = CostosBL.GetCostos()
-    //                      .Where(x => x.Id == Convert.ToDouble(ItemDet.FactorInd))
-    //                      .FirstOrDefault();
-
-    //    DataTable dt = (DataTable)dgvListado.DataSource;
-    //    DataRow row = dt.NewRow();
-    //    row[4] = IdDetalle;
-    //    row[5] = ItemDet.Codigo;
-    //    row[6] = ItemDet.Descripcion;
-    //    row[7] = dgvListado.Rows.Count + 1;
-    //    row[8] = ItemDet.TipoPieza == "T" ? ItemDet.TipoItem : ItemDet.TipoItem + ItemDet.TipoPieza;
-    //    row[9] = 0;
-    //    row[10] = Convert.ToDouble(ItemDet.CostoTotal ?? 0);
-    //    row[11] = Convert.ToDouble(ItemDet.CostoTotal ?? 0) * (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
-    //    row[12] = 0;
-    //    row[13] = 0;
-    //    row[14] = ItemDet.Imagen;
-    //    row[15] = (dFactor == null ? 1 : Convert.ToDouble(dFactor.Valor ?? 1));
-    //    row[16] = (dFactor == null ? "" : dFactor.Tipo ?? "");
-    //    row[17] = ItemDet.FactorInd ?? 0;
-
-    //    dt.Rows.Add(row);
-    //    // errorDetalle.SetErrorWithCount(dgvListado, "");
-    //    CargarCamposItemDetalle(ItemDet);
-    //    //dgvDetalleItemAmp.Rows[dgvDetalleItemAmp.Rows.Count - 1].Selected = true;
-    //    dgvListado.CurrentCell = dgvListado.Rows[dgvListado.Rows.Count - 1].Cells[9];
-    //    dgvListado[9, dgvListado.Rows.Count - 1].Selected = true;
-    //    dgvListado.BeginEdit(true);
-    //    bAgregandoRow = false;
-    //}
-
-}
+   
 
 
-
-
-
+        
 

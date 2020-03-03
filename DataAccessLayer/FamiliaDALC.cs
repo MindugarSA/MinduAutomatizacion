@@ -23,7 +23,7 @@ namespace DataAccessLayer
             {
 
                 // return (List<Familia>)db.Familia.ToList().OrderBy(c => c.NumFamilia).ToList();
-                return (List<Familia>)db.Familia.ToList().OrderBy(c => c.NumFamilia).ToList();
+                return (List<Familia>)db.Familia.ToList().OrderBy(c => Convert.ToInt32(c.NumFamilia)).ToList();
                 
             }
         }

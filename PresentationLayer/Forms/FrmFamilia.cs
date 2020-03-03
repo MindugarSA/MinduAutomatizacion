@@ -40,10 +40,10 @@ namespace PresentationLayer
         {
             FamiliaDataSource = new BindingList<Familia>(FamiliaBL.GetFamilias());
             dataGridView1.DataSource = FamiliaDataSource;
+            dataGridView1.Columns["NumFamilia"].HeaderText = "N° Familia";
             dataGridView1.Columns["NumFamilia"].DisplayIndex = 0; //Posiciona columna de las primeras
             dataGridView1.Columns["NumFamilia"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.TopCenter;
             
-            // dataGridView1.Columns["NumFamilia"].HeaderText = "N° Familia";
             //dataGridView1.Sort(dataGridView1.Columns["NumFamilia"], ListSortDirection.Ascending);
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;//Rowstatus

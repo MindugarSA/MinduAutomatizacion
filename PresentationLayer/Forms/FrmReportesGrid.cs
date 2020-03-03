@@ -41,16 +41,12 @@ namespace PresentationLayer
         DataTable dtItems;
         DataGridViewCheckBoxColumn chk1 = new DataGridViewCheckBoxColumn();
 
-        //fue comentado por no uso
-        // DataGridViewCheckBoxColumn CheckboxColumn = new DataGridViewCheckBoxColumn();
-
-
+        DataGridViewCheckBoxColumn CheckboxColumn = new DataGridViewCheckBoxColumn();
         //CheckBox chk1 = new CheckBox();
 
         // DataGridViewCheckBoxCell CheckboxColumn =  new DataGridViewCheckBoxCell();
 
         //CheckBox chk1 = new CheckBox();
-
         private string message;
         private object errorDetalle;
 
@@ -63,7 +59,6 @@ namespace PresentationLayer
             pictureBox1.Visible = false;
 
             this.InitializeClickHandlers();
-
         }
 
 
@@ -167,6 +162,16 @@ namespace PresentationLayer
                     metroComboBox1.DataSource = items;
 
                     break;
+                case "VENTAS":
+                    var items1 = new[] {
+                                //new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
+                                new { Text = "Productos Terminados Autorizados", Value = "4" },
+                                new { Text = "Listado de Repuestos", Value = "5" },
+                                //new { Text = "Estado de autorización de Productos Terminados", Value = "6" }
+                              //  new { Text = "Listado de Productos Terminados", Value = "4" }
+                                       };
+                    metroComboBox1.DataSource = items1;
+                    break;
                 default:
                     var items2 = new[] {
                                 //new { Text = "Listado de Productos con Costo Directo + Factor", Value = "3" },
@@ -207,7 +212,7 @@ namespace PresentationLayer
             DataTable dt = new DataTable();
             List<int> NumericColumns = new List<int> { };
 
-            // dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None; //MODIFICAR ESTO
+           // dgvListado.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None; //MODIFICAR ESTO
             // dgvListado.AllowUserToResizeRows = false;
 
             //LIMPIEZA DE GRILLA POR CADA CASE QUE SE EJECUTE
@@ -217,8 +222,6 @@ namespace PresentationLayer
             dgvListado.Columns.Clear();
             dgvListado.Refresh();
 
-            
-            //True=no se puede modificar, false= si se puede
             dgvListado.ReadOnly = false;
 
             chk1.Width = 43;
@@ -234,6 +237,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "1":
                     dt = ItemsBL.ListadoItemsCostoResumen();
@@ -241,6 +246,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "2":
                     dt = ItemsBL.ListadoItemsCostoDetallado();
@@ -248,6 +255,8 @@ namespace PresentationLayer
                     {
                         NumericColumns.Add(i);
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "3":
                     dt = ItemsBL.ListadoItemsTipoCostoFactorRES("T");
@@ -256,30 +265,33 @@ namespace PresentationLayer
                     NumericColumns.Add(4);
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "4":
-                    //Este mmodificar
-                    chk1.Name = "Cotizar";
-                    dgvListado.Columns.Add(chk1);
-                    //////////////////
                     dt = ItemsBL.ListadoItemsTipoCostoFactor("T");
                     NumericColumns.Add(5);
                     NumericColumns.Add(6);
-                    dt.Columns["Precio"].ReadOnly = true;                    
+                    chk1.Name = "Cotizar";
+                    dgvListado.Columns.Add(chk1);
+                    dt.Columns["Precio"].ReadOnly = true;
                     dt.Columns["Codigo"].ReadOnly = true;
                     dt.Columns["Nombre"].ReadOnly = true;
-                    dt.Columns["Descripcion"].ReadOnly = true;                                       
+                    dt.Columns["Descripcion"].ReadOnly = true;
                     dt.Columns["Familia"].ReadOnly = true;
-                    //CheckboxColumn.Width = 20;
-                   
 
+                    //CheckboxColumn.Width = 20;
 
                     //dgvListado.Columns.Add(CheckboxColumn);
-
 
                     //chk1.ReadOnly = false;
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
+                    dgvListado.Columns["Precio"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                    dgvListado.Columns["Precio"].DefaultCellStyle.Format = "N0";
+                    dgvListado.Columns["Precio"].HeaderText = "Precio CLP";
                     break;
                 case "5":
                     dt = ItemsBL.GetItemsProductosParte("P");
@@ -297,15 +309,15 @@ namespace PresentationLayer
                     dt.Columns["Stock BAP"].ReadOnly = true;
                     dt.Columns["Interno/Externo"].ReadOnly = true;
                     dt.Columns["Familia"].ReadOnly = true;
-
                     //chk1.ReadOnly = false;
-
                     //dgvListado.Columns.Add(chk1);
                     //chk1.HeaderText = "Cotizar";
 
                     //CheckboxColumn.Width = 20;
 
                     //dgvListado.Columns.Add(CheckboxColumn);
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
                     break;
                 case "6":
                     dt = ItemsBL.EstadoProductosTerminados("T");
@@ -318,7 +330,6 @@ namespace PresentationLayer
                     chk1.Name = "Cotizar";
                     dgvListado.Columns.Add(chk1);
                     dt.Columns["Precio"].ReadOnly = true;
-
                     dt.Columns["NumFamilia"].ReadOnly = true;
                     dt.Columns["Codigo"].ReadOnly = true;
                     dt.Columns["Descripcion"].ReadOnly = true;
@@ -327,8 +338,10 @@ namespace PresentationLayer
                     if (dt.Columns["Estado"].ColumnName == "No Autorizado")
                     {
                         dt.Columns["Precio"].DefaultValue = 0;
-
+                       
                     }
+                    dgvListado.DataSource = dt;
+                    DTListado = dt.Copy();
 
                     break;
             }
@@ -338,8 +351,7 @@ namespace PresentationLayer
             //   // chk2.ReadOnly = false;
             //    chk3.ReadOnly = false;
             //}
-            dgvListado.DataSource = dt;
-            DTListado = dt.Copy();
+            
             ((DataGridViewImageColumn)dgvListado.Columns["Imagen"]).ImageLayout = DataGridViewImageCellLayout.Zoom;
 
 
@@ -359,7 +371,6 @@ namespace PresentationLayer
                     col.DefaultCellStyle.Format = "N0";
                 }
             }
-            // dt.Columns["Cotizar"].ReadOnly = true;
         }
 
         #region Aplicar Modificaciones Visuales a Form
@@ -943,7 +954,6 @@ namespace PresentationLayer
                         CostoUni = Convert.ToInt64(fila.Cells["Precio"].Value),
                         CodigoPro = fila.Cells["Codigo"].Value.ToString(),
                         FamiliaPro = fila.Cells["Familia"].Value.ToString()
-
                     });
                 }
             }
@@ -956,48 +966,48 @@ namespace PresentationLayer
             #endregion
 
             if (co.Count > 0) //Abrir la pantalla cotizador con toda la lista cargada (Solo si existe items seleccionados)
-            {
-                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+                {
+                    FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
 
-                FrmCotizador FrmCot = new FrmCotizador();
-                FrmCot.Values = co;
-                // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
-                frmParentForm.AbrirFormulario(FrmCot, 370, 230);
+                    FrmCotizador FrmCot = new FrmCotizador();
+                    FrmCot.Values = co;
+                    // FrmCot.Show();  /// ASI NO ESTO ES MODAL DEBES LLAMARLO COMO SE LLAMAN LOS OTROS FORMS DENTRO DEL PANEL DEL FRM PRINCIPAL
+                    frmParentForm.AbrirFormulario(FrmCot, 370, 230);
+                }
+
+
+
+
             }
 
+            private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            {
+                //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
+                //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
+
+                //if (ch1.Value == null)
+                //    ch1.Value = false;
+                //switch (ch1.Value.ToString())
+                //{
+                //    case "True":
+                //        ch1.Value = false;
+                //        break;
+                //    case "False":
+                //        ch1.Value = true;
+                //        break;
 
 
+                //}
+                //MessageBox.Show(ch1.Value.ToString());
 
-        }
-
-        private void dgvListado_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //DataGridViewCheckBoxCell ch1 = new DataGridViewCheckBoxCell();
-            //ch1 = (DataGridViewCheckBoxCell)dgvListado.Rows[dgvListado.CurrentRow.Index].Cells[0];
-
-            //if (ch1.Value == null)
-            //    ch1.Value = false;
-            //switch (ch1.Value.ToString())
-            //{
-            //    case "True":
-            //        ch1.Value = false;
-            //        break;
-            //    case "False":
-            //        ch1.Value = true;
-            //        break;
-
-
-            //}
-            //MessageBox.Show(ch1.Value.ToString());
-
-        }
+            }
 
         private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
         {
 
         }
     }
-}
-
+    }
+    
 
 

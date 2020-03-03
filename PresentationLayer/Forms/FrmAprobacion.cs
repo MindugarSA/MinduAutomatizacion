@@ -405,6 +405,43 @@ namespace PresentationLayer.Forms
             //}
 
         }
+
+        private void dgvListado_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                currentMouseOverRow = e.RowIndex;
+                currentMouseOverCol = e.ColumnIndex;
+                if (currentMouseOverCol > -1)
+                    try
+                    {
+                        dgvListado.CurrentCell = dgvListado[currentMouseOverCol, currentMouseOverRow < 0 ? 0 : currentMouseOverRow];
+                        dgvListado.Rows[(currentMouseOverRow)].Selected = true;
+                    }
+                    catch { }
+            }
+        }
+
+        private void copiarToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(dgvListado[currentMouseOverCol, currentMouseOverRow].Value.ToString());
+        }
+
+        private void verParteKitToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (dgvListado.Rows.Count > 0)
+            {
+                int IdDetalle = Convert.ToInt32(dgvListado.Rows[dgvListado.CurrentCell.RowIndex].Cells[7].Value);
+                FrmPrincipalPanel frmParentForm = (FrmPrincipalPanel)Application.OpenForms["FrmPrincipalPanel"];
+
+                if (IdDetalle > 0)
+                {
+                    FrmProducto FrmProd = new FrmProducto();
+                    FrmProd.IdIetmSearch = IdDetalle;
+                    frmParentForm.AbrirFormulario(FrmProd, 370, 230);
+                }
+            }
+        }
     }
 }
 

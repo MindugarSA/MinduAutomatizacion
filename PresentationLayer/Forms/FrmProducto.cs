@@ -23,6 +23,7 @@ namespace PresentationLayer.Forms
         private const int cCaption = 32;
            
         public string TipoAcceso { get; set; }
+        public int IdIetmSearch { get; set; }
 
         Item ItemEntidad = new Item();
         Item ItemEntidadInicial = new Item();
@@ -89,7 +90,9 @@ namespace PresentationLayer.Forms
         {
             txtCodigo.Select();
             metroTabPage1.Select();
-            formPrincipal.VisualizarLabel(false);
+            if (this.IdIetmSearch > 0)
+                CargarDatosItem(this.IdIetmSearch);
+            if (formPrincipal != null) formPrincipal.VisualizarLabel(false);
             CambioGrid = false;
             if (TipoAcceso == "LECTURA") materialFlatButton1.Enabled = false;
 
